@@ -1,3 +1,4 @@
+html
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,6 +16,7 @@
     >
 
     <title>Home | RI Student Environment</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -24,57 +26,94 @@
          SITE HEADER
          ========================= -->
 
-    <header>
+    <header class="site-header">
 
-        <div>
-            <a href="index.html">
+        <div class="header-container">
+
+            <a
+                href="index.html"
+                class="site-logo"
+                aria-label="RI Student Environment Home"
+            >
                 RI Student Environment
             </a>
+
+            <!-- =========================
+                 MAIN NAVIGATION
+                 ========================= -->
+
+            <nav aria-label="Main navigation">
+
+                <ul>
+
+                    <li>
+                        <a
+                            href="index.html"
+                            aria-current="page"
+                        >
+                            Home
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="about.html">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="programs.html">
+                            Programs
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="events.html">
+                            Events
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="src.html">
+                            SRC
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="community.html">
+                            Community
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="impact.html">
+                            Our Impact
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="join-us.html">
+                            Join Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="login.html">
+                            Login
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
         </div>
-
-        <!-- =========================
-             MAIN NAVIGATION
-             ========================= -->
-
-        <nav aria-label="Main navigation">
-
-            <ul>
-
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-
-                <li>
-                    <a href="about.html">About</a>
-                </li>
-
-                <li>
-                    <a href="programs.html">Programs</a>
-                </li>
-
-                <li>
-                    <a href="events.html">Events</a>
-                </li>
-
-                <li>
-                    <a href="src.html">SRC</a>
-                </li>
-
-                <li>
-                    <a href="community.html">Community</a>
-                </li>
-
-                <li>
-                    <a href="impact.html">Our Impact</a>
-                </li>
-
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-
-            </ul>
-
-        </nav>
 
     </header>
 
@@ -89,30 +128,38 @@
              HERO SECTION
              ========================= -->
 
-        <section>
+        <section class="hero-section">
 
-            <div>
+            <div class="hero-content">
 
-                <p>RI Student Environment</p>
+                <p class="section-label">
+                    RI Student Environment
+                </p>
 
                 <h1>
                     Connect. Engage. Participate.
                 </h1>
 
-                <p>
+                <p class="hero-text">
                     A student-focused environment designed to
                     connect students across campuses, discover
                     opportunities and participate in activities
                     and communities.
                 </p>
 
-                <div>
+                <div class="hero-actions">
 
-                    <a href="programs.html">
+                    <a
+                        href="programs.html"
+                        class="button button-primary"
+                    >
                         Explore Programs
                     </a>
 
-                    <a href="join-us.html">
+                    <a
+                        href="join-us.html"
+                        class="button button-secondary"
+                    >
                         Join Us
                     </a>
 
@@ -127,11 +174,13 @@
              ABOUT SECTION
              ========================= -->
 
-        <section>
+        <section class="content-section">
 
-            <div>
+            <div class="section-content">
 
-                <p>About Us</p>
+                <p class="section-label">
+                    About Us
+                </p>
 
                 <h2>
                     Building a connected student community
@@ -145,7 +194,10 @@
                     leadership.
                 </p>
 
-                <a href="about.html">
+                <a
+                    href="about.html"
+                    class="text-link"
+                >
                     Learn More
                 </a>
 
@@ -158,11 +210,13 @@
              PROGRAMS SECTION
              ========================= -->
 
-        <section>
+        <section class="content-section programs-section">
 
-            <div>
+            <div class="section-content">
 
-                <p>Opportunities</p>
+                <p class="section-label">
+                    Opportunities
+                </p>
 
                 <h2>
                     Explore Our Programs
@@ -177,9 +231,13 @@
             </div>
 
 
-            <div>
+            <div class="card-grid">
 
-                <article>
+                <article class="feature-card">
+
+                    <div class="card-number">
+                        01
+                    </div>
 
                     <h3>
                         Student Development
@@ -190,14 +248,21 @@
                         development and participation.
                     </p>
 
-                    <a href="programs.html">
+                    <a
+                        href="programs.html"
+                        class="text-link"
+                    >
                         Learn More
                     </a>
 
                 </article>
 
 
-                <article>
+                <article class="feature-card">
+
+                    <div class="card-number">
+                        02
+                    </div>
 
                     <h3>
                         Community Programs
@@ -208,14 +273,21 @@
                         to connect and collaborate.
                     </p>
 
-                    <a href="programs.html">
+                    <a
+                        href="programs.html"
+                        class="text-link"
+                    >
                         Learn More
                     </a>
 
                 </article>
 
 
-                <article>
+                <article class="feature-card">
+
+                    <div class="card-number">
+                        03
+                    </div>
 
                     <h3>
                         Campus Activities
@@ -226,7 +298,10 @@
                         available across participating campuses.
                     </p>
 
-                    <a href="programs.html">
+                    <a
+                        href="programs.html"
+                        class="text-link"
+                    >
                         Learn More
                     </a>
 
@@ -241,11 +316,13 @@
              EVENTS SECTION
              ========================= -->
 
-        <section>
+        <section class="content-section highlight-section">
 
-            <div>
+            <div class="section-content">
 
-                <p>What's Happening</p>
+                <p class="section-label">
+                    What's Happening
+                </p>
 
                 <h2>
                     Upcoming Events
@@ -257,7 +334,10 @@
                     the student community.
                 </p>
 
-                <a href="events.html">
+                <a
+                    href="events.html"
+                    class="button button-primary"
+                >
                     View All Events
                 </a>
 
@@ -270,11 +350,13 @@
              IMPACT SECTION
              ========================= -->
 
-        <section>
+        <section class="content-section">
 
-            <div>
+            <div class="section-content">
 
-                <p>Our Contribution</p>
+                <p class="section-label">
+                    Our Contribution
+                </p>
 
                 <h2>
                     Making an Impact
@@ -287,7 +369,10 @@
                     environment.
                 </p>
 
-                <a href="impact.html">
+                <a
+                    href="impact.html"
+                    class="button button-primary"
+                >
                     Explore Our Impact
                 </a>
 
@@ -300,11 +385,13 @@
              COMMUNITY SECTION
              ========================= -->
 
-        <section>
+        <section class="content-section community-section">
 
-            <div>
+            <div class="section-content">
 
-                <p>Connect With Others</p>
+                <p class="section-label">
+                    Connect With Others
+                </p>
 
                 <h2>
                     Join the Community
@@ -316,7 +403,10 @@
                     the student community.
                 </p>
 
-                <a href="community.html">
+                <a
+                    href="community.html"
+                    class="button button-secondary"
+                >
                     Join Community
                 </a>
 
@@ -331,74 +421,101 @@
          SITE FOOTER
          ========================= -->
 
-    <footer>
+    <footer class="site-footer">
 
-        <div>
+        <div class="footer-container">
 
-            <h2>
-                RI Student Environment
-            </h2>
+            <div class="footer-brand">
 
-            <p>
-                Connecting students, creating opportunities
-                and building stronger communities.
-            </p>
+                <h2>
+                    RI Student Environment
+                </h2>
+
+                <p>
+                    Connecting students, creating opportunities
+                    and building stronger communities.
+                </p>
+
+            </div>
+
+
+            <nav aria-label="Footer navigation">
+
+                <ul>
+
+                    <li>
+                        <a href="about.html">
+                            About
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="programs.html">
+                            Programs
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="events.html">
+                            Events
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="src.html">
+                            SRC
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="community.html">
+                            Community
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="impact.html">
+                            Our Impact
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="join-us.html">
+                            Join Us
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="login.html">
+                            Login
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
 
         </div>
 
 
-        <nav aria-label="Footer navigation">
+        <div class="footer-bottom">
 
-            <ul>
+            <p>
+                &copy; 2026 RI Student Environment.
+                All rights reserved.
+            </p>
 
-                <li>
-                    <a href="about.html">About</a>
-                </li>
-
-                <li>
-                    <a href="programs.html">Programs</a>
-                </li>
-
-                <li>
-                    <a href="events.html">Events</a>
-                </li>
-
-                <li>
-                    <a href="src.html">SRC</a>
-                </li>
-
-                <li>
-                    <a href="community.html">Community</a>
-                </li>
-
-                <li>
-                    <a href="impact.html">Our Impact</a>
-                </li>
-
-                <li>
-                    <a href="join-us.html">Join Us</a>
-                </li>
-
-                <li>
-                    <a href="login.html">Login</a>
-                </li>
-
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-
-        <p>
-            &copy; 2026 RI Student Environment.
-            All rights reserved.
-        </p>
+        </div>
 
     </footer>
 
 </body>
 
 </html>
+
