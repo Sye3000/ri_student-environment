@@ -1,0 +1,467 @@
+/* =========================================================
+   RI STUDENT ENVIRONMENT
+   Main Stylesheet
+   Colour Palette:
+   Royal Blue #1E40AF
+   Light Grey #F3F4F6
+   White #FFFFFF
+   Gold #D4AF37
+   ========================================================= */
+
+
+/* =========================================================
+   1. RESET
+   ========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #F3F4F6;
+    color: #1F2937;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   2. GLOBAL ELEMENTS
+   ========================================================= */
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: #1E40AF;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+a:hover {
+    color: #D4AF37;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   3. HEADER
+   ========================================================= */
+
+header {
+    background: #FFFFFF;
+    border-bottom: 1px solid #E5E7EB;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+header > div {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+    min-height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+
+/* =========================================================
+   4. NAVIGATION
+   ========================================================= */
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+nav a {
+    display: inline-block;
+    padding: 10px 14px;
+    color: #1F2937;
+    font-weight: 600;
+    border-radius: 6px;
+}
+
+nav a:hover,
+nav a:focus {
+    background: #EFF6FF;
+    color: #1E40AF;
+}
+
+nav a[aria-current="page"] {
+    background: #1E40AF;
+    color: #FFFFFF;
+}
+
+
+/* =========================================================
+   5. MAIN CONTENT
+   ========================================================= */
+
+main {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+main > section {
+    padding: 70px 0;
+}
+
+section + section {
+    border-top: 1px solid #E5E7EB;
+}
+
+
+/* =========================================================
+   6. HEADINGS
+   ========================================================= */
+
+h1,
+h2,
+h3,
+h4 {
+    color: #111827;
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: #1E40AF;
+}
+
+h2 {
+    font-size: clamp(1.7rem, 4vw, 2.5rem);
+}
+
+h3 {
+    font-size: 1.35rem;
+}
+
+p {
+    margin-bottom: 16px;
+}
+
+section > h2,
+section > p {
+    max-width: 800px;
+}
+
+
+/* =========================================================
+   7. ARTICLES / CONTENT CARDS
+   ========================================================= */
+
+article {
+    background: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    padding: 28px;
+    margin: 20px 0;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+}
+
+article:hover {
+    border-color: #BFDBFE;
+}
+
+
+/* =========================================================
+   8. LISTS
+   ========================================================= */
+
+main ul,
+main ol {
+    margin: 0 0 20px 24px;
+}
+
+main li {
+    margin-bottom: 8px;
+}
+
+
+/* =========================================================
+   9. BUTTONS
+   ========================================================= */
+
+button {
+    border: none;
+    border-radius: 6px;
+    padding: 12px 22px;
+    background: #1E40AF;
+    color: #FFFFFF;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+button:hover,
+button:focus {
+    background: #16358F;
+    transform: translateY(-1px);
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid #D4AF37;
+    outline-offset: 3px;
+}
+
+
+/* =========================================================
+   10. FORMS
+   ========================================================= */
+
+form {
+    width: min(700px, 100%);
+    background: #FFFFFF;
+    padding: 32px;
+    border: 1px solid #E5E7EB;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.05);
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 700;
+    color: #111827;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border: 1px solid #D1D5DB;
+    border-radius: 6px;
+    background: #FFFFFF;
+    color: #1F2937;
+}
+
+textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #1E40AF;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(30, 64, 175, 0.12);
+}
+
+
+/* =========================================================
+   11. TABLES
+   ========================================================= */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    background: #FFFFFF;
+}
+
+th,
+td {
+    padding: 14px;
+    text-align: left;
+    border: 1px solid #E5E7EB;
+}
+
+th {
+    background: #1E40AF;
+    color: #FFFFFF;
+}
+
+tr:nth-child(even) {
+    background: #F9FAFB;
+}
+
+
+/* =========================================================
+   12. IMAGES
+   ========================================================= */
+
+figure {
+    margin: 25px 0;
+}
+
+figcaption {
+    margin-top: 8px;
+    color: #6B7280;
+    font-size: 0.9rem;
+}
+
+
+/* =========================================================
+   13. FOOTER
+   ========================================================= */
+
+footer {
+    background: #111827;
+    color: #FFFFFF;
+    margin-top: 50px;
+    padding: 50px 0 25px;
+}
+
+footer > div {
+    width: min(1200px, 92%);
+    margin: 0 auto;
+}
+
+footer h2,
+footer h3,
+footer h4 {
+    color: #FFFFFF;
+}
+
+footer p {
+    color: #D1D5DB;
+}
+
+footer a {
+    color: #FFFFFF;
+}
+
+footer a:hover {
+    color: #D4AF37;
+}
+
+footer nav {
+    margin-top: 20px;
+}
+
+
+/* =========================================================
+   14. HORIZONTAL RULE
+   ========================================================= */
+
+hr {
+    border: 0;
+    border-top: 1px solid #E5E7EB;
+    margin: 30px 0;
+}
+
+
+/* =========================================================
+   15. RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    header > div {
+        flex-direction: column;
+        justify-content: center;
+        padding: 18px 0;
+    }
+
+    nav ul {
+        justify-content: center;
+    }
+
+    main > section {
+        padding: 50px 0;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    body {
+        font-size: 15px;
+    }
+
+    header {
+        position: static;
+    }
+
+    header > div {
+        width: 94%;
+        gap: 15px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav li,
+    nav a {
+        width: 100%;
+        text-align: center;
+    }
+
+    main {
+        width: 94%;
+    }
+
+    main > section {
+        padding: 40px 0;
+    }
+
+    article {
+        padding: 20px;
+    }
+
+    form {
+        padding: 22px;
+    }
+
+    button {
+        width: 100%;
+    }
+}
+
+
+/* =========================================================
+   16. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+        animation: none !important;
+    }
+}
