@@ -139,4 +139,13 @@ ri-student-environment/
 ├── README.md
 └── CHANGELOG.md
 
-## 9. References Rhodes University. (n.d.). About the SRC. Available at: https://www.ru.ac.za/studentlife/src/aboutthesrc/ Cape Peninsula University of Technology. (n.d.). Student Activities. Available at: https://www.cput.ac.za/student/campus-life/activities Sol Plaatje University. (n.d.). Student Life and Development. Available at: https://www.spu.ac.za/index.php/student-life-and-development/ Sol Plaatje University. (n.d.). Student Representative Council. Available at: https://www.spu.ac.za/index.php/student-representative-council/ Google Chrome Developers. (n.d.). HTML5 landmark elements are used to improve navigation. Available at: https://developer.chrome.com/docs/lighthouse/accessibility/use-landmarks
+## 9. References
+
+Rhodes University. (n.d.). About the SRC.Available at: https://www.ru.ac.za/studentlife/src/aboutthesrc/ Cape Peninsula University of Technology. (n.d.).
+
+Student Activities. Available at: https://www.cput.ac.za/student/campus-life/activities Sol Plaatje University. (n.d.).
+Student Life and Development. Available at: https://www.spu.ac.za/index.php/student-life-and-development/ Sol Plaatje University. (n.d.).
+
+Student Representative Council. Available at: https://www.spu.ac.za/index.php/student-representative-council/ Google Chrome Developers. (n.d.).
+
+ HTML5 landmark elements are used to improve navigation. Available at: https://developer.chrome.com/docs/lighthouse/accessibility/use-landmarks
