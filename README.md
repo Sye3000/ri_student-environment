@@ -107,6 +107,14 @@ JavaScript, enhanced form functionality, SEO and deployment will be
 developed during Part 3.
 
 ---
+## GitHub Repository
+
+The RI Student Environment project is maintained using Git and GitHub for version control and project tracking.
+
+Repository:
+https://github.com/Sye3000/ri_student-environment
+
+The repository contains the initial project structure, HTML pages, CSS stylesheet, research documentation, README documentation and project commits for Part 1.
 
 ## 7. Project Structure
 
