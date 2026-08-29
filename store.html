@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse clothing, accessories, stationery and campus essentials from the RI Student Environment store.">
+  <title>University Store | RI Student Environment</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="store.css">
+</head>
+<!-- Hamburger Button -->
+<button class="hamburger-btn" id="hamburgerBtn" aria-label="Open campus menu">
+  ☰
+</button>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Sidebar Drawer -->
+<aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Campus services">
+  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
+
+  <div class="sidebar-header">
+    <img src="Rosebank Logo.webp" alt="RI Student Environment" width="120">
+    <p>Campus Services</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a href="resturant.html" class="sidebar-link">
+      <span class="sidebar-icon">🍽️</span>
+      <div>
+        <strong>ORA Café</strong>
+        <small>Order food & drinks</small>
+      </div>
+    </a>
+
+    <a href="store.html" class="sidebar-link">
+      <span class="sidebar-icon">🛍️</span>
+      <div>
+        <strong>University Store</strong>
+        <small>Campus clothing & gear</small>
+      </div>
+    </a>
+
+    <a href="lostfound.html" class="sidebar-link">
+      <span class="sidebar-icon">🔍</span>
+      <div>
+        <strong>Lost & Found</strong>
+        <small>Find or report lost items</small>
+      </div>
+    </a>
+
+  </nav>
+
+</aside>
+<body class="page-store">
+  <header class="navbar">
+    <a href="index.html" class="logo" aria-label="RI Student Environment home">
+      <img src="Rosebank Logo.webp" alt="RI Student Environment Logo" width="160">
+    </a>
+    <nav class="nav-links" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="impact.html">Impact</a>
+      <a href="programs.html">Programs</a>
+      <a href="events.html">Events</a>
+      <a href="src.html">SRC</a>
+      <a href="community.html">Community</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="login.html" class="login-link">Login</a>
+      <a href="register.html" class="register-btn">Join Us</a>
+    </div>
+  </header>
+
+  <main>
+  <section class="store-hero" aria-labelledby="store-title">
+    <h1 id="store-title">University Store</h1>
+    <p>Represent your campus. Wear your identity.</p>
+  </section>
+
+  <section class="container store-container" aria-labelledby="products-title">
+    <h2 id="products-title">Campus Products</h2>
+
+    <div class="product-grid" id="productGrid" aria-live="polite">
+      <article class="product-card" data-category="clothing">
+        <div class="product-image" aria-hidden="true">
+          <img src="Hoodies.jpeg" alt="University Hoodie" class="product-img">
+        </div>
+        <h3>University Hoodie</h3>
+        <p>Premium campus hoodie - Represent your university in style.</p>
+      </article>
+    </div>
+  </section>
+<section class="container wallet-section" aria-labelledby="wallet-title">
+
+  <h2 id="wallet-title">Store eWallet</h2>
+
+  <div class="wallet-card">
+
+    <div class="wallet-balance">
+      <p>Available Balance</p>
+      <strong id="walletBalance">R1 000.00</strong>
+    </div>
+
+    <div class="wallet-topup">
+
+      <label for="topupAmount">
+        Add Funds
+      </label>
+
+      <div class="wallet-topup-controls">
+
+        <input
+          type="number"
+          id="topupAmount"
+          min="1"
+          step="1"
+          placeholder="Enter amount"
+        >
+
+        <button
+          type="button"
+          id="addFundsBtn"
+        >
+          Add Funds
+        </button>
+
+      </div>
+
+      <p
+        id="walletMessage"
+        class="wallet-message"
+        aria-live="polite"
+      ></p>
+
+    </div>
+
+  </div>
+
+</section>
+<section class="container cart-section" aria-labelledby="cart-title">
+
+  <h2 id="cart-title">Shopping Cart</h2>
+
+  <div id="cartItems" class="cart-items" aria-live="polite">
+    <p>Your cart is empty.</p>
+  </div>
+
+  <div class="cart-summary">
+
+    <p>
+      Total:
+      <strong id="cartTotal">R0.00</strong>
+    </p>
+
+    <button
+      type="button"
+      id="checkoutBtn"
+    >
+      Checkout
+    </button>
+
+    <p
+      id="checkoutMessage"
+      class="checkout-message"
+      aria-live="polite"
+    ></p>
+
+  </div>
+
+</section>
+<section class="container transaction-section" aria-labelledby="transaction-title">
+
+  <h2 id="transaction-title">Transaction History</h2>
+
+  <div
+    id="transactionHistory"
+    class="transaction-history"
+    aria-live="polite"
+  >
+    <p>No transactions yet.</p>
+  </div>
+
+</section>
+  <section class="container demo-section" aria-labelledby="demo-title">
+    <h2 id="demo-title">360° Hoodie Demo</h2>
+    <p>View the University Hoodie from all angles with our interactive 360-degree viewer.</p>
+    <div class="demo-container">
+      <div class="demo-viewer">
+        <img src="Hodiees demo.jpeg" alt="University Hoodie 360 degree view" class="demo-image">
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <div>
+        <a href="index.html" class="logo" aria-label="RI Student Environment home">
+          <img src="Rosebank Logo.webp" alt="RI Student Environment Logo" width="160" loading="lazy">
+        </a>
+        <p>Connecting students, campuses and opportunities through one student environment.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="programs.html">Programs</a>
+        <a href="events.html">Events</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="copyright"><p>&copy; 2026 RI Student Environment. All rights reserved.</p></div>
+  </footer>
+  <script src="store.js"></script>
+  <script src="sidebar.js"></script>
+</body>
+</html>

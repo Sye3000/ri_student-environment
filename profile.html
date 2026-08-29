@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Profile | RI Student Environment</title>
+
+    <meta
+        name="description"
+        content="Student profile for RI Student Environment."
+    >
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dashboard-page profile-page">
+
+<header class="dashboard-header">
+
+    <div class="dashboard-container dashboard-nav">
+
+        <a
+            href="dashboard.html"
+            class="dashboard-logo"
+        >
+            <img
+                src="Rosebank Logo.webp"
+                alt="RI Student Environment"
+            >
+        </a>
+
+        <nav class="dashboard-nav-links">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="events.html">
+                Events
+            </a>
+
+            <a href="programs.html">
+                Programs
+            </a>
+
+            <a href="community.html">
+                Community
+            </a>
+
+            <a href="src.html">
+                SRC
+            </a>
+
+        </nav>
+
+        <div class="dashboard-actions">
+
+            <a
+                href="profile.html"
+                class="profile-link active"
+            >
+                My Profile
+            </a>
+
+            <a
+                href="index.html"
+                class="logout-button"
+            >
+                Logout
+            </a>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<main>
+
+<section class="dashboard-welcome">
+
+    <div class="dashboard-container">
+
+        <p class="dashboard-eyebrow">
+            STUDENT PROFILE
+        </p>
+
+        <h1>
+            My <strong>Profile</strong>
+        </h1>
+
+        <p class="dashboard-welcome-text">
+            View your student information and campus details.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="dashboard-section">
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-grid">
+
+            <!-- STUDENT INFORMATION -->
+
+            <article class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    Student
+                </div>
+
+                <h3>
+                    Student Information
+                </h3>
+
+                <p>
+                    <strong>Full Name</strong><br>
+                    <span id="profile-full-name">
+                        Loading...
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Student Number</strong><br>
+                    <span id="profile-student-number">
+                        Loading...
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Email</strong><br>
+                    <span id="profile-email">
+                        Loading...
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Role</strong><br>
+                    <span id="profile-role">
+                        Loading...
+                    </span>
+                    <small class="profile-help">
+                        Your access level in the student environment.
+                    </small>
+                </p>
+
+            </article>
+
+
+            <!-- CAMPUS INFORMATION -->
+
+            <article class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    Campus
+                </div>
+
+                <h3>
+                    Campus Information
+                </h3>
+
+                <p>
+                    <strong>Campus</strong><br>
+                    <span id="profile-campus">
+                        Loading...
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Campus Code</strong><br>
+                    <span id="profile-campus-code">
+                        Loading...
+                    </span>
+                    <small class="profile-help">
+                        The short code used to identify your campus.
+                    </small>
+                </p>
+
+                <p>
+                    <strong>City</strong><br>
+                    <span id="profile-city">
+                        Loading...
+                    </span>
+                </p>
+
+            </article>
+
+
+            <!-- ACCOUNT -->
+
+            <article class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    Account
+                </div>
+
+                <h3>
+                    Account Status
+                </h3>
+
+                <p>
+                    <strong>Status</strong><br>
+                    <span id="profile-status">
+                        Loading...
+                    </span>
+                    <small class="profile-help">
+                        Active means your account can access the portal.
+                    </small>
+                </p>
+
+                <p
+                    id="profile-error"
+                    class="profile-error"
+                    role="alert"
+                    hidden
+                >
+                    We could not load your profile. Please try again.
+                    <a href="profile.html">Try again</a>
+                </p>
+
+                <a href="dashboard.html">
+                    ← Back to Dashboard
+                </a>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>

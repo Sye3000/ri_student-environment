@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Student Dashboard | RI Student Environment</title>
+
+    <meta http-equiv="refresh" content="0; url=dashboard.html">
+
+    <meta
+        name="description"
+        content="Student dashboard for RI Student Environment."
+    >
+
+   <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="dashboard.css">
+
+</head>
+
+
+<body class="dashboard-page">
+
+
+<!-- =========================================
+     DASHBOARD HEADER
+     ========================================= -->
+
+<header class="dashboard-header">
+
+    <a
+        href="dashboard.html"
+        class="dashboard-logo"
+        aria-label="RI Student Environment dashboard"
+    >
+
+        <img
+            src="Rosebank Logo.webp"
+            alt="RI Student Environment logo"
+        >
+
+    </a>
+
+
+    <div class="dashboard-header-actions">
+
+        <button
+            type="button"
+            class="notification-button"
+            aria-label="Notifications"
+            aria-expanded="false"
+        >
+            🔔
+
+            <span class="notification-count">
+                3
+            </span>
+
+        </button>
+
+
+        <div class="student-profile-mini">
+
+            <div class="profile-avatar">
+                ST
+            </div>
+
+            <div class="profile-mini-info">
+
+                <strong>
+                    Student
+                </strong>
+
+                <span>
+                    Johannesburg Campus
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================
+     DASHBOARD LAYOUT
+     ========================================= -->
+
+<div class="dashboard-layout">
+
+
+    <!-- =====================================
+         SIDEBAR
+         ===================================== -->
+
+    <aside class="dashboard-sidebar">
+
+        <nav
+            class="dashboard-nav"
+            aria-label="Student dashboard navigation"
+        >
+
+            <p class="sidebar-label">
+                STUDENT PORTAL
+            </p>
+
+
+            <a
+                href="dashboard.html"
+                class="dashboard-nav-link active"
+                aria-current="page"
+            >
+                <span>⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+
+            <a
+                href="profile.html"
+                class="dashboard-nav-link"
+            >
+                <span>👤</span>
+                <span>My Profile</span>
+            </a>
+
+
+            <a
+                href="events.html"
+                class="dashboard-nav-link"
+            >
+                <span>📅</span>
+                <span>Events</span>
+            </a>
+
+
+            <a
+                href="programs.html"
+                class="dashboard-nav-link"
+            >
+                <span>🎓</span>
+                <span>Programs</span>
+            </a>
+
+
+            <a
+                href="community.html"
+                class="dashboard-nav-link"
+            >
+                <span>💬</span>
+                <span>Community</span>
+            </a>
+
+
+            <a
+                href="src.html"
+                class="dashboard-nav-link"
+            >
+                <span>👥</span>
+                <span>SRC</span>
+            </a>
+
+
+            <a
+                href="dashboard.html"
+                class="dashboard-nav-link"
+            >
+                <span>🔔</span>
+                <span>Notifications</span>
+
+                <span class="sidebar-badge">
+                    3
+                </span>
+
+            </a>
+
+
+            <p class="sidebar-label sidebar-label-spaced">
+                ACCOUNT
+            </p>
+
+
+            <a
+                href="profile.html"
+                class="dashboard-nav-link"
+            >
+                <span>⚙️</span>
+                <span>Settings</span>
+            </a>
+
+
+            <a
+                href="login.html"
+                class="dashboard-nav-link logout-link"
+            >
+                <span>↪</span>
+                <span>Logout</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-footer">
+
+            <p>
+                RI Student Environment
+            </p>
+
+            <span>
+                © 2026
+            </span>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =====================================
+         MAIN CONTENT
+         ===================================== -->
+
+    <main class="dashboard-main">
+
+
+        <!-- Welcome -->
+
+        <section class="dashboard-welcome">
+
+            <div>
+
+                <p class="dashboard-eyebrow">
+                    STUDENT DASHBOARD
+                </p>
+
+                <h1>
+                    Welcome back,
+                    <strong>Student!</strong>
+                </h1>
+
+                <p>
+                    Stay connected, discover opportunities,
+                    and make the most of your student experience.
+                </p>
+
+            </div>
+
+
+            <a
+                href="profile.html"
+                class="dashboard-profile-button"
+            >
+                View Profile
+            </a>
+
+        </section>
+
+
+        <!-- =================================
+             QUICK STATS
+             ================================= -->
+
+        <section
+            class="dashboard-stats"
+            aria-label="Student overview"
+        >
+
+            <article class="dashboard-stat-card">
+
+                <div class="stat-icon">
+                    📅
+                </div>
+
+                <div>
+
+                    <span>
+                        Upcoming Events
+                    </span>
+
+                    <strong>
+                        6
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="dashboard-stat-card">
+
+                <div class="stat-icon">
+                    🎓
+                </div>
+
+                <div>
+
+                    <span>
+                        My Programs
+                    </span>
+
+                    <strong>
+                        3
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="dashboard-stat-card">
+
+                <div class="stat-icon">
+                    💬
+                </div>
+
+                <div>
+
+                    <span>
+                        Community
+                    </span>
+
+                    <strong>
+                        12
+                    </strong>
+
+                </div>
+
+            </article>
+
+
+            <article class="dashboard-stat-card">
+
+                <div class="stat-icon">
+                    🔔
+                </div>
+
+                <div>
+
+                    <span>
+                        Notifications
+                    </span>
+
+                    <strong>
+                        3
+                    </strong>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- =================================
+             CONTENT GRID
+             ================================= -->
+
+        <div class="dashboard-content-grid">
+
+
+            <!-- UPCOMING EVENTS -->
+
+            <section class="dashboard-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <p class="panel-eyebrow">
+                            WHAT'S HAPPENING
+                        </p>
+
+                        <h2>
+                            Upcoming Events
+                        </h2>
+
+                    </div>
+
+                    <a href="events.html">
+                        View All →
+                    </a>
+
+                </div>
+
+
+                <div class="dashboard-event-list">
+
+
+                    <article class="dashboard-event">
+
+                        <div class="event-date-box">
+
+                            <span>
+                                DATE
+                            </span>
+
+                            <strong>
+                                2026
+                            </strong>
+
+                        </div>
+
+
+                        <div class="dashboard-event-info">
+
+                            <span class="event-category">
+                                TECHNOLOGY
+                            </span>
+
+                            <h3>
+                                RI Student Hackathon
+                            </h3>
+
+                            <p>
+                                Build innovative solutions
+                                with students from different
+                                campuses.
+                            </p>
+
+                        </div>
+
+
+                        <a
+                            href="events.html"
+                            class="small-action"
+                        >
+                            View
+                        </a>
+
+                    </article>
+
+
+                    <article class="dashboard-event">
+
+                        <div class="event-date-box">
+
+                            <span>
+                                DATE
+                            </span>
+
+                            <strong>
+                                2026
+                            </strong>
+
+                        </div>
+
+
+                        <div class="dashboard-event-info">
+
+                            <span class="event-category">
+                                CAREER
+                            </span>
+
+                            <h3>
+                                Student Networking Day
+                            </h3>
+
+                            <p>
+                                Meet students and professionals
+                                and build your network.
+                            </p>
+
+                        </div>
+
+
+                        <a
+                            href="events.html"
+                            class="small-action"
+                        >
+                            View
+                        </a>
+
+                    </article>
+
+
+                    <article class="dashboard-event">
+
+                        <div class="event-date-box">
+
+                            <span>
+                                DATE
+                            </span>
+
+                            <strong>
+                                2026
+                            </strong>
+
+                        </div>
+
+
+                        <div class="dashboard-event-info">
+
+                            <span class="event-category">
+                                LEADERSHIP
+                            </span>
+
+                            <h3>
+                                Student Leadership Forum
+                            </h3>
+
+                            <p>
+                                Discuss student issues and
+                                develop leadership skills.
+                            </p>
+
+                        </div>
+
+
+                        <a
+                            href="events.html"
+                            class="small-action"
+                        >
+                            View
+                        </a>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+            <!-- MY PROGRAMS -->
+
+            <section class="dashboard-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <p class="panel-eyebrow">
+                            YOUR DEVELOPMENT
+                        </p>
+
+                        <h2>
+                            My Programs
+                        </h2>
+
+                    </div>
+
+                    <a href="programs.html">
+                        Explore →
+                    </a>
+
+                </div>
+
+
+                <div class="dashboard-program-list">
+
+
+                    <article class="dashboard-program">
+
+                        <div class="program-dashboard-icon">
+                            💻
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Technology & Innovation
+                            </h3>
+
+                            <p>
+                                Technology
+                            </p>
+
+                        </div>
+
+                        <span>
+                            Active
+                        </span>
+
+                    </article>
+
+
+                    <article class="dashboard-program">
+
+                        <div class="program-dashboard-icon">
+                            🚀
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Career Development
+                            </h3>
+
+                            <p>
+                                Career
+                            </p>
+
+                        </div>
+
+                        <span>
+                            Active
+                        </span>
+
+                    </article>
+
+
+                    <article class="dashboard-program">
+
+                        <div class="program-dashboard-icon">
+                            🎓
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Academic Support
+                            </h3>
+
+                            <p>
+                                Academic
+                            </p>
+
+                        </div>
+
+                        <span>
+                            Active
+                        </span>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+
+        </div>
+
+
+        <!-- =================================
+             COMMUNITY + ANNOUNCEMENTS
+             ================================= -->
+
+        <div class="dashboard-bottom-grid">
+
+
+            <!-- COMMUNITY -->
+
+            <section class="dashboard-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <p class="panel-eyebrow">
+                            STUDENT COMMUNITY
+                        </p>
+
+                        <h2>
+                            Community Activity
+                        </h2>
+
+                    </div>
+
+                    <a href="community.html">
+                        Community →
+                    </a>
+
+                </div>
+
+
+                <article class="community-dashboard-item">
+
+                    <div class="community-avatar">
+                        ST
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Welcome to the RI Student Community
+                        </h3>
+
+                        <p>
+                            Introduce yourself and connect
+                            with other students.
+                        </p>
+
+                        <span>
+                            Student Community
+                        </span>
+
+                    </div>
+
+                </article>
+
+
+                <article class="community-dashboard-item">
+
+                    <div class="community-avatar">
+                        QA
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Questions & Answers
+                        </h3>
+
+                        <p>
+                            Ask questions about your studies
+                            and student life.
+                        </p>
+
+                        <span>
+                            Q&A
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- ANNOUNCEMENTS -->
+
+            <section class="dashboard-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <p class="panel-eyebrow">
+                            IMPORTANT
+                        </p>
+
+                        <h2>
+                            Announcements
+                        </h2>
+
+                    </div>
+
+                    <a href="dashboard.html">
+                        View All →
+                    </a>
+
+                </div>
+
+
+                <div class="announcement-item">
+
+                    <span class="announcement-icon">
+                        📢
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Welcome to StudentConnect
+                        </h3>
+
+                        <p>
+                            Your student community is ready.
+                            Explore programs, events and
+                            discussions.
+                        </p>
+
+                        <span>
+                            New
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="announcement-item">
+
+                    <span class="announcement-icon">
+                        👑
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            SRC Updates
+                        </h3>
+
+                        <p>
+                            Stay informed about student
+                            leadership activities.
+                        </p>
+
+                        <span>
+                            Student Leadership
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+
+        <!-- =================================
+             PROFILE SUMMARY
+             ================================= -->
+
+        <section class="student-summary">
+
+            <div class="summary-content">
+
+                <p class="dashboard-eyebrow">
+                    YOUR ACCOUNT
+                </p>
+
+                <h2>
+                    Student Profile
+                </h2>
+
+                <p>
+                    Keep your student information up to date
+                    so you can get the most relevant opportunities
+                    and activities.
+                </p>
+
+                <a
+                    href="profile.html"
+                    class="dashboard-primary-button"
+                >
+                    Manage Profile
+                </a>
+
+            </div>
+
+
+            <div class="summary-details">
+
+                <div>
+                    <span>
+                        Student Number
+                    </span>
+
+                    <strong>
+                        STU001
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>
+                        Campus
+                    </span>
+
+                    <strong>
+                        Johannesburg
+                    </strong>
+                </div>
+
+
+                <div>
+                    <span>
+                        Status
+                    </span>
+
+                    <strong class="status-active">
+                        Active Student
+                    </strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+</div>
+
+
+<!-- =========================================
+     DASHBOARD FOOTER
+     ========================================= -->
+
+<footer class="dashboard-footer">
+
+    <p>
+        © 2026 RI Student Environment.
+        All rights reserved.
+    </p>
+
+    <div>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="events.html">
+            Events
+        </a>
+
+        <a href="community.html">
+            Community
+        </a>
+
+    </div>
+
+</footer>
+
+<script src="student-dashboard.js"></script>
+
+</body>
+</html>
