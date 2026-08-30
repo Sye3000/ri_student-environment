@@ -1,521 +1,342 @@
-html
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<title>StudentConnect | Connect. Participate. Impact.</title>
 
-    <meta
-        name="description"
-        content="RI Student Environment connects students across campuses through programmes, events, community activities and student engagement."
-    >
+<link rel="stylesheet" href="style.css">
 
-    <title>Home | RI Student Environment</title>
-
-    <link rel="stylesheet" href="style.css">
 </head>
+<!-- Hamburger Button -->
+<button class="hamburger-btn" id="hamburgerBtn" aria-label="Open campus menu">
+  ☰
+</button>
 
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Sidebar Drawer -->
+<aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Campus services">
+  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
+
+  <div class="sidebar-header">
+    <img src="Rosebank Logo.webp" alt="RI Student Environment" width="120">
+    <p>Campus Services</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a href="register.html" class="sidebar-link">
+      <span class="sidebar-icon">🍽️</span>
+      <div>
+        <strong>ORA Café</strong>
+        <small>Order food & drinks</small>
+      </div>
+    </a>
+
+    <a href="register.html" class="sidebar-link">
+      <span class="sidebar-icon">🛍️</span>
+      <div>
+        <strong>University Store</strong>
+        <small>Campus clothing & gear</small>
+      </div>
+    </a>
+
+    <a href="register.html" class="sidebar-link">
+      <span class="sidebar-icon">🔍</span>
+      <div>
+        <strong>Lost & Found</strong>
+        <small>Find or report lost items</small>
+      </div>
+    </a>
+
+  </nav>
+
+</aside>
 <body>
 
-    <!-- =========================
-         SITE HEADER
-         ========================= -->
+<!-- ================= NAVIGATION ================= -->
 
-    <header class="site-header">
+<header class="navbar">
+<a href="index.html" class="logo">
+    <img src="Rosebank Logo.webp" alt="StudentConnect Logo">
+</a>
+<nav class="nav-links">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href ="impact.html">Impact</a>
+    <a href="programs.html">Programs</a>
+    <a href="events.html">Events</a>
+    <a href="src.html">SRC</a>
+    <a href="community.html">Community</a>
+    <a href="contact.html">Contact</a>
+</nav>
 
-        <div class="header-container">
+<div class="nav-actions">
+    <a href="login.html" class="login-link">Login</a>
+    <a href="register.html" class="register-btn">Join Us</a>
+</div>
+    
+</header>
 
-            <a
-                href="index.html"
-                class="site-logo"
-                aria-label="RI Student Environment Home"
-            >
-                RI Student Environment
+
+<!-- ================= HERO ================= -->
+
+<main>
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Welcome To RI Student
+            <span>Environment.</span>
+        </h1>
+
+        <div class="hero-buttons">
+
+            <a href="register.html" class="primary-btn">
+                Join StudentConnect
             </a>
 
-            <!-- =========================
-                 MAIN NAVIGATION
-                 ========================= -->
-
-            <nav aria-label="Main navigation">
-
-                <ul>
-
-                    <li>
-                        <a
-                            href="index.html"
-                            aria-current="page"
-                        >
-                            Home
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="about.html">
-                            About
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="programs.html">
-                            Programs
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="events.html">
-                            Events
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="src.html">
-                            SRC
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="community.html">
-                            Community
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="impact.html">
-                            Our Impact
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="join-us.html">
-                            Join Us
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="login.html">
-                            Login
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="contact.html">
-                            Contact
-                        </a>
-                    </li>
-
-                </ul>
-
-            </nav>
+            <a href="events.html" class="secondary-btn">
+                Explore Events →
+            </a>
 
         </div>
 
-    </header>
+    </div>
 
+</section>
+    
+<!-- ================= FEATURES ================= -->
 
-    <!-- =========================
-         MAIN CONTENT
-         ========================= -->
+<section class="features">
 
-    <main>
+    <div class="section-heading">
 
-        <!-- =========================
-             HERO SECTION
-             ========================= -->
+        <span>WHY STUDENTCONNECT?</span>
 
-        <section class="hero-section">
+        <h2>
+            Everything students need,
+            <strong>in one place.</strong>
+        </h2>
 
-            <div class="hero-content">
+        <p>
+            Stay informed, get involved and connect with
+            students across campuses.
+        </p>
 
-                <p class="section-label">
-                    RI Student Environment
-                </p>
+    </div>
 
-                <h1>
-                    Connect. Engage. Participate.
-                </h1>
+    <div class="feature-grid">
 
-                <p class="hero-text">
-                    A student-focused environment designed to
-                    connect students across campuses, discover
-                    opportunities and participate in activities
-                    and communities.
-                </p>
+        <article class="feature-card">
 
-                <div class="hero-actions">
+            <div class="feature-icon">📅</div>
 
-                    <a
-                        href="programs.html"
-                        class="button button-primary"
-                    >
-                        Explore Programs
-                    </a>
-
-                    <a
-                        href="join-us.html"
-                        class="button button-secondary"
-                    >
-                        Join Us
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             ABOUT SECTION
-             ========================= -->
-
-        <section class="content-section">
-
-            <div class="section-content">
-
-                <p class="section-label">
-                    About Us
-                </p>
-
-                <h2>
-                    Building a connected student community
-                </h2>
-
-                <p>
-                    RI Student Environment provides a central
-                    digital space where students can discover
-                    programmes, participate in events, connect
-                    with communities and engage with student
-                    leadership.
-                </p>
-
-                <a
-                    href="about.html"
-                    class="text-link"
-                >
-                    Learn More
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             PROGRAMS SECTION
-             ========================= -->
-
-        <section class="content-section programs-section">
-
-            <div class="section-content">
-
-                <p class="section-label">
-                    Opportunities
-                </p>
-
-                <h2>
-                    Explore Our Programs
-                </h2>
-
-                <p>
-                    Discover programmes and opportunities
-                    designed to support student participation
-                    and development.
-                </p>
-
-            </div>
-
-
-            <div class="card-grid">
-
-                <article class="feature-card">
-
-                    <div class="card-number">
-                        01
-                    </div>
-
-                    <h3>
-                        Student Development
-                    </h3>
-
-                    <p>
-                        Opportunities that encourage learning,
-                        development and participation.
-                    </p>
-
-                    <a
-                        href="programs.html"
-                        class="text-link"
-                    >
-                        Learn More
-                    </a>
-
-                </article>
-
-
-                <article class="feature-card">
-
-                    <div class="card-number">
-                        02
-                    </div>
-
-                    <h3>
-                        Community Programs
-                    </h3>
-
-                    <p>
-                        Activities that encourage students
-                        to connect and collaborate.
-                    </p>
-
-                    <a
-                        href="programs.html"
-                        class="text-link"
-                    >
-                        Learn More
-                    </a>
-
-                </article>
-
-
-                <article class="feature-card">
-
-                    <div class="card-number">
-                        03
-                    </div>
-
-                    <h3>
-                        Campus Activities
-                    </h3>
-
-                    <p>
-                        Discover activities and opportunities
-                        available across participating campuses.
-                    </p>
-
-                    <a
-                        href="programs.html"
-                        class="text-link"
-                    >
-                        Learn More
-                    </a>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             EVENTS SECTION
-             ========================= -->
-
-        <section class="content-section highlight-section">
-
-            <div class="section-content">
-
-                <p class="section-label">
-                    What's Happening
-                </p>
-
-                <h2>
-                    Upcoming Events
-                </h2>
-
-                <p>
-                    Stay informed about activities, events
-                    and opportunities taking place within
-                    the student community.
-                </p>
-
-                <a
-                    href="events.html"
-                    class="button button-primary"
-                >
-                    View All Events
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             IMPACT SECTION
-             ========================= -->
-
-        <section class="content-section">
-
-            <div class="section-content">
-
-                <p class="section-label">
-                    Our Contribution
-                </p>
-
-                <h2>
-                    Making an Impact
-                </h2>
-
-                <p>
-                    Discover how student participation,
-                    programmes and community activities
-                    contribute to a stronger student
-                    environment.
-                </p>
-
-                <a
-                    href="impact.html"
-                    class="button button-primary"
-                >
-                    Explore Our Impact
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             COMMUNITY SECTION
-             ========================= -->
-
-        <section class="content-section community-section">
-
-            <div class="section-content">
-
-                <p class="section-label">
-                    Connect With Others
-                </p>
-
-                <h2>
-                    Join the Community
-                </h2>
-
-                <p>
-                    Connect with other students, participate
-                    in discussions and share ideas within
-                    the student community.
-                </p>
-
-                <a
-                    href="community.html"
-                    class="button button-secondary"
-                >
-                    Join Community
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         SITE FOOTER
-         ========================= -->
-
-    <footer class="site-footer">
-
-        <div class="footer-container">
-
-            <div class="footer-brand">
-
-                <h2>
-                    RI Student Environment
-                </h2>
-
-                <p>
-                    Connecting students, creating opportunities
-                    and building stronger communities.
-                </p>
-
-            </div>
-
-
-            <nav aria-label="Footer navigation">
-
-                <ul>
-
-                    <li>
-                        <a href="about.html">
-                            About
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="programs.html">
-                            Programs
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="events.html">
-                            Events
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="src.html">
-                            SRC
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="community.html">
-                            Community
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="impact.html">
-                            Our Impact
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="join-us.html">
-                            Join Us
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="login.html">
-                            Login
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="contact.html">
-                            Contact
-                        </a>
-                    </li>
-
-                </ul>
-
-            </nav>
-
-        </div>
-
-
-        <div class="footer-bottom">
+            <h3>Discover Events</h3>
 
             <p>
-                &copy; 2026 RI Student Environment.
-                All rights reserved.
+                Find campus events, activities, workshops,
+                social gatherings and student programmes.
+            </p>
+
+            <a href="events.html">Explore Events →</a>
+
+        </article>
+
+
+        <article class="feature-card">
+
+            <div class="feature-icon">🎓</div>
+
+            <h3>Student Programs</h3>
+
+            <p>
+                Discover opportunities designed to help
+                students learn, participate and grow.
+            </p>
+
+            <a href="programs.html">View Programs →</a>
+
+        </article>
+
+
+        <article class="feature-card">
+
+            <div class="feature-icon">💬</div>
+
+            <h3>Student Community</h3>
+
+            <p>
+                Ask questions, share knowledge and interact
+                with students from different campuses.
+            </p>
+
+            <a href="community.html">Join Community →</a>
+
+        </article>
+
+
+        <article class="feature-card">
+
+            <div class="feature-icon">🤝</div>
+
+            <h3>Connect With SRC</h3>
+
+            <p>
+                Stay connected with Student Representative
+                Council members and campus leadership.
+            </p>
+
+            <a href="src.html">Meet the SRC →</a>
+
+        </article>
+
+    </div>
+
+</section>
+
+    <!-- ================= IMPACT ================= -->
+
+<section class="impact">
+
+    <div class="impact-content">
+
+        <span>OUR IMPACT</span>
+
+        <h2>
+            Your campus.
+            <br>
+            Your community.
+            <br>
+            <strong>Your voice.</strong>
+        </h2>
+
+        <p>
+            StudentConnect gives students a central platform
+            to participate in campus life and have their voices
+            heard.
+        </p>
+
+        <a href="impact.html" class="primary-btn">
+            Learn More
+        </a>
+
+    </div>
+
+
+    <div class="impact-box">
+
+        <div class="impact-item">
+            <strong>01</strong>
+
+            <h3>Connect</h3>
+
+            <p>
+                Meet students and build meaningful connections.
+            </p>
+        </div>
+
+
+        <div class="impact-item">
+            <strong>02</strong>
+
+            <h3>Participate</h3>
+
+            <p>
+                Take part in events, programmes and activities.
+            </p>
+        </div>
+
+
+        <div class="impact-item">
+            <strong>03</strong>
+
+            <h3>Make an Impact</h3>
+
+            <p>
+                Share ideas and contribute to your community.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+   <!-- ================= CTA ================= -->
+
+<section class="cta">
+
+    <div>
+
+        <span>READY TO GET STARTED?</span>
+
+        <h2>
+            Your student community
+            is waiting.
+        </h2>
+
+        <p>
+            Create your account and start connecting today.
+        </p>
+
+        <a href="register.html" class="cta-button">
+            Create Your Account →
+        </a>
+
+    </div>
+
+</section>
+</main>
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <a href="index.html" class="logo">
+                Student<span>Connect</span>
+            </a>
+
+            <p>
+                Connecting students.
+                Building communities.
+                Creating impact.
             </p>
 
         </div>
 
-    </footer>
 
+        <div class="footer-links">
+
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="impact.html">Impact</a>
+            <a href="programs.html">Programs</a>
+            <a href="events.html">Events</a>
+            <a href="src.html">SRC</a>
+            <a href="community.html">Community</a>
+            <a href="login.html">Login</a>
+            <a href="register.html">Join Us</a>
+            <a href="contact.html">Contact</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+        © 2026 StudentConnect. All rights reserved.
+    </div>
+
+</footer>
+
+<script src="sidebar.js"></script>
 </body>
-
 </html>
 

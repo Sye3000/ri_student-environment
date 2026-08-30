@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Join Us | RI Student Environment</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="join-page">
+  <main class="join-container">
+
+    <!-- =========================
+         LEFT BRANDING
+         ========================= -->
+
+    <section class="join-brand">
+
+      <a href="index.html" class="join-logo">
+        <img src="Rosebank Logo.webp" alt="RI Student Environment Logo">
+      </a>
+
+      <div class="join-message">
+
+        <span>JOIN THE COMMUNITY</span>
+
+        <h1>
+          Your Campus.<br>
+          Your Community.<br>
+          <strong>Your Future.</strong>
+        </h1>
+
+        <p>
+          Create your student profile and become part
+          of a connected student environment where you
+          can discover, participate and grow.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         JOIN FORM
+         ========================= -->
+
+    <section class="join-form-section">
+
+      <div class="join-card">
+
+        <div class="join-heading">
+
+          <span>STUDENT REGISTRATION</span>
+
+          <h2>Join Us</h2>
+
+          <p>
+            Create your student account to get started.
+          </p>
+
+        </div>
+
+
+        <form class="join-form">
+
+          <!-- Full Name -->
+          <div class="form-group">
+            <label for="full-name">
+              Full Name
+            </label>
+
+            <input
+              type="text"
+              id="full-name"
+              name="full-name"
+              placeholder="Enter your full name"
+              autocomplete="name"
+              required
+            >
+          </div>
+
+
+          <!-- Student Number -->
+          <div class="form-group">
+            <label for="student-number">
+              Student Number
+            </label>
+
+            <input
+              type="text"
+              id="student-number"
+              name="student-number"
+              placeholder="Enter your student number"
+              autocomplete="off"
+              required
+            >
+          </div>
+
+
+          <!-- Student Email -->
+          <div class="form-group">
+            <label for="student-email">
+              Student Email
+            </label>
+
+            <input
+              type="email"
+              id="student-email"
+              name="student-email"
+              placeholder="Enter your student email"
+              autocomplete="email"
+              required
+            >
+          </div>
+
+
+          <!-- Campus -->
+          <div class="form-group">
+            <label for="campus">
+              Campus
+            </label>
+
+            <select
+              id="campus"
+              name="campus"
+              required
+            >
+              <option value="" selected disabled>
+                Select your campus
+              </option>
+
+              <option value="johannesburg">
+                Johannesburg
+              </option>
+
+              <option value="cape-town">
+                Cape Town
+              </option>
+
+              <option value="durban">
+                Durban
+              </option>
+
+              <option value="pretoria">
+                Pretoria
+              </option>
+
+              <option value="other">
+                Other
+              </option>
+            </select>
+          </div>
+
+
+          <!-- Password -->
+          <div class="form-group">
+            <label for="password">
+              Password
+            </label>
+
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Create a password"
+              autocomplete="new-password"
+              required
+            >
+          </div>
+
+
+          <!-- Confirm Password -->
+          <div class="form-group">
+            <label for="confirm-password">
+              Confirm Password
+            </label>
+
+            <input
+              type="password"
+              id="confirm-password"
+              name="confirm-password"
+              placeholder="Confirm your password"
+              autocomplete="new-password"
+              required
+            >
+          </div>
+
+
+          <!-- Terms -->
+          <label class="join-terms">
+            <input
+              type="checkbox"
+              name="terms"
+              required
+            >
+
+            <span>
+              I agree to the student community
+              terms and conditions.
+            </span>
+          </label>
+
+
+          <!-- Join Button -->
+          <button
+            type="submit"
+            class="join-button"
+          >
+            Join Us
+          </button>
+
+        </form>
+
+
+        <!-- Existing Account -->
+        <div class="already-account">
+          <p>
+            Already have an account?
+          </p>
+
+          <a href="login.html">
+            Login
+          </a>
+        </div>
+
+
+        <!-- Back Home -->
+        <a
+          href="index.html"
+          class="back-home"
+        >
+          ← Back to Home
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+<script src="app.js"></script>
+</body>
+</html>

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -9,74 +10,200 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <title>SRC | RI Student Environment</title>
+
     <meta
         name="description"
-        content="Learn about student leadership and representation through the RI Student Environment SRC."
+        content="Meet the Student Representative Council and connect with student representatives across campuses."
     >
 
-    <title>SRC | RI Student Environment</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 
+<!-- Hamburger Button -->
+<button class="hamburger-btn" id="hamburgerBtn" aria-label="Open campus menu">
+  ☰
+</button>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Sidebar Drawer -->
+<aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Campus services">
+  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
+
+  <div class="sidebar-header">
+    <img src="Rosebank Logo.webp" alt="RI Student Environment" width="120">
+    <p>Campus Services</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a href="resturant.html" class="sidebar-link">
+      <span class="sidebar-icon">🍽️</span>
+      <div>
+        <strong>ORA Café</strong>
+        <small>Order food & drinks</small>
+      </div>
+    </a>
+
+    <a href="store.html" class="sidebar-link">
+      <span class="sidebar-icon">🛍️</span>
+      <div>
+        <strong>University Store</strong>
+        <small>Campus clothing & gear</small>
+      </div>
+    </a>
+
+    <a href="lostfound.html" class="sidebar-link">
+      <span class="sidebar-icon">🔍</span>
+      <div>
+        <strong>Lost & Found</strong>
+        <small>Find or report lost items</small>
+      </div>
+    </a>
+
+  </nav>
+
+</aside>
 <body>
+
 
     <!-- =========================
          SITE HEADER
          ========================= -->
 
-    <header>
+    <header class="navbar">
 
-        <div>
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="RI Student Environment home"
+        >
+
+            <img
+                src="Rosebank Logo.webp"
+                alt="RI Student Environment logo"
+                width="160"
+            >
+
+        </a>
+
+
+        <nav
+            class="nav-links"
+            aria-label="Primary navigation"
+        >
+
             <a href="index.html">
-                RI Student Environment
+                Home
             </a>
-        </div>
 
-        <!-- =========================
-             MAIN NAVIGATION
-             ========================= -->
+            <a href="about.html">
+                About
+            </a>
+            <a href="impact.html">
+                Impact
 
-        <nav aria-label="Main navigation">
+            <a href="programs.html">
+                Programs
+            </a>
 
-            <ul>
+            <a href="events.html">
+                Events
+            </a>
 
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
+            <a
+                href="src.html"
+                class="active"
+                aria-current="page"
+            >
+                SRC
+            </a>
 
-                <li>
-                    <a href="about.html">About</a>
-                </li>
-
-                <li>
-                    <a href="programs.html">Programs</a>
-                </li>
-
-                <li>
-                    <a href="events.html">Events</a>
-                </li>
-
-                <li>
-                    <a href="src.html">SRC</a>
-                </li>
-
-                <li>
-                    <a href="community.html">Community</a>
-                </li>
-
-                <li>
-                    <a href="impact.html">Our Impact</a>
-                </li>
-
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-
-            </ul>
-
+            <a href="community.html">
+                Community
+            </a>
+            <a href="contact.html">
+                Contact
+            </a>
         </nav>
 
+
+        <div class="nav-actions">
+
+            <a
+                href="login.html"
+                class="login-link"
+            >
+                Login
+            </a>
+
+            <a
+                href="register.html"
+                class="register-btn"
+            >
+                Join Us
+            </a>
+
+        </div>
+
     </header>
+<!-- =========================
+     ABOUT CTA WITH VIDEO
+     ========================= -->
+<section
+    class="about-cta video-section"
+    aria-labelledby="cta-title"
+>
+
+    <video
+        class="section-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+    >
+        <source
+            src="WhatsApp Video 2026-08-11 at 12.27.02 AM.mp4"
+            type="video/mp4"
+        >
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="video-section-content">
+
+        <p class="eyebrow">
+            BE PART OF THE COMMUNITY
+        </p>
+
+        <h2 id="cta-title">
+            Your Student Journey
+            <strong>Starts Here.</strong>
+        </h2>
+
+        <p>
+            Connect with fellow students, discover opportunities,
+            participate in campus life, and help shape a stronger
+            student community.
+        </p>
+
+        <a
+            href="register.html"
+            class="cta-button"
+        >
+            Join RI Student Environment →
+        </a>
+
+    </div>
+
+</section>
+
+    </main>
 
 
     <!-- =========================
@@ -85,252 +212,548 @@
 
     <main>
 
+
         <!-- =========================
-             PAGE INTRODUCTION
+             SRC HERO
              ========================= -->
 
-        <section>
+        <section class="src-hero">
 
-            <p>Student Leadership</p>
+            <div class="src-hero-content">
 
-            <h1>
-                Student Representative Council
-            </h1>
+                <p class="eyebrow">
+                    STUDENT REPRESENTATIVE COUNCIL
+                </p>
 
-            <p>
-                The SRC section provides a central place for
-                students to learn about student representation,
-                leadership and opportunities to engage with
-                student representatives.
-            </p>
+                <h1>
+                    Your Voice.
+                    <strong>Your Representation.</strong>
+                </h1>
+
+                <p>
+                    Meet the students who represent their campuses,
+                    communicate student concerns, and help create a
+                    stronger student community.
+                </p>
+
+
+                <div class="src-hero-buttons">
+
+                    <a
+                        href="#src-members"
+                        class="primary-btn"
+                    >
+                        Meet the SRC
+                    </a>
+
+                    <a
+                        href="#student-voice"
+                        class="secondary-btn"
+                    >
+                        Student Voice
+                    </a>
+
+                </div>
+
+            </div>
 
         </section>
 
 
+
         <!-- =========================
-             ABOUT THE SRC
+             INTRODUCTION
              ========================= -->
 
-        <section>
+        <section class="src-intro">
 
-            <h2>
-                About Student Representation
-            </h2>
+            <div class="section-heading">
 
-            <p>
-                Student representation provides students with
-                a structured way to communicate their views,
-                concerns and ideas within the student community.
-            </p>
+                <p class="eyebrow">
+                    STUDENT LEADERSHIP
+                </p>
 
-            <p>
-                The RI Student Environment provides a digital
-                space where information about student leadership
-                and representation can be made easier to access.
-            </p>
+                <h2>
+                    Representing
+                    <strong>Student Voices</strong>
+                </h2>
+
+                <p>
+                    The Student Representative Council provides a
+                    platform for students to communicate their ideas,
+                    concerns, suggestions, and needs.
+                </p>
+
+            </div>
 
         </section>
 
 
+
         <!-- =========================
-             SRC PURPOSE
+             SRC MEMBERS
              ========================= -->
 
-        <section>
+        <section
+            class="src-members-section"
+            id="src-members"
+        >
 
-            <h2>
-                What the SRC Can Support
-            </h2>
+            <div class="section-heading">
 
-            <article>
-
-                <h3>
-                    Student Representation
-                </h3>
-
-                <p>
-                    Provide a channel through which student
-                    concerns, ideas and interests can be represented.
+                <p class="eyebrow">
+                    MEET YOUR REPRESENTATIVES
                 </p>
 
-            </article>
-
-
-            <article>
-
-                <h3>
-                    Student Communication
-                </h3>
+                <h2>
+                    Student
+                    <strong>Leadership</strong>
+                </h2>
 
                 <p>
-                    Help students access relevant information
-                    and communicate with student representatives.
+                    Connect with your campus representatives and stay
+                    informed about student initiatives.
                 </p>
 
-            </article>
+            </div>
 
 
-            <article>
-
-                <h3>
-                    Student Activities
-                </h3>
-
-                <p>
-                    Support awareness and participation in
-                    student activities and initiatives.
-                </p>
-
-            </article>
+            <div class="src-grid">
 
 
-            <article>
+                <!-- SRC PRESIDENT -->
 
-                <h3>
-                    Community Engagement
-                </h3>
+                <article class="src-card">
 
-                <p>
-                    Encourage students to participate in
-                    discussions and community initiatives.
-                </p>
+                    <div class="src-photo">
+                        <img
+                            src="President.jpeg"
+                            alt="SRC President"
+                            loading="lazy"
+                        >
 
-            </article>
+                    </div>
+
+
+                    <div class="src-card-content">
+
+                        <p class="src-position">
+                            SRC PRESIDENT
+                        </p>
+
+                        <h3>
+                            SRC President
+                        </h3>
+
+                        <p class="src-campus">
+                            Johannesburg Campus
+                        </p>
+
+                        <p>
+                            Responsible for student leadership,
+                            representation, and coordination of
+                            SRC activities.
+                        </p>
+
+                        <a
+                            href="login.html"
+                            class="src-contact"
+                        >
+                            View Profile →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- DEPUTY PRESIDENT -->
+
+                <article class="src-card">
+
+                    <div class="src-photo">
+                        <img
+                            src="Deputy President.jpeg"
+                            alt="SRC Deputy President"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="src-card-content">
+
+                        <p class="src-position">
+                            DEPUTY PRESIDENT
+                        </p>
+
+                        <h3>
+                            Deputy President
+                        </h3>
+
+                        <p class="src-campus">
+                            Cape Town Campus
+                        </p>
+
+                        <p>
+                            Supports the SRC President and assists
+                            with student representation and initiatives.
+                        </p>
+
+                        <a
+                            href="login.html"
+                            class="src-contact"
+                        >
+                            View Profile →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- SECRETARY -->
+
+                <article class="src-card">
+
+                    <div class="src-photo">
+                        <img
+                            src="Secretary.jpeg"
+                            alt="SRC Secretary"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="src-card-content">
+
+                        <p class="src-position">
+                            SECRETARY
+                        </p>
+
+                        <h3>
+                            SRC Secretary
+                        </h3>
+
+                        <p class="src-campus">
+                            Durban Campus
+                        </p>
+
+                        <p>
+                            Coordinates SRC communication, meetings,
+                            documentation, and student information.
+                        </p>
+
+                        <a
+                            href="login.html"
+                            class="src-contact"
+                        >
+                            View Profile →
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+
+                <!-- TREASURER -->
+
+                <article class="src-card">
+
+                    <div class="src-photo">
+                        <img
+                            src="Treasure.jpeg"
+                            alt="SRC Treasurer"
+                            loading="lazy"
+                        >
+
+                    </div>
+
+
+                    <div class="src-card-content">
+
+                        <p class="src-position">
+                            TREASURER
+                        </p>
+
+                        <h3>
+                            SRC Treasurer
+                        </h3>
+
+                        <p class="src-campus">
+                            Pretoria Campus
+                        </p>
+
+                        <p>
+                            Supports responsible management of SRC
+                            resources and student initiatives.
+                        </p>
+
+                        <a
+                            href="login.html"
+                            class="src-contact"
+                        >
+                            View Profile →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
 
         </section>
 
 
+
         <!-- =========================
-             REPRESENTATIVE STRUCTURE
+             STUDENT VOICE
              ========================= -->
 
-        <section>
+        <section
+            class="student-voice"
+            id="student-voice"
+        >
 
-            <h2>
-                Representative Structure
-            </h2>
+            <div class="student-voice-content">
 
-            <p>
-                The final platform can display authorised
-                representatives according to their approved
-                positions and campus information.
-            </p>
-
-            <article>
-
-                <h3>
-                    SRC Leadership
-                </h3>
-
-                <p>
-                    Representative information to be added
-                    following confirmation and approval.
+                <p class="eyebrow">
+                    HAVE YOUR SAY
                 </p>
 
-            </article>
-
-
-            <article>
-
-                <h3>
-                    Campus Representatives
-                </h3>
+                <h2>
+                    Your Voice
+                    <strong>Matters.</strong>
+                </h2>
 
                 <p>
-                    Campus representative information can be
-                    displayed when confirmed by the relevant
-                    student leadership structure.
+                    Students should have a safe and accessible way
+                    to communicate ideas, concerns, questions, and
+                    suggestions to their representatives.
                 </p>
 
-            </article>
+                <a
+                    href="login.html"
+                    class="cta-button"
+                >
+                    Submit Your Voice →
+                </a>
+
+            </div>
+
+
+            <div class="voice-box">
+
+
+                <div class="voice-item">
+
+                    <span>
+                        01
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Questions
+                        </h3>
+
+                        <p>
+                            Ask questions about student activities,
+                            programs, or campus matters.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="voice-item">
+
+                    <span>
+                        02
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Suggestions
+                        </h3>
+
+                        <p>
+                            Share ideas that could improve the
+                            student experience.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="voice-item">
+
+                    <span>
+                        03
+                    </span>
+
+                    <div>
+
+                        <h3>
+                            Concerns
+                        </h3>
+
+                        <p>
+                            Raise student concerns so they can be
+                            directed to the appropriate representatives.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </section>
 
 
+
         <!-- =========================
-             STUDENT PARTICIPATION
+             SRC EVENTS
              ========================= -->
 
-        <section>
+        <section class="src-events">
 
-            <h2>
-                Get Involved
-            </h2>
+            <div class="section-heading">
 
-            <p>
-                Students can participate in their community by
-                staying informed, attending activities, sharing
-                ideas and engaging with student representatives.
-            </p>
+                <p class="eyebrow">
+                    STUDENT LEADERSHIP ACTIVITIES
+                </p>
 
-            <ul>
+                <h2>
+                    Stay Connected With
+                    <strong>Student Leadership</strong>
+                </h2>
 
-                <li>
-                    Attend student activities.
-                </li>
+                <p>
+                    Discover meetings, forums, leadership activities,
+                    and initiatives involving the SRC.
+                </p>
 
-                <li>
-                    Participate in community discussions.
-                </li>
+            </div>
 
-                <li>
-                    Share constructive feedback.
-                </li>
 
-                <li>
-                    Engage with student representatives.
-                </li>
+            <div class="src-event-grid">
 
-            </ul>
+
+                <article class="src-event-card">
+
+                    <span class="src-event-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Student Forums
+                    </h3>
+
+                    <p>
+                        Participate in discussions where students
+                        can share ideas and raise important matters.
+                    </p>
+
+                    <a href="events.html">
+                        View Events →
+                    </a>
+
+                </article>
+
+
+
+                <article class="src-event-card">
+
+                    <span class="src-event-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Leadership Initiatives
+                    </h3>
+
+                    <p>
+                        Get involved in projects and initiatives
+                        designed to improve student life.
+                    </p>
+
+                    <a href="programs.html">
+                        Explore Programs →
+                    </a>
+
+                </article>
+
+
+
+                <article class="src-event-card">
+
+                    <span class="src-event-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Campus Activities
+                    </h3>
+
+                    <p>
+                        Stay informed about activities happening
+                        across participating campuses.
+                    </p>
+
+                    <a href="events.html">
+                        Explore Activities →
+                    </a>
+
+                </article>
+
+            </div>
 
         </section>
 
 
+
         <!-- =========================
-             COMMUNITY LINK
+             CTA
              ========================= -->
 
-        <section>
+        <section class="src-cta">
+
+            <p class="eyebrow">
+                STUDENT COMMUNITY
+            </p>
 
             <h2>
-                Join the Student Community
+                Be Heard.
+                <strong>Be Involved.</strong>
             </h2>
 
             <p>
-                Connect with other students and participate
-                in discussions and community activities.
+                Join RI Student Environment and become part of a
+                connected student community.
             </p>
 
-            <a href="community.html">
-                Visit Community
-            </a>
-
-        </section>
-
-
-        <!-- =========================
-             CONTACT LINK
-             ========================= -->
-
-        <section>
-
-            <h2>
-                Contact Student Leadership
-            </h2>
-
-            <p>
-                Use the contact section to find out how to
-                communicate with the relevant student
-                representatives.
-            </p>
-
-            <a href="contact.html">
-                Contact Us
+            <a
+                href="register.html"
+                class="cta-button"
+            >
+                Join Us →
             </a>
 
         </section>
 
     </main>
+
 
 
     <!-- =========================
@@ -339,69 +762,94 @@
 
     <footer>
 
-        <h2>
-            RI Student Environment
-        </h2>
+        <div class="footer-content">
 
-        <p>
-            Connecting students, creating opportunities
-            and building stronger communities.
-        </p>
 
-        <nav aria-label="Footer navigation">
+            <div>
 
-            <ul>
+                <a
+                    href="index.html"
+                    class="logo"
+                    aria-label="RI Student Environment home"
+                >
 
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
+                    <img
+                        src="Rosebank Logo.webp"
+                        alt="RI Student Environment logo"
+                        width="160"
+                        loading="lazy"
+                    >
 
-                <li>
-                    <a href="about.html">About</a>
-                </li>
+                </a>
 
-                <li>
-                    <a href="programs.html">Programs</a>
-                </li>
+                <p>
+                    Connecting students, campuses, and opportunities
+                    through one student environment.
+                </p>
 
-                <li>
-                    <a href="events.html">Events</a>
-                </li>
+            </div>
 
-                <li>
-                    <a href="src.html">SRC</a>
-                </li>
 
-                <li>
-                    <a href="community.html">Community</a>
-                </li>
+            <nav
+                class="footer-links"
+                aria-label="Footer navigation"
+            >
 
-                <li>
-                    <a href="impact.html">Our Impact</a>
-                </li>
+                <a href="index.html">
+                    Home
+                </a>
 
-                <li>
-                    <a href="join-us.html">Join Us</a>
-                </li>
+                <a href="about.html">
+                    About
+                </a>
+                <a href="impact.html">
+                    Impact
 
-                <li>
-                    <a href="login.html">Login</a>
-                </li>
+                <a href="programs.html">
+                    Programs
+                </a>
 
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
+                <a href="events.html">
+                    Events
+                </a>
 
-            </ul>
+                <a
+                    href="src.html"
+                    aria-current="page"
+                >
+                    SRC
+                </a>
 
-        </nav>
+                <a href="community.html">
+                    Community
+                </a>
 
-        <p>
-            &copy; 2026 RI Student Environment.
-            All rights reserved.
-        </p>
+                <a href="login.html">
+                    Login
+                </a>
+
+                <a href="register.html">
+                    Join Us
+                </a>
+                <a href="contact.html">
+                    Contact
+
+            </nav>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <p>
+                &copy; 2026 RI Student Environment.
+                All rights reserved.
+            </p>
+
+        </div>
 
     </footer>
+
 
 </body>
 

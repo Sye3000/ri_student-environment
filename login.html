@@ -1,309 +1,189 @@
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+  <title>LogIn | RI Student Environment</title>
 
-    <meta
-        name="description"
-        content="Login to the RI Student Environment."
-    >
-
-    <title>Login | RI Student Environment</title>
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="login-page">
 
-    <!-- =========================
-         SITE HEADER
-         ========================= -->
+  <!-- =========================
+       SIGN IN PAGE
+       ========================= -->
 
-    <header>
+  <main class="lognin-container">
 
-        <div>
-            <a href="index.html">
-                RI Student Environment
-            </a>
-        </div>
+<!-- =========================
+     LEFT BRANDING
+     ========================= -->
 
-        <nav aria-label="Main navigation">
+<section class="login-brand">
 
-            <ul>
+  <a href="index.html" class="login">
+    <img
+      src="Rosebank Logo.webp"
+      alt="RI Student Environment Logo"
+    >
+  </a>
 
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
+  <div class="login-message">
 
-                <li>
-                    <a href="about.html">About</a>
-                </li>
+    <span>WELCOME BACK</span>
 
-                <li>
-                    <a href="programs.html">Programs</a>
-                </li>
+    <h1>
+      Connect.<br>
+      Participate.<br>
+      <strong>Grow.</strong>
+    </h1>
 
-                <li>
-                    <a href="events.html">Events</a>
-                </li>
+    <p>
+      Sign in to access your student community,
+      events, programs, discussions and campus activities.
+    </p>
 
-                <li>
-                    <a href="src.html">SRC</a>
-                </li>
+  </div>
 
-                <li>
-                    <a href="community.html">Community</a>
-                </li>
+</section>
 
-                <li>
-                    <a href="impact.html">Our Impact</a>
-                </li>
 
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
+<!-- =========================
+     SIGN IN FORM
+     ========================= -->
 
-            </ul>
+<section class="login-form-section">
 
-        </nav>
+  <div class="signin-card">
 
-    </header>
+    <div class="login-heading">
 
+      <span>STUDENT PORTAL</span>
 
-    <!-- =========================
-         MAIN CONTENT
-         ========================= -->
+      <h2>Login</h2>
 
-    <main>
+      <p>
+        Welcome back! Please enter your details.
+      </p>
 
-        <section>
+    </div>
 
-            <p>Student Access</p>
 
-            <h1>
-                Login
-            </h1>
+    <form class="login-form">
 
-            <p>
-                Access your RI Student Environment account
-                and connect with the student community.
-            </p>
+      <!-- Student Number -->
 
-        </section>
+      <div class="form-group">
 
+        <label for="student-email">
+    Student Email
+</label>
 
-        <!-- =========================
-             LOGIN FORM
-             ========================= -->
+<input
+    type="email"
+    id="student-email"
+    name="student-email"
+    placeholder="Enter your student email"
+    autocomplete="username"
+    required
+>
 
-        <section>
+      </div>
 
-            <h2>
-                Student Login
-            </h2>
 
-            <form
-                action="#"
-                method="post"
-            >
+      <!-- Password -->
 
-                <div>
+      <div class="form-group">
 
-                    <label for="student-email">
-                        Student Email
-                    </label>
+        <label for="password">
+          Password
+        </label>
 
-                    <input
-                        type="email"
-                        id="student-email"
-                        name="student-email"
-                        autocomplete="email"
-                        required
-                    >
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Enter your password"
+          autocomplete="current-password"
+          required
+        >
 
-                </div>
+      </div>
 
 
-                <div>
+      <!-- Remember / Forgot -->
 
-                    <label for="password">
-                        Password
-                    </label>
+      <div class="login-options">
 
-                    <input
-                        type="password"
-                        id="password"
-                        name="password"
-                        autocomplete="current-password"
-                        required
-                    >
+        <label class="remember-me">
 
-                </div>
+          <input
+            type="checkbox"
+            name="remember-me"
+          >
 
+          <span>Remember me</span>
 
-                <div>
+        </label>
 
-                    <button type="submit">
-                        Login
-                    </button>
+        <a href="#" class="forgot-password-link">
+          Forgot Password?
+        </a>
 
-                </div>
+      </div>
 
-            </form>
 
-        </section>
+      <!-- Sign In -->
 
+      <button
+        type="submit"
+        class="login-button"
+      >
+        login
+      </button>
 
-        <!-- =========================
-             ACCOUNT REGISTRATION
-             ========================= -->
+    </form>
 
-        <section>
 
-            <h2>
-                Don't Have an Account?
-            </h2>
+    <!-- Divider -->
 
-            <p>
-                New students can create an account to become
-                part of the student environment.
-            </p>
+    <div class="login-divider">
+      <span>OR</span>
+    </div>
 
-            <a href="join-us.html">
-                Join Us
-            </a>
 
-        </section>
+    <!-- Registration -->
 
+    <div class="create-account">
 
-        <!-- =========================
-             COMMUNITY LINK
-             ========================= -->
+      <p>
+        Don't have an account?
+      </p>
 
-        <section>
+      <a href="register.html">
+        Create Student Account
+      </a>
 
-            <h2>
-                Explore Without Logging In
-            </h2>
+    </div>
 
-            <p>
-                You can explore public information about
-                programmes and events before creating an account.
-            </p>
 
-            <p>
+    <!-- Back Home -->
 
-                <a href="programs.html">
-                    Explore Programs
-                </a>
+    <a
+      href="index.html"
+      class="back-home"
+    >
+      ← Back to Home
+    </a>
 
-                |
+  </div>
 
-                <a href="events.html">
-                    View Events
-                </a>
+</section>
 
-            </p>
-
-        </section>
-
-
-        <!-- =========================
-             LOGIN DEVELOPMENT NOTE
-             ========================= -->
-
-        <section>
-
-            <h2>
-                Future Account Features
-            </h2>
-
-            <p>
-                Future development may introduce secure
-                authentication, account management and
-                personalised student services.
-            </p>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         SITE FOOTER
-         ========================= -->
-
-    <footer>
-
-        <h2>
-            RI Student Environment
-        </h2>
-
-        <p>
-            Connecting students, creating opportunities
-            and building stronger communities.
-        </p>
-
-        <nav aria-label="Footer navigation">
-
-            <ul>
-
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
-
-                <li>
-                    <a href="about.html">About</a>
-                </li>
-
-                <li>
-                    <a href="programs.html">Programs</a>
-                </li>
-
-                <li>
-                    <a href="events.html">Events</a>
-                </li>
-
-                <li>
-                    <a href="src.html">SRC</a>
-                </li>
-
-                <li>
-                    <a href="community.html">Community</a>
-                </li>
-
-                <li>
-                    <a href="impact.html">Our Impact</a>
-                </li>
-
-                <li>
-                    <a href="join-us.html">Join Us</a>
-                </li>
-
-                <li>
-                    <a href="login.html">Login</a>
-                </li>
-
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-
-            </ul>
-
-        </nav>
-
-        <p>
-            &copy; 2026 RI Student Environment.
-            All rights reserved.
-        </p>
-
-    </footer>
-
+  </main>
+<script src="app.js"></script>
 </body>
-
 </html>

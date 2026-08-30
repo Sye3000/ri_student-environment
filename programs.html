@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -9,350 +10,696 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <title>Programs | RI Student Environment</title>
+
     <meta
         name="description"
-        content="Explore student programmes and opportunities available through RI Student Environment."
+        content="Explore student programs through RI Student Environment, including technology, career development, academic support, leadership, entrepreneurship, and community engagement."
     >
 
-    <title>Programs | RI Student Environment</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
 
+<!-- Hamburger Button -->
+<button class="hamburger-btn" id="hamburgerBtn" aria-label="Open campus menu">
+  ☰
+</button>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Sidebar Drawer -->
+<aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Campus services">
+  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
+
+  <div class="sidebar-header">
+    <img src="Rosebank Logo.webp" alt="RI Student Environment" width="120">
+    <p>Campus Services</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a href="resturant.html" class="sidebar-link">
+      <span class="sidebar-icon">🍽️</span>
+      <div>
+        <strong>ORA Café</strong>
+        <small>Order food & drinks</small>
+      </div>
+    </a>
+
+    <a href="store.html" class="sidebar-link">
+      <span class="sidebar-icon">🛍️</span>
+      <div>
+        <strong>University Store</strong>
+        <small>Campus clothing & gear</small>
+      </div>
+    </a>
+
+    <a href="lostfound.html" class="sidebar-link">
+      <span class="sidebar-icon">🔍</span>
+      <div>
+        <strong>Lost & Found</strong>
+        <small>Find or report lost items</small>
+      </div>
+    </a>
+
+  </nav>
+
+</aside>
 <body>
 
     <!-- =========================
          SITE HEADER
          ========================= -->
 
-    <header>
+    <header class="navbar">
 
-        <div>
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="RI Student Environment home"
+        >
+
+            <img
+                src="Rosebank Logo.webp"
+                alt="RI Student Environment logo"
+                width="160"
+            >
+
+        </a>
+
+
+        <nav
+            class="nav-links"
+            aria-label="Primary navigation"
+        >
+
             <a href="index.html">
-                RI Student Environment
+                Home
             </a>
-        </div>
 
-        <!-- =========================
-             MAIN NAVIGATION
-             ========================= -->
+            <a href="about.html">
+                About
+            </a>
+            <a href="impact.html">
+                Impact
+            </a>
 
-        <nav aria-label="Main navigation">
+            <a
+                href="programs.html"
+                class="active"
+                aria-current="page"
+            >
+                Programs
+            </a>
 
-            <ul>
+            <a href="events.html">
+                Events
+            </a>
 
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
+            <a href="src.html">
+                SRC
+            </a>
 
-                <li>
-                    <a href="about.html">About</a>
-                </li>
+            <a href="community.html">
+                Community
+            </a>
 
-                <li>
-                    <a href="programs.html">Programs</a>
-                </li>
 
-                <li>
-                    <a href="events.html">Events</a>
-                </li>
-
-                <li>
-                    <a href="src.html">SRC</a>
-                </li>
-
-                <li>
-                    <a href="community.html">Community</a>
-                </li>
-
-                <li>
-                    <a href="impact.html">Our Impact</a>
-                </li>
-
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-
-            </ul>
-
+            <a href="contact.html">
+                Contact
+            </a>
+        
         </nav>
+
+
+        <div class="nav-actions">
+
+            <a
+                href="login.html"
+                class="login-link"
+            >
+                Login
+            </a>
+
+            <a
+                href="register.html"
+                class="register-btn"
+            >
+                Join Us
+            </a>
+
+        </div>
 
     </header>
 
 
+<!-- =========================
+     ABOUT CTA WITH VIDEO
+     ========================= -->
+<section
+    class="about-cta video-section"
+    aria-labelledby="cta-title"
+>
+
+    <video
+        class="section-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+    >
+        <source
+            src="WhatsApp Video 2026-08-10 at 11.47.33 PM.mp4"
+            type="video/mp4"
+        >
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="video-section-content">
+
+        <p class="eyebrow">
+            BE PART OF THE COMMUNITY
+        </p>
+
+        <h2 id="cta-title">
+            Your Student Journey
+            <strong>Starts Here.</strong>
+        </h2>
+
+        <p>
+            Connect with fellow students, discover opportunities,
+            participate in campus life, and help shape a stronger
+            student community.
+        </p>
+
+        <a
+            href="register.html"
+            class="cta-button"
+        >
+            Join RI Student Environment →
+        </a>
+
+    </div>
+
+</section>
+
+    </main>
     <!-- =========================
          MAIN CONTENT
          ========================= -->
 
     <main>
 
+
         <!-- =========================
-             PAGE INTRODUCTION
+             PROGRAMS HERO
              ========================= -->
 
-        <section>
+        <section
+            class="programs-hero"
+            aria-labelledby="programs-title"
+        >
 
-            <p>Student Opportunities</p>
+            <div class="programs-hero-content">
 
-            <h1>
-                Explore Our Programs
-            </h1>
+                <p class="eyebrow">
+                    Student Programs
+                </p>
 
-            <p>
-                Discover programmes and activities designed to
-                encourage student participation, development
-                and community engagement.
-            </p>
+                <h1 id="programs-title">
+
+                    Learn.
+                    <strong>Develop.</strong>
+                    Grow.
+
+                </h1>
+
+                <p>
+                    Discover programs designed to help students
+                    develop skills, explore opportunities, build
+                    connections, and prepare for the future.
+                </p>
+
+            </div>
 
         </section>
 
 
+
         <!-- =========================
-             STUDENT DEVELOPMENT
+             PROGRAM INTRODUCTION
              ========================= -->
 
-        <section>
+        <section
+            class="programs-intro"
+            aria-labelledby="programs-intro-title"
+        >
 
-            <h2>
-                Student Development
-            </h2>
+            <div class="section-heading">
 
-            <p>
-                Student development opportunities can help
-                students build knowledge, skills, confidence
-                and experience.
-            </p>
-
-            <article>
-
-                <h3>
-                    Skills Development
-                </h3>
-
-                <p>
-                    Opportunities focused on developing useful
-                    academic, digital and professional skills.
+                <p class="eyebrow">
+                    Explore Our Programs
                 </p>
 
-            </article>
+                <h2 id="programs-intro-title">
 
-            <article>
+                    Opportunities Built for
+                    <strong>Students</strong>
 
-                <h3>
-                    Leadership Development
-                </h3>
-
-                <p>
-                    Activities that encourage leadership,
-                    responsibility and student participation.
-                </p>
-
-            </article>
-
-            <article>
-
-                <h3>
-                    Personal Development
-                </h3>
+                </h2>
 
                 <p>
-                    Opportunities that encourage personal
-                    growth, confidence and active participation.
+                    Whether you want to develop technical skills,
+                    improve your career readiness, or become a
+                    stronger student leader, there is a program
+                    for you.
                 </p>
 
-            </article>
+            </div>
+
+
+
+            <!-- =========================
+                 PROGRAM CARDS
+                 ========================= -->
+
+            <div class="program-grid">
+
+
+                <!-- Technology -->
+
+                <article class="program-card">
+
+                    <div class="program-image-slot">
+                        <a
+                            class="program-image-link"
+                            href="Technology and Innovation.jpeg"
+                            target="_blank"
+                            rel="noopener"
+                            aria-label="Open the full Technology and Innovation program picture"
+                        >
+                            <img
+                                src="Technology and Innovation.jpeg"
+                                alt="Technology and innovation program"
+                                loading="lazy"
+                            >
+                        </a>
+                    </div>
+
+                    <p class="program-category">
+                        Technology
+                    </p>
+
+                    <h3>
+                        Technology and Innovation
+                    </h3>
+
+                    <p>
+                        Develop practical technology skills through
+                        projects, digital learning, and innovation
+                        activities.
+                    </p>
+
+                    <a
+                        href="community.html"
+                        class="program-link"
+                    >
+                        Connect With Students
+                        <span aria-hidden="true">→</span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- Career -->
+
+                <article class="program-card">
+
+                    <div class="program-image-slot">
+                        <a
+                            class="program-image-link"
+                            href="Career Dev.jpeg"
+                            target="_blank"
+                            rel="noopener"
+                            aria-label="Open the full Career Development program picture"
+                        >
+                            <img
+                                src="Career Dev.jpeg"
+                                alt="Career development program"
+                                loading="lazy"
+                            >
+                        </a>
+                    </div>
+
+                    <p class="program-category">
+                        Career
+                    </p>
+
+                    <h3>
+                        Career Development
+                    </h3>
+
+                    <p>
+                        Prepare for the workplace through career
+                        guidance, CV development, interview
+                        preparation, and networking opportunities.
+                    </p>
+
+                    <a
+                        href="community.html"
+                        class="program-link"
+                    >
+                        Explore Opportunities
+                        <span aria-hidden="true">→</span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- Academic -->
+
+                <article class="program-card">
+
+                    <div class="program-image-slot">
+                        <a
+                            class="program-image-link"
+                            href="Academic support.jpeg"
+                            target="_blank"
+                            rel="noopener"
+                            aria-label="Open the full Academic Support program picture"
+                        >
+                            <img
+                                src="Academic support.jpeg"
+                                alt="Academic support program"
+                                loading="lazy"
+                            >
+                        </a>
+                    </div>
+
+                    <p class="program-category">
+                        Academic
+                    </p>
+
+                    <h3>
+                        Academic Support
+                    </h3>
+
+                    <p>
+                        Connect with academic resources, study
+                        groups, and peer support designed to help
+                        students succeed.
+                    </p>
+
+                    <a
+                        href="community.html"
+                        class="program-link"
+                    >
+                        Join Student Community
+                        <span aria-hidden="true">→</span>
+                    </a>
+
+                </article>
+
+
+
+                <!-- Hiking -->
+
+                <article class="program-card hiking-card">
+
+                    <div class="hiking-slideshow" aria-label="Hiking program photo slideshow">
+
+                        <a
+                            class="hiking-slide hiking-slide-active"
+                            href="Hiking 01 .jpeg"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="Hiking 01 .jpeg"
+                                alt="Student enjoying a hiking view"
+                            >
+                        </a>
+
+                        <a
+                            class="hiking-slide"
+                            href="Hiking 02.jpeg"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="Hiking 02.jpeg"
+                                alt="Students exploring a hiking trail"
+                            >
+                        </a>
+
+                        <a
+                            class="hiking-slide"
+                            href="Hiking  03.jpeg"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="Hiking  03.jpeg"
+                                alt="Students taking part in an outdoor adventure"
+                            >
+                        </a>
+
+                        <a
+                            class="hiking-slide"
+                            href="HIKING 04.jpeg"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="HIKING 04.jpeg"
+                                alt="Students enjoying a hiking activity"
+                            >
+                        </a>
+
+                        <a
+                            class="hiking-slide"
+                            href="Hiking 05.jpeg"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            <img
+                                src="Hiking 05.jpeg"
+                                alt="Scenic landscape from the hiking program"
+                            >
+                        </a>
+
+                        <button class="hiking-control hiking-previous" type="button" aria-label="Show previous hiking picture">
+                            <span aria-hidden="true">&#8249;</span>
+                        </button>
+
+                        <button class="hiking-control hiking-next" type="button" aria-label="Show next hiking picture">
+                            <span aria-hidden="true">&#8250;</span>
+                        </button>
+
+                        <div class="hiking-dots" aria-label="Choose a hiking picture">
+                            <button class="hiking-dot hiking-dot-active" type="button" aria-label="Show hiking picture 1"></button>
+                            <button class="hiking-dot" type="button" aria-label="Show hiking picture 2"></button>
+                            <button class="hiking-dot" type="button" aria-label="Show hiking picture 3"></button>
+                            <button class="hiking-dot" type="button" aria-label="Show hiking picture 4"></button>
+                            <button class="hiking-dot" type="button" aria-label="Show hiking picture 5"></button>
+                        </div>
+
+                    </div>
+
+                    <div class="hiking-card-content">
+
+                        <p class="program-category">
+                            Outdoor Program
+                        </p>
+
+                        <h3>
+                            Hiking and Adventure
+                        </h3>
+
+                        <p>
+                            Explore the outdoors, build friendships,
+                            and enjoy active hiking experiences with
+                            fellow students.
+                        </p>
+
+                        <a
+                            href="community.html"
+                            class="program-link"
+                        >
+                            Join the Hiking Program
+                            <span aria-hidden="true">→</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
 
         </section>
 
 
+
         <!-- =========================
-             COMMUNITY PROGRAMMES
+             HOW IT WORKS
              ========================= -->
 
-        <section>
+        <section
+            class="program-process"
+            aria-labelledby="process-title"
+        >
 
-            <h2>
-                Community Programs
-            </h2>
+            <div class="section-heading">
 
-            <p>
-                Community-focused programmes provide
-                opportunities for students to connect,
-                collaborate and contribute.
-            </p>
-
-            <article>
-
-                <h3>
-                    Student Communities
-                </h3>
-
-                <p>
-                    Connect with students who share similar
-                    interests, goals and activities.
+                <p class="eyebrow">
+                    How It Works
                 </p>
 
-                <a href="community.html">
-                    Explore Community
-                </a>
+                <h2 id="process-title">
 
-            </article>
+                    Start Your
+                    <strong>Journey</strong>
 
-            <article>
+                </h2>
 
-                <h3>
-                    Collaboration
-                </h3>
+            </div>
 
-                <p>
-                    Participate in activities that encourage
-                    teamwork, knowledge sharing and collaboration.
-                </p>
 
-            </article>
+            <div class="process-grid">
+
+
+                <article class="process-card">
+
+                    <span
+                        class="process-number"
+                        aria-hidden="true"
+                    >
+                        01
+                    </span>
+
+                    <h3>
+                        Join
+                    </h3>
+
+                    <p>
+                        Create your student account and become
+                        part of the RI Student Environment.
+                    </p>
+
+                </article>
+
+
+                <article class="process-card">
+
+                    <span
+                        class="process-number"
+                        aria-hidden="true"
+                    >
+                        02
+                    </span>
+
+                    <h3>
+                        Discover
+                    </h3>
+
+                    <p>
+                        Explore programs that match your interests,
+                        goals, and development needs.
+                    </p>
+
+                </article>
+
+
+                <article class="process-card">
+
+                    <span
+                        class="process-number"
+                        aria-hidden="true"
+                    >
+                        03
+                    </span>
+
+                    <h3>
+                        Participate
+                    </h3>
+
+                    <p>
+                        Register for programs and participate in
+                        activities with other students.
+                    </p>
+
+                </article>
+
+
+                <article class="process-card">
+
+                    <span
+                        class="process-number"
+                        aria-hidden="true"
+                    >
+                        04
+                    </span>
+
+                    <h3>
+                        Grow
+                    </h3>
+
+                    <p>
+                        Build experience, connections, and skills
+                        that can help you beyond campus.
+                    </p>
+
+                </article>
+
+            </div>
 
         </section>
 
-
-        <!-- =========================
-             CAMPUS ACTIVITIES
-             ========================= -->
-
-        <section>
-
-            <h2>
-                Campus Activities
-            </h2>
-
-            <p>
-                Discover activities and opportunities that
-                encourage students to become involved in
-                campus life.
-            </p>
-
-            <article>
-
-                <h3>
-                    Social Activities
-                </h3>
-
-                <p>
-                    Participate in activities that help students
-                    meet others and build connections.
-                </p>
-
-            </article>
-
-            <article>
-
-                <h3>
-                    Student Activities
-                </h3>
-
-                <p>
-                    Discover activities organised around
-                    student participation and engagement.
-                </p>
-
-            </article>
-
-            <article>
-
-                <h3>
-                    Community Engagement
-                </h3>
-
-                <p>
-                    Participate in activities that connect
-                    students with wider communities.
-                </p>
-
-            </article>
-
-        </section>
-
-
-        <!-- =========================
-             HOW TO PARTICIPATE
-             ========================= -->
-
-        <section>
-
-            <h2>
-                How to Participate
-            </h2>
-
-            <ol>
-
-                <li>
-                    Explore the available programmes.
-                </li>
-
-                <li>
-                    Review the programme information.
-                </li>
-
-                <li>
-                    Identify opportunities that interest you.
-                </li>
-
-                <li>
-                    Follow the participation instructions.
-                </li>
-
-                <li>
-                    Connect with the relevant student community.
-                </li>
-
-            </ol>
-
-        </section>
-
-
-        <!-- =========================
-             RELATED EVENTS
-             ========================= -->
-
-        <section>
-
-            <h2>
-                Discover Upcoming Events
-            </h2>
-
-            <p>
-                Programmes may be supported by activities and
-                events that provide opportunities for students
-                to participate.
-            </p>
-
-            <a href="events.html">
-                View Events
-            </a>
-
-        </section>
 
 
         <!-- =========================
              CALL TO ACTION
              ========================= -->
 
-        <section>
+        <section
+            class="programs-cta"
+            aria-labelledby="programs-cta-title"
+        >
 
-            <h2>
-                Ready to Get Involved?
+            <p class="eyebrow">
+                Ready to Get Started?
+            </p>
+
+            <h2 id="programs-cta-title">
+
+                Find Your Place
+                <strong>in the Community.</strong>
+
             </h2>
 
             <p>
-                Explore the student environment and discover
-                opportunities to participate.
+                Join RI Student Environment and discover programs
+                designed to help you connect, participate, and grow.
             </p>
 
-            <a href="join-us.html">
-                Join Us
+            <a
+                href="register.html"
+                class="cta-button"
+            >
+                Join RI Student Environment →
             </a>
 
         </section>
 
     </main>
+
 
 
     <!-- =========================
@@ -361,70 +708,124 @@
 
     <footer>
 
-        <h2>
-            RI Student Environment
-        </h2>
+        <div class="footer-content">
 
-        <p>
-            Connecting students, creating opportunities
-            and building stronger communities.
-        </p>
 
-        <nav aria-label="Footer navigation">
+            <div>
 
-            <ul>
+                <a
+                    href="index.html"
+                    class="logo"
+                    aria-label="RI Student Environment home"
+                >
 
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
+                    <img
+                        src="Rosebank Logo.webp"
+                        alt="RI Student Environment logo"
+                        width="160"
+                        loading="lazy"
+                    >
 
-                <li>
-                    <a href="about.html">About</a>
-                </li>
+                </a>
 
-                <li>
-                    <a href="programs.html">Programs</a>
-                </li>
+                <p>
+                    Connecting students, campuses, and
+                    opportunities through one student environment.
+                </p>
 
-                <li>
-                    <a href="events.html">Events</a>
-                </li>
+            </div>
 
-                <li>
-                    <a href="src.html">SRC</a>
-                </li>
 
-                <li>
-                    <a href="community.html">Community</a>
-                </li>
 
-                <li>
-                    <a href="impact.html">Our Impact</a>
-                </li>
+            <nav
+                class="footer-links"
+                aria-label="Footer navigation"
+            >
 
-                <li>
-                    <a href="join-us.html">Join Us</a>
-                </li>
+                <a href="index.html">
+                    Home
+                </a>
 
-                <li>
-                    <a href="login.html">Login</a>
-                </li>
+                <a href="about.html">
+                    About
+                </a>
 
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
+                <a
+                    href="programs.html"
+                    aria-current="page"
+                >
+                    Programs
+                </a>
 
-            </ul>
+                <a href="events.html">
+                    Events
+                </a>
 
-        </nav>
+                <a href="src.html">
+                    SRC
+                </a>
 
-        <p>
-            &copy; 2026 RI Student Environment.
-            All rights reserved.
-        </p>
+                <a href="community.html">
+                    Community
+                </a>
+
+                <a href="login.html">
+                    Login
+                </a>
+
+                <a href="register.html">
+                    Join Us
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <p>
+                &copy; 2026 RI Student Environment.
+                All rights reserved.
+            </p>
+
+        </div>
 
     </footer>
 
+    <script>
+        const hikingSlides = document.querySelectorAll('.hiking-slide');
+        const hikingDots = document.querySelectorAll('.hiking-dot');
+        let hikingSlideIndex = 0;
+
+        function showHikingSlide(index) {
+            hikingSlideIndex = (index + hikingSlides.length) % hikingSlides.length;
+
+            hikingSlides.forEach((slide, slideIndex) => {
+                slide.classList.toggle('hiking-slide-active', slideIndex === hikingSlideIndex);
+            });
+
+            hikingDots.forEach((dot, dotIndex) => {
+                dot.classList.toggle('hiking-dot-active', dotIndex === hikingSlideIndex);
+            });
+        }
+
+        document.querySelector('.hiking-previous').addEventListener('click', () => {
+            showHikingSlide(hikingSlideIndex - 1);
+        });
+
+        document.querySelector('.hiking-next').addEventListener('click', () => {
+            showHikingSlide(hikingSlideIndex + 1);
+        });
+
+        hikingDots.forEach((dot, dotIndex) => {
+            dot.addEventListener('click', () => showHikingSlide(dotIndex));
+        });
+
+        setInterval(() => showHikingSlide(hikingSlideIndex + 1), 5000);
+    </script>
+
+<script src="sidebar.js"></script>
 </body>
 
 </html>

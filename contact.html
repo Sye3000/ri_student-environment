@@ -11,66 +11,124 @@
 
     <meta
         name="description"
-        content="Contact RI Student Environment for information, questions and student support."
+        content="Contact RI Student Environment for information, questions, suggestions and student support."
     >
 
     <title>Contact | RI Student Environment</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
+<!-- Hamburger Button -->
+<button class="hamburger-btn" id="hamburgerBtn" aria-label="Open campus menu">
+  ☰
+</button>
 
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Sidebar Drawer -->
+<aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Campus services">
+  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
+
+  <div class="sidebar-header">
+    <img src="Rosebank Logo.webp" alt="RI Student Environment" width="120">
+    <p>Campus Services</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a href="resturant.html" class="sidebar-link">
+      <span class="sidebar-icon">🍽️</span>
+      <div>
+        <strong>ORA Café</strong>
+        <small>Order food & drinks</small>
+      </div>
+    </a>
+
+    <a href="store.html" class="sidebar-link">
+      <span class="sidebar-icon">🛍️</span>
+      <div>
+        <strong>University Store</strong>
+        <small>Campus clothing & gear</small>
+      </div>
+    </a>
+
+    <a href="lostfound.html" class="sidebar-link">
+      <span class="sidebar-icon">🔍</span>
+      <div>
+        <strong>Lost & Found</strong>
+        <small>Find or report lost items</small>
+      </div>
+    </a>
+
+  </nav>
+
+</aside>
 <body>
 
     <!-- =========================
-         SITE HEADER
+         SITE NAVIGATION
          ========================= -->
 
-    <header>
+    <header class="navbar">
 
-        <div>
+        <a href="index.html" class="logo">
+
+            <img
+                src="Rosebank Logo.webp"
+                alt="RI Student Environment Logo"
+            >
+
+        </a>
+
+
+        <nav class="nav-links" aria-label="Main navigation">
+
             <a href="index.html">
-                RI Student Environment
+                Home
             </a>
-        </div>
 
-        <nav aria-label="Main navigation">
+            <a href="about.html">
+                About
+            </a>
 
-            <ul>
+            <a href="impact.html">
+                Impact
+            </a>
 
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
+            <a href="programs.html">
+                Programs
+            </a>
 
-                <li>
-                    <a href="about.html">About</a>
-                </li>
+            <a href="events.html">
+                Events
+            </a>
 
-                <li>
-                    <a href="programs.html">Programs</a>
-                </li>
+            <a href="src.html">
+                SRC
+            </a>
 
-                <li>
-                    <a href="events.html">Events</a>
-                </li>
+            <a href="community.html">
+                Community
+            </a>
 
-                <li>
-                    <a href="src.html">SRC</a>
-                </li>
-
-                <li>
-                    <a href="community.html">Community</a>
-                </li>
-
-                <li>
-                    <a href="impact.html">Our Impact</a>
-                </li>
-
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-
-            </ul>
-
+            <a href="contact.html" class="active">
+                Contact
+            </a>
         </nav>
+
+
+        <div class="nav-actions">
+
+            <a href="login.html" class="login-link">
+                Login
+            </a>
+
+            <a href="register.html" class="register-btn">
+                Join Us
+            </a>
+
+        </div>
 
     </header>
 
@@ -82,12 +140,14 @@
     <main>
 
         <!-- =========================
-             PAGE INTRODUCTION
+             CONTACT HERO
              ========================= -->
 
-        <section>
+        <section class="contact-hero">
 
-            <p>Get in Touch</p>
+            <p>
+                Get in Touch
+            </p>
 
             <h1>
                 Contact Us
@@ -96,154 +156,219 @@
             <p>
                 Have a question, suggestion or need more
                 information? Use the contact options below.
-            </p>
-
-        </section>
-
-
-        <!-- =========================
-             CONTACT INFORMATION
-             ========================= -->
-
-        <section>
-
-            <h2>
-                Contact Information
-            </h2>
-
-            <p>
-                The following contact details represent the
-                proposed communication structure for the
+                We are here to help students connect with the
                 RI Student Environment.
             </p>
 
-            <address>
+        </section>
+
+
+        <!-- =========================
+             CONTACT LAYOUT
+             ========================= -->
+
+        <section class="contact-layout">
+
+
+            <!-- =========================
+                 CONTACT INFORMATION
+                 ========================= -->
+
+            <div class="contact-info">
+
+                <h2>
+                    Contact Information
+                </h2>
 
                 <p>
-                    <strong>Email:</strong>
-                    <span>
-                        Project contact will be configured during deployment.
-                    </span>
+                    The following contact details represent the
+                    proposed communication structure for the
+                    RI Student Environment.
                 </p>
+
+
+                <address>
+
+                    <p>
+
+                        <span class="contact-label">
+                            Email
+                        </span>
+
+                        Project contact will be configured
+                        during deployment.
+
+                    </p>
+
+
+                    <p>
+
+                        <span class="contact-label">
+                            Office
+                        </span>
+
+                        Student Environment Support
+
+                    </p>
+
+
+                    <p>
+
+                        <span class="contact-label">
+                            Availability
+                        </span>
+
+                        To be confirmed
+
+                    </p>
+
+                </address>
+
+
+                <!-- =========================
+                     CONTACT NOTE
+                     ========================= -->
+
+                <div class="contact-note">
+
+                    <p>
+                        Contact information and support
+                        availability will be updated when the
+                        platform moves into full deployment.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 CONTACT FORM
+                 ========================= -->
+
+            <div class="contact-form">
+
+                <h2>
+                    Send Us a Message
+                </h2>
 
                 <p>
-                    <strong>Office:</strong>
-                    Student Environment Support
+                    Send us your question, suggestion or
+                    feedback using the form below.
                 </p>
 
-                <p>
-                    <strong>Availability:</strong>
-                    To be confirmed
-                </p>
 
-            </address>
+                <form
+                    class="contact-form-fields"
+                    action="#"
+                    method="post"
+                >
+
+                    <!-- Full Name -->
+
+                    <div>
+
+                        <label for="full-name">
+                            Full Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="full-name"
+                            name="full-name"
+                            autocomplete="name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Email -->
+
+                    <div>
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Subject -->
+
+                    <div>
+
+                        <label for="subject">
+                            Subject
+                        </label>
+
+                        <input
+                            type="text"
+                            id="subject"
+                            name="subject"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Message -->
+
+                    <div>
+
+                        <label for="message">
+                            Message
+                        </label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="8"
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- Submit -->
+
+                    <div>
+
+                        <button type="submit">
+                            Send Message
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
 
         </section>
 
 
         <!-- =========================
-             CONTACT FORM
+             CONTACT TOPICS
              ========================= -->
 
-        <section>
-
-            <h2>
-                Send Us a Message
-            </h2>
-
-            <form
-                action="#"
-                method="post"
-            >
-
-                <div>
-
-                    <label for="full-name">
-                        Full Name
-                    </label>
-
-                    <input
-                        type="text"
-                        id="full-name"
-                        name="full-name"
-                        autocomplete="name"
-                        required
-                    >
-
-                </div>
-
-
-                <div>
-
-                    <label for="email">
-                        Email Address
-                    </label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        autocomplete="email"
-                        required
-                    >
-
-                </div>
-
-
-                <div>
-
-                    <label for="subject">
-                        Subject
-                    </label>
-
-                    <input
-                        type="text"
-                        id="subject"
-                        name="subject"
-                        required
-                    >
-
-                </div>
-
-
-                <div>
-
-                    <label for="message">
-                        Message
-                    </label>
-
-                    <textarea
-                        id="message"
-                        name="message"
-                        rows="8"
-                        required
-                    ></textarea>
-
-                </div>
-
-
-                <div>
-
-                    <button type="submit">
-                        Send Message
-                    </button>
-
-                </div>
-
-            </form>
-
-        </section>
-
-
-        <!-- =========================
-             COMMON QUESTIONS
-             ========================= -->
-
-        <section>
+        <section class="contact-note">
 
             <h2>
                 What Can You Contact Us About?
             </h2>
+
+            <p>
+                Students can contact the RI Student Environment
+                about a range of student-focused topics, including:
+            </p>
 
             <ul>
 
@@ -287,30 +412,45 @@
             </h2>
 
             <p>
+                Discover more areas of the platform and
+                explore opportunities available to students.
+            </p>
 
-                <a href="programs.html">
+
+            <div class="page-actions">
+
+                <a
+                    href="programs.html"
+                    class="page-button"
+                >
                     Programs
                 </a>
 
-                |
 
-                <a href="events.html">
+                <a
+                    href="events.html"
+                    class="page-button"
+                >
                     Events
                 </a>
 
-                |
 
-                <a href="community.html">
+                <a
+                    href="community.html"
+                    class="page-button secondary"
+                >
                     Community
                 </a>
 
-                |
 
-                <a href="src.html">
+                <a
+                    href="src.html"
+                    class="page-button secondary"
+                >
                     SRC
                 </a>
 
-            </p>
+            </div>
 
         </section>
 
@@ -319,7 +459,7 @@
              CALL TO ACTION
              ========================= -->
 
-        <section>
+        <section class="contact-note">
 
             <h2>
                 Join the Community
@@ -327,12 +467,29 @@
 
             <p>
                 Become part of the student environment and
-                discover opportunities to participate.
+                discover opportunities to participate,
+                connect and contribute.
             </p>
 
-            <a href="join-us.html">
-                Join Us
-            </a>
+
+            <div class="page-actions">
+
+                <a
+                    href="register.html"
+                    class="page-button"
+                >
+                    Join Us
+                </a>
+
+
+                <a
+                    href="about.html"
+                    class="page-button secondary"
+                >
+                    Learn More
+                </a>
+
+            </div>
 
         </section>
 
@@ -345,70 +502,96 @@
 
     <footer>
 
-        <h2>
-            RI Student Environment
-        </h2>
+        <div>
 
-        <p>
-            Connecting students, creating opportunities
-            and building stronger communities.
-        </p>
+            <h2>
+                RI Student Environment
+            </h2>
 
-        <nav aria-label="Footer navigation">
+            <p>
+                Connecting students, creating opportunities
+                and building stronger communities.
+            </p>
 
-            <ul>
 
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
+            <nav aria-label="Footer navigation">
 
-                <li>
-                    <a href="about.html">About</a>
-                </li>
+                <ul>
 
-                <li>
-                    <a href="programs.html">Programs</a>
-                </li>
+                    <li>
+                        <a href="index.html">
+                            Home
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="events.html">Events</a>
-                </li>
+                    <li>
+                        <a href="about.html">
+                            About
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="src.html">SRC</a>
-                </li>
+                    <li>
+                        <a href="programs.html">
+                            Programs
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="community.html">Community</a>
-                </li>
+                    <li>
+                        <a href="events.html">
+                            Events
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="impact.html">Our Impact</a>
-                </li>
+                    <li>
+                        <a href="src.html">
+                            SRC
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="join-us.html">Join Us</a>
-                </li>
+                    <li>
+                        <a href="community.html">
+                            Community
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="login.html">Login</a>
-                </li>
+                    <li>
+                        <a href="impact.html">
+                            Our Impact
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
+                    <li>
+                        <a href="register.html">
+                            Join Us
+                        </a>
+                    </li>
 
-            </ul>
+                    <li>
+                        <a href="login.html">
+                            Login
+                        </a>
+                    </li>
 
-        </nav>
+                    <li>
+                        <a href="contact.html">
+                            Contact
+                        </a>
+                    </li>
 
-        <p>
-            &copy; 2026 RI Student Environment.
-            All rights reserved.
-        </p>
+                </ul>
+
+            </nav>
+
+
+            <p>
+                &copy; 2026 RI Student Environment.
+                All rights reserved.
+            </p>
+
+        </div>
 
     </footer>
-
+<script src="sidebar.js"></script>
 </body>
 
 </html>

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -9,74 +10,147 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <title>About Us | RI Student Environment</title>
+
     <meta
         name="description"
-        content="Learn about RI Student Environment, its purpose, objectives and commitment to connecting students."
+        content="Learn how RI Student Environment connects students, supports participation, and builds stronger student communities."
     >
 
-    <title>About | RI Student Environment</title>
     <link rel="stylesheet" href="style.css">
+
 </head>
+<!-- Hamburger Button -->
+<button class="hamburger-btn" id="hamburgerBtn" aria-label="Open campus menu">
+  ☰
+</button>
+
+<!-- Sidebar Overlay -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<!-- Sidebar Drawer -->
+<aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Campus services">
+  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
+
+  <div class="sidebar-header">
+    <img src="Rosebank Logo.webp" alt="RI Student Environment" width="120">
+    <p>Campus Services</p>
+  </div>
+
+  <nav class="sidebar-nav">
+
+    <a href="resturant.html" class="sidebar-link">
+      <span class="sidebar-icon">🍽️</span>
+      <div>
+        <strong>ORA Café</strong>
+        <small>Order food & drinks</small>
+      </div>
+    </a>
+
+    <a href="store.html" class="sidebar-link">
+      <span class="sidebar-icon">🛍️</span>
+      <div>
+        <strong>University Store</strong>
+        <small>Campus clothing & gear</small>
+      </div>
+    </a>
+
+    <a href="lostfound.html" class="sidebar-link">
+      <span class="sidebar-icon">🔍</span>
+      <div>
+        <strong>Lost & Found</strong>
+        <small>Find or report lost items</small>
+      </div>
+    </a>
+
+  </nav>
+
+</aside>
 
 <body>
+
 
     <!-- =========================
          SITE HEADER
          ========================= -->
 
-    <header>
+    <header class="navbar">
 
-        <div>
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="RI Student Environment home"
+        >
+
+            <img
+                src="Rosebank Logo.webp"
+                alt="RI Student Environment logo"
+                width="160"
+            >
+
+        </a>
+
+
+        <nav
+            class="nav-links"
+            aria-label="Primary navigation"
+        >
+
             <a href="index.html">
-                RI Student Environment
+                Home
             </a>
-        </div>
 
-        <!-- =========================
-             MAIN NAVIGATION
-             ========================= -->
+            <a
+                href="about.html"
+                class="active"
+                aria-current="page"
+            >
+                About
+            </a>
+            <a href="impact.html">
+                Impact
 
-        <nav aria-label="Main navigation">
+            <a href="programs.html">
+                Programs
+            </a>
 
-            <ul>
+            <a href="events.html">
+                Events
+            </a>
 
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
+            <a href="src.html">
+                SRC
+            </a>
 
-                <li>
-                    <a href="about.html">About</a>
-                </li>
-
-                <li>
-                    <a href="programs.html">Programs</a>
-                </li>
-
-                <li>
-                    <a href="events.html">Events</a>
-                </li>
-
-                <li>
-                    <a href="src.html">SRC</a>
-                </li>
-
-                <li>
-                    <a href="community.html">Community</a>
-                </li>
-
-                <li>
-                    <a href="impact.html">Our Impact</a>
-                </li>
-
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
-
-            </ul>
-
+            <a href="community.html">
+                Community
+            </a>
+            <a href="contact.html">
+                Contact
+            </a>
         </nav>
 
+
+        <div class="nav-actions">
+
+            <a
+                href="login.html"
+                class="login-link"
+            >
+                Login
+            </a>
+
+            <a
+                href="register.html"
+                class="register-btn"
+            >
+                Join Us
+            </a>
+
+        </div>
+
     </header>
+
 
 
     <!-- =========================
@@ -85,204 +159,346 @@
 
     <main>
 
+
         <!-- =========================
-             PAGE INTRODUCTION
+             ABOUT HERO
              ========================= -->
 
-        <section>
+        <section
+            class="about-hero"
+            aria-labelledby="about-title"
+        >
 
-            <p>About RI Student Environment</p>
+            <div class="about-hero-content">
 
-            <h1>
-                Building a connected student community
-            </h1>
+                <p class="eyebrow">
+                    ABOUT RI STUDENT ENVIRONMENT
+                </p>
 
-            <p>
-                RI Student Environment is a proposed student-focused
-                digital environment designed to connect students,
-                provide access to opportunities and encourage
-                participation across the student community.
-            </p>
+                <h1 id="about-title">
+                    Connecting Students.
+                    <strong>Building Community.</strong>
+                </h1>
+
+                <p>
+                    RI Student Environment is a student-focused platform
+                    designed to connect students across campuses, create
+                    opportunities for participation, and build a stronger
+                    student community.
+                </p>
+
+            </div>
 
         </section>
+
 
 
         <!-- =========================
              WHO WE ARE
              ========================= -->
 
-        <section>
+        <section
+            class="about-introduction"
+            aria-labelledby="who-we-are-title"
+        >
 
-            <h2>
-                Who We Are
-            </h2>
+            <div class="about-image">
 
-            <p>
-                RI Student Environment provides a central digital
-                space where students can discover programmes,
-                events, community activities and student
-                leadership information.
-            </p>
+                <img
+                    src="My Home page Picture.jpeg"
+                    alt="Students collaborating together"
+                    loading="lazy"
+                >
 
-            <p>
-                The platform is designed around student engagement,
-                participation and access to useful information.
-            </p>
-
-        </section>
+            </div>
 
 
-        <!-- =========================
-             OUR PURPOSE
-             ========================= -->
+            <div class="about-content">
 
-        <section>
-
-            <h2>
-                Our Purpose
-            </h2>
-
-            <p>
-                The purpose of RI Student Environment is to make
-                student-related information easier to discover
-                and provide a structured environment for students
-                to participate and connect.
-            </p>
-
-        </section>
-
-
-        <!-- =========================
-             OUR OBJECTIVES
-             ========================= -->
-
-        <section>
-
-            <h2>
-                Our Objectives
-            </h2>
-
-            <ul>
-
-                <li>
-                    Improve access to student information.
-                </li>
-
-                <li>
-                    Promote student programmes and opportunities.
-                </li>
-
-                <li>
-                    Provide information about student events.
-                </li>
-
-                <li>
-                    Support student leadership visibility.
-                </li>
-
-                <li>
-                    Encourage student community participation.
-                </li>
-
-                <li>
-                    Create a foundation for future digital
-                    student services.
-                </li>
-
-            </ul>
-
-        </section>
-
-
-        <!-- =========================
-             WHAT STUDENTS CAN DISCOVER
-             ========================= -->
-
-        <section>
-
-            <h2>
-                What Students Can Discover
-            </h2>
-
-            <article>
-
-                <h3>
-                    Programs
-                </h3>
-
-                <p>
-                    Discover student development programmes
-                    and opportunities for participation.
+                <p class="eyebrow">
+                    WHO WE ARE
                 </p>
 
-                <a href="programs.html">
-                    Explore Programs
-                </a>
-
-            </article>
-
-
-            <article>
-
-                <h3>
-                    Events
-                </h3>
+                <h2 id="who-we-are-title">
+                    More Than a Student Platform
+                </h2>
 
                 <p>
-                    Find information about upcoming student
-                    activities and events.
+                    RI Student Environment brings students together in
+                    one digital environment where they can discover
+                    activities, participate in programs, attend events,
+                    and engage with other students.
                 </p>
-
-                <a href="events.html">
-                    View Events
-                </a>
-
-            </article>
-
-
-            <article>
-
-                <h3>
-                    Community
-                </h3>
 
                 <p>
-                    Connect with other students and participate
-                    in community discussions and activities.
+                    Our goal is to make student life more connected,
+                    accessible, and collaborative by creating a space
+                    where students can share ideas, ask questions,
+                    discover opportunities, and take part in campus
+                    activities.
                 </p>
 
-                <a href="community.html">
-                    Visit Community
+                <a
+                    href="register.html"
+                    class="about-button"
+                >
+                    Join Our Community →
                 </a>
 
-            </article>
+            </div>
 
         </section>
+
 
 
         <!-- =========================
-             CALL TO ACTION
+             MISSION
              ========================= -->
 
-        <section>
+        <section
+            class="mission-section"
+            aria-labelledby="mission-title"
+        >
 
-            <h2>
-                Be Part of the Community
-            </h2>
+            <div class="section-heading about-heading">
 
-            <p>
-                Students can explore the platform, discover
-                opportunities and participate in the growing
-                student community.
-            </p>
+                <p class="eyebrow">
+                    OUR MISSION
+                </p>
 
-            <a href="join-us.html">
-                Join Us
-            </a>
+                <h2 id="mission-title">
+                    Creating a
+                    <strong>Connected</strong>
+                    Student Community
+                </h2>
+
+                <p>
+                    We believe students achieve more when they have
+                    access to the right people, opportunities, and
+                    information.
+                </p>
+
+            </div>
+
+
+            <div class="mission-grid">
+
+
+                <article class="mission-card">
+
+                    <p
+                        class="mission-number"
+                        aria-hidden="true"
+                    >
+                        01
+                    </p>
+
+                    <h3>
+                        Connect
+                    </h3>
+
+                    <p>
+                        Connect students across different campuses
+                        and create meaningful student relationships.
+                    </p>
+
+                </article>
+
+
+
+                <article class="mission-card">
+
+                    <p
+                        class="mission-number"
+                        aria-hidden="true"
+                    >
+                        02
+                    </p>
+
+                    <h3>
+                        Participate
+                    </h3>
+
+                    <p>
+                        Give students opportunities to participate in
+                        events, programs, and campus activities.
+                    </p>
+
+                </article>
+
+
+
+                <article class="mission-card">
+
+                    <p
+                        class="mission-number"
+                        aria-hidden="true"
+                    >
+                        03
+                    </p>
+
+                    <h3>
+                        Grow
+                    </h3>
+
+                    <p>
+                        Support students in developing their skills,
+                        confidence, networks, and future opportunities.
+                    </p>
+
+                </article>
+
+            </div>
 
         </section>
+
+
+
+        <!-- =========================
+             IMPACT
+             ========================= -->
+
+        <section
+            class="about-impact"
+            aria-labelledby="impact-title"
+        >
+
+            <div class="impact-content">
+
+                <p class="eyebrow">
+                    OUR IMPACT
+                </p>
+
+                <h2 id="impact-title">
+                    Building a Better
+                    <strong>Student Experience</strong>
+                </h2>
+
+                <p>
+                    RI Student Environment is designed to become a
+                    central space where students can discover what
+                    is happening across their student community.
+                </p>
+
+            </div>
+
+
+            <div class="impact-stats">
+
+
+                <article class="about-stat">
+
+                    <strong aria-hidden="true">
+                        01
+                    </strong>
+
+                    <span>
+                        Connected Student Community
+                    </span>
+
+                </article>
+
+
+
+                <article class="about-stat">
+
+                    <strong aria-hidden="true">
+                        02
+                    </strong>
+
+                    <span>
+                        Campus Activities
+                    </span>
+
+                </article>
+
+
+
+                <article class="about-stat">
+
+                    <strong aria-hidden="true">
+                        03
+                    </strong>
+
+                    <span>
+                        Student Programs
+                    </span>
+
+                </article>
+
+
+
+                <article class="about-stat">
+
+                    <strong aria-hidden="true">
+                        04
+                    </strong>
+
+                    <span>
+                        Events and Opportunities
+                    </span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+<!-- =========================
+     ABOUT CTA WITH VIDEO
+     ========================= -->
+<section
+    class="about-cta video-section"
+    aria-labelledby="cta-title"
+>
+
+    <video
+        class="section-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-hidden="true"
+    >
+        <source
+            src="WhatsApp Video 2026-08-10 at 11.47.33 PM.mp4"
+            type="video/mp4"
+        >
+    </video>
+
+    <div class="video-overlay"></div>
+
+    <div class="video-section-content">
+
+        <p class="eyebrow">
+            BE PART OF THE COMMUNITY
+        </p>
+
+        <h2 id="cta-title">
+            Your Student Journey
+            <strong>Starts Here.</strong>
+        </h2>
+
+        <p>
+            Connect with fellow students, discover opportunities,
+            participate in campus life, and help shape a stronger
+            student community.
+        </p>
+
+        <a
+            href="register.html"
+            class="cta-button"
+        >
+            Join RI Student Environment →
+        </a>
+
+    </div>
+
+</section>
 
     </main>
+
 
 
     <!-- =========================
@@ -291,69 +507,93 @@
 
     <footer>
 
-        <h2>
-            RI Student Environment
-        </h2>
+        <div class="footer-content">
 
-        <p>
-            Connecting students, creating opportunities
-            and building stronger communities.
-        </p>
 
-        <nav aria-label="Footer navigation">
+            <div>
 
-            <ul>
+                <a
+                    href="index.html"
+                    class="logo"
+                    aria-label="RI Student Environment home"
+                >
 
-                <li>
-                    <a href="index.html">Home</a>
-                </li>
+                    <img
+                        src="Rosebank Logo.webp"
+                        alt="RI Student Environment logo"
+                        width="160"
+                        loading="lazy"
+                    >
 
-                <li>
-                    <a href="about.html">About</a>
-                </li>
+                </a>
 
-                <li>
-                    <a href="programs.html">Programs</a>
-                </li>
+                <p>
+                    Connecting students, campuses, and opportunities
+                    through one student environment.
+                </p>
 
-                <li>
-                    <a href="events.html">Events</a>
-                </li>
+            </div>
 
-                <li>
-                    <a href="src.html">SRC</a>
-                </li>
 
-                <li>
-                    <a href="community.html">Community</a>
-                </li>
+            <nav
+                class="footer-links"
+                aria-label="Footer navigation"
+            >
 
-                <li>
-                    <a href="impact.html">Our Impact</a>
-                </li>
+                <a href="index.html">
+                    Home
+                </a>
 
-                <li>
-                    <a href="join-us.html">Join Us</a>
-                </li>
+                <a
+                    href="about.html"
+                    aria-current="page"
+                >
+                    About
+                </a>
+                <a href="impact.html">
+                    Impact
 
-                <li>
-                    <a href="login.html">Login</a>
-                </li>
+                <a href="programs.html">
+                    Programs
+                </a>
 
-                <li>
-                    <a href="contact.html">Contact</a>
-                </li>
+                <a href="events.html">
+                    Events
+                </a>
 
-            </ul>
+                <a href="src.html">
+                    SRC
+                </a>
 
-        </nav>
+                <a href="community.html">
+                    Community
+                </a>
 
-        <p>
-            &copy; 2026 RI Student Environment.
-            All rights reserved.
-        </p>
+                <a href="login.html">
+                    Login
+                </a>
+
+                <a href="register.html">
+                    Join Us
+                </a>
+                <a href="contact.html">
+                    Contact
+            </nav>
+
+        </div>
+
+
+        <div class="copyright">
+
+            <p>
+                &copy; 2026 RI Student Environment.
+                All rights reserved.
+            </p>
+
+        </div>
 
     </footer>
+<script src="sidebar.js"></script>
 
 </body>
 
