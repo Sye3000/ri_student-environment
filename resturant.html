@@ -31,25 +31,44 @@
   <nav class="sidebar-nav">
 
     <a href="resturant.html" class="sidebar-link">
-      <span class="sidebar-icon">🍽️</span>
+      <span class="sidebar-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 3h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V3Z"/>
+          <path d="M17 8h2a3 3 0 0 1 0 6h-2"/>
+          <path d="M5 21h12"/>
+        </svg>
+      </span>
       <div>
         <strong>ORA Café</strong>
-        <small>Order food & drinks</small>
+        <small>Order food &amp; drinks</small>
       </div>
     </a>
 
     <a href="store.html" class="sidebar-link">
-      <span class="sidebar-icon">🛍️</span>
+      <span class="sidebar-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 8h12l-1 12H7L6 8Z"/>
+          <path d="M9 8V6a3 3 0 1 1 6 0v2"/>
+          <path d="M9 12h6"/>
+        </svg>
+      </span>
       <div>
         <strong>University Store</strong>
-        <small>Campus clothing & gear</small>
+        <small>Campus clothing &amp; gear</small>
       </div>
     </a>
 
     <a href="lostfound.html" class="sidebar-link">
-      <span class="sidebar-icon">🔍</span>
+      <span class="sidebar-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="6"/>
+          <path d="m16 16 5 5"/>
+          <path d="M11 8v3"/>
+          <path d="M11 14h.01"/>
+        </svg>
+      </span>
       <div>
-        <strong>Lost & Found</strong>
+        <strong>Lost &amp; Found</strong>
         <small>Find or report lost items</small>
       </div>
     </a>
@@ -166,6 +185,62 @@
       <h2 id="restaurant-transaction-title">Transaction History</h2>
       <div id="restaurantTransactionHistory" class="transaction-history" aria-live="polite">
         <p>No transactions yet.</p>
+      </div>
+    </section>
+
+    <section class="container order-history-section" aria-labelledby="restaurant-order-history-title">
+      <div class="order-history-header">
+        <div>
+          <span class="section-kicker">Order history</span>
+          <h2 id="restaurant-order-history-title">Recent dining orders</h2>
+        </div>
+      </div>
+
+      <div class="order-history-filters">
+        <label>
+          <span>From date</span>
+          <input type="date" id="restaurantOrderFromDate">
+        </label>
+        <label>
+          <span>To date</span>
+          <input type="date" id="restaurantOrderToDate">
+        </label>
+        <label>
+          <span>Status</span>
+          <select id="restaurantOrderStatus">
+            <option value="all">All</option>
+            <option value="Processing">Processing</option>
+            <option value="Preparing">Preparing</option>
+            <option value="Ready">Ready</option>
+            <option value="Delivered">Delivered</option>
+          </select>
+        </label>
+        <label>
+          <span>Reference</span>
+          <input type="text" id="restaurantOrderReference" placeholder="Search ref">
+        </label>
+        <div class="history-action-row">
+          <button type="button" id="restaurantOrderSearchBtn">Search</button>
+          <button type="button" id="restaurantOrderClearBtn" class="secondary-btn small-btn">Clear</button>
+        </div>
+      </div>
+
+      <div class="order-history-table-wrap">
+        <table class="order-history-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Date</th>
+              <th>Delivery Date</th>
+              <th>Total</th>
+              <th>Quantity</th>
+              <th>Last Update</th>
+              <th>View</th>
+              <th>Re-order</th>
+            </tr>
+          </thead>
+          <tbody id="restaurantOrderHistoryBody"></tbody>
+        </table>
       </div>
     </section>
 

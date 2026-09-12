@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Student complaints, suggestions and event requests."
+    >
+
+    <title>Student Requests | RI Student Environment</title>
+
+    <link rel="stylesheet" href="lostfound.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="student-requests.css">
+</head>
+
+<body class="lf-page dashboard-v2-page">
+
+    <header class="lf-header">
+
+        <div class="lf-header-inner">
+
+            <a
+                href="dashboard.html"
+                class="lf-logo"
+                aria-label="RI Student Environment dashboard"
+            >
+                <img
+                    src="Rosebank Logo.webp"
+                    alt="RI Student Environment"
+                >
+            </a>
+
+            <div class="lf-header-right">
+
+                <a
+                    href="profile.html"
+                    class="lf-header-profile"
+                    aria-label="Open student profile"
+                >
+                    <div class="lf-header-avatar">
+                        <span id="header-student-initial">S</span>
+                    </div>
+
+                    <div class="lf-header-profile-text">
+                        <strong id="header-student-name">
+                            Student
+                        </strong>
+
+                        <span id="header-student-role">
+                            Student
+                        </span>
+                    </div>
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="student-requests-main">
+
+        <section class="student-requests-hero">
+
+            <span class="dashboard-kicker">
+                STUDENT VOICE
+            </span>
+
+            <h1>
+                Complaints &amp; Requests
+            </h1>
+
+            <p>
+                Submit a complaint, suggestion or event request
+                directly to your campus representatives.
+            </p>
+
+        </section>
+
+
+        <section class="student-request-form-section">
+
+            <div class="student-request-section-heading">
+
+                <span class="dashboard-kicker">
+                    SUBMIT
+                </span>
+
+                <h2>
+                    Make your voice heard
+                </h2>
+
+            </div>
+
+
+            <form id="studentRequestForm">
+
+                <div class="student-request-field">
+
+                    <label for="requestType">
+                        Request type
+                    </label>
+
+                    <select id="requestType" name="request_type" required>
+
+                        <option value="">
+                            Select a request type
+                        </option>
+
+                        <option value="complaint">
+                            Complaint
+                        </option>
+
+                        <option value="suggestion">
+                            Suggestion
+                        </option>
+
+                        <option value="event_request">
+                            Event Request
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="student-request-field">
+
+                    <label for="requestTitle">
+                        Title
+                    </label>
+
+                    <input
+                        type="text"
+                        id="requestTitle"
+                        name="title"
+                        maxlength="200"
+                        placeholder="Briefly describe your request"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="student-request-field">
+
+                    <label for="requestDescription">
+                        Description
+                    </label>
+
+                    <textarea
+                        id="requestDescription"
+                        name="description"
+                        rows="6"
+                        placeholder="Explain your complaint, suggestion or event idea..."
+                        required
+                    ></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="student-request-submit"
+                >
+                    Submit Request
+                </button>
+
+                <p
+                    id="studentRequestMessage"
+                    class="student-request-message"
+                    aria-live="polite"
+                ></p>
+
+            </form>
+
+
+
+
+        </section>
+        <section class="student-request-history-section">
+
+            <div class="student-request-section-heading">
+
+                <span class="dashboard-kicker">
+                    HISTORY
+                </span>
+
+                <h2>
+                    My Requests
+                </h2>
+
+                <p>
+                    Track the complaints, suggestions and event requests
+                    you have submitted.
+                </p>
+
+            </div>
+
+            <div
+                id="studentRequestsList"
+                class="student-requests-list"
+            >
+                <p class="student-requests-loading">
+                    Loading your requests...
+                </p>
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <script src="app.js"></script>
+    <script src="student-requests.js"></script>
+
+</body>
+</html>

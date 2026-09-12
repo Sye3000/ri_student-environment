@@ -1,342 +1,646 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>StudentConnect | Connect. Participate. Impact.</title>
-
-<link rel="stylesheet" href="style.css">
-
+    <title>RI Student Environment | Connect. Participate. Impact.</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<!-- Hamburger Button -->
-<button class="hamburger-btn" id="hamburgerBtn" aria-label="Open campus menu">
-  ☰
-</button>
 
-<!-- Sidebar Overlay -->
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-<!-- Sidebar Drawer -->
-<aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Campus services">
-  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
-
-  <div class="sidebar-header">
-    <img src="Rosebank Logo.webp" alt="RI Student Environment" width="120">
-    <p>Campus Services</p>
-  </div>
-
-  <nav class="sidebar-nav">
-
-    <a href="register.html" class="sidebar-link">
-      <span class="sidebar-icon">🍽️</span>
-      <div>
-        <strong>ORA Café</strong>
-        <small>Order food & drinks</small>
-      </div>
-    </a>
-
-    <a href="register.html" class="sidebar-link">
-      <span class="sidebar-icon">🛍️</span>
-      <div>
-        <strong>University Store</strong>
-        <small>Campus clothing & gear</small>
-      </div>
-    </a>
-
-    <a href="register.html" class="sidebar-link">
-      <span class="sidebar-icon">🔍</span>
-      <div>
-        <strong>Lost & Found</strong>
-        <small>Find or report lost items</small>
-      </div>
-    </a>
-
-  </nav>
-
-</aside>
 <body>
 
-<!-- ================= NAVIGATION ================= -->
+
+<!-- ===================================================
+     WELCOME ANIMATION OVERLAY
+     =================================================== -->
+
+
+<div id="ri-intro-overlay" aria-hidden="true" role="presentation">
+    <div class="ri-intro-content">
+
+
+        <div class="ri-intro-logo-wrap">
+            <img src="Rosebank Logo.webp" alt="Rosebank Institute">
+        </div>
+
+
+        <span class="ri-intro-rule"></span>
+
+
+        <h2 class="ri-intro-heading">Welcome to RI</h2>
+        <p class="ri-intro-tag">Connect. Participate. Impact.</p>
+
+
+        <button class="ri-intro-enter" aria-label="Enter the site">
+            Enter Site <span aria-hidden="true">→</span>
+        </button>
+
+
+        <p class="ri-intro-hint">or click anywhere to continue</p>
+
+
+    </div>
+</div>
+
+
+
+<!-- ===================================================
+     MOBILE SIDEBAR
+     =================================================== -->
+
+
+<button class="hamburger-btn" id="hamburgerBtn" aria-label="Open campus menu">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+
+<aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Campus services">
+
+
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">
+        <span></span>
+        <span></span>
+    </button>
+
+
+    <div class="sidebar-header">
+        <img src="Rosebank Logo.webp" alt="RI Student Environment" width="120">
+        <p>Campus Services</p>
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+
+        <a href="restaurant.html" class="sidebar-link">
+            <span class="sidebar-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M17 8h1a4 4 0 0 1 0 8h-1"/>
+                    <path d="M3 8h14v5a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6V8Z"/>
+                    <path d="M6 3v2"/><path d="M10 3v2"/><path d="M14 3v2"/>
+                </svg>
+            </span>
+            <div>
+                <strong>ORA Café</strong>
+                <small>Order food &amp; drinks</small>
+            </div>
+        </a>
+
+
+        <a href="store.html" class="sidebar-link">
+            <span class="sidebar-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 2l-4 6v13h20V8l-4-6H6Z"/>
+                    <path d="M2 8h20"/>
+                    <path d="M16 8a4 4 0 0 1-8 0"/>
+                    <path d="M6 21v-5h12v5"/>
+                </svg>
+            </span>
+            <div>
+                <strong>University Store</strong>
+                <small>Campus clothing &amp; gear</small>
+            </div>
+        </a>
+
+
+        <a href="lostfound.html" class="sidebar-link">
+            <span class="sidebar-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="7"/>
+                    <path d="m20 20-4-4"/>
+                    <path d="M11 8v4"/>
+                    <circle cx="11" cy="15" r=".5"/>
+                </svg>
+            </span>
+            <div>
+                <strong>Lost &amp; Found</strong>
+                <small>Find or report lost items</small>
+            </div>
+        </a>
+
+
+    </nav>
+
+
+</aside>
+
+
+
+<!-- ===================================================
+     NAVIGATION
+     =================================================== -->
+
 
 <header class="navbar">
-<a href="index.html" class="logo">
-    <img src="Rosebank Logo.webp" alt="StudentConnect Logo">
-</a>
-<nav class="nav-links">
-    <a href="index.html" class="active">Home</a>
-    <a href="about.html">About</a>
-    <a href ="impact.html">Impact</a>
-    <a href="programs.html">Programs</a>
-    <a href="events.html">Events</a>
-    <a href="src.html">SRC</a>
-    <a href="community.html">Community</a>
-    <a href="contact.html">Contact</a>
-</nav>
 
-<div class="nav-actions">
-    <a href="login.html" class="login-link">Login</a>
-    <a href="register.html" class="register-btn">Join Us</a>
-</div>
-    
+
+    <a href="index.html" class="logo">
+        <img src="Rosebank Logo.webp" alt="RI Student Environment">
+    </a>
+
+
+    <nav class="nav-links">
+        <a href="index.html" class="active">Home</a>
+        <a href="about.html">About</a>
+        <a href="impact.html">Impact</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+
+    <div class="nav-actions">
+        <a href="login.html" class="login-link">Login</a>
+        <a href="register.html" class="register-btn">Join Us</a>
+    </div>
+
+
 </header>
 
 
-<!-- ================= HERO ================= -->
+
+<!-- ===================================================
+     MAIN CONTENT
+     =================================================== -->
+
 
 <main>
-<section class="hero">
 
-    <div class="hero-content">
 
-        <h1>
-            Welcome To RI Student
-            <span>Environment.</span>
-        </h1>
 
-        <div class="hero-buttons">
+    <!-- =================== HERO =================== -->
 
-            <a href="register.html" class="primary-btn">
-                Join StudentConnect
+
+    <section class="hero">
+
+
+        <!-- LEFT: copy + stats -->
+        <div class="hero-content">
+
+
+            <span class="hero-badge">
+                <svg class="badge-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                </svg>
+                2026 Academic Year &nbsp;·&nbsp; Rosebank Institute
+            </span>
+
+
+            <h1>
+                Welcome To RI Student
+                <span>Environment.</span>
+            </h1>
+
+
+            <p>
+                Your all-in-one campus platform — discover events,
+                connect with fellow students, access services and
+                make your voice heard across all eight RI campuses.
+            </p>
+
+
+            <div class="hero-buttons">
+                <a href="register.html" class="primary-btn">
+                    Join StudentConnect
+                </a>
+                <a href="events.html" class="secondary-btn">
+                    Explore Events <span aria-hidden="true">→</span>
+                </a>
+            </div>
+
+
+            <div class="hero-stats">
+                <div>
+                    <strong>5000+</strong>
+                    <span>Students</span>
+                </div>
+                <div>
+                    <strong>8</strong>
+                    <span>Campuses</span>
+                </div>
+                <div>
+                    <strong>40+</strong>
+                    <span>Programs</span>
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+        <!-- RIGHT: activity card + floating badges -->
+        <div class="hero-visual">
+
+
+            <div class="main-card">
+
+
+                <div class="card-header">
+                    <span class="online-dot"></span>
+                    Campus Activity — Live
+                </div>
+
+
+                <h3>What's happening today</h3>
+
+
+                <div class="activity">
+                    <div class="activity-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>SRC Office Hours</strong>
+                        <p>Admin Block · 09:00 – 12:00</p>
+                    </div>
+                </div>
+
+
+                <div class="activity">
+                    <div class="activity-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/>
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Online Open Study Area
+                            for students that are doing same
+                             qualification across all campues
+                        </strong>
+                        <p>Library · All day</p>
+                    </div>
+                </div>
+
+
+                <div class="activity">
+                    <div class="activity-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="8" r="7"/>
+                            <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <strong>Register for Sport Activity on your dedicated Campus</strong>
+                        <p>Reception · Closes Friday</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <!-- Floating badges -->
+            <div class="floating-card floating-one">
+                <svg class="float-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                &nbsp;<strong>Next Event:</strong> End of the Year Bash
+            </div>
+
+
+            <div class="floating-card floating-two">
+                <svg class="float-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                    <circle cx="9" cy="7" r="4"/>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+                &nbsp;5000+ students registered
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================== FEATURES =================== -->
+
+
+    <section class="features">
+
+
+        <div class="section-heading">
+            <span>WHY STUDENTCONNECT?</span>
+            <h2>
+                Everything students need,
+                <strong>in one place.</strong>
+            </h2>
+            <p>
+                Stay informed, get involved and connect with
+                students across all campuses.
+            </p>
+        </div>
+
+
+        <div class="feature-grid">
+
+
+            <!-- Events -->
+            <article class="feature-card">
+                <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="4" width="18" height="17" rx="2"/>
+                        <path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/>
+                        <path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/>
+                        <path d="M8 18h.01"/><path d="M12 18h.01"/>
+                    </svg>
+                </div>
+                <h3>Discover Events</h3>
+                <p>
+                    Find campus events, workshops, social gatherings
+                    and student programmes happening near you.
+                </p>
+                <a href="events.html">Explore Events <span aria-hidden="true">→</span></a>
+            </article>
+
+
+            <!-- Programs -->
+            <article class="feature-card">
+                <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M3 10l9-5 9 5-9 5-9-5Z"/>
+                        <path d="M7 12.5V17c2.5 2 7.5 2 10 0v-4.5"/>
+                        <path d="M21 10v6"/>
+                    </svg>
+                </div>
+                <h3>Student Programs</h3>
+                <p>
+                    Discover over 40 opportunities designed to help
+                    you learn, participate and grow throughout the year.
+                </p>
+                <a href="programs.html">View Programs <span aria-hidden="true">→</span></a>
+            </article>
+
+
+            <!-- Community -->
+            <article class="feature-card">
+                <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 11.5a8 8 0 0 1-8.5 8 8.5 8.5 0 0 1-4-.9L3 20l1.5-4.2A8 8 0 1 1 21 11.5Z"/>
+                        <path d="M8 11h.01"/><path d="M12 11h.01"/><path d="M16 11h.01"/>
+                    </svg>
+                </div>
+                <h3>Student Community</h3>
+                <p>
+                    Ask questions, share knowledge and connect with
+                    students across all three RI campuses.
+                </p>
+                <a href="community.html">Join Community <span aria-hidden="true">→</span></a>
+            </article>
+
+
+            <!-- SRC -->
+            <article class="feature-card">
+                <div class="feature-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                         stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/>
+                        <path d="M3 20a6 6 0 0 1 12 0"/>
+                        <path d="M14 20a5 5 0 0 1 7 0"/>
+                    </svg>
+                </div>
+                <h3>Connect With SRC</h3>
+                <p>
+                    Stay connected with your Student Representative
+                    Council — your voice in campus leadership.
+                </p>
+                <a href="src.html">Meet the SRC <span aria-hidden="true">→</span></a>
+            </article>
+
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =================== IMPACT =================== -->
+
+
+    <section class="impact">
+
+
+        <div class="impact-content">
+
+
+            <span>OUR IMPACT</span>
+
+
+            <h2>
+                Your campus.
+                <br>Your community.
+                <br><strong>Your voice.</strong>
+            </h2>
+
+
+            <p>
+                StudentConnect gives every RI student a central platform
+                to participate in campus life, access services, and make
+                their voices heard — across all three campuses.
+            </p>
+
+
+            <a href="impact.html" class="primary-btn">
+                See Our Impact
             </a>
 
-            <a href="events.html" class="secondary-btn">
-                Explore Events →
-            </a>
 
         </div>
 
-    </div>
 
-</section>
-    
-<!-- ================= FEATURES ================= -->
-
-<section class="features">
-
-    <div class="section-heading">
-
-        <span>WHY STUDENTCONNECT?</span>
-
-        <h2>
-            Everything students need,
-            <strong>in one place.</strong>
-        </h2>
-
-        <p>
-            Stay informed, get involved and connect with
-            students across campuses.
-        </p>
-
-    </div>
-
-    <div class="feature-grid">
-
-        <article class="feature-card">
-
-            <div class="feature-icon">📅</div>
-
-            <h3>Discover Events</h3>
-
-            <p>
-                Find campus events, activities, workshops,
-                social gatherings and student programmes.
-            </p>
-
-            <a href="events.html">Explore Events →</a>
-
-        </article>
+        <div class="impact-box">
 
 
-        <article class="feature-card">
-
-            <div class="feature-icon">🎓</div>
-
-            <h3>Student Programs</h3>
-
-            <p>
-                Discover opportunities designed to help
-                students learn, participate and grow.
-            </p>
-
-            <a href="programs.html">View Programs →</a>
-
-        </article>
+            <div class="impact-item">
+                <strong>Step One</strong>
+                <h3>Connect</h3>
+                <p>
+                    Meet students from all campuses and build
+                    connections that last beyond graduation.
+                </p>
+            </div>
 
 
-        <article class="feature-card">
-
-            <div class="feature-icon">💬</div>
-
-            <h3>Student Community</h3>
-
-            <p>
-                Ask questions, share knowledge and interact
-                with students from different campuses.
-            </p>
-
-            <a href="community.html">Join Community →</a>
-
-        </article>
+            <div class="impact-item">
+                <strong>Step Two</strong>
+                <h3>Participate</h3>
+                <p>
+                    Take part in events, clubs and programmes
+                    built around student life at RI.
+                </p>
+            </div>
 
 
-        <article class="feature-card">
-
-            <div class="feature-icon">🤝</div>
-
-            <h3>Connect With SRC</h3>
-
-            <p>
-                Stay connected with Student Representative
-                Council members and campus leadership.
-            </p>
-
-            <a href="src.html">Meet the SRC →</a>
-
-        </article>
-
-    </div>
-
-</section>
-
-    <!-- ================= IMPACT ================= -->
-
-<section class="impact">
-
-    <div class="impact-content">
-
-        <span>OUR IMPACT</span>
-
-        <h2>
-            Your campus.
-            <br>
-            Your community.
-            <br>
-            <strong>Your voice.</strong>
-        </h2>
-
-        <p>
-            StudentConnect gives students a central platform
-            to participate in campus life and have their voices
-            heard.
-        </p>
-
-        <a href="impact.html" class="primary-btn">
-            Learn More
-        </a>
-
-    </div>
+            <div class="impact-item">
+                <strong>Step Three</strong>
+                <h3>Make an Impact</h3>
+                <p>
+                    Share ideas with the SRC, shape campus
+                    decisions and contribute to your community.
+                </p>
+            </div>
 
 
-    <div class="impact-box">
-
-        <div class="impact-item">
-            <strong>01</strong>
-
-            <h3>Connect</h3>
-
-            <p>
-                Meet students and build meaningful connections.
-            </p>
         </div>
 
 
-        <div class="impact-item">
-            <strong>02</strong>
-
-            <h3>Participate</h3>
-
-            <p>
-                Take part in events, programmes and activities.
-            </p>
-        </div>
+    </section>
 
 
-        <div class="impact-item">
-            <strong>03</strong>
 
-            <h3>Make an Impact</h3>
-
-            <p>
-                Share ideas and contribute to your community.
-            </p>
-        </div>
-
-    </div>
-
-</section>
+    <!-- =================== CTA =================== -->
 
 
-   <!-- ================= CTA ================= -->
+    <section class="cta">
 
-<section class="cta">
-
-    <div>
-
-        <span>READY TO GET STARTED?</span>
-
-        <h2>
-            Your student community
-            is waiting.
-        </h2>
-
-        <p>
-            Create your account and start connecting today.
-        </p>
-
-        <a href="register.html" class="cta-button">
-            Create Your Account →
-        </a>
-
-    </div>
-
-</section>
-</main>
-<footer>
-
-    <div class="footer-content">
 
         <div>
 
-            <a href="index.html" class="logo">
-                Student<span>Connect</span>
-            </a>
 
+            <span>READY TO GET STARTED?</span>
+
+
+            <h2>Your student community is waiting.</h2>
+
+
+            <p>
+                Create your free account and start connecting with
+                students, events and campus life today.
+            </p>
+
+
+            <div class="cta-buttons">
+                <a href="register.html" class="cta-button">
+                    Create Your Account <span aria-hidden="true">→</span>
+                </a>
+                <a href="about.html" class="secondary-btn">
+                    Learn More
+                </a>
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+</main>
+
+
+
+<!-- ===================================================
+     FOOTER
+     =================================================== -->
+
+
+<footer>
+
+
+    <div class="footer-content">
+
+
+        <div>
+            <a href="index.html" class="logo">
+                <img src="Rosebank Logo.webp"
+                     alt="RI Student Environment"
+                     style="filter: brightness(0) invert(1);">
+            </a>
             <p>
                 Connecting students.
                 Building communities.
                 Creating impact.
             </p>
-
         </div>
 
 
         <div class="footer-links">
-
             <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="impact.html">Impact</a>
-            <a href="programs.html">Programs</a>
-            <a href="events.html">Events</a>
-            <a href="src.html">SRC</a>
-            <a href="community.html">Community</a>
             <a href="login.html">Login</a>
             <a href="register.html">Join Us</a>
             <a href="contact.html">Contact</a>
-
         </div>
+
 
     </div>
 
 
     <div class="copyright">
-        © 2026 StudentConnect. All rights reserved.
+        © 2026 RI Student Environment. All rights reserved.
     </div>
+
 
 </footer>
 
+
+
+<!-- ===================================================
+     JAVASCRIPT
+     =================================================== -->
+
+
+<script>
+  /* RI Welcome Overlay — dismiss on button click or anywhere */
+  (function () {
+    var overlay = document.getElementById('ri-intro-overlay');
+    if (!overlay) return;
+
+
+    document.body.classList.add('ri-loading');
+
+
+    function dismiss() {
+      overlay.classList.add('ri-out');
+      document.body.classList.remove('ri-loading');
+      setTimeout(function () {
+        if (overlay.parentNode) overlay.parentNode.removeChild(overlay);
+      }, 800);
+    }
+
+
+    overlay.addEventListener('click', dismiss);
+  }());
+</script>
+
+
 <script src="sidebar.js"></script>
+
+
 </body>
 </html>
-

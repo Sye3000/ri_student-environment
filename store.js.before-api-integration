@@ -1,0 +1,527 @@
+const savedStudent = localStorage.getItem("ri_student");
+
+let studentWalletId = "guest";
+
+if (savedStudent) {
+    try {
+        const student = JSON.parse(savedStudent);
+        studentWalletId = student.student_number || student.student_id || student.email || "guest";
+    } catch {
+        studentWalletId = "guest";
+    }
+}
+
+const walletKey = `studentWallet_${studentWalletId}`;
+
+const savedWallet = localStorage.getItem(walletKey);
+
+const wallet = savedWallet ? JSON.parse(savedWallet) : { balance: 1000, transactions: [] };
+
+function saveWallet() {
+    localStorage.setItem(walletKey, JSON.stringify(wallet));
+}
+
+function updateWalletDisplay() {
+    const balanceElement = document.getElementById("walletBalance");
+    if (!balanceElement) return;
+    balanceElement.textContent = `R${wallet.balance.toFixed(2)}`;
+}
+
+function addFunds(amount) {
+    if (amount <= 0) return false;
+
+    wallet.balance += amount;
+    wallet.transactions.push({ type: "top-up", amount, date: new Date().toISOString() });
+
+    saveWallet();
+    updateWalletDisplay();
+    return true;
+}
+
+const cartKey = "storeCart";
+const savedCart = localStorage.getItem(cartKey);
+const cart = savedCart ? JSON.parse(savedCart) : [];
+const storeOrderHistoryKey = "ri_store_order_history";
+
+const products = [
+    { id: 1, name: "Signature Campus Hoodie", price: 480, cat: "clothing", image: "Hoodies.jpeg", description: "Heavyweight fleece hoodie with premium knit finish and bold campus branding." }
+];
+
+function getStoreOrderHistory() {
+    const saved = localStorage.getItem(storeOrderHistoryKey);
+    if (saved) {
+        try {
+            const parsed = JSON.parse(saved);
+            if (Array.isArray(parsed) && parsed.length) return parsed;
+        } catch (error) {
+            console.error("Invalid store order history:", error);
+        }
+    }
+
+    const starterOrders = [
+        {
+            id: "ST-1048",
+            date: "2026-08-15",
+            deliveryDate: "2026-08-18",
+            total: 960,
+            quantity: 2,
+            status: "Delivered",
+            lastUpdate: "2026-08-18",
+            reference: "HOODIE-1048",
+            items: [{ id: 1, name: "Signature Campus Hoodie", quantity: 2 }]
+        },
+        {
+            id: "ST-1193",
+            date: "2026-08-27",
+            deliveryDate: "2026-08-30",
+            total: 480,
+            quantity: 1,
+            status: "In transit",
+            lastUpdate: "2026-08-29",
+            reference: "HOODIE-1193",
+            items: [{ id: 1, name: "Signature Campus Hoodie", quantity: 1 }]
+        },
+        {
+            id: "ST-1227",
+            date: "2026-09-02",
+            deliveryDate: "2026-09-05",
+            total: 1440,
+            quantity: 3,
+            status: "Processing",
+            lastUpdate: "2026-09-02",
+            reference: "HOODIE-1227",
+            items: [{ id: 1, name: "Signature Campus Hoodie", quantity: 3 }]
+        }
+    ];
+
+    localStorage.setItem(storeOrderHistoryKey, JSON.stringify(starterOrders));
+    return starterOrders;
+}
+
+function saveStoreOrderHistory(orders) {
+    localStorage.setItem(storeOrderHistoryKey, JSON.stringify(orders));
+}
+
+function addStoreOrderRecord(total, quantity, status = "Processing") {
+    const orders = getStoreOrderHistory();
+    const today = new Date();
+    const nextId = `ST-${Math.floor(1000 + Math.random() * 9000)}`;
+    const order = {
+        id: nextId,
+        date: today.toISOString().slice(0, 10),
+        deliveryDate: new Date(today.getTime() + 3 * 86400000).toISOString().slice(0, 10),
+        total: Number(total),
+        quantity: Number(quantity),
+        status: status,
+        lastUpdate: today.toISOString().slice(0, 10),
+        reference: `${nextId.toLowerCase()}-ref`,
+        items: cart.map(item => ({ id: item.id, name: item.name, quantity: item.quantity }))
+    };
+    orders.unshift(order);
+    saveStoreOrderHistory(orders);
+    renderStoreOrderHistory();
+}
+
+function renderStoreOrderHistory() {
+    const tbody = document.getElementById("storeOrderHistoryBody");
+    if (!tbody) return;
+
+    const fromDate = document.getElementById("storeOrderFromDate")?.value || "";
+    const toDate = document.getElementById("storeOrderToDate")?.value || "";
+    const statusFilter = document.getElementById("storeOrderStatus")?.value || "all";
+    const referenceFilter = (document.getElementById("storeOrderReference")?.value || "").trim().toLowerCase();
+
+    const rows = getStoreOrderHistory().filter(order => {
+        const matchesFrom = !fromDate || order.date >= fromDate;
+        const matchesTo = !toDate || order.date <= toDate;
+        const matchesStatus = statusFilter === "all" || order.status === statusFilter;
+        const matchesReference = !referenceFilter || order.reference.toLowerCase().includes(referenceFilter) || order.id.toLowerCase().includes(referenceFilter);
+        return matchesFrom && matchesTo && matchesStatus && matchesReference;
+    });
+
+    if (!rows.length) {
+        tbody.innerHTML = '<tr><td colspan="8" style="padding:20px;color:#64748b;text-align:center;">No matching orders found.</td></tr>';
+        return;
+    }
+
+    tbody.innerHTML = rows.map(order => `
+        <tr>
+            <td>${order.id}</td>
+            <td>${order.date}</td>
+            <td>${order.deliveryDate}</td>
+            <td>R${Number(order.total).toFixed(2)}</td>
+            <td>${order.quantity}</td>
+            <td>${order.lastUpdate}</td>
+            <td><button type="button" class="view-btn" data-order-id="${order.id}">View</button></td>
+            <td><button type="button" class="reorder-btn" data-order-id="${order.id}">Re-order</button></td>
+        </tr>
+    `).join("");
+
+    tbody.querySelectorAll(".view-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            const order = getStoreOrderHistory().find(item => item.id === button.dataset.orderId);
+            if (!order) return;
+            alert(`${order.id}\nStatus: ${order.status}\nReference: ${order.reference}\nTotal: R${Number(order.total).toFixed(2)}\nItems: ${order.items.map(item => `${item.name} x${item.quantity}`).join(", ")}`);
+        });
+    });
+
+    tbody.querySelectorAll(".reorder-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            const order = getStoreOrderHistory().find(item => item.id === button.dataset.orderId);
+            if (!order) return;
+            order.items.forEach(item => {
+                const product = products.find(productItem => productItem.id === item.id);
+                if (product) {
+                    cart.push({ id: product.id, name: product.name, price: product.price, quantity: item.quantity });
+                }
+            });
+            saveCart();
+            renderCart();
+            alert(`Added ${order.items.map(item => `${item.name} x${item.quantity}`).join(", ")} back to your cart.`);
+        });
+    });
+}
+
+const grid = document.getElementById("productGrid");
+
+const demoViewer = document.getElementById("demoViewer");
+const demoRotateBtn = document.querySelector(".demo-rotate-btn");
+
+if (demoViewer) {
+    const rotationAngles = [0, 35, 75, 120, 165, 220, 275, 330];
+    let demoIndex = 0;
+
+    function applyDemoRotation(index) {
+        const image = demoViewer.querySelector(".demo-image");
+        if (!image) return;
+
+        const angle = rotationAngles[index % rotationAngles.length];
+        image.style.transform = `perspective(1200px) rotateY(${angle}deg) rotateX(7deg) scale(1.04)`;
+        demoViewer.classList.add("is-rotating");
+        clearTimeout(demoViewer.demoTimer);
+        demoViewer.demoTimer = setTimeout(() => {
+            demoViewer.classList.remove("is-rotating");
+        }, 700);
+    }
+
+    function cycleDemoRotation() {
+        demoIndex += 1;
+        applyDemoRotation(demoIndex);
+    }
+
+    demoViewer.addEventListener("click", cycleDemoRotation);
+    if (demoRotateBtn) {
+        demoRotateBtn.addEventListener("click", cycleDemoRotation);
+    }
+
+    applyDemoRotation(demoIndex);
+}
+
+function createProductCard(product) {
+    const card = document.createElement("article");
+    card.className = "product-card";
+    card.dataset.category = product.cat;
+
+    const imageWrap = document.createElement("div");
+    imageWrap.className = "product-image";
+    imageWrap.setAttribute("aria-hidden", "true");
+
+    const img = document.createElement("img");
+    img.src = product.image;
+    img.alt = product.name;
+    img.className = "product-img";
+    imageWrap.appendChild(img);
+
+    const meta = document.createElement("div");
+    meta.className = "product-meta";
+    meta.textContent = product.cat;
+
+    const name = document.createElement("h3");
+    name.textContent = product.name;
+
+    const description = document.createElement("p");
+    description.textContent = product.description;
+
+    const priceRow = document.createElement("div");
+    priceRow.className = "product-price-row";
+
+    const price = document.createElement("span");
+    price.className = "price";
+    price.textContent = `R${product.price}`;
+
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "btn-menu";
+    btn.textContent = "Add to cart";
+    btn.addEventListener("click", () => addToCart(product.id));
+
+    priceRow.append(price, btn);
+    card.append(imageWrap, meta, name, description, priceRow);
+    return card;
+}
+
+function render(category = "all") {
+    if (!grid) return;
+
+    const filtered = category === "all" ? products : products.filter(product => product.cat === category);
+    const fragment = document.createDocumentFragment();
+
+    filtered.forEach(product => fragment.appendChild(createProductCard(product)));
+    grid.replaceChildren(fragment);
+}
+
+function setupCategoryButtons() {
+    const buttons = document.querySelectorAll(".category-btn");
+    if (!buttons.length) return;
+
+    buttons.forEach(button => {
+        button.addEventListener("click", () => {
+            buttons.forEach(categoryButton => {
+                const selected = categoryButton === button;
+                categoryButton.classList.toggle("active", selected);
+                categoryButton.setAttribute("aria-pressed", String(selected));
+            });
+            render(button.dataset.category);
+        });
+    });
+}
+
+function saveCart() {
+    localStorage.setItem(cartKey, JSON.stringify(cart));
+}
+
+function addToCart(productId) {
+    const product = products.find(item => item.id === productId);
+    if (!product) return;
+
+    const existingItem = cart.find(item => item.id === productId);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push({ id: product.id, name: product.name, price: product.price, quantity: 1 });
+    }
+
+    saveCart();
+    renderCart();
+}
+
+function removeFromCart(productId) {
+    const index = cart.findIndex(item => item.id === productId);
+    if (index === -1) return;
+
+    cart.splice(index, 1);
+    saveCart();
+    renderCart();
+}
+
+function calculateCartTotal() {
+    return cart.reduce((total, item) => total + item.price * item.quantity, 0);
+}
+
+function renderCart() {
+    const cartContainer = document.getElementById("cartItems");
+    const totalElement = document.getElementById("cartTotal");
+
+    if (!cartContainer || !totalElement) return;
+
+    if (cart.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+        totalElement.textContent = "R0.00";
+        return;
+    }
+
+    cartContainer.replaceChildren();
+    cart.forEach(item => {
+        const cartItem = document.createElement("div");
+        cartItem.className = "cart-item";
+
+        const itemName = document.createElement("span");
+        itemName.textContent = `${item.name} × ${item.quantity}`;
+
+        const itemPrice = document.createElement("span");
+        itemPrice.textContent = `R${(item.price * item.quantity).toFixed(2)}`;
+
+        const removeButton = document.createElement("button");
+        removeButton.type = "button";
+        removeButton.textContent = "Remove";
+        removeButton.addEventListener("click", () => removeFromCart(item.id));
+
+        cartItem.append(itemName, itemPrice, removeButton);
+        cartContainer.appendChild(cartItem);
+    });
+
+    totalElement.textContent = `R${calculateCartTotal().toFixed(2)}`;
+}
+
+function checkout() {
+    const checkoutMessage = document.getElementById("checkoutMessage");
+    if (!checkoutMessage) return;
+
+    if (cart.length === 0) {
+        checkoutMessage.textContent = "Your cart is empty.";
+        return;
+    }
+
+    const total = calculateCartTotal();
+    if (wallet.balance < total) {
+        checkoutMessage.textContent = "Insufficient wallet balance.";
+        return;
+    }
+
+    wallet.balance -= total;
+    wallet.transactions.push({
+        type: "purchase",
+        amount: total,
+        items: cart.map(item => ({ name: item.name, quantity: item.quantity })),
+        date: new Date().toISOString()
+    });
+
+    cart.length = 0;
+    saveWallet();
+    saveCart();
+    updateWalletDisplay();
+    renderCart();
+    addStoreOrderRecord(total, cart.reduce((count, item) => count + item.quantity, 0), "Processing");
+    checkoutMessage.textContent = `Purchase successful. R${total.toFixed(2)} was deducted from your wallet.`;
+}
+
+function renderTransactionHistory() {
+    const historyContainer = document.getElementById("transactionHistory");
+    if (!historyContainer) return;
+
+    if (wallet.transactions.length === 0) {
+        historyContainer.innerHTML = "<p>No transactions yet.</p>";
+        return;
+    }
+
+    historyContainer.replaceChildren();
+    const transactions = [...wallet.transactions].reverse();
+
+    transactions.forEach(transaction => {
+        const item = document.createElement("article");
+        item.className = "transaction-item";
+
+        const info = document.createElement("div");
+        info.className = "transaction-info";
+
+        const type = document.createElement("strong");
+        if (transaction.type === "top-up") {
+            type.textContent = "Wallet Top-up";
+        } else if (transaction.type === "purchase") {
+            type.textContent = "Store Purchase";
+        } else {
+            type.textContent = "Transaction";
+        }
+
+        const date = document.createElement("small");
+        date.textContent = new Date(transaction.date).toLocaleString();
+
+        info.append(type, date);
+
+        const amount = document.createElement("strong");
+        const isCredit = transaction.type === "top-up";
+        amount.textContent = `${isCredit ? "+" : "-"}R${transaction.amount.toFixed(2)}`;
+        amount.className = isCredit ? "transaction-credit" : "transaction-debit";
+
+        item.append(info, amount);
+        historyContainer.appendChild(item);
+    });
+}
+
+function renderAccountDashboard() {
+    const savedStudent = JSON.parse(localStorage.getItem("ri_student") || "null");
+    const badge = document.getElementById("accountProfileBadge");
+    const studentName = document.getElementById("accountStudentName");
+    const studentNumber = document.getElementById("accountStudentNumber");
+    const studentEmail = document.getElementById("accountStudentEmail");
+    const studentCampus = document.getElementById("accountStudentCampus");
+    const studentProgram = document.getElementById("accountStudentProgram");
+    const profileStatus = document.getElementById("accountProfileStatus");
+
+    if (!savedStudent) {
+        if (badge) badge.textContent = "GS";
+        if (studentName) studentName.textContent = "Guest Student";
+        if (studentNumber) studentNumber.textContent = "Not connected";
+        if (studentEmail) studentEmail.textContent = "Not connected";
+        if (studentCampus) studentCampus.textContent = "Not connected";
+        if (studentProgram) studentProgram.textContent = "Not connected";
+        if (profileStatus) profileStatus.textContent = "Not connected";
+        return;
+    }
+
+    const name = savedStudent.name || "Student";
+    const initials = name
+        .split(" ")
+        .map(part => part[0])
+        .slice(0, 2)
+        .join("")
+        .toUpperCase() || "ST";
+
+    if (badge) badge.textContent = initials;
+    if (studentName) studentName.textContent = name;
+    if (studentNumber) studentNumber.textContent = savedStudent.student_number || "Not provided";
+    if (studentEmail) studentEmail.textContent = savedStudent.email || "Not provided";
+    if (studentCampus) studentCampus.textContent = savedStudent.campus || "Not provided";
+    if (studentProgram) studentProgram.textContent = savedStudent.program || "Not provided";
+    if (profileStatus) profileStatus.textContent = "Connected";
+}
+
+const addFundsButton = document.getElementById("addFundsBtn");
+const topupInput = document.getElementById("topupAmount");
+const walletMessage = document.getElementById("walletMessage");
+
+if (addFundsButton) {
+    addFundsButton.addEventListener("click", () => {
+        const amount = Number(topupInput.value);
+
+        if (!Number.isFinite(amount) || amount <= 0) {
+            walletMessage.textContent = "Please enter a valid amount.";
+            return;
+        }
+
+        addFunds(amount);
+        walletMessage.textContent = `R${amount.toFixed(2)} added successfully.`;
+        topupInput.value = "";
+    });
+}
+
+setupCategoryButtons();
+render();
+renderCart();
+updateWalletDisplay();
+renderTransactionHistory();
+renderAccountDashboard();
+renderStoreOrderHistory();
+
+const checkoutButton = document.getElementById("checkoutBtn");
+if (checkoutButton) {
+    checkoutButton.addEventListener("click", checkout);
+}
+
+const storeOrderSearchBtn = document.getElementById("storeOrderSearchBtn");
+if (storeOrderSearchBtn) {
+    storeOrderSearchBtn.addEventListener("click", renderStoreOrderHistory);
+}
+
+const storeOrderClearBtn = document.getElementById("storeOrderClearBtn");
+if (storeOrderClearBtn) {
+    storeOrderClearBtn.addEventListener("click", () => {
+        const fromDate = document.getElementById("storeOrderFromDate");
+        const toDate = document.getElementById("storeOrderToDate");
+        const status = document.getElementById("storeOrderStatus");
+        const reference = document.getElementById("storeOrderReference");
+        if (fromDate) fromDate.value = "";
+        if (toDate) toDate.value = "";
+        if (status) status.value = "all";
+        if (reference) reference.value = "";
+        renderStoreOrderHistory();
+    });
+}
+
+["storeOrderFromDate", "storeOrderToDate", "storeOrderStatus", "storeOrderReference"].forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+        element.addEventListener("input", renderStoreOrderHistory);
+        element.addEventListener("change", renderStoreOrderHistory);
+    }
+});

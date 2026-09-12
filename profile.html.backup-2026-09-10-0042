@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>My Profile | RI Student Environment</title>
+
+<meta
+    name="description"
+    content="Student profile, account balance and campus information for RI Student Environment."
+>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body class="dashboard-page profile-page">
+
+<header class="dashboard-header">
+
+<div class="dashboard-container dashboard-nav">
+
+    <a
+        href="dashboard.html"
+        class="dashboard-logo"
+    >
+        <img
+            src="Rosebank Logo.webp"
+            alt="RI Student Environment"
+        >
+    </a>
+
+    <nav class="dashboard-nav-links">
+
+        <a href="dashboard.html">Dashboard</a>
+
+        <a href="events.html">Events</a>
+
+        <a href="programs.html">Programs</a>
+
+        <a href="community.html">Community</a>
+
+        <a href="src.html">SRC</a>
+
+    </nav>
+
+    <div class="dashboard-actions">
+
+        <a
+            href="profile.html"
+            class="profile-link active"
+        >
+            My Profile
+        </a>
+
+        <a
+            href="index.html"
+            class="logout-button"
+        >
+            Logout
+        </a>
+
+    </div>
+
+</div>
+
+</header>
+
+<main>
+
+<!-- =========================
+     PROFILE HERO
+========================= -->
+
+<section class="profile-hero">
+
+<div class="dashboard-container">
+
+    <div class="profile-hero-content">
+
+        <div class="profile-picture-wrapper">
+
+            <img
+                id="profile-picture"
+                src="Technology and Innovation.jpeg"
+                alt="Student profile picture"
+                class="profile-picture"
+            >
+
+            <span
+                class="profile-online-indicator"
+                title="Account active"
+            ></span>
+
+        </div>
+
+        <div class="profile-hero-info">
+
+            <p class="dashboard-eyebrow">
+                STUDENT PROFILE
+            </p>
+
+            <h1>
+                Welcome, <strong id="profile-hero-name">Student</strong>
+            </h1>
+
+            <p>
+                <span id="profile-hero-number">
+                    Loading student number...
+                </span>
+            </p>
+
+            <span class="profile-role-badge">
+                <span id="profile-hero-role">Student</span>
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- =========================
+     STUDENT ACCOUNT
+========================= -->
+
+<section class="dashboard-section profile-account-section">
+
+<div class="dashboard-container">
+
+    <div class="student-account-card">
+
+        <div class="student-account-main">
+
+            <div>
+
+                <p class="account-eyebrow">
+                    STUDENT ACCOUNT
+                </p>
+
+                <h2>
+                    Available Balance
+                </h2>
+
+                <div class="account-balance">
+                    R<span id="student-wallet-balance">0.00</span>
+                </div>
+
+                <p class="account-description">
+                    Your student account balance can be used
+                    across the RI Student Environment.
+                </p>
+
+            </div>
+
+            <div class="account-wallet-icon">
+                <i class="fas fa-wallet" aria-hidden="true"></i>
+            </div>
+
+        </div>
+
+
+        <div class="account-divider"></div>
+
+
+        <div class="account-uses">
+
+            <div class="account-use-item">
+
+                <span class="account-use-icon">
+                    <i class="fas fa-ticket-alt" aria-hidden="true"></i>
+                </span>
+
+                <div>
+                    <strong>Events</strong>
+                    <span>Book campus events and activities</span>
+                </div>
+
+            </div>
+
+
+            <div class="account-use-item">
+
+                <span class="account-use-icon">
+                    <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+                </span>
+
+                <div>
+                    <strong>University Store</strong>
+                    <span>Purchase student merchandise</span>
+                </div>
+
+            </div>
+
+
+            <div class="account-use-item">
+
+                <span class="account-use-icon">
+                    <i class="fas fa-utensils" aria-hidden="true"></i>
+                </span>
+
+                <div>
+                    <strong>Campus Dining</strong>
+                    <span>Pay for food and refreshments</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="account-actions">
+
+            <button
+                type="button"
+                class="account-add-funds"
+                onclick="addFunds()"
+            >
+                + Add Funds
+            </button>
+
+            <a
+                href="dashboard.html"
+                class="account-history-link"
+            >
+                View Dashboard →
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- =========================
+     PROFILE INFORMATION
+========================= -->
+
+<section class="dashboard-section">
+
+<div class="dashboard-container">
+
+    <div class="dashboard-grid">
+
+
+        <!-- STUDENT INFORMATION -->
+
+        <article class="dashboard-card profile-information-card">
+
+            <div class="dashboard-card-icon">
+                <i class="fas fa-user" aria-hidden="true"></i>
+            </div>
+
+            <h3>
+                Student Information
+            </h3>
+
+            <p>
+                <strong>Full Name</strong><br>
+
+                <span id="profile-full-name">
+                    Loading...
+                </span>
+            </p>
+
+            <p>
+                <strong>Student Number</strong><br>
+
+                <span id="profile-student-number">
+                    Loading...
+                </span>
+            </p>
+
+            <p>
+                <strong>Email</strong><br>
+
+                <span id="profile-email">
+                    Loading...
+                </span>
+            </p>
+
+            <p>
+                <strong>Role</strong><br>
+
+                <span id="profile-role">
+                    Loading...
+                </span>
+
+                <small class="profile-help">
+                    Your access level in the student environment.
+                </small>
+
+            </p>
+
+        </article>
+
+
+        <!-- CAMPUS INFORMATION -->
+
+        <article class="dashboard-card profile-information-card">
+
+            <div class="dashboard-card-icon">
+                <i class="fas fa-building" aria-hidden="true"></i>
+            </div>
+
+            <h3>
+                Campus Information
+            </h3>
+
+            <p>
+                <strong>Campus</strong><br>
+
+                <span id="profile-campus">
+                    Loading...
+                </span>
+            </p>
+
+            <p>
+                <strong>Campus Code</strong><br>
+
+                <span id="profile-campus-code">
+                    Loading...
+                </span>
+
+                <small class="profile-help">
+                    The short code used to identify your campus.
+                </small>
+
+            </p>
+
+            <p>
+                <strong>City</strong><br>
+
+                <span id="profile-city">
+                    Loading...
+                </span>
+            </p>
+
+        </article>
+
+
+        <!-- ACCOUNT STATUS -->
+
+        <article class="dashboard-card profile-information-card">
+
+            <div class="dashboard-card-icon">
+                <i class="fas fa-shield-alt" aria-hidden="true"></i>
+            </div>
+
+            <h3>
+                Account Status
+            </h3>
+
+            <p>
+                <strong>Status</strong><br>
+
+                <span
+                    id="profile-status"
+                    class="account-status"
+                >
+                    Loading...
+                </span>
+
+                <small class="profile-help">
+                    Active means your account can access
+                    the student portal.
+                </small>
+
+            </p>
+
+
+            <p>
+                <strong>Student Wallet</strong><br>
+
+                <span class="wallet-status">
+                    Ready for payments
+                </span>
+            </p>
+
+
+            <p
+                id="profile-error"
+                class="profile-error"
+                role="alert"
+                hidden
+            >
+                We could not load your profile.
+                Please try again.
+
+                <a href="profile.html">
+                    Try again
+                </a>
+            </p>
+
+
+            <a href="dashboard.html">
+                ← Back to Dashboard
+            </a>
+
+        </article>
+
+    </div>
+
+</div>
+<!-- =====================================================
+     PAYMENT HISTORY
+===================================================== -->
+
+<section class="dashboard-section profile-history-section">
+
+<div class="dashboard-container">
+
+    <div class="section-heading">
+
+        <p class="dashboard-eyebrow">
+            TRANSACTIONS
+        </p>
+
+        <h2>
+            Payment History
+        </h2>
+
+        <p class="section-description">
+            View your recent purchases, event bookings and
+            student account transactions.
+        </p>
+
+    </div>
+
+
+    <div class="payment-history-card">
+
+        <div class="payment-history-header">
+
+            <div>
+                <strong>Recent Transactions</strong>
+                <span>Your latest student account activity</span>
+            </div>
+
+            <span class="transaction-count">
+                4 Transactions
+            </span>
+
+        </div>
+
+
+        <div class="transaction-list">
+
+
+            <!-- EVENT PAYMENT -->
+
+            <div class="transaction-item">
+
+                <div class="transaction-icon event">
+                    <i class="fas fa-ticket-alt" aria-hidden="true"></i>
+                </div>
+
+                <div class="transaction-details">
+
+                    <strong>
+                        Student Leadership Conference
+                    </strong>
+
+                    <span>
+                        Event Ticket • 28 August 2026
+                    </span>
+
+                </div>
+
+                <div class="transaction-amount">
+
+                    <strong class="debit">
+                        - R150.00
+                    </strong>
+
+                    <span class="transaction-status">
+                        Paid
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESTAURANT PAYMENT -->
+
+            <div class="transaction-item">
+
+                <div class="transaction-icon food">
+                    <i class="fas fa-utensils" aria-hidden="true"></i>
+                </div>
+
+                <div class="transaction-details">
+
+                    <strong>
+                        Campus Restaurant
+                    </strong>
+
+                    <span>
+                        Chicken Burger & Drink • 27 August 2026
+                    </span>
+
+                </div>
+
+                <div class="transaction-amount">
+
+                    <strong class="debit">
+                        - R85.00
+                    </strong>
+
+                    <span class="transaction-status">
+                        Paid
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- STORE PAYMENT -->
+
+            <div class="transaction-item">
+
+                <div class="transaction-icon store">
+                    <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+                </div>
+
+                <div class="transaction-details">
+
+                    <strong>
+                        University Store
+                    </strong>
+
+                    <span>
+                        University Hoodie • 25 August 2026
+                    </span>
+
+                </div>
+
+                <div class="transaction-amount">
+
+                    <strong class="debit">
+                        - R480.00
+                    </strong>
+
+                    <span class="transaction-status">
+                        Paid
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- ACCOUNT TOP-UP -->
+
+            <div class="transaction-item">
+
+                <div class="transaction-icon deposit">
+                    <i class="fas fa-plus-circle" aria-hidden="true"></i>
+                </div>
+
+                <div class="transaction-details">
+
+                    <strong>
+                        Student Account Top-up
+                    </strong>
+
+                    <span>
+                        Account deposit • 24 August 2026
+                    </span>
+
+                </div>
+
+                <div class="transaction-amount">
+
+                    <strong class="credit">
+                        + R1,000.00
+                    </strong>
+
+                    <span class="transaction-status deposit-status">
+                        Completed
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="payment-history-footer">
+
+            <button
+                type="button"
+                class="view-all-transactions"
+            >
+                View All Transactions →
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+     NOTIFICATIONS & MESSAGES
+===================================================== -->
+
+<section class="dashboard-section profile-activity-section">
+
+<div class="dashboard-container">
+
+    <div class="activity-grid">
+
+
+        <!-- NOTIFICATIONS -->
+
+        <article class="activity-card">
+
+            <div class="activity-card-header">
+
+                <div>
+
+                    <p class="dashboard-eyebrow">
+                        NOTIFICATIONS
+                    </p>
+
+                    <h2>
+                        Notifications
+                    </h2>
+
+                </div>
+
+                <span class="notification-badge">
+                    3
+                </span>
+
+            </div>
+
+
+            <div class="notification-list">
+
+
+                <div class="notification-item unread">
+
+                    <div class="notification-dot"></div>
+
+                    <div>
+
+                        <strong>
+                            Event booking confirmed
+                        </strong>
+
+                        <p>
+                            Your ticket for the Student Leadership
+                            Conference has been confirmed.
+                        </p>
+
+                        <span>
+                            2 hours ago
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="notification-item unread">
+
+                    <div class="notification-dot"></div>
+
+                    <div>
+
+                        <strong>
+                            Low account balance
+                        </strong>
+
+                        <p>
+                            Your student account balance is below
+                            R500. Consider adding funds.
+                        </p>
+
+                        <span>
+                            Yesterday
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="notification-item unread">
+
+                    <div class="notification-dot"></div>
+
+                    <div>
+
+                        <strong>
+                            New campus event
+                        </strong>
+
+                        <p>
+                            A new student event has been added to
+                            the Events section.
+                        </p>
+
+                        <span>
+                            2 days ago
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="notification-item">
+
+                    <div class="notification-dot hidden"></div>
+
+                    <div>
+
+                        <strong>
+                            Payment successful
+                        </strong>
+
+                        <p>
+                            Your university hoodie order has
+                            been successfully processed.
+                        </p>
+
+                        <span>
+                            4 days ago
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="activity-view-all"
+            >
+                View All Notifications →
+            </button>
+
+        </article>
+
+
+
+        <!-- MESSAGES -->
+
+        <article class="activity-card">
+
+            <div class="activity-card-header">
+
+                <div>
+
+                    <p class="dashboard-eyebrow">
+                        MESSAGES
+                    </p>
+
+                    <h2>
+                        Messages
+                    </h2>
+
+                </div>
+
+                <span class="message-badge">
+                    2
+                </span>
+
+            </div>
+
+
+            <div class="message-list">
+
+
+                <div class="message-item unread">
+
+                    <div class="message-avatar">
+                        SRC
+                    </div>
+
+                    <div class="message-content">
+
+                        <div class="message-title">
+
+                            <strong>
+                                Student Representative Council
+                            </strong>
+
+                            <span>
+                                Today
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Welcome to the new student environment.
+                            Check out the latest SRC announcements.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="message-item unread">
+
+                    <div class="message-avatar">
+                        ADM
+                    </div>
+
+                    <div class="message-content">
+
+                        <div class="message-title">
+
+                            <strong>
+                                Campus Administration
+                            </strong>
+
+                            <span>
+                                Yesterday
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Your student profile information has
+                            been successfully updated.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="message-item">
+
+                    <div class="message-avatar">
+                        EVT
+                    </div>
+
+                    <div class="message-content">
+
+                        <div class="message-title">
+
+                            <strong>
+                                Events Team
+                            </strong>
+
+                            <span>
+                                3 days ago
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Don't miss the upcoming student
+                            activities this month.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="activity-view-all"
+            >
+                View All Messages →
+            </button>
+
+        </article>
+
+    </div>
+
+</div>
+
+</section>
+
+</section>
+
+<!-- =========================
+     QUICK ACTIONS
+========================= -->
+
+<section class="dashboard-section profile-quick-actions">
+
+<div class="dashboard-container">
+
+    <div class="section-heading">
+
+        <p class="dashboard-eyebrow">
+            STUDENT SERVICES
+        </p>
+
+        <h2>
+            What would you like to do?
+        </h2>
+
+    </div>
+
+
+    <div class="quick-action-grid">
+
+        <a
+            href="events.html"
+            class="quick-action-card"
+        >
+
+            <span class="quick-action-icon">
+                <i class="fas fa-ticket-alt" aria-hidden="true"></i>
+            </span>
+
+            <h3>
+                Book an Event
+            </h3>
+
+            <p>
+                Use your student account to book
+                tickets for campus events.
+            </p>
+
+            <span class="quick-action-link">
+                Browse Events →
+            </span>
+
+        </a>
+
+
+        <a
+            href="store.html"
+            class="quick-action-card"
+        >
+
+            <span class="quick-action-icon">
+                <i class="fas fa-shopping-bag" aria-hidden="true"></i>
+            </span>
+
+            <h3>
+                University Store
+            </h3>
+
+            <p>
+                Purchase university clothing,
+                accessories and merchandise.
+            </p>
+
+            <span class="quick-action-link">
+                Visit Store →
+            </span>
+
+        </a>
+
+
+        <a
+            href="restaurant.html"
+            class="quick-action-card"
+        >
+
+            <span class="quick-action-icon">
+                <i class="fas fa-utensils" aria-hidden="true"></i>
+            </span>
+
+            <h3>
+                Campus Dining
+            </h3>
+
+            <p>
+                Browse campus restaurants and
+                purchase food using your account.
+            </p>
+
+            <span class="quick-action-link">
+                View Dining →
+            </span>
+
+        </a>
+
+    </div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
+    

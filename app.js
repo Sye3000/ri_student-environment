@@ -3,8 +3,7 @@
    Frontend Application JavaScript
    ========================================================= */
 
-   const API_BASE_URL = window.RI_API_BASE_URL || "http://192.168.122.10:3000";
-
+    const API_BASE_URL = "http://192.168.122.10:3000";
 /* =========================================================
    API REQUEST HELPER
    ========================================================= */
@@ -254,9 +253,15 @@ async function handleLogin(event) {
         }
 
         saveToken(data.token);
-        saveStudent(data.student);
+saveStudent(data.student);
 
-        window.location.href = "dashboard.html";
+if (data.student.role === "admin") {
+    window.location.href = "admin.html";
+} else if (data.student.role === "src") {
+    window.location.href = "src-dashboard.html";
+} else {
+    window.location.href = "dashboard.html";
+}
 
     } catch (error) {
         alert(error.message);
@@ -587,11 +592,11 @@ document.addEventListener("DOMContentLoaded", () => {
     /* Dashboard */
 
     if (
-        document.body.classList.contains("dashboard-page") &&
+        document.body.classList.contains("dashboard-v2-page")&&
         !document.body.classList.contains("profile-page")
-    ) {
-        initialiseDashboard();
-    }
+) {
+    initialiseDashboard();
+}
 
 
     /* Logout */

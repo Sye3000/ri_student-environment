@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="RI Student Environment Lost and Found — report lost items, report found items, and find possible matches."
+    >
+
+    <title>Lost &amp; Found | RI Student Environment</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lostfound.css">
+</head>
+
+<body class="lost-found-page">
+
+    <!-- Navigation -->
+    <header class="site-header">
+        <nav class="navbar">
+
+            <div class="nav-brand">
+                <a href="student-dashboard.html">
+                    RI Student Environment
+                </a>
+            </div>
+
+            <button
+                type="button"
+                class="mobile-menu-toggle"
+                aria-label="Open navigation menu"
+            >
+                ☰
+            </button>
+
+            <div class="nav-links">
+
+                <a href="student-dashboard.html">Dashboard</a>
+
+                <a href="profile.html">Profile</a>
+
+                <a href="community.html">Community</a>
+
+                <a href="store.html">Store</a>
+
+                <a href="resturant.html">Dining</a>
+
+                <a href="lostfound.html" class="active">
+                    Lost &amp; Found
+                </a>
+
+                <a href="contact.html">Contact</a>
+
+                <button
+                    type="button"
+                    id="logoutBtn"
+                    class="logout-btn"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </nav>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="lost-found-page">
+
+        <div class="lost-found-container">
+
+            <!-- Hero -->
+            <section class="lost-found-hero">
+
+                <h1>Lost &amp; Found</h1>
+
+                <p>
+                    Report lost items, report items you have found,
+                    and use the Lost &amp; Found assistant to help
+                    identify possible matches on your campus.
+                </p>
+
+            </section>
+
+
+            <!-- Mode Switcher -->
+            <div class="lf-mode-switcher">
+
+                <button
+                    type="button"
+                    class="lf-mode-btn active"
+                    id="chatModeBtn"
+                    data-mode="chat"
+                >
+                    Lost &amp; Found Assistant
+                </button>
+
+                <button
+                    type="button"
+                    class="lf-mode-btn"
+                    id="registerModeBtn"
+                    data-mode="register"
+                >
+                    Report Lost Item
+                </button>
+
+                <button
+                    type="button"
+                    class="lf-mode-btn"
+                    id="foundModeBtn"
+                    data-mode="found"
+                >
+                    Report Found Item
+                </button>
+
+            </div>
+
+
+            <!-- Global Status -->
+            <div
+                id="lostFoundStatus"
+                class="lf-status"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+
+            <!-- Lost & Found Assistant -->
+            <section
+                id="chatSection"
+                class="lf-section"
+            >
+
+                <div class="lf-chat-section">
+
+                    <!-- Chat -->
+                    <div class="lf-card lf-chat-box">
+
+                        <div class="chat-header">
+
+                            <h2>Lost &amp; Found Assistant</h2>
+
+                            <p>
+                                Describe your lost or found item and
+                                the assistant can help guide you.
+                            </p>
+
+                        </div>
+
+                        <div
+                            id="chatMessages"
+                            aria-live="polite"
+                        >
+
+                            <div class="chat-message bot">
+                                Hi! 👋 I can help you with Lost &amp;
+                                Found. Tell me what happened to your
+                                item or ask how to report an item.
+                            </div>
+
+                        </div>
+
+                        <form
+                            id="chatForm"
+                            class="chat-form"
+                        >
+
+                            <input
+                                type="text"
+                                id="userInput"
+                                name="message"
+                                placeholder="Describe your lost or found item..."
+                                autocomplete="off"
+                                required
+                            >
+
+                            <button type="submit">
+                                Send
+                            </button>
+
+                        </form>
+
+                    </div>
+
+
+                    <!-- AI Identification -->
+                    <aside class="lf-card lf-ai-panel">
+
+                        <h3>AI Item Identification</h3>
+
+                        <p>
+                            Have a photo of an item you found?
+                            Upload it and the system can send it to
+                            the item-identification service for analysis.
+                        </p>
+
+                        <form
+                            id="identifyForm"
+                            enctype="multipart/form-data"
+                        >
+
+                            <div class="lf-field">
+
+                                <label for="identifyPhoto">
+                                    Item photo
+                                </label>
+
+                                <input
+                                    type="file"
+                                    id="identifyPhoto"
+                                    name="image"
+                                    accept="image/jpeg,image/png,image/webp"
+                                >
+
+                                <span class="lf-help">
+                                    JPG, PNG or WebP. Maximum 5 MB.
+                                </span>
+
+                            </div>
+
+                            <div
+                                id="identifyPreview"
+                                class="lf-photo-preview"
+                            ></div>
+
+                            <button
+                                type="submit"
+                                class="lf-submit-btn"
+                                id="identifyBtn"
+                            >
+                                Identify Item
+                            </button>
+
+                        </form>
+
+                    </aside>
+
+                </div>
+
+            </section>
+
+
+            <!-- Report Lost Item -->
+            <section
+                id="registerSection"
+                class="lf-section"
+           
+            >
+
+                <div class="lf-card">
+
+                    <h2>Report a Lost Item</h2>
+
+                    <p class="lf-card-description">
+                        Provide as much information as possible so
+                        another student can identify and return your
+                        item.
+                    </p>
+
+                    <form
+                        id="registerItemForm"
+                        class="lf-form"
+                        enctype="multipart/form-data"
+                    >
+
+                        <div class="lf-form-row">
+
+                            <div class="lf-field">
+
+                                <label for="lostItemCategory">
+                                    Item category
+                                    <span class="required">*</span>
+                                </label>
+
+                                <select
+                                    id="lostItemCategory"
+                                    name="itemCategory"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select item category
+                                    </option>
+
+                                    <option value="phone">Phone</option>
+                                    <option value="laptop">Laptop</option>
+                                    <option value="tablet">Tablet</option>
+                                    <option value="keys">Keys</option>
+                                    <option value="wallet">Wallet</option>
+                                    <option value="earbuds">Earbuds</option>
+                                    <option value="headphones">Headphones</option>
+                                    <option value="bag">Bag</option>
+                                    <option value="clothing">Clothing</option>
+                                    <option value="book">Book</option>
+                                    <option value="jewelry">Jewelry</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="other">Other</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="lf-field">
+
+                                <label for="lostLocation">
+                                    Last known location
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="lostLocation"
+                                    name="location"
+                                    placeholder="e.g. Library, Cafeteria, Lecture Room 4"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="lf-form-row">
+
+                            <div class="lf-field">
+
+                                <label for="lostBrand">
+                                    Brand
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="lostBrand"
+                                    name="brand"
+                                    placeholder="e.g. Samsung, Apple, HP"
+                                >
+
+                            </div>
+
+
+                            <div class="lf-field">
+
+                                <label for="lostModel">
+                                    Model
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="lostModel"
+                                    name="model"
+                                    placeholder="e.g. Galaxy A54"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="lf-form-row">
+
+                            <div class="lf-field">
+
+                                <label for="lostColor">
+                                    Colour
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="lostColor"
+                                    name="color"
+                                    placeholder="e.g. Black"
+                                >
+
+                            </div>
+
+
+                            <div class="lf-field">
+
+                                <label for="lostSerial">
+                                    Serial number
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="lostSerial"
+                                    name="serialNumber"
+                                    placeholder="Optional"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="lf-field full-width">
+
+                            <label for="lostDescription">
+                                Description
+                                <span class="required">*</span>
+                            </label>
+
+                            <textarea
+                                id="lostDescription"
+                                name="description"
+                                placeholder="Describe the item, identifying marks, stickers, case, damage, etc."
+                                minlength="5"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="lf-field full-width">
+
+                            <label for="lostItemPhoto">
+                                Item photo
+                            </label>
+
+                            <input
+                                type="file"
+                                id="lostItemPhoto"
+                                name="image"
+                                accept="image/jpeg,image/png,image/webp"
+                            >
+
+                            <span class="lf-help">
+                                Optional. JPG, PNG or WebP, maximum 5 MB.
+                            </span>
+
+                            <div
+                                id="lostPhotoPreview"
+                                class="lf-photo-preview"
+                            ></div>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="lf-submit-btn"
+                            id="registerLostBtn"
+                        >
+                            Report Lost Item
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+
+            <!-- Report Found Item -->
+            <section
+                id="foundSection"
+                class="lf-section"
+               
+            >
+
+                <div class="lf-card">
+
+                    <h2>Report a Found Item</h2>
+
+                    <p class="lf-card-description">
+                        Found something belonging to another student?
+                        Submit the details so the system can help locate
+                        the owner.
+                    </p>
+
+
+                    <form
+                        id="foundItemForm"
+                        class="lf-form"
+                        enctype="multipart/form-data"
+                    >
+
+                        <div class="lf-form-row">
+
+                            <div class="lf-field">
+
+                                <label for="foundItemCategory">
+                                    Item category
+                                    <span class="required">*</span>
+                                </label>
+
+                                <select
+                                    id="foundItemCategory"
+                                    name="itemCategory"
+                                    required
+                                >
+
+                                    <option value="">
+                                        Select item category
+                                    </option>
+
+                                    <option value="phone">Phone</option>
+                                    <option value="laptop">Laptop</option>
+                                    <option value="tablet">Tablet</option>
+                                    <option value="keys">Keys</option>
+                                    <option value="wallet">Wallet</option>
+                                    <option value="earbuds">Earbuds</option>
+                                    <option value="headphones">Headphones</option>
+                                    <option value="bag">Bag</option>
+                                    <option value="clothing">Clothing</option>
+                                    <option value="book">Book</option>
+                                    <option value="jewelry">Jewelry</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="other">Other</option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="lf-field">
+
+                                <label for="foundLocation">
+                                    Location found
+                                    <span class="required">*</span>
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="foundLocation"
+                                    name="location"
+                                    placeholder="e.g. Library entrance"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="lf-form-row">
+
+                            <div class="lf-field">
+
+                                <label for="foundDate">
+                                    Date found
+                                    <span class="required">*</span>
+                                </label>
+
+                                <input
+                                    type="date"
+                                    id="foundDate"
+                                    name="foundDate"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="lf-field">
+
+                                <label for="foundColor">
+                                    Colour
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="foundColor"
+                                    name="color"
+                                    placeholder="e.g. White"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="lf-form-row">
+
+                            <div class="lf-field">
+
+                                <label for="foundBrand">
+                                    Brand
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="foundBrand"
+                                    name="brand"
+                                    placeholder="e.g. Apple"
+                                >
+
+                            </div>
+
+
+                            <div class="lf-field">
+
+                                <label for="foundModel">
+                                    Model
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="foundModel"
+                                    name="model"
+                                    placeholder="e.g. AirPods Pro"
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="lf-field full-width">
+
+                            <label for="foundSerial">
+                                Serial number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="foundSerial"
+                                name="serialNumber"
+                                placeholder="Optional"
+                            >
+
+                        </div>
+
+
+                        <div class="lf-field full-width">
+
+                            <label for="foundDescription">
+                                Description
+                                <span class="required">*</span>
+                            </label>
+
+                            <textarea
+                                id="foundDescription"
+                                name="description"
+                                placeholder="Describe exactly what you found and any identifying characteristics."
+                                minlength="5"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="lf-field full-width">
+
+                            <label for="itemPhoto">
+                                Photo of found item
+                            </label>
+
+                            <input
+                                type="file"
+                                id="itemPhoto"
+                                name="image"
+                                accept="image/jpeg,image/png,image/webp"
+                            >
+
+                            <span class="lf-help">
+                                Optional, but recommended for matching.
+                                Maximum 5 MB.
+                            </span>
+
+                            <div
+                                id="foundPhotoPreview"
+                                class="lf-photo-preview"
+                            ></div>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="lf-submit-btn"
+                            id="registerFoundBtn"
+                        >
+                            Report Found Item
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+
+            <!-- Campus Lost & Found -->
+            <section class="lf-items-section">
+
+                <div class="lf-card">
+
+                    <div class="lf-items-header">
+
+                        <div>
+
+                            <h2>Campus Lost &amp; Found</h2>
+
+                            <p>
+                                Items reported by students on your campus.
+                            </p>
+
+                        </div>
+
+
+                        <button
+                            type="button"
+                            id="refreshLostFoundBtn"
+                            class="lf-submit-btn"
+                        >
+                            Refresh
+                        </button>
+
+                    </div>
+
+
+                    <div
+                        id="lostFoundItems"
+                        class="lf-items-grid"
+                    >
+
+                        <div class="lf-loading">
+                            Loading Lost &amp; Found items...
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <div class="footer-content">
+
+            <p>
+                &copy; 2026 RI Student Environment.
+                All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script src="sidebar.js"></script>
+    <script src="lost-found.js"></script>
+
+</body>
+</html>

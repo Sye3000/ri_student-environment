@@ -18,53 +18,175 @@
 
     <link rel="stylesheet" href="style.css">
 </head>
-<!-- Hamburger Button -->
-<button class="hamburger-btn" id="hamburgerBtn" aria-label="Open campus menu">
-  ☰
-</button>
 
-<!-- Sidebar Overlay -->
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-<!-- Sidebar Drawer -->
-<aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Campus services">
-  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
-
-  <div class="sidebar-header">
-    <img src="Rosebank Logo.webp" alt="RI Student Environment" width="120">
-    <p>Campus Services</p>
-  </div>
-
-  <nav class="sidebar-nav">
-
-    <a href="resturant.html" class="sidebar-link">
-      <span class="sidebar-icon">🍽️</span>
-      <div>
-        <strong>ORA Café</strong>
-        <small>Order food & drinks</small>
-      </div>
-    </a>
-
-    <a href="store.html" class="sidebar-link">
-      <span class="sidebar-icon">🛍️</span>
-      <div>
-        <strong>University Store</strong>
-        <small>Campus clothing & gear</small>
-      </div>
-    </a>
-
-    <a href="lostfound.html" class="sidebar-link">
-      <span class="sidebar-icon">🔍</span>
-      <div>
-        <strong>Lost & Found</strong>
-        <small>Find or report lost items</small>
-      </div>
-    </a>
-
-  </nav>
-
-</aside>
 <body>
+
+    <!-- =========================
+         CAMPUS SERVICES MENU
+         ========================= -->
+
+    <button
+        class="hamburger-btn"
+        id="hamburgerBtn"
+        aria-label="Open campus menu"
+        type="button"
+    >
+        ☰
+    </button>
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+    <aside
+        class="sidebar-drawer"
+        id="sidebarDrawer"
+        aria-label="Campus services"
+    >
+
+        <button
+            class="sidebar-close"
+            id="sidebarClose"
+            aria-label="Close menu"
+            type="button"
+        >
+            ×
+        </button>
+
+        <div class="sidebar-header">
+
+            <img
+                src="Rosebank Logo.webp"
+                alt="RI Student Environment"
+                width="120"
+            >
+
+            <p>
+                Campus Services
+            </p>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <!-- ORA Café -->
+
+            <a
+                href="resturant.html"
+                class="sidebar-link"
+            >
+
+                <span
+                    class="sidebar-icon"
+                    aria-hidden="true"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        role="img"
+                    >
+                        <path d="M6 3v8"></path>
+                        <path d="M9 3v8"></path>
+                        <path d="M6 7h3"></path>
+                        <path d="M7.5 11v10"></path>
+                        <path d="M16 3v18"></path>
+                        <path d="M16 3c2 2 2 5 0 7"></path>
+                    </svg>
+                </span>
+
+                <div>
+                    <strong>
+                        ORA Café
+                    </strong>
+
+                    <small>
+                        Order food &amp; drinks
+                    </small>
+                </div>
+
+            </a>
+
+
+            <!-- University Store -->
+
+            <a
+                href="store.html"
+                class="sidebar-link"
+            >
+
+                <span
+                    class="sidebar-icon"
+                    aria-hidden="true"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        role="img"
+                    >
+                        <path d="M5 8h14v12H5z"></path>
+                        <path d="M8 8a4 4 0 0 1 8 0"></path>
+                        <path d="M9 12h6"></path>
+                    </svg>
+                </span>
+
+                <div>
+                    <strong>
+                        University Store
+                    </strong>
+
+                    <small>
+                        Campus clothing &amp; gear
+                    </small>
+                </div>
+
+            </a>
+
+
+            <!-- Lost & Found -->
+
+            <a
+                href="lostfound.html"
+                class="sidebar-link"
+            >
+
+                <span
+                    class="sidebar-icon"
+                    aria-hidden="true"
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        role="img"
+                    >
+                        <circle
+                            cx="10.5"
+                            cy="10.5"
+                            r="6"
+                        ></circle>
+
+                        <path d="m15 15 5 5"></path>
+
+                        <path d="M8.5 10.5h4"></path>
+
+                        <path d="M10.5 8.5v4"></path>
+                    </svg>
+                </span>
+
+                <div>
+                    <strong>
+                        Lost &amp; Found
+                    </strong>
+
+                    <small>
+                        Find or report lost items
+                    </small>
+                </div>
+
+            </a>
+
+        </nav>
+
+    </aside>
+
 
     <!-- =========================
          SITE NAVIGATION
@@ -72,40 +194,61 @@
 
     <header class="navbar">
 
-        <a href="index.html" class="logo">
+        <a
+            href="index.html"
+            class="logo"
+            aria-label="RI Student Environment home"
+        >
+
             <img
                 src="Rosebank Logo.webp"
                 alt="RI Student Environment Logo"
             >
+
         </a>
 
-        <nav class="nav-links" aria-label="Main navigation">
 
-            <a href="index.html">Home</a>
+        <nav
+            class="nav-links"
+            aria-label="Main navigation"
+        >
 
-            <a href="about.html">About</a>
+            <a href="index.html">
+                Home
+            </a>
 
-            <a href="impact.html" class="active">Impact</a>
+            <a href="about.html">
+                About
+            </a>
 
-            <a href="programs.html">Programs</a>
+            <a
+                href="impact.html"
+                class="active"
+                aria-current="page"
+            >
+                Impact
+            </a>
 
-            <a href="events.html">Events</a>
+            <a href="contact.html">
+                Contact
+            </a>
 
-            <a href="src.html">SRC</a>
-
-            <a href="community.html">Community</a>
-
-            <a href="contact.html">Contact</a>
-            
         </nav>
+
 
         <div class="nav-actions">
 
-            <a href="login.html" class="login-link">
+            <a
+                href="login.html"
+                class="login-link"
+            >
                 Login
             </a>
 
-            <a href="register.html" class="register-btn">
+            <a
+                href="register.html"
+                class="register-btn"
+            >
                 Join Us
             </a>
 
@@ -124,17 +267,40 @@
              IMPACT HERO
              ========================= -->
 
-        <section class="impact-hero">
+        <section class="impact-hero" aria-labelledby="impact-title">
 
-            <p>Creating Positive Change</p>
+            <div class="impact-hero-content">
 
-            <h1>Our Impact</h1>
+                <p class="eyebrow">
+                    STUDENT IMPACT
+                </p>
 
-            <p>
-                RI Student Environment aims to create a more
-                connected student community by improving access
-                to information, opportunities and participation.
-            </p>
+                <h1 id="impact-title">
+                    Creating opportunities that move students forward.
+                </h1>
+
+                <p>
+                    RI Student Environment is designed to help students
+                    connect, participate, and access the resources that
+                    make campus life more engaging and rewarding.
+                </p>
+
+                <div class="impact-hero-stats" aria-label="Impact overview">
+                    <div>
+                        <strong>8+</strong>
+                        <span>student pathways</span>
+                    </div>
+                    <div>
+                        <strong>4</strong>
+                        <span>focus areas</span>
+                    </div>
+                    <div>
+                        <strong>1</strong>
+                        <span>connected campus ecosystem</span>
+                    </div>
+                </div>
+
+            </div>
 
         </section>
 
@@ -145,21 +311,29 @@
 
         <section class="impact-intro">
 
-            <h2>Our Intended Impact</h2>
+            <div class="section-header">
+                <p class="eyebrow">
+                    WHY IT MATTERS
+                </p>
+                <h2>
+                    A stronger student experience starts with better access.
+                </h2>
+            </div>
 
-            <p>
-                The platform is designed to support students by
-                bringing important student-focused information,
-                opportunities and community activities together
-                in one digital environment.
-            </p>
+            <div class="impact-intro-grid">
+                <p>
+                    RI Student Environment brings essential campus information,
+                    programmes, events, and community opportunities into a single
+                    student-first experience. The aim is to make it easier for students
+                    to stay informed and take part in meaningful activities.
+                </p>
 
-            <p>
-                By creating a central student environment, RI Student
-                Environment aims to make it easier for students to
-                discover opportunities, connect with one another and
-                participate in campus life.
-            </p>
+                <p>
+                    By creating a central place for discovery and engagement, the platform
+                    supports greater connection, stronger participation, and a more active
+                    student culture across campus life.
+                </p>
+            </div>
 
         </section>
 
@@ -168,13 +342,18 @@
              IMPACT AREAS
              ========================= -->
 
-        <section>
+        <section class="impact-focus">
 
-            <h2>Areas of Impact</h2>
+            <div class="section-header">
+                <p class="eyebrow">
+                    AREAS OF IMPACT
+                </p>
+                <h2>
+                    Built around student growth and connection
+                </h2>
+            </div>
 
             <div class="impact-grid">
-
-                <!-- Impact Card 1 -->
 
                 <article class="impact-card">
 
@@ -182,18 +361,17 @@
                         01
                     </div>
 
-                    <h3>Better Access to Information</h3>
+                    <h3>
+                        Better access to information
+                    </h3>
 
                     <p>
-                        Students can have a central place to discover
-                        information about programmes, events, activities
-                        and student opportunities.
+                        Students can discover important updates, opportunities,
+                        and support resources in one clear digital environment.
                     </p>
 
                 </article>
 
-
-                <!-- Impact Card 2 -->
 
                 <article class="impact-card">
 
@@ -201,18 +379,17 @@
                         02
                     </div>
 
-                    <h3>Stronger Student Connection</h3>
+                    <h3>
+                        Stronger student connection
+                    </h3>
 
                     <p>
-                        The platform aims to make it easier for students
-                        to connect with other students and participate
-                        in community activities.
+                        The platform helps students meet peers, build community,
+                        and participate in initiatives that strengthen campus life.
                     </p>
 
                 </article>
 
-
-                <!-- Impact Card 3 -->
 
                 <article class="impact-card">
 
@@ -220,18 +397,17 @@
                         03
                     </div>
 
-                    <h3>Increased Participation</h3>
+                    <h3>
+                        Increased participation
+                    </h3>
 
                     <p>
-                        Students can discover opportunities that may
-                        encourage greater involvement in programmes,
-                        events and student activities.
+                        By making opportunities clearer and easier to find, students are
+                        more likely to take part in activities, programmes, and events.
                     </p>
 
                 </article>
 
-
-                <!-- Impact Card 4 -->
 
                 <article class="impact-card">
 
@@ -239,17 +415,17 @@
                         04
                     </div>
 
-                    <h3>Student Leadership Visibility</h3>
+                    <h3>
+                        Student leadership visibility
+                    </h3>
 
                     <p>
-                        The SRC section provides a dedicated area for
-                        student leadership and representation information.
+                        The SRC section gives student representatives a dedicated space
+                        to communicate, inform, and engage with campus communities.
                     </p>
 
                 </article>
 
-
-                <!-- Impact Card 5 -->
 
                 <article class="impact-card">
 
@@ -257,18 +433,17 @@
                         05
                     </div>
 
-                    <h3>Community Engagement</h3>
+                    <h3>
+                        Community engagement
+                    </h3>
 
                     <p>
-                        The community environment is intended to
-                        encourage communication, collaboration and
-                        constructive student interaction.
+                        A connected community creates more chance for collaboration,
+                        participation, and a stronger sense of belonging across campus.
                     </p>
 
                 </article>
 
-
-                <!-- Impact Card 6 -->
 
                 <article class="impact-card">
 
@@ -276,12 +451,13 @@
                         06
                     </div>
 
-                    <h3>Future Student Opportunities</h3>
+                    <h3>
+                        Future-ready student environment
+                    </h3>
 
                     <p>
-                        Future development can expand access to
-                        additional student services, programmes,
-                        events and digital opportunities.
+                        The platform is designed to expand over time with new services,
+                        tools, and opportunities shaped by student needs.
                     </p>
 
                 </article>
@@ -297,37 +473,25 @@
 
         <section class="impact-highlight">
 
-            <h3>Benefits for Students</h3>
+            <div class="impact-highlight-inner">
 
-            <p>
-                RI Student Environment is intended to provide
-                practical benefits that improve the overall
-                student experience.
-            </p>
+                <p class="eyebrow">
+                    STUDENT BENEFITS
+                </p>
 
-            <ul>
+                <h3>
+                    What students gain
+                </h3>
 
-                <li>
-                    Easier access to student information.
-                </li>
+                <ul class="impact-list">
+                    <li>Easier access to student information and resources.</li>
+                    <li>Greater awareness of programmes, events, and opportunities.</li>
+                    <li>More ways to connect with peers and campus communities.</li>
+                    <li>Improved visibility of leadership and student representation.</li>
+                    <li>More opportunities for participation and engagement.</li>
+                </ul>
 
-                <li>
-                    Greater awareness of programmes and events.
-                </li>
-
-                <li>
-                    More opportunities to connect with other students.
-                </li>
-
-                <li>
-                    Improved visibility of student leadership.
-                </li>
-
-                <li>
-                    More opportunities for community participation.
-                </li>
-
-            </ul>
+            </div>
 
         </section>
 
@@ -336,18 +500,18 @@
              MEASURING IMPACT
              ========================= -->
 
-        <section>
+        <section class="impact-measurement">
 
-            <h2>Measuring Future Impact</h2>
+            <div class="section-header">
+                <p class="eyebrow">
+                    MEASURING IMPACT
+                </p>
+                <h2>
+                    Tracking what matters most to students
+                </h2>
+            </div>
 
-            <p>
-                Once the platform is fully implemented, its impact
-                can be evaluated using measurable indicators.
-                These indicators can help determine whether the
-                platform is achieving its intended objectives.
-            </p>
-
-            <div class="impact-grid">
+            <div class="impact-grid measurement-grid">
 
                 <article class="impact-card">
 
@@ -355,11 +519,12 @@
                         01
                     </div>
 
-                    <h3>Registered Students</h3>
+                    <h3>
+                        Student registration
+                    </h3>
 
                     <p>
-                        Measure the number of students who register
-                        and actively use the platform.
+                        Measure how many students are joining and actively engaging with the platform.
                     </p>
 
                 </article>
@@ -371,11 +536,12 @@
                         02
                     </div>
 
-                    <h3>Programme Participation</h3>
+                    <h3>
+                        Programme participation
+                    </h3>
 
                     <p>
-                        Track student participation in programmes
-                        and development opportunities.
+                        Track engagement across academic, professional, and community development opportunities.
                     </p>
 
                 </article>
@@ -387,11 +553,12 @@
                         03
                     </div>
 
-                    <h3>Event Participation</h3>
+                    <h3>
+                        Event attendance
+                    </h3>
 
                     <p>
-                        Measure attendance and engagement across
-                        student events and activities.
+                        Monitor participation in student events and activities to understand community reach.
                     </p>
 
                 </article>
@@ -403,27 +570,12 @@
                         04
                     </div>
 
-                    <h3>Community Engagement</h3>
+                    <h3>
+                        Community engagement
+                    </h3>
 
                     <p>
-                        Monitor student interaction, collaboration
-                        and participation within the community.
-                    </p>
-
-                </article>
-
-
-                <article class="impact-card">
-
-                    <div class="impact-stat">
-                        05
-                    </div>
-
-                    <h3>Student Feedback</h3>
-
-                    <p>
-                        Use student feedback to identify improvements
-                        and measure satisfaction with the platform.
+                        Evaluate how often students are interacting, collaborating, and contributing to campus life.
                     </p>
 
                 </article>
@@ -434,46 +586,27 @@
 
 
         <!-- =========================
-             FUTURE DEVELOPMENT
-             ========================= -->
-
-        <section class="impact-highlight">
-
-            <h3>Building for the Future</h3>
-
-            <p>
-                RI Student Environment is designed with future
-                development in mind. Additional functionality can
-                be introduced to improve communication, participation,
-                student services and access to opportunities.
-            </p>
-
-            <p>
-                These improvements can be evaluated as the platform
-                develops through later project phases, allowing the
-                environment to grow according to student needs.
-            </p>
-
-        </section>
-
-
-        <!-- =========================
              CALL TO ACTION
              ========================= -->
 
         <section class="impact-cta">
 
-            <h2>Be Part of the Impact</h2>
+            <div class="impact-cta-inner">
+                <p class="eyebrow">
+                    BE PART OF THE IMPACT
+                </p>
+                <h2>
+                    Join a community designed to support student growth.
+                </h2>
+                <p>
+                    Participate in programmes, events, and student spaces that help you
+                    connect, lead, and thrive throughout your campus journey.
+                </p>
 
-            <p>
-                Students can contribute to a stronger student
-                environment by participating in programmes,
-                events and community activities.
-            </p>
-
-            <a href="register.html" class="impact-button">
-                Join Us
-            </a>
+                <a href="register.html" class="impact-button">
+                    Join Us
+                </a>
+            </div>
 
         </section>
 
@@ -488,7 +621,9 @@
 
         <div>
 
-            <h2>RI Student Environment</h2>
+            <h2>
+                RI Student Environment
+            </h2>
 
             <p>
                 Connecting students, creating opportunities
@@ -501,43 +636,42 @@
                 <ul>
 
                     <li>
-                        <a href="index.html">Home</a>
+                        <a href="index.html">
+                            Home
+                        </a>
                     </li>
 
                     <li>
-                        <a href="about.html">About</a>
+                        <a href="about.html">
+                            About
+                        </a>
                     </li>
 
                     <li>
-                        <a href="programs.html">Programs</a>
+                        <a
+                            href="impact.html"
+                            aria-current="page"
+                        >
+                            Our Impact
+                        </a>
                     </li>
 
                     <li>
-                        <a href="events.html">Events</a>
+                        <a href="register.html">
+                            Join Us
+                        </a>
                     </li>
 
                     <li>
-                        <a href="src.html">SRC</a>
+                        <a href="login.html">
+                            Login
+                        </a>
                     </li>
 
                     <li>
-                        <a href="community.html">Community</a>
-                    </li>
-
-                    <li>
-                        <a href="impact.html">Our Impact</a>
-                    </li>
-
-                    <li>
-                        <a href="register.html">Join Us</a>
-                    </li>
-
-                    <li>
-                        <a href="login.html">Login</a>
-                    </li>
-
-                    <li>
-                        <a href="contact.html">Contact</a>
+                        <a href="contact.html">
+                            Contact
+                        </a>
                     </li>
 
                 </ul>
@@ -553,8 +687,10 @@
         </div>
 
     </footer>
-<script src="sidebar.js"></script>
+
+
+    <script src="sidebar.js"></script>
+
 </body>
 
 </html>
-```

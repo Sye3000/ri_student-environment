@@ -19,55 +19,173 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <!-- Professional Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
 </head>
 
-<!-- Hamburger Button -->
-<button class="hamburger-btn" id="hamburgerBtn" aria-label="Open campus menu">
-  ☰
-</button>
 
-<!-- Sidebar Overlay -->
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-<!-- Sidebar Drawer -->
-<aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Campus services">
-  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
-
-  <div class="sidebar-header">
-    <img src="Rosebank Logo.webp" alt="RI Student Environment" width="120">
-    <p>Campus Services</p>
-  </div>
-
-  <nav class="sidebar-nav">
-
-    <a href="resturant.html" class="sidebar-link">
-      <span class="sidebar-icon">🍽️</span>
-      <div>
-        <strong>ORA Café</strong>
-        <small>Order food & drinks</small>
-      </div>
-    </a>
-
-    <a href="store.html" class="sidebar-link">
-      <span class="sidebar-icon">🛍️</span>
-      <div>
-        <strong>University Store</strong>
-        <small>Campus clothing & gear</small>
-      </div>
-    </a>
-
-    <a href="lostfound.html" class="sidebar-link">
-      <span class="sidebar-icon">🔍</span>
-      <div>
-        <strong>Lost & Found</strong>
-        <small>Find or report lost items</small>
-      </div>
-    </a>
-
-  </nav>
-
-</aside>
 <body>
+
+    <!-- =========================
+         HAMBURGER BUTTON
+         ========================= -->
+
+    <button
+        class="hamburger-btn"
+        id="hamburgerBtn"
+        type="button"
+        aria-label="Open campus menu"
+        aria-controls="sidebarDrawer"
+        aria-expanded="false"
+    >
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+
+
+    <!-- =========================
+         SIDEBAR OVERLAY
+         ========================= -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- =========================
+         SIDEBAR DRAWER
+         ========================= -->
+
+    <aside
+        class="sidebar-drawer"
+        id="sidebarDrawer"
+        aria-label="Campus services"
+    >
+
+        <button
+            class="sidebar-close"
+            id="sidebarClose"
+            type="button"
+            aria-label="Close menu"
+        >
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+
+
+        <div class="sidebar-header">
+
+            <img
+                src="Rosebank Logo.webp"
+                alt="RI Student Environment"
+                width="120"
+            >
+
+            <p>
+                Campus Services
+            </p>
+
+        </div>
+
+
+        <nav
+            class="sidebar-nav"
+            aria-label="Campus services navigation"
+        >
+
+            <!-- ORA CAFÉ -->
+
+            <a
+                href="resturant.html"
+                class="sidebar-link"
+            >
+
+                <span
+                    class="sidebar-icon"
+                    aria-hidden="true"
+                >
+                    <i class="fa-solid fa-utensils"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        ORA Café
+                    </strong>
+
+                    <small>
+                        Order food & drinks
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <!-- UNIVERSITY STORE -->
+
+            <a
+                href="store.html"
+                class="sidebar-link"
+            >
+
+                <span
+                    class="sidebar-icon"
+                    aria-hidden="true"
+                >
+                    <i class="fa-solid fa-bag-shopping"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        University Store
+                    </strong>
+
+                    <small>
+                        Campus clothing & gear
+                    </small>
+
+                </div>
+
+            </a>
+
+
+            <!-- LOST & FOUND -->
+
+            <a
+                href="lostfound.html"
+                class="sidebar-link"
+            >
+
+                <span
+                    class="sidebar-icon"
+                    aria-hidden="true"
+                >
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </span>
+
+                <div>
+
+                    <strong>
+                        Lost & Found
+                    </strong>
+
+                    <small>
+                        Find or report lost items
+                    </small>
+
+                </div>
+
+            </a>
+
+        </nav>
+
+    </aside>
+
 
 
     <!-- =========================
@@ -103,8 +221,10 @@
             <a href="about.html">
                 About
             </a>
+
             <a href="impact.html">
                 Impact
+            </a>
 
             <a href="programs.html">
                 Programs
@@ -125,9 +245,11 @@
             <a href="community.html">
                 Community
             </a>
+
             <a href="contact.html">
                 Contact
             </a>
+
         </nav>
 
 
@@ -150,60 +272,7 @@
         </div>
 
     </header>
-<!-- =========================
-     ABOUT CTA WITH VIDEO
-     ========================= -->
-<section
-    class="about-cta video-section"
-    aria-labelledby="cta-title"
->
 
-    <video
-        class="section-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        aria-hidden="true"
-    >
-        <source
-            src="WhatsApp Video 2026-08-11 at 12.27.02 AM.mp4"
-            type="video/mp4"
-        >
-    </video>
-
-    <div class="video-overlay"></div>
-
-    <div class="video-section-content">
-
-        <p class="eyebrow">
-            BE PART OF THE COMMUNITY
-        </p>
-
-        <h2 id="cta-title">
-            Your Student Journey
-            <strong>Starts Here.</strong>
-        </h2>
-
-        <p>
-            Connect with fellow students, discover opportunities,
-            participate in campus life, and help shape a stronger
-            student community.
-        </p>
-
-        <a
-            href="register.html"
-            class="cta-button"
-        >
-            Join RI Student Environment →
-        </a>
-
-    </div>
-
-</section>
-
-    </main>
 
 
     <!-- =========================
@@ -217,7 +286,10 @@
              SRC HERO
              ========================= -->
 
-        <section class="src-hero">
+        <section
+            class="src-hero"
+            aria-labelledby="src-title"
+        >
 
             <div class="src-hero-content">
 
@@ -225,7 +297,7 @@
                     STUDENT REPRESENTATIVE COUNCIL
                 </p>
 
-                <h1>
+                <h1 id="src-title">
                     Your Voice.
                     <strong>Your Representation.</strong>
                 </h1>
@@ -265,7 +337,10 @@
              INTRODUCTION
              ========================= -->
 
-        <section class="src-intro">
+        <section
+            class="src-intro"
+            aria-labelledby="src-intro-title"
+        >
 
             <div class="section-heading">
 
@@ -273,7 +348,7 @@
                     STUDENT LEADERSHIP
                 </p>
 
-                <h2>
+                <h2 id="src-intro-title">
                     Representing
                     <strong>Student Voices</strong>
                 </h2>
@@ -283,6 +358,41 @@
                     platform for students to communicate their ideas,
                     concerns, suggestions, and needs.
                 </p>
+
+            </div>
+
+            <div class="src-intro-visual" aria-label="Student leadership photography collage">
+
+                <div class="src-main-visual">
+
+                    <img
+                        src="My Home page Picture.jpeg"
+                        alt="Student leadership event and campus community"
+                        loading="lazy"
+                    >
+
+                    <div class="src-visual-badge">
+                        <span>Student Leadership</span>
+                        <strong>Cape Town Campus</strong>
+                    </div>
+
+                </div>
+
+                <div class="src-mini-visual">
+
+                    <img
+                        src="President.jpeg"
+                        alt="SRC president portrait"
+                        loading="lazy"
+                    >
+
+                    <img
+                        src="Secretary.jpeg"
+                        alt="SRC secretary portrait"
+                        loading="lazy"
+                    >
+
+                </div>
 
             </div>
 
@@ -297,6 +407,7 @@
         <section
             class="src-members-section"
             id="src-members"
+            aria-labelledby="src-members-title"
         >
 
             <div class="section-heading">
@@ -305,7 +416,7 @@
                     MEET YOUR REPRESENTATIVES
                 </p>
 
-                <h2>
+                <h2 id="src-members-title">
                     Student
                     <strong>Leadership</strong>
                 </h2>
@@ -326,6 +437,7 @@
                 <article class="src-card">
 
                     <div class="src-photo">
+
                         <img
                             src="President.jpeg"
                             alt="SRC President"
@@ -346,7 +458,7 @@
                         </h3>
 
                         <p class="src-campus">
-                            Johannesburg Campus
+                            Cape Town Campus
                         </p>
 
                         <p>
@@ -359,7 +471,8 @@
                             href="login.html"
                             class="src-contact"
                         >
-                            View Profile →
+                            View Profile
+                            <span aria-hidden="true">→</span>
                         </a>
 
                     </div>
@@ -373,6 +486,7 @@
                 <article class="src-card">
 
                     <div class="src-photo">
+
                         <img
                             src="Deputy President.jpeg"
                             alt="SRC Deputy President"
@@ -405,7 +519,8 @@
                             href="login.html"
                             class="src-contact"
                         >
-                            View Profile →
+                            View Profile
+                            <span aria-hidden="true">→</span>
                         </a>
 
                     </div>
@@ -419,6 +534,7 @@
                 <article class="src-card">
 
                     <div class="src-photo">
+
                         <img
                             src="Secretary.jpeg"
                             alt="SRC Secretary"
@@ -451,7 +567,8 @@
                             href="login.html"
                             class="src-contact"
                         >
-                            View Profile →
+                            View Profile
+                            <span aria-hidden="true">→</span>
                         </a>
 
                     </div>
@@ -465,6 +582,7 @@
                 <article class="src-card">
 
                     <div class="src-photo">
+
                         <img
                             src="Treasure.jpeg"
                             alt="SRC Treasurer"
@@ -497,7 +615,8 @@
                             href="login.html"
                             class="src-contact"
                         >
-                            View Profile →
+                            View Profile
+                            <span aria-hidden="true">→</span>
                         </a>
 
                     </div>
@@ -517,6 +636,7 @@
         <section
             class="student-voice"
             id="student-voice"
+            aria-labelledby="student-voice-title"
         >
 
             <div class="student-voice-content">
@@ -525,7 +645,7 @@
                     HAVE YOUR SAY
                 </p>
 
-                <h2>
+                <h2 id="student-voice-title">
                     Your Voice
                     <strong>Matters.</strong>
                 </h2>
@@ -540,7 +660,8 @@
                     href="login.html"
                     class="cta-button"
                 >
-                    Submit Your Voice →
+                    Submit Your Voice
+                    <span aria-hidden="true">→</span>
                 </a>
 
             </div>
@@ -548,6 +669,8 @@
 
             <div class="voice-box">
 
+
+                <!-- QUESTIONS -->
 
                 <div class="voice-item">
 
@@ -572,6 +695,8 @@
 
 
 
+                <!-- SUGGESTIONS -->
+
                 <div class="voice-item">
 
                     <span>
@@ -594,6 +719,8 @@
                 </div>
 
 
+
+                <!-- CONCERNS -->
 
                 <div class="voice-item">
 
@@ -626,7 +753,10 @@
              SRC EVENTS
              ========================= -->
 
-        <section class="src-events">
+        <section
+            class="src-events"
+            aria-labelledby="src-events-title"
+        >
 
             <div class="section-heading">
 
@@ -634,7 +764,7 @@
                     STUDENT LEADERSHIP ACTIVITIES
                 </p>
 
-                <h2>
+                <h2 id="src-events-title">
                     Stay Connected With
                     <strong>Student Leadership</strong>
                 </h2>
@@ -649,6 +779,8 @@
 
             <div class="src-event-grid">
 
+
+                <!-- STUDENT FORUMS -->
 
                 <article class="src-event-card">
 
@@ -666,12 +798,15 @@
                     </p>
 
                     <a href="events.html">
-                        View Events →
+                        View Events
+                        <span aria-hidden="true">→</span>
                     </a>
 
                 </article>
 
 
+
+                <!-- LEADERSHIP INITIATIVES -->
 
                 <article class="src-event-card">
 
@@ -689,12 +824,15 @@
                     </p>
 
                     <a href="programs.html">
-                        Explore Programs →
+                        Explore Programs
+                        <span aria-hidden="true">→</span>
                     </a>
 
                 </article>
 
 
+
+                <!-- CAMPUS ACTIVITIES -->
 
                 <article class="src-event-card">
 
@@ -712,7 +850,8 @@
                     </p>
 
                     <a href="events.html">
-                        Explore Activities →
+                        Explore Activities
+                        <span aria-hidden="true">→</span>
                     </a>
 
                 </article>
@@ -727,13 +866,16 @@
              CTA
              ========================= -->
 
-        <section class="src-cta">
+        <section
+            class="src-cta"
+            aria-labelledby="src-cta-title"
+        >
 
             <p class="eyebrow">
                 STUDENT COMMUNITY
             </p>
 
-            <h2>
+            <h2 id="src-cta-title">
                 Be Heard.
                 <strong>Be Involved.</strong>
             </h2>
@@ -747,7 +889,8 @@
                 href="register.html"
                 class="cta-button"
             >
-                Join Us →
+                Join Us
+                <span aria-hidden="true">→</span>
             </a>
 
         </section>
@@ -802,8 +945,10 @@
                 <a href="about.html">
                     About
                 </a>
+
                 <a href="impact.html">
                     Impact
+                </a>
 
                 <a href="programs.html">
                     Programs
@@ -831,8 +976,10 @@
                 <a href="register.html">
                     Join Us
                 </a>
+
                 <a href="contact.html">
                     Contact
+                </a>
 
             </nav>
 
@@ -850,6 +997,13 @@
 
     </footer>
 
+
+
+    <!-- =========================
+         SIDEBAR JAVASCRIPT
+         ========================= -->
+
+    <script src="sidebar.js"></script>
 
 </body>
 

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Event | RI Student Environment</title>
+
+    <meta
+        name="description"
+        content="View event details on RI Student Environment."
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<!-- =========================
+     MOBILE CAMPUS MENU
+     ========================= -->
+
+<button
+    class="hamburger-btn"
+    id="hamburgerBtn"
+    aria-label="Open campus menu"
+    type="button"
+>
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+></div>
+
+
+<aside
+    class="sidebar-drawer"
+    id="sidebarDrawer"
+    aria-label="Campus services"
+>
+
+    <button
+        class="sidebar-close"
+        id="sidebarClose"
+        aria-label="Close menu"
+        type="button"
+    >
+        <span></span>
+        <span></span>
+    </button>
+
+
+    <div class="sidebar-header">
+
+        <img
+            src="Rosebank Logo.webp"
+            alt="RI Student Environment"
+            width="120"
+        >
+
+        <p>
+            Campus Services
+        </p>
+
+    </div>
+
+
+    <!-- Keep the same navigation used by Events -->
+
+    <nav class="sidebar-nav">
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="profile.html">
+            Profile
+        </a>
+
+        <a href="events.html">
+            Events
+        </a>
+
+        <a href="programs.html">
+            Programs
+        </a>
+
+        <a href="community.html">
+            Community
+        </a>
+
+        <a href="src.html">
+            SRC
+        </a>
+
+        <a href="lostfound.html">
+            Lost &amp; Found
+        </a>
+
+        <a href="store.html">
+            Store
+        </a>
+
+        <a href="resturant.html">
+            Dining
+        </a>
+
+    </nav>
+
+</aside>
+
+
+<!-- =========================
+     MAIN CONTENT
+     ========================= -->
+
+<main>
+
+    <section class="events-platform">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                EVENT DETAILS
+            </p>
+
+            <h1>
+                <span id="event-title">
+                    Loading event...
+                </span>
+            </h1>
+
+            <p id="event-description">
+                Loading event information...
+            </p>
+
+        </div>
+
+
+        <!-- =========================
+             EVENT INFORMATION
+             ========================= -->
+
+        <div class="participation-grid">
+
+            <article class="participation-card">
+
+                <span class="participation-number">
+                    DATE
+                </span>
+
+                <h3 id="event-date">
+                    —
+                </h3>
+
+                <p>
+                    Event date
+                </p>
+
+            </article>
+
+
+            <article class="participation-card">
+
+                <span class="participation-number">
+                    TIME
+                </span>
+
+                <h3 id="event-time">
+                    —
+                </h3>
+
+                <p>
+                    Event time
+                </p>
+
+            </article>
+
+
+            <article class="participation-card">
+
+                <span class="participation-number">
+                    LOCATION
+                </span>
+
+                <h3 id="event-location">
+                    —
+                </h3>
+
+                <p id="event-campus">
+                    —
+                </p>
+
+            </article>
+
+
+            <article class="participation-card">
+
+                <span class="participation-number">
+                    STATUS
+                </span>
+
+                <h3>
+                    Approved
+                </h3>
+
+                <p>
+                    Available to students
+                </p>
+
+            </article>
+
+        </div>
+
+<!-- =========================
+     TICKETS
+     ========================= -->
+
+<section class="events-platform">
+
+    <div class="section-heading">
+
+        <p class="eyebrow">
+            TICKETS
+        </p>
+
+        <h2>
+            Choose Your
+            <strong>Ticket.</strong>
+        </h2>
+
+        <p>
+            Select a ticket for this event.
+        </p>
+
+    </div>
+
+
+    <div
+        id="event-tickets"
+        class="participation-grid"
+    >
+
+        <article class="participation-card">
+
+            <span class="participation-number">
+                LOADING
+            </span>
+
+            <h3>
+                Loading tickets...
+            </h3>
+
+            <p>
+                Please wait while ticket information loads.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+        <!-- =========================
+             EVENT ACTION
+             ========================= -->
+
+        <div class="events-cta">
+
+            <p class="eyebrow">
+                GET INVOLVED
+            </p>
+
+            <h2>
+                Ready to
+                <strong>Participate?</strong>
+            </h2>
+
+            <p id="event-action-message">
+                Event registration information will appear here.
+            </p>
+
+            <a
+                href="events.html"
+                class="cta-button"
+            >
+                ← Back to Events
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+     ========================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <div>
+
+            <a
+                href="index.html"
+                class="logo"
+                aria-label="RI Student Environment home"
+            >
+
+                <img
+                    src="Rosebank Logo.webp"
+                    alt="RI Student Environment Logo"
+                    width="160"
+                    loading="lazy"
+                >
+
+            </a>
+
+            <p>
+                Connecting students, campuses,
+                and opportunities through one
+                student environment.
+            </p>
+
+        </div>
+
+
+        <nav
+            class="footer-links"
+            aria-label="Footer navigation"
+        >
+
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="programs.html">Programs</a>
+            <a href="events.html">Events</a>
+            <a href="community.html">Community</a>
+            <a href="contact.html">Contact</a>
+
+        </nav>
+
+    </div>
+
+
+    <div class="copyright">
+
+        <p>
+            &copy; 2026 RI Student Environment.
+            All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="sidebar.js"></script>
+<script src="event.js"></script>
+
+</body>
+
+</html>

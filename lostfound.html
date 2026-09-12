@@ -1,242 +1,925 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Report a lost or found item and connect with the RI Student Environment community.">
-  <title>Lost and Found | RI Student Environment</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="lostfound.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="RI Student Environment Lost & Found — report, browse and recover lost property."
+    >
+
+    <title>Lost & Found | RI Student Environment</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lostfound.css">
 </head>
 
-<!-- Hamburger Button -->
-<button class="hamburger-btn" id="hamburgerBtn" aria-label="Open campus menu">
-  ☰
-</button>
+<body class="lf-page">
 
-<!-- Sidebar Overlay -->
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<header class="lf-header">
+    <div class="lf-header-inner">
 
-<!-- Sidebar Drawer -->
-<aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Campus services">
-  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
-
-  <div class="sidebar-header">
-    <img src="Rosebank Logo.webp" alt="RI Student Environment" width="120">
-    <p>Campus Services</p>
-  </div>
-
-  <nav class="sidebar-nav">
-    <a href="resturant.html" class="sidebar-link">
-      <span class="sidebar-icon">🍽️</span>
-      <div>
-        <strong>ORA Café</strong>
-        <small>Order food & drinks</small>
-      </div>
-    </a>
-
-    <a href="store.html" class="sidebar-link">
-      <span class="sidebar-icon">🛍️</span>
-      <div>
-        <strong>University Store</strong>
-        <small>Campus clothing & gear</small>
-      </div>
-    </a>
-
-    <a href="lostfound.html" class="sidebar-link">
-      <span class="sidebar-icon">🔍</span>
-      <div>
-        <strong>Lost & Found</strong>
-        <small>Find or report lost items</small>
-      </div>
-    </a>
-  </nav>
-</aside>
-
-<body class="page-lostfound">
-  <header class="navbar">
-    <a href="index.html" class="logo" aria-label="RI Student Environment home">
-      <img src="Rosebank Logo.webp" alt="RI Student Environment Logo" width="160">
-    </a>
-    <nav class="nav-links" aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="impact.html">Impact</a>
-      <a href="programs.html">Programs</a>
-      <a href="events.html">Events</a>
-      <a href="src.html">SRC</a>
-      <a href="community.html">Community</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-    <div class="nav-actions">
-      <a href="login.html" class="login-link">Login</a>
-      <a href="register.html" class="register-btn">Join Us</a>
-    </div>
-  </header>
-
-  <main>
-    <!-- Robot welcome -->
-    <section class="robot-welcome" aria-hidden="true">
-      <div class="robot">
-        <div class="head">
-          <div class="eye left"></div>
-          <div class="eye right"></div>
-          <div class="mouth"></div>
-        </div>
-        <div class="body">
-          <div class="arm left"></div>
-          <div class="arm right"></div>
-        </div>
-      </div>
-      <p class="robot-text">Hi! I’m your Lost & Found assistant. Register your important items or tell me what you found.</p>
-    </section>
-
-    <!-- Hero -->
-    <section class="lf-hero" aria-labelledby="lost-found-title">
-      <h1 id="lost-found-title">Lost and Found</h1>
-      <p>Report something you lost or found and help reconnect it with its owner.</p>
-    </section>
-
-    <!-- Main Lost & Found container -->
-    <section class="container lf-container" aria-labelledby="report-title">
-      <h2 id="report-title">Report an item</h2>
-
-      <!-- Mode switcher -->
-      <div class="mode-buttons" aria-label="Report type">
-        <button type="button" class="mode-btn active" data-mode="register" aria-pressed="true">
-          Register my item
-        </button>
-        <button type="button" class="mode-btn" data-mode="found" aria-pressed="false">
-          I found something
-        </button>
-      </div>
-<div class="mode-buttons" aria-label="Report type">
-  <button type="button" class="mode-btn active" data-mode="register" aria-pressed="true">
-    Register my item
-  </button>
-  <button type="button" class="mode-btn" data-mode="found" aria-pressed="false">
-    I found something
-  </button>
-</div>
-
-<div id="registerSection" class="mode-section">
-  <!-- register form -->
-   <!-- REGISTER FORM SECTION -->
-      <div id="registerSection" class="mode-section">
-        <h3>Register an important item</h3>
-        <p class="help-text">
-          Register your phone, laptop, keys, etc. so our robot can match them if someone finds them.
-        </p>
-
-        <form id="registerItemForm" class="register-item-form">
-          <label for="itemType">Item type</label>
-          <select id="itemType" name="itemType" required>
-            <option value="phone">Phone</option>
-            <option value="laptop">Laptop</option>
-            <option value="tablet">Tablet</option>
-            <option value="keys">Keys</option>
-            <option value="wallet">Wallet</option>
-            <option value="other">Other</option>
-          </select>
-
-          <label for="brand">Brand</label>
-          <input type="text" id="brand" name="brand" placeholder="e.g. iPhone, Samsung, Dell">
-
-          <label for="model">Model</label>
-          <input type="text" id="model" name="model" placeholder="e.g. iPhone 13, Galaxy S22">
-
-          <label for="color">Color</label>
-          <input type="text" id="color" name="color" placeholder="e.g. black, blue with sticker">
-
-          <label for="description">Description</label>
-          <textarea id="description" name="description"
-            placeholder="Anything distinctive: case, stickers, scratches, engravings, etc."
-            required></textarea>
-
-          <label for="serial">Serial / IMEI / ID (optional)</label>
-          <input type="text" id="serial" name="serial" placeholder="e.g. IMEI or serial number">
-
-          <button type="submit">Register item</button>
-        </form>
-      </div>
-
-</div>
-
-<div id="foundSection" class="mode-section" style="display:none;">
-  <!-- found form -->
-    <!-- FOUND ITEM FORM SECTION -->
-      <div id="foundSection" class="mode-section" style="display:none;">
-        <h3>I found something</h3>
-        <p class="help-text">
-          Describe what you found and upload a photo. Our robot will try to match it with registered items.
-        </p>
-
-        <form id="foundItemForm" class="found-item-form" enctype="multipart/form-data">
-          <label for="foundType">Item type (if you know)</label>
-          <select id="foundType" name="foundType">
-            <option value="">Not sure</option>
-            <option value="phone">Phone</option>
-            <option value="laptop">Laptop</option>
-            <option value="keys">Keys</option>
-            <option value="wallet">Wallet</option>
-            <option value="other">Other</option>
-          </select>
-
-          <label for="foundColor">Color (if visible)</label>
-          <input type="text" id="foundColor" name="foundColor" placeholder="e.g. black, blue">
-
-          <label for="foundLocation">Where found</label>
-          <input type="text" id="foundLocation" name="foundLocation" required>
-
-          <label for="foundDate">Date found</label>
-          <input type="date" id="foundDate" name="foundDate" required>
-
-          <label for="foundDescription">Description</label>
-          <textarea id="foundDescription" name="foundDescription"
-            placeholder="Any visible details: brand logo, case color, stickers, etc."></textarea>
-
-</div>
-          <!-- Camera / photo upload -->
-          <input
-            type="file"
-            id="itemPhoto"
-            name="itemPhoto"
-            accept="image/*"
-            capture="environment"
-            style="display:none"
-          />
-          <button type="button" id="takePhotoBtn" aria-label="Take or upload a photo">
-            📷 Take photo
-          </button>
-          <img id="photoPreview" alt="Photo preview"
-            style="max-width:200px; display:none; margin-top:8px;" />
-
-          <button type="submit">Submit found item</button>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="footer-content">
-      <div>
-        <a href="index.html" class="logo" aria-label="RI Student Environment home">
-          <img src="Rosebank Logo.webp" alt="RI Student Environment Logo" width="160" loading="lazy">
+        <a href="dashboard.html" class="lf-logo" aria-label="RI Student Environment dashboard">
+            <img src="Rosebank Logo.webp" alt="RI Student Environment">
         </a>
-        <p>Connecting students, campuses and opportunities through one student environment.</p>
-      </div>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="index.html">Home</a>
-        <a href="about.html">About</a>
-        <a href="programs.html">Programs</a>
-        <a href="events.html">Events</a>
-      </nav>
-    </div>
-    <div class="copyright"><p>&copy; 2026 RI Student Environment. All rights reserved.</p></div>
-  </footer>
 
-  <script src="lost-found.js"></script>
-  <script src="sidebar.js"></script>
+        <div class="lf-header-right">
+
+            <button
+                type="button"
+                class="lf-icon-button"
+                id="notificationBtn"
+                aria-label="Notifications"
+                title="Notifications"
+            >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                </svg>
+                <span class="lf-notification-dot"></span>
+            </button>
+
+            <a href="profile.html" class="lf-profile">
+                <div class="lf-profile-avatar">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="8" r="4"></circle>
+                        <path d="M4 21a8 8 0 0 1 16 0"></path>
+                    </svg>
+                </div>
+
+                <div class="lf-profile-text">
+                    <strong id="headerStudentName">Student</strong>
+                    <span>Student Portal</span>
+                </div>
+
+                <svg class="lf-chevron" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m6 9 6 6 6-6"></path>
+                </svg>
+            </a>
+
+        </div>
+    </div>
+</header>
+
+<div class="lf-layout">
+
+    <!-- SIDEBAR -->
+    <aside class="lf-sidebar">
+
+        <nav class="lf-sidebar-nav" aria-label="Student portal navigation">
+
+            <div class="lf-nav-section">
+                <span class="lf-nav-label">STUDENT PORTAL</span>
+
+                <a href="dashboard.html" class="lf-nav-link">
+                    <span class="lf-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                            <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                            <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                            <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                        </svg>
+                    </span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="profile.html" class="lf-nav-link">
+                    <span class="lf-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="8" r="4"></circle>
+                            <path d="M4 21a8 8 0 0 1 16 0"></path>
+                        </svg>
+                    </span>
+                    <span>Profile</span>
+                </a>
+
+                <a href="events.html" class="lf-nav-link">
+                    <span class="lf-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="4" width="18" height="17" rx="2"></rect>
+                            <path d="M16 2v4M8 2v4M3 10h18"></path>
+                        </svg>
+                    </span>
+                    <span>Events</span>
+                </a>
+
+                <a href="programs.html" class="lf-nav-link">
+                    <span class="lf-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5z"></path>
+                            <path d="M4 4.5v17"></path>
+                        </svg>
+                    </span>
+                    <span>Programs</span>
+                </a>
+
+                <a href="community.html" class="lf-nav-link">
+                    <span class="lf-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </span>
+                    <span>Community</span>
+                </a>
+
+                <a href="src.html" class="lf-nav-link">
+                    <span class="lf-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <path d="m9 12 2 2 4-4"></path>
+                        </svg>
+                    </span>
+                    <span>SRC</span>
+                </a>
+
+                <a href="lostfound.html" class="lf-nav-link active">
+                    <span class="lf-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <path d="m20 20-4-4"></path>
+                            <path d="M8.5 11h5M11 8.5v5"></path>
+                        </svg>
+                    </span>
+                    <span>Lost &amp; Found</span>
+                </a>
+
+                <a href="store.html" class="lf-nav-link">
+                    <span class="lf-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M6 8h12l1 13H5L6 8z"></path>
+                            <path d="M9 8a3 3 0 0 1 6 0"></path>
+                        </svg>
+                    </span>
+                    <span>Store</span>
+                </a>
+
+                <a href="resturant.html" class="lf-nav-link">
+                    <span class="lf-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M7 3v8"></path>
+                            <path d="M4 3v5a3 3 0 0 0 6 0V3"></path>
+                            <path d="M7 11v10"></path>
+                            <path d="M17 3v18"></path>
+                            <path d="M17 3c2 1.5 3 4 3 7h-3"></path>
+                        </svg>
+                    </span>
+                    <span>Dining</span>
+                </a>
+            </div>
+
+            <div class="lf-nav-section lf-nav-section-account">
+                <span class="lf-nav-label">ACCOUNT</span>
+
+                <a href="profile.html" class="lf-nav-link">
+                    <span class="lf-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-1.4 1.4-.06-.06A1.7 1.7 0 0 0 16.46 18a1.7 1.7 0 0 0-1.46 1.7V20h-2v-.3A1.7 1.7 0 0 0 11.54 18a1.7 1.7 0 0 0-1.88.34l-.06.06-1.4-1.4.06-.06A1.7 1.7 0 0 0 8 15.06a1.7 1.7 0 0 0-1.7-1.46H6v-2h.3A1.7 1.7 0 0 0 8 10.14a1.7 1.7 0 0 0-.34-1.88L7.6 8.2l1.4-1.4.06.06A1.7 1.7 0 0 0 10.94 7a1.7 1.7 0 0 0 1.46-1.7V5h2v.3A1.7 1.7 0 0 0 15.86 7a1.7 1.7 0 0 0 1.88-.34l.06-.06 1.4 1.4-.06.06A1.7 1.7 0 0 0 19 9.94a1.7 1.7 0 0 0 1.7 1.46H21v2h-.3A1.7 1.7 0 0 0 19.4 15z"></path>
+                        </svg>
+                    </span>
+                    <span>Settings</span>
+                </a>
+
+                <a href="login.html" class="lf-nav-link lf-logout-link" id="logoutLink">
+                    <span class="lf-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M10 17l5-5-5-5"></path>
+                            <path d="M15 12H3"></path>
+                            <path d="M21 19V5a2 2 0 0 0-2-2h-6"></path>
+                        </svg>
+                    </span>
+                    <span>Logout</span>
+                </a>
+            </div>
+
+        </nav>
+
+        <div class="lf-sidebar-footer">
+            <div class="lf-campus-status">
+                <span class="lf-status-indicator"></span>
+                <div>
+                    <strong id="sidebarCampusName">Campus</strong>
+                    <span>Student Environment</span>
+                </div>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="lf-main">
+
+        <div class="lf-page-heading">
+            <div>
+                <span class="lf-eyebrow">STUDENT SERVICES</span>
+                <h1>Lost &amp; Found</h1>
+                <p>Report missing property, register found items, or search your campus for an item.</p>
+            </div>
+
+            <div class="lf-heading-icon">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="11" cy="11" r="7"></circle>
+                    <path d="m20 20-4-4"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- MODE NAVIGATION -->
+        <section class="lf-mode-grid" aria-label="Lost and Found actions">
+
+            <button type="button" class="lf-mode-card active" data-section="chatSection">
+                <span class="lf-mode-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.4 9.4 0 0 1-4-.9L3 21l1.9-4.5A8.3 8.3 0 0 1 3 11.5 8.5 8.5 0 1 1 21 11.5z"></path>
+                    </svg>
+                </span>
+                <span class="lf-mode-content">
+                    <strong>Assistant</strong>
+                    <small>Get help with Lost &amp; Found</small>
+                </span>
+                <svg class="lf-mode-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m9 18 6-6-6-6"></path>
+                </svg>
+            </button>
+
+            <button type="button" class="lf-mode-card" data-section="registerSection">
+                <span class="lf-mode-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 5v14M5 12h14"></path>
+                    </svg>
+                </span>
+                <span class="lf-mode-content">
+                    <strong>Report Lost</strong>
+                    <small>Register something you lost</small>
+                </span>
+                <svg class="lf-mode-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m9 18 6-6-6-6"></path>
+                </svg>
+            </button>
+
+            <button type="button" class="lf-mode-card" data-section="foundSection">
+                <span class="lf-mode-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20 11a8 8 0 1 1-2.34-5.66"></path>
+                        <path d="M20 4v7h-7"></path>
+                        <path d="m8 12 2.5 2.5L16 9"></path>
+                    </svg>
+                </span>
+                <span class="lf-mode-content">
+                    <strong>Report Found</strong>
+                    <small>Register an item you found</small>
+                </span>
+                <svg class="lf-mode-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m9 18 6-6-6-6"></path>
+                </svg>
+            </button>
+
+            <button type="button" class="lf-mode-card" data-section="itemsSection">
+                <span class="lf-mode-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m20 20-4-4"></path>
+                    </svg>
+                </span>
+                <span class="lf-mode-content">
+                    <strong>Browse Items</strong>
+                    <small>Search reported campus items</small>
+                </span>
+                <svg class="lf-mode-arrow" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m9 18 6-6-6-6"></path>
+                </svg>
+            </button>
+
+        </section>
+
+        <!-- ASSISTANT -->
+        <section class="lf-section lf-section-active" id="chatSection">
+<!-- RIVA AI Assistant -->
+<div class="riva-assistant">
+
+    <div class="riva-robot-container" aria-label="RIVA AI assistant">
+
+        <div class="riva-glow"></div>
+
+        <div class="riva-robot">
+
+            <div class="riva-antenna">
+                <span></span>
+            </div>
+
+            <div class="riva-head">
+
+                <div class="riva-ear riva-ear-left"></div>
+                <div class="riva-ear riva-ear-right"></div>
+
+                <div class="riva-face">
+
+                    <div class="riva-eyes">
+                        <span class="riva-eye"></span>
+                        <span class="riva-eye"></span>
+                    </div>
+
+                    <div class="riva-mouth">
+                        <span></span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="riva-neck"></div>
+
+            <div class="riva-body">
+
+                <div class="riva-chest">
+                    <div class="riva-logo">R</div>
+                    <div class="riva-status-light"></div>
+                </div>
+
+                <div class="riva-arm riva-arm-left"></div>
+                <div class="riva-arm riva-arm-right"></div>
+
+            </div>
+
+        </div>
+
+        <div class="riva-shadow"></div>
+
+    </div>
+
+    <div class="riva-introduction">
+        <span class="riva-badge">RI AI ASSISTANT</span>
+        <h2>Hi, I'm RIVA</h2>
+        <p>
+            Your Lost &amp; Found assistant. I can help you report,
+            search for, and identify lost items around campus.
+        </p>
+    </div>
+
+</div>
+          
+             
+                 
+                        
+            <div class="lf-section-header">
+                <div>
+                    <span class="lf-section-label">ASSISTANCE</span>
+                    <h2>Lost &amp; Found Assistant</h2>
+                    <p>Tell us what happened and we will guide you through the process.</p>
+                </div>
+
+                <span class="lf-section-header-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.4 9.4 0 0 1-4-.9L3 21l1.9-4.5A8.3 8.3 0 0 1 3 11.5 8.5 8.5 0 1 1 21 11.5z"></path>
+                    </svg>
+                </span>
+            </div>
+
+            <div class="lf-chat-card">
+
+                <div class="lf-chat-header">
+                    <div class="lf-chat-agent">
+                        <div class="lf-agent-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2v3"></path>
+                                <rect x="5" y="6" width="14" height="13" rx="3"></rect>
+                                <path d="M9 11h.01M15 11h.01M9 15c1.5 1 4.5 1 6 0"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <strong>RI Lost &amp; Found Assistant</strong>
+                            <span>Student support</span>
+                        </div>
+                    </div>
+
+                    <span class="lf-online-status">
+                        <span></span>
+                        Available
+                    </span>
+                </div>
+
+                <div class="lf-chat-messages" id="chatMessages">
+
+                    <div class="lf-message lf-message-bot">
+                        <div class="lf-message-avatar">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 2v3"></path>
+                                <rect x="5" y="6" width="14" height="13" rx="3"></rect>
+                                <path d="M9 11h.01M15 11h.01M9 15c1.5 1 4.5 1 6 0"></path>
+                            </svg>
+                        </div>
+
+                        <div class="lf-message-bubble">
+                            <p>Welcome to the RI Lost &amp; Found service.</p>
+                            <p>I can help you report a lost item, report an item you found, or search existing reports.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <form id="chatForm" class="lf-chat-form">
+
+                    <label for="userInput" class="sr-only">Message</label>
+
+                    <input
+                        type="text"
+                        id="userInput"
+                        name="message"
+                        placeholder="Describe what you need help with..."
+                        autocomplete="off"
+                    >
+
+                    <button type="submit" class="lf-primary-icon-button" aria-label="Send message">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="m22 2-7 20-4-9-9-4Z"></path>
+                            <path d="M22 2 11 13"></path>
+                        </svg>
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+        <!-- REPORT LOST -->
+        <section class="lf-section" id="registerSection">
+
+            <div class="lf-section-header">
+                <div>
+                    <span class="lf-section-label">REPORT</span>
+                    <h2>Report a Lost Item</h2>
+                    <p>Provide as much information as possible to improve the chance of recovery.</p>
+                </div>
+
+                <span class="lf-section-header-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 5v14M5 12h14"></path>
+                    </svg>
+                </span>
+            </div>
+
+            <form id="registerItemForm" class="lf-form" enctype="multipart/form-data">
+
+                <div class="lf-form-grid">
+
+                    <div class="lf-form-group">
+                        <label for="itemCategory">
+                            Item category
+                            <span>*</span>
+                        </label>
+
+                        <select id="itemCategory" name="itemCategory" required>
+                            <option value="">Select category</option>
+                            <option value="phone">Phone</option>
+                            <option value="laptop">Laptop</option>
+                            <option value="tablet">Tablet</option>
+                            <option value="keys">Keys</option>
+                            <option value="wallet">Wallet</option>
+                            <option value="earbuds">Earbuds</option>
+                            <option value="headphones">Headphones</option>
+                            <option value="bag">Bag</option>
+                            <option value="clothing">Clothing</option>
+                            <option value="book">Book</option>
+                            <option value="jewelry">Jewelry</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="lf-form-group">
+                        <label for="location">
+                            Last known location
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="location"
+                            name="location"
+                            placeholder="e.g. Library, Cafeteria, Lecture Hall"
+                            required
+                        >
+                    </div>
+
+                    <div class="lf-form-group">
+                        <label for="brand">Brand</label>
+
+                        <input
+                            type="text"
+                            id="brand"
+                            name="brand"
+                            placeholder="e.g. Apple, Samsung, HP"
+                        >
+                    </div>
+
+                    <div class="lf-form-group">
+                        <label for="model">Model</label>
+
+                        <input
+                            type="text"
+                            id="model"
+                            name="model"
+                            placeholder="e.g. Galaxy A54"
+                        >
+                    </div>
+
+                    <div class="lf-form-group">
+                        <label for="color">Colour</label>
+
+                        <input
+                            type="text"
+                            id="color"
+                            name="color"
+                            placeholder="e.g. Black"
+                        >
+                    </div>
+
+                    <div class="lf-form-group">
+                        <label for="serialNumber">Serial number</label>
+
+                        <input
+                            type="text"
+                            id="serialNumber"
+                            name="serialNumber"
+                            placeholder="Optional"
+                        >
+                    </div>
+
+                    <div class="lf-form-group lf-form-full">
+                        <label for="description">
+                            Description
+                            <span>*</span>
+                        </label>
+
+                        <textarea
+                            id="description"
+                            name="description"
+                            rows="5"
+                            minlength="5"
+                            placeholder="Describe the item, identifying features, stickers, marks, case, or anything else that may help identify it."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="lf-form-group lf-form-full">
+
+                        <label>Photo</label>
+
+                        <div class="lf-upload-area">
+                            <input
+                                type="file"
+                                id="itemPhoto"
+                                name="image"
+                                accept="image/jpeg,image/png,image/webp"
+                            >
+
+                            <label for="itemPhoto" class="lf-upload-label">
+                                <span class="lf-upload-icon">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                        <path d="M14 3v6h6"></path>
+                                        <circle cx="9" cy="13" r="1"></circle>
+                                        <path d="m20 17-4-4-5 5"></path>
+                                    </svg>
+                                </span>
+
+                                <span>
+                                    <strong>Upload a photo</strong>
+                                    <small>JPG, PNG or WEBP — maximum 5 MB</small>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div id="photoPreview" class="lf-photo-preview"></div>
+
+                    </div>
+
+                </div>
+
+                <div id="aiResult" class="lf-ai-result" hidden></div>
+
+                <div class="lf-form-actions">
+
+                    <button type="button" class="lf-secondary-button" id="takePhotoBtn">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 7h3l2-3h6l2 3h3a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z"></path>
+                            <circle cx="12" cy="13" r="3"></circle>
+                        </svg>
+                        Identify with photo
+                    </button>
+
+                    <button type="submit" class="lf-primary-button">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M12 5v14M5 12h14"></path>
+                        </svg>
+                        Report Lost Item
+                    </button>
+
+                </div>
+
+                <div id="registerMessage" class="lf-form-message" role="alert"></div>
+
+            </form>
+
+        </section>
+
+        <!-- REPORT FOUND -->
+        <section class="lf-section" id="foundSection">
+
+            <div class="lf-section-header">
+                <div>
+                    <span class="lf-section-label">REPORT</span>
+                    <h2>Report a Found Item</h2>
+                    <p>Help return an item to its owner by registering it with accurate information.</p>
+                </div>
+
+                <span class="lf-section-header-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20 11a8 8 0 1 1-2.34-5.66"></path>
+                        <path d="M20 4v7h-7"></path>
+                        <path d="m8 12 2.5 2.5L16 9"></path>
+                    </svg>
+                </span>
+            </div>
+
+            <form id="foundItemForm" class="lf-form" enctype="multipart/form-data">
+
+                <div class="lf-form-grid">
+
+                    <div class="lf-form-group">
+                        <label for="foundItemCategory">
+                            Item category
+                            <span>*</span>
+                        </label>
+
+                        <select id="foundItemCategory" name="itemCategory" required>
+                            <option value="">Select category</option>
+                            <option value="phone">Phone</option>
+                            <option value="laptop">Laptop</option>
+                            <option value="tablet">Tablet</option>
+                            <option value="keys">Keys</option>
+                            <option value="wallet">Wallet</option>
+                            <option value="earbuds">Earbuds</option>
+                            <option value="headphones">Headphones</option>
+                            <option value="bag">Bag</option>
+                            <option value="clothing">Clothing</option>
+                            <option value="book">Book</option>
+                            <option value="jewelry">Jewelry</option>
+                            <option value="electronics">Electronics</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="lf-form-group">
+                        <label for="foundLocation">
+                            Found location
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="foundLocation"
+                            name="location"
+                            placeholder="Where did you find the item?"
+                            required
+                        >
+                    </div>
+
+                    <div class="lf-form-group">
+                        <label for="foundDate">
+                            Date found
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="date"
+                            id="foundDate"
+                            name="foundDate"
+                            required
+                        >
+                    </div>
+
+                    <div class="lf-form-group">
+                        <label for="foundColor">Colour</label>
+
+                        <input
+                            type="text"
+                            id="foundColor"
+                            name="color"
+                            placeholder="e.g. White"
+                        >
+                    </div>
+
+                    <div class="lf-form-group">
+                        <label for="foundBrand">Brand</label>
+
+                        <input
+                            type="text"
+                            id="foundBrand"
+                            name="brand"
+                            placeholder="e.g. Apple"
+                        >
+                    </div>
+
+                    <div class="lf-form-group">
+                        <label for="foundModel">Model</label>
+
+                        <input
+                            type="text"
+                            id="foundModel"
+                            name="model"
+                            placeholder="e.g. AirPods Pro"
+                        >
+                    </div>
+
+                    <div class="lf-form-group">
+                        <label for="foundSerial">Serial number</label>
+
+                        <input
+                            type="text"
+                            id="foundSerial"
+                            name="serialNumber"
+                            placeholder="Optional"
+                        >
+                    </div>
+
+                    <div class="lf-form-group lf-form-full">
+                        <label for="foundDescription">
+                            Description
+                            <span>*</span>
+                        </label>
+
+                        <textarea
+                            id="foundDescription"
+                            name="description"
+                            rows="5"
+                            minlength="5"
+                            placeholder="Describe the item and any identifying features."
+                            required
+                        ></textarea>
+                    </div>
+
+                    <div class="lf-form-group lf-form-full">
+
+                        <label>Photo</label>
+
+                        <div class="lf-upload-area">
+                            <input
+                                type="file"
+                                id="foundPhoto"
+                                name="image"
+                                accept="image/jpeg,image/png,image/webp"
+                            >
+
+                            <label for="foundPhoto" class="lf-upload-label">
+                                <span class="lf-upload-icon">
+                                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                        <path d="M14 3v6h6"></path>
+                                        <circle cx="9" cy="13" r="1"></circle>
+                                        <path d="m20 17-4-4-5 5"></path>
+                                    </svg>
+                                </span>
+
+                                <span>
+                                    <strong>Upload a photo</strong>
+                                    <small>JPG, PNG or WEBP — maximum 5 MB</small>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div id="foundPhotoPreview" class="lf-photo-preview"></div>
+
+                    </div>
+
+                </div>
+
+                <div class="lf-form-actions">
+
+                    <button type="submit" class="lf-primary-button">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20 11a8 8 0 1 1-2.34-5.66"></path>
+                            <path d="M20 4v7h-7"></path>
+                            <path d="m8 12 2.5 2.5L16 9"></path>
+                        </svg>
+                        Report Found Item
+                    </button>
+
+                </div>
+
+                <div id="foundMessage" class="lf-form-message" role="alert"></div>
+
+            </form>
+
+        </section>
+
+        <!-- BROWSE ITEMS -->
+        <section class="lf-section" id="itemsSection">
+
+            <div class="lf-section-header">
+                <div>
+                    <span class="lf-section-label">CAMPUS REPORTS</span>
+                    <h2>Browse Lost &amp; Found Items</h2>
+                    <p>Search open reports from your campus.</p>
+                </div>
+
+                <button type="button" class="lf-refresh-button" id="refreshItemsBtn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20 11a8 8 0 1 0 2 5"></path>
+                        <path d="M20 4v7h-7"></path>
+                    </svg>
+                    Refresh
+                </button>
+            </div>
+
+            <div class="lf-filter-card">
+
+                <div class="lf-filter-group">
+                    <label for="itemTypeFilter">Report type</label>
+
+                    <select id="itemTypeFilter">
+                        <option value="">All reports</option>
+                        <option value="lost">Lost items</option>
+                        <option value="found">Found items</option>
+                    </select>
+                </div>
+
+                <div class="lf-filter-group">
+                    <label for="itemCategoryFilter">Category</label>
+
+                    <select id="itemCategoryFilter">
+                        <option value="">All categories</option>
+                        <option value="phone">Phone</option>
+                        <option value="laptop">Laptop</option>
+                        <option value="tablet">Tablet</option>
+                        <option value="keys">Keys</option>
+                        <option value="wallet">Wallet</option>
+                        <option value="earbuds">Earbuds</option>
+                        <option value="headphones">Headphones</option>
+                        <option value="bag">Bag</option>
+                        <option value="clothing">Clothing</option>
+                        <option value="book">Book</option>
+                        <option value="jewelry">Jewelry</option>
+                        <option value="electronics">Electronics</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <div class="lf-filter-group lf-filter-search">
+                    <label for="itemSearch">Search</label>
+
+                    <div class="lf-search-input">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="11" cy="11" r="7"></circle>
+                            <path d="m20 20-4-4"></path>
+                        </svg>
+
+                        <input
+                            type="search"
+                            id="itemSearch"
+                            placeholder="Search brand, model, location..."
+                        >
+                    </div>
+                </div>
+
+                <button type="button" class="lf-primary-button lf-filter-button" id="searchItemsBtn">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m20 20-4-4"></path>
+                    </svg>
+                    Search
+                </button>
+
+            </div>
+
+            <div id="itemsStatus" class="lf-items-status"></div>
+
+            <div id="lostFoundItems" class="lf-items-grid"></div>
+
+            <div id="itemsEmpty" class="lf-empty-state" hidden>
+                <div class="lf-empty-icon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m20 20-4-4"></path>
+                    </svg>
+                </div>
+                <h3>No matching reports</h3>
+                <p>Try changing your search or filters.</p>
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="sidebar.js"></script>
+<script src="lost-found.js"></script>
 
 </body>
 </html>
+

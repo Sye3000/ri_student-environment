@@ -1,820 +1,223 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Community | RI Student Environment</title>
-
-    <meta
-        name="description"
-        content="Connect with students, join discussions, discover communities, and share ideas through RI Student Environment."
-    >
-
-    <link rel="stylesheet" href="style.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Community | RI Student Environment</title>
+  <meta name="description" content="Connect with students, join discussions, discover communities, and share ideas through RI Student Environment.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<!-- Hamburger Button -->
-<button class="hamburger-btn" id="hamburgerBtn" aria-label="Open campus menu">
-  ☰
-</button>
+<body class="chat-page">
 
-<!-- Sidebar Overlay -->
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
+  <!-- =========================
+       MOBILE CAMPUS MENU
+       ========================= -->
+  <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open campus menu" type="button">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 
-<!-- Sidebar Drawer -->
-<aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Campus services">
-  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
 
-  <div class="sidebar-header">
-    <img src="Rosebank Logo.webp" alt="RI Student Environment" width="120">
-    <p>Campus Services</p>
-  </div>
+  <aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Campus services">
+    <button class="sidebar-close" id="sidebarClose" aria-label="Close menu" type="button">
+      <span></span>
+      <span></span>
+    </button>
 
-  <nav class="sidebar-nav">
-
-    <a href="resturant.html" class="sidebar-link">
-      <span class="sidebar-icon">🍽️</span>
-      <div>
-        <strong>ORA Café</strong>
-        <small>Order food & drinks</small>
-      </div>
-    </a>
-
-    <a href="store.html" class="sidebar-link">
-      <span class="sidebar-icon">🛍️</span>
-      <div>
-        <strong>University Store</strong>
-        <small>Campus clothing & gear</small>
-      </div>
-    </a>
-
-    <a href="lostfound.html" class="sidebar-link">
-      <span class="sidebar-icon">🔍</span>
-      <div>
-        <strong>Lost & Found</strong>
-        <small>Find or report lost items</small>
-      </div>
-    </a>
-
-  </nav>
-
-</aside>
-
-<body>
-
-    <!-- =========================
-         SITE HEADER
-         ========================= -->
-
-    <header class="navbar">
-
-        <a
-            href="index.html"
-            class="logo"
-            aria-label="RI Student Environment home"
-        >
-
-            <img
-                src="Rosebank Logo.webp"
-                alt="RI Student Environment logo"
-                width="160"
-            >
-
-        </a>
-
-
-        <nav
-            class="nav-links"
-            aria-label="Primary navigation"
-        >
-
-            <a href="index.html">
-                Home
-            </a>
-
-            <a href="about.html">
-                About
-            </a>
-            <a href="impact.html">
-                Impact
-
-            <a href="programs.html">
-                Programs
-            </a>
-
-            <a href="events.html">
-                Events
-            </a>
-
-            <a href="src.html">
-                SRC
-            </a>
-
-            <a
-                href="community.html"
-                class="active"
-                aria-current="page"
-            >
-                Community
-            </a>
-            <a href="contact.html">
-                Contact
-            </a>
-        </nav>
-
-
-        <div class="nav-actions">
-
-            <a
-                href="login.html"
-                class="login-link"
-            >
-                Login
-            </a>
-
-            <a
-                href="register.html"
-                class="register-btn"
-            >
-                Join Us
-            </a>
-
-        </div>
-
-    </header>
-
-
-
-    <!-- =========================
-         MAIN CONTENT
-         ========================= -->
-
-    <main>
-
-<!-- =========================
-     ABOUT CTA WITH VIDEO
-     ========================= -->
-<section
-    class="about-cta video-section"
-    aria-labelledby="cta-title"
->
-
-    <video
-        class="section-video"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="metadata"
-        aria-hidden="true"
-    >
-        <source
-            src="WhatsApp Video 2026-08-11 at 12.29.33 AM.mp4"
-            type="video/mp4"
-        >
-    </video>
-
-    <div class="video-overlay"></div>
-
-    <div class="video-section-content">
-
-        <p class="eyebrow">
-            BE PART OF THE COMMUNITY
-        </p>
-
-        <h2 id="cta-title">
-            Your Student Journey
-            <strong>Starts Here.</strong>
-        </h2>
-
-        <p>
-            Connect with fellow students, discover opportunities,
-            participate in campus life, and help shape a stronger
-            student community.
-        </p>
-
-        <a
-            href="register.html"
-            class="cta-button"
-        >
-            Join RI Student Environment →
-        </a>
-
+    <div class="sidebar-header">
+      <img src="Rosebank Logo.webp" alt="RI Student Environment" width="120">
+      <p>Campus Services</p>
     </div>
 
-</section>
+    <nav class="sidebar-nav">
+      <a href="resturant.html" class="sidebar-link">
+        <span class="sidebar-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 8h1a4 4 0 0 1 0 8h-1"/>
+            <path d="M3 8h14v5a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6V8Z"/>
+            <path d="M6 3v2"/><path d="M10 3v2"/><path d="M14 3v2"/>
+          </svg>
+        </span>
+        <div>
+          <strong>ORA Café</strong>
+          <small>Order food &amp; drinks</small>
+        </div>
+      </a>
 
-    </main>
+      <a href="store.html" class="sidebar-link">
+        <span class="sidebar-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2l-4 6v13h20V8l-4-6H6Z"/>
+            <path d="M2 8h20"/>
+            <path d="M16 8a4 4 0 0 1-8 0"/>
+            <path d="M6 21v-5h12v5"/>
+          </svg>
+        </span>
+        <div>
+          <strong>University Store</strong>
+          <small>Campus clothing &amp; gear</small>
+        </div>
+      </a>
 
-        <!-- =========================
-             COMMUNITY HERO
-             ========================= -->
+      <a href="lostfound.html" class="sidebar-link">
+        <span class="sidebar-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="m20 20-4-4"/>
+            <path d="M11 8v4"/>
+            <circle cx="11" cy="15" r=".5"/>
+          </svg>
+        </span>
+        <div>
+          <strong>Lost &amp; Found</strong>
+          <small>Find or report lost items</small>
+        </div>
+      </a>
+    </nav>
+  </aside>
 
-        <section class="community-hero">
+  <!-- =========================
+       SITE HEADER
+       ========================= -->
+  <header class="navbar">
+    <a href="index.html" class="logo" aria-label="RI Student Environment home">
+      <img src="Rosebank Logo.webp" alt="RI Student Environment logo" width="160">
+    </a>
 
-            <div class="community-container">
+    <nav class="nav-links" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="impact.html">Impact</a>
+      <a href="programs.html">Programs</a>
+      <a href="events.html">Events</a>
+      <a href="src.html">SRC</a>
+      <a href="community.html" class="active" aria-current="page">Community</a>
+      <a href="contact.html">Contact</a>
+    </nav>
 
-                <div class="community-content">
+    <div class="nav-actions">
+      <a href="login.html" class="login-link">Login</a>
+      <a href="register.html" class="register-btn">Join Us</a>
+    </div>
+  </header>
 
-                    <span class="section-tag">
-                        STUDENT COMMUNITY
-                    </span>
+  <!-- =========================
+       WHATSAPP-STYLE CHAT
+       ========================= -->
+  <main class="chat-main">
+    <div class="wa-app">
 
-                    <h1>
-                        Connect.
-                        Share.
-                        Learn.
-                        Grow.
-                    </h1>
-
-                    <p>
-                        Welcome to the RI Student Environment
-                        community. Connect with students from
-                        different campuses, participate in
-                        discussions, share ideas and discover
-                        opportunities.
-                    </p>
-
-
-                    <div class="community-buttons">
-
-                        <a
-                            href="register.html"
-                            class="primary-btn"
-                        >
-                            Join the Community
-                        </a>
-
-                        <a
-                            href="#discussions"
-                            class="secondary-btn"
-                        >
-                            Explore Discussions
-                        </a>
-
-                    </div>
-
-                </div>
-
+      <!-- LEFT PANEL: Chat List -->
+      <aside class="wa-sidebar" id="waSidebar">
+        <!-- Profile Header -->
+        <div class="wa-sidebar-header">
+          <div class="wa-user-profile">
+            <div class="wa-avatar wa-avatar-self" title="Your Profile">
+              <span>YS</span>
             </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             COMMUNITY FEATURES
-             ========================= -->
-
-        <section class="community-features">
-
-            <div class="community-container">
-
-                <div class="section-heading">
-
-                    <span class="section-tag">
-                        WHAT YOU CAN DO
-                    </span>
-
-                    <h2>
-                        Your Student Community
-                    </h2>
-
-                    <p>
-                        A space where students can communicate,
-                        collaborate and support one another.
-                    </p>
-
-                </div>
-
-
-                <div class="community-grid">
-
-
-                    <!-- Discussions -->
-
-                    <article class="community-card">
-
-                        <div
-                            class="community-icon"
-                            aria-hidden="true"
-                        >
-                            💬
-                        </div>
-
-                        <h3>
-                            Discussions
-                        </h3>
-
-                        <p>
-                            Ask questions, share knowledge and
-                            participate in conversations with
-                            other students.
-                        </p>
-
-                        <a href="#discussions">
-                            Join Discussions →
-                        </a>
-
-                    </article>
-
-
-
-                    <!-- Student Groups -->
-
-                    <article class="community-card">
-
-                        <div
-                            class="community-icon"
-                            aria-hidden="true"
-                        >
-                            👥
-                        </div>
-
-                        <h3>
-                            Student Groups
-                        </h3>
-
-                        <p>
-                            Discover student communities and
-                            connect with people who share your
-                            interests.
-                        </p>
-
-                        <a href="#groups">
-                            Explore Groups →
-                        </a>
-
-                    </article>
-
-
-
-                    <!-- Campus Network -->
-
-                    <article class="community-card">
-
-                        <div
-                            class="community-icon"
-                            aria-hidden="true"
-                        >
-                            🎓
-                        </div>
-
-                        <h3>
-                            Campus Network
-                        </h3>
-
-                        <p>
-                            Connect with students from different
-                            campuses and build a stronger student
-                            network.
-                        </p>
-
-                        <a href="#campuses">
-                            Find Students →
-                        </a>
-
-                    </article>
-
-
-
-                    <!-- Opportunities -->
-
-                    <article class="community-card">
-
-                        <div
-                            class="community-icon"
-                            aria-hidden="true"
-                        >
-                            📢
-                        </div>
-
-                        <h3>
-                            Share Opportunities
-                        </h3>
-
-                        <p>
-                            Share useful opportunities, activities,
-                            announcements and student resources.
-                        </p>
-
-                        <a href="#opportunities">
-                            View Opportunities →
-                        </a>
-
-                    </article>
-
-                </div>
-
+            <div class="wa-user-info">
+              <strong>You</strong>
+              <small>RI Student</small>
             </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             DISCUSSIONS
-             ========================= -->
-
-        <section
-            class="discussions-section"
-            id="discussions"
-        >
-
-            <div class="community-container">
-
-                <div class="section-heading">
-
-                    <span class="section-tag">
-                        COMMUNITY DISCUSSIONS
-                    </span>
-
-                    <h2>
-                        What's happening in the community?
-                    </h2>
-
-                    <p>
-                        Join conversations and interact with
-                        fellow students.
-                    </p>
-
-                </div>
-
-
-                <div class="discussion-list">
-
-
-                    <article class="discussion-card">
-
-                        <div
-                            class="discussion-avatar"
-                            aria-hidden="true"
-                        >
-                            ST
-                        </div>
-
-                        <div class="discussion-content">
-
-                            <h3>
-                                Welcome to the RI Student Community
-                            </h3>
-
-                            <p>
-                                Introduce yourself and meet other
-                                students from different campuses.
-                            </p>
-
-                            <div class="discussion-meta">
-
-                                <span>
-                                    Student Community
-                                </span>
-
-                                <span>
-                                    •
-                                </span>
-
-                                <span>
-                                    Start a discussion
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <article class="discussion-card">
-
-                        <div
-                            class="discussion-avatar"
-                            aria-hidden="true"
-                        >
-                            QA
-                        </div>
-
-                        <div class="discussion-content">
-
-                            <h3>
-                                Questions &amp; Answers
-                            </h3>
-
-                            <p>
-                                Have a question about your studies,
-                                campus activities or student life?
-                                Ask the community.
-                            </p>
-
-                            <div class="discussion-meta">
-
-                                <span>
-                                    Q&amp;A
-                                </span>
-
-                                <span>
-                                    •
-                                </span>
-
-                                <span>
-                                    Ask a question
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-
-
-                    <article class="discussion-card">
-
-                        <div
-                            class="discussion-avatar"
-                            aria-hidden="true"
-                        >
-                            EV
-                        </div>
-
-                        <div class="discussion-content">
-
-                            <h3>
-                                Events &amp; Activities
-                            </h3>
-
-                            <p>
-                                Discuss upcoming student events,
-                                activities and programs.
-                            </p>
-
-                            <div class="discussion-meta">
-
-                                <span>
-                                    Events
-                                </span>
-
-                                <span>
-                                    •
-                                </span>
-
-                                <span>
-                                    Join conversation
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             STUDENT GROUPS
-             ========================= -->
-
-        <section
-            class="groups-section"
-            id="groups"
-        >
-
-            <div class="community-container">
-
-                <div class="section-heading">
-
-                    <span class="section-tag">
-                        STUDENT GROUPS
-                    </span>
-
-                    <h2>
-                        Find Your Community
-                    </h2>
-
-                </div>
-
-
-                <div class="group-grid">
-
-
-                    <article class="group-card">
-
-                        <h3>
-                            Technology &amp; IT
-                        </h3>
-
-                        <p>
-                            Connect with students interested in
-                            technology, networking, programming
-                            and IT.
-                        </p>
-
-                        <a
-                            href="register.html"
-                            class="group-button"
-                        >
-                            Join Group
-                        </a>
-
-                    </article>
-
-
-
-                    <article class="group-card">
-
-                        <h3>
-                            Business &amp; Entrepreneurship
-                        </h3>
-
-                        <p>
-                            Share business ideas and connect with
-                            students interested in entrepreneurship.
-                        </p>
-
-                        <a
-                            href="register.html"
-                            class="group-button"
-                        >
-                            Join Group
-                        </a>
-
-                    </article>
-
-
-
-                    <article class="group-card">
-
-                        <h3>
-                            Student Activities
-                        </h3>
-
-                        <p>
-                            Discover activities, social events and
-                            opportunities to get involved.
-                        </p>
-
-                        <a
-                            href="register.html"
-                            class="group-button"
-                        >
-                            Join Group
-                        </a>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             CALL TO ACTION
-             ========================= -->
-
-        <section class="community-cta">
-
-            <div class="community-container">
-
-                <h2>
-                    Ready to connect with other students?
-                </h2>
-
-                <p>
-                    Create your student account and become part
-                    of the RI Student Environment community.
-                </p>
-
-                <a
-                    href="register.html"
-                    class="primary-btn"
-                >
-                    Create Student Account →
-                </a>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =========================
-         SITE FOOTER
-         ========================= -->
-
-    <footer class="site-footer">
-
-        <div class="community-container">
-
-            <div class="footer-content">
-
-                <div>
-
-                    <a
-                        href="index.html"
-                        class="logo"
-                        aria-label="RI Student Environment home"
-                    >
-
-                        <img
-                            src="Rosebank Logo.webp"
-                            alt="RI Student Environment logo"
-                            width="160"
-                            loading="lazy"
-                        >
-
-                    </a>
-
-                    <p>
-                        Connecting students, campuses, and
-                        opportunities through one student
-                        environment.
-                    </p>
-
-                </div>
-
-
-                <nav
-                    class="footer-links"
-                    aria-label="Footer navigation"
-                >
-
-                    <a href="index.html">
-                        Home
-                    </a>
-
-                    <a href="about.html">
-                        About
-                    </a>
-                    <a href="impact.html">
-                        Impact
-
-                    <a href="programs.html">
-                        Programs
-                    </a>
-
-                    <a href="events.html">
-                        Events
-                    </a>
-
-                    <a href="src.html">
-                        SRC
-                    </a>
-
-                    <a
-                        href="community.html"
-                        aria-current="page"
-                    >
-                        Community
-                    </a>
-                    <a href="contact.html">
-                        Contact
-                    
-
-                    <a href="login.html">
-                        Login
-                    </a>
-
-                    <a href="register.html">
-                        Join Us
-                    </a>
-
-                </nav>
-
-            </div>
-
-
-            <div class="copyright">
-
-                <p>
-                    &copy; 2026 RI Student Environment.
-                    All rights reserved.
-                </p>
-
-            </div>
-
+          </div>
+          <div class="wa-header-actions">
+            <button type="button" class="wa-icon-btn" title="New chat" aria-label="New chat">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button type="button" class="wa-icon-btn" title="Menu" aria-label="Menu">
+              <i class="fa-solid fa-ellipsis-vertical"></i>
+            </button>
+          </div>
         </div>
 
-    </footer>
+        <!-- Search -->
+        <div class="wa-search">
+          <div class="wa-search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="chatSearch" placeholder="Search or start a new chat" aria-label="Search chats">
+          </div>
+        </div>
 
+        <!-- Filters -->
+        <div class="wa-filters">
+          <button type="button" class="wa-filter active" data-filter="all">All</button>
+          <button type="button" class="wa-filter" data-filter="unread">Unread</button>
+          <button type="button" class="wa-filter" data-filter="groups">Groups</button>
+          <button type="button" class="wa-filter" data-filter="opportunities">Opportunities</button>
+        </div>
+
+        <!-- Chat List -->
+        <div class="wa-chat-list" id="chatList" role="list">
+          <!-- Populated by JS -->
+        </div>
+      </aside>
+
+      <!-- RIGHT PANEL: Active Chat -->
+<section class="wa-chat" id="waChat">
+
+        <!-- Active Chat View -->
+        <div class="wa-active-chat" id="activeChat" hidden>
+          <!-- Chat Header -->
+          <header class="wa-chat-header">
+            <button type="button" class="wa-back-btn" id="backToList" aria-label="Back to chats">
+              <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <div class="wa-chat-contact" id="chatContact">
+              <div class="wa-avatar" id="chatAvatar"><span></span></div>
+              <div class="wa-contact-info">
+                <strong id="chatName"></strong>
+                <small id="chatStatus">online</small>
+              </div>
+            </div>
+            <div class="wa-chat-actions">
+              <button type="button" class="wa-icon-btn" title="Search in chat" aria-label="Search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </button>
+              <button type="button" class="wa-icon-btn" title="More options" aria-label="More">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+              </button>
+            </div>
+          </header>
+
+          <!-- Messages -->
+          <div class="wa-messages" id="messagesArea" role="log" aria-live="polite">
+            <!-- Populated by JS -->
+          </div>
+
+          <!-- Input Bar -->
+          <footer class="wa-input-bar">
+            <button type="button" class="wa-icon-btn" title="Emoji" aria-label="Emoji">
+              <i class="fa-regular fa-face-smile"></i>
+            </button>
+            <button type="button" class="wa-icon-btn" title="Attach" aria-label="Attach file">
+              <i class="fa-solid fa-paperclip"></i>
+            </button>
+            <div class="wa-input-wrap">
+              <input type="text" id="messageInput" placeholder="Type a message" autocomplete="off" aria-label="Type a message">
+            </div>
+            <button type="button" class="wa-send-btn" id="sendBtn" title="Send" aria-label="Send message">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </footer>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- =========================
+       SITE FOOTER (compact on chat page)
+       ========================= -->
+  <footer class="site-footer chat-footer">
+    <div class="community-container">
+      <div class="copyright">
+        <p>&copy; 2026 RI Student Environment. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
 <script src="sidebar.js"></script>
+<script src="community-chats.js"></script>
 </body>
-
 </html>

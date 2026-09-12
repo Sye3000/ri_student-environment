@@ -11,206 +11,332 @@
 
     <title>My Profile | RI Student Environment</title>
 
-    <link rel="stylesheet" href="style.css">
+    <!-- Shared RI styling -->
     <link rel="stylesheet" href="lostfound.css">
+
+    <!-- Profile-specific styling -->
     <link rel="stylesheet" href="profile.css">
 </head>
 
-<body class="lf-page profile-page">
+<body class="lf-page dashboard-page profile-page">
 
-<header class="lf-header">
-    <div class="lf-header-inner">
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
 
-        <a href="dashboard.html" class="lf-logo" aria-label="RI Student Environment dashboard">
-            <img src="Rosebank Logo.webp" alt="RI Student Environment">
-        </a>
+    <header class="lf-header">
+
+        <div class="lf-header-left">
+
+            <button
+                id="hamburgerBtn"
+                class="mobile-menu-button"
+                type="button"
+                aria-label="Open navigation menu"
+                aria-controls="sidebarDrawer"
+                aria-expanded="false"
+            >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+
+            <a href="dashboard.html" class="lf-brand">
+
+                <div class="lf-brand-mark">
+                    <span>RI</span>
+                </div>
+
+                <div class="lf-brand-text">
+                    <strong>RI Student Environment</strong>
+                    <span>Student Portal</span>
+                </div>
+
+            </a>
+
+        </div>
 
         <div class="lf-header-right">
 
             <button
+                class="header-notification-button"
                 type="button"
-                class="lf-icon-button"
-                id="notificationBtn"
                 aria-label="Notifications"
-                title="Notifications"
             >
                 <svg viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
-                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                    <path d="M10 21h4"></path>
                 </svg>
-                <span class="lf-notification-dot"></span>
+
+                <span class="notification-dot" aria-hidden="true"></span>
             </button>
 
-            <a href="profile.html" class="lf-profile">
-                <div class="lf-profile-avatar">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="12" cy="8" r="4"></circle>
-                        <path d="M4 21a8 8 0 0 1 16 0"></path>
-                    </svg>
+            <div class="header-student">
+
+                <div
+                    id="header-student-initial"
+                    class="header-student-avatar"
+                >
+                    S
                 </div>
 
-                <div class="lf-profile-text">
-                    <strong id="headerStudentName">Student</strong>
-                    <span>Student Portal</span>
+                <div class="header-student-details">
+
+                    <strong id="header-student-name">
+                        Loading...
+                    </strong>
+
+                    <span id="header-student-role">
+                        Student
+                    </span>
+
                 </div>
 
-                <svg class="lf-chevron" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="m6 9 6 6 6-6"></path>
-                </svg>
-            </a>
+            </div>
 
         </div>
-    </div>
-</header>
 
-<div class="lf-layout">
+    </header>
 
-    <!-- SIDEBAR -->
-    <aside class="lf-sidebar">
 
-        <nav class="lf-sidebar-nav" aria-label="Student portal navigation">
+    <!-- =========================================================
+         MOBILE SIDEBAR OVERLAY
+    ========================================================== -->
 
-            <div class="lf-nav-section">
-                <span class="lf-nav-label">STUDENT PORTAL</span>
+    <div
+        id="sidebarOverlay"
+        class="sidebar-overlay"
+        hidden
+    ></div>
 
-                <a href="dashboard.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="3" y="3" width="7" height="7" rx="1"></rect>
-                            <rect x="14" y="3" width="7" height="7" rx="1"></rect>
-                            <rect x="3" y="14" width="7" height="7" rx="1"></rect>
-                            <rect x="14" y="14" width="7" height="7" rx="1"></rect>
-                        </svg>
-                    </span>
+
+    <!-- =========================================================
+         SIDEBAR
+    ========================================================== -->
+
+    <aside
+        id="sidebarDrawer"
+        class="lf-sidebar"
+        aria-label="Student portal navigation"
+    >
+
+        <div class="sidebar-mobile-header">
+
+            <strong>Student Portal</strong>
+
+            <button
+                id="sidebarClose"
+                class="sidebar-close"
+                type="button"
+                aria-label="Close navigation menu"
+            >
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6L6 18"></path>
+                </svg>
+            </button>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <div class="sidebar-section-label">
+                Student Portal
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="sidebar-link">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="3" y="3" width="7" height="7"></rect>
+                        <rect x="14" y="3" width="7" height="7"></rect>
+                        <rect x="3" y="14" width="7" height="7"></rect>
+                        <rect x="14" y="14" width="7" height="7"></rect>
+                    </svg>
+
                     <span>Dashboard</span>
+
                 </a>
 
-                <a href="profile.html" class="lf-nav-link active" aria-current="page">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <circle cx="12" cy="8" r="4"></circle>
-                            <path d="M4 21a8 8 0 0 1 16 0"></path>
-                        </svg>
-                    </span>
+
+                <a
+                    href="profile.html"
+                    class="sidebar-link active"
+                    aria-current="page"
+                >
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="8" r="3.5"></circle>
+                        <path d="M5 20c.7-3.2 3.1-5 7-5s6.3 1.8 7 5"></path>
+                    </svg>
+
                     <span>Profile</span>
+
                 </a>
 
-                <a href="events.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="3" y="4" width="18" height="17" rx="2"></rect>
-                            <path d="M16 2v4M8 2v4M3 10h18"></path>
-                        </svg>
-                    </span>
+
+                <a href="events.html" class="sidebar-link">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                        <path d="M16 3v4M8 3v4M3 10h18"></path>
+                    </svg>
+
                     <span>Events</span>
+
                 </a>
 
-                <a href="programs.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5z"></path>
-                            <path d="M4 4.5v17"></path>
-                        </svg>
-                    </span>
+
+                <a href="programs.html" class="sidebar-link">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 5h16v14H4z"></path>
+                        <path d="M8 9h8M8 13h6"></path>
+                    </svg>
+
                     <span>Programs</span>
+
                 </a>
 
-                <a href="community.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                    </span>
+
+                <a href="community.html" class="sidebar-link">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20"></path>
+                        <circle cx="9.5" cy="7" r="3"></circle>
+                        <path d="M17 11a3 3 0 1 0-1-5.8"></path>
+                        <path d="M21 20v-1.5a4 4 0 0 0-3-3.9"></path>
+                    </svg>
+
                     <span>Community</span>
+
                 </a>
 
-                <a href="src.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                    </span>
+
+                <a href="src.html" class="sidebar-link">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 3l7 4v5c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V7l7-4z"></path>
+                        <path d="M9 12l2 2 4-4"></path>
+                    </svg>
+
                     <span>SRC</span>
+
                 </a>
 
-                <a href="lostfound.html" class="lf-nav-link active">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <circle cx="11" cy="11" r="7"></circle>
-                            <path d="m20 20-4-4"></path>
-                            <path d="M8.5 11h5M11 8.5v5"></path>
-                        </svg>
-                    </span>
+
+                <a href="lostfound.html" class="sidebar-link">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="11" cy="11" r="6"></circle>
+                        <path d="M16 16l5 5"></path>
+                        <path d="M8.5 11h5"></path>
+                    </svg>
+
                     <span>Lost &amp; Found</span>
+
                 </a>
 
-                <a href="store.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M6 8h12l1 13H5L6 8z"></path>
-                            <path d="M9 8a3 3 0 0 1 6 0"></path>
-                        </svg>
-                    </span>
+
+                <a href="store.html" class="sidebar-link">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 9h16l-1 11H5L4 9z"></path>
+                        <path d="M8 9V7a4 4 0 0 1 8 0v2"></path>
+                    </svg>
+
                     <span>Store</span>
+
                 </a>
 
-                <a href="resturant.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M7 3v8"></path>
-                            <path d="M4 3v5a3 3 0 0 0 6 0V3"></path>
-                            <path d="M7 11v10"></path>
-                            <path d="M17 3v18"></path>
-                            <path d="M17 3c2 1.5 3 4 3 7h-3"></path>
-                        </svg>
-                    </span>
+
+                <a href="resturant.html" class="sidebar-link">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M7 3v8"></path>
+                        <path d="M4 3v5a3 3 0 0 0 6 0V3"></path>
+                        <path d="M7 11v10"></path>
+                        <path d="M16 3v18"></path>
+                        <path d="M16 3c3 2 4 5 4 8h-4"></path>
+                    </svg>
+
                     <span>Dining</span>
+
                 </a>
+
+            </nav>
+
+        </div>
+
+
+        <div class="sidebar-divider"></div>
+
+
+        <div class="sidebar-section">
+
+            <div class="sidebar-section-label">
+                Account
             </div>
 
-            <div class="lf-nav-section lf-nav-section-account">
-                <span class="lf-nav-label">ACCOUNT</span>
+            <nav class="sidebar-nav">
 
-                <a href="profile.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <circle cx="12" cy="12" r="3"></circle>
-                            <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-1.4 1.4-.06-.06A1.7 1.7 0 0 0 16.46 18a1.7 1.7 0 0 0-1.46 1.7V20h-2v-.3A1.7 1.7 0 0 0 11.54 18a1.7 1.7 0 0 0-1.88.34l-.06.06-1.4-1.4.06-.06A1.7 1.7 0 0 0 8 15.06a1.7 1.7 0 0 0-1.7-1.46H6v-2h.3A1.7 1.7 0 0 0 8 10.14a1.7 1.7 0 0 0-.34-1.88L7.6 8.2l1.4-1.4.06.06A1.7 1.7 0 0 0 10.94 7a1.7 1.7 0 0 0 1.46-1.7V5h2v.3A1.7 1.7 0 0 0 15.86 7a1.7 1.7 0 0 0 1.88-.34l.06-.06 1.4 1.4-.06.06A1.7 1.7 0 0 0 19 9.94a1.7 1.7 0 0 0 1.7 1.46H21v2h-.3A1.7 1.7 0 0 0 19.4 15z"></path>
-                        </svg>
-                    </span>
+                <a href="settings.html" class="sidebar-link">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.8 1.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.6v.2h-2.6V20a1.7 1.7 0 0 0-1-1.6 1.7 1.7 0 0 0-1.9.3l-.1.1-1.8-1.8.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.6-1H4.8v-2.6H5a1.7 1.7 0 0 0 1.6-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1L8 6.6l.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.6v-.2h2.6v.2a1.7 1.7 0 0 0 1 1.6 1.7 1.7 0 0 0 1.9-.3l.1-.1 1.8 1.8-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.6 1h.2V14h-.2a1.7 1.7 0 0 0-1.6 1z"></path>
+                    </svg>
+
                     <span>Settings</span>
+
                 </a>
 
-                <a href="login.html" class="lf-nav-link lf-logout-link" id="logoutLink">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M10 17l5-5-5-5"></path>
-                            <path d="M15 12H3"></path>
-                            <path d="M21 19V5a2 2 0 0 0-2-2h-6"></path>
-                        </svg>
-                    </span>
+
+                <a href="index.html" class="sidebar-link logout-button">
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M10 5H5v14h5"></path>
+                        <path d="M14 8l4 4-4 4"></path>
+                        <path d="M18 12H9"></path>
+                    </svg>
+
                     <span>Logout</span>
+
                 </a>
+
+            </nav>
+
+        </div>
+
+
+        <div class="sidebar-footer">
+
+            <div class="sidebar-campus-label">
+                Current Campus
             </div>
 
-        </nav>
-
-        <div class="lf-sidebar-footer">
-            <div class="lf-campus-status">
-                <span class="lf-status-indicator"></span>
-                <div>
-                    <strong id="sidebarCampusName">Campus</strong>
-                    <span>Student Environment</span>
-                </div>
+            <div
+                id="sidebarCampusName"
+                class="sidebar-campus-name"
+            >
+                Loading campus...
             </div>
+
+            <div class="sidebar-footer-status">
+                <span class="sidebar-status-dot"></span>
+                Student Environment
+            </div>
+
         </div>
 
     </aside>
 
-    <!-- MAIN CONTENT -->
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+
     <main class="profile-main">
 
 

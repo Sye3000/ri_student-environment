@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="RI Student Environment administration portal."
+    >
+
+    <title>Admin Portal | RI Student Environment</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body class="ri-admin-page">
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="admin-header">
+
+        <div class="admin-header-inner">
+
+            <a href="dashboard.html" class="admin-logo">
+                <img
+                    src="Rosebank Logo.webp"
+                    alt="RI Student Environment"
+                >
+            </a>
+
+            <div class="admin-header-right">
+
+                <button
+                    type="button"
+                    class="admin-notification-button"
+                    id="adminNotificationButton"
+                    aria-label="Notifications"
+                >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
+                        <path d="M10 21h4"></path>
+                    </svg>
+
+                    <span
+                        class="admin-notification-dot"
+                        id="adminNotificationDot"
+                    ></span>
+                </button>
+
+                <div class="admin-header-profile">
+
+                    <div
+                        class="admin-header-avatar"
+                        id="adminHeaderInitial"
+                    >
+                        A
+                    </div>
+
+                    <div class="admin-header-profile-text">
+
+                        <strong id="adminHeaderName">
+                            Administrator
+                        </strong>
+
+                        <span id="adminHeaderRole">
+                            Administrator
+                        </span>
+
+                    </div>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="admin-mobile-menu"
+                    id="adminMenuButton"
+                    aria-label="Open menu"
+                >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 6h16"></path>
+                        <path d="M4 12h16"></path>
+                        <path d="M4 18h16"></path>
+                    </svg>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         LAYOUT
+    ====================================================== -->
+
+    <div class="admin-layout">
+
+
+        <!-- =================================================
+             SIDEBAR
+        ================================================== -->
+
+        <aside
+            class="admin-sidebar"
+            id="adminSidebar"
+        >
+
+            <div class="admin-sidebar-header">
+
+                <span class="admin-sidebar-label">
+                    ADMIN PORTAL
+                </span>
+
+            </div>
+
+
+            <nav class="admin-nav">
+
+
+                <!-- Dashboard -->
+
+                <a
+                    href="#overview"
+                    class="admin-nav-link active"
+                    data-section="overview"
+                >
+                    <span class="admin-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="3" width="7" height="7" rx="1"></rect>
+                            <rect x="14" y="3" width="7" height="7" rx="1"></rect>
+                            <rect x="3" y="14" width="7" height="7" rx="1"></rect>
+                            <rect x="14" y="14" width="7" height="7" rx="1"></rect>
+                        </svg>
+                    </span>
+
+                    <span>Dashboard</span>
+                </a>
+
+
+                <!-- Event Approvals -->
+
+                <a
+                    href="#events"
+                    class="admin-nav-link"
+                    data-section="events"
+                >
+                    <span class="admin-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                            <path d="M16 3v4M8 3v4M3 10h18"></path>
+                            <path d="M8 14h.01M12 14h.01M16 14h.01"></path>
+                        </svg>
+                    </span>
+
+                    <span>Event Approvals</span>
+
+                    <span
+                        class="admin-nav-badge"
+                        id="pendingEventBadge"
+                    >
+                        0
+                    </span>
+                </a>
+
+
+                <!-- Students -->
+
+                <a
+                    href="#students"
+                    class="admin-nav-link"
+                    data-section="students"
+                >
+                    <span class="admin-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="9" cy="7" r="4"></circle>
+                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                    </span>
+
+                    <span>Students</span>
+                </a>
+
+
+                <div class="admin-nav-divider"></div>
+
+
+                <!-- Student Portal -->
+
+                <span class="admin-sidebar-section-label">
+                    STUDENT PORTAL
+                </span>
+
+
+                <a
+                    href="dashboard.html"
+                    class="admin-nav-link"
+                >
+                    <span class="admin-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M3 11.5 12 4l9 7.5"></path>
+                            <path d="M5 10v10h14V10"></path>
+                            <path d="M9 20v-6h6v6"></path>
+                        </svg>
+                    </span>
+
+                    <span>View Student Portal</span>
+                </a>
+
+
+                <!-- Logout -->
+
+                <a
+                    href="login.html"
+                    class="admin-nav-link admin-logout-link"
+                    id="adminLogoutLink"
+                >
+                    <span class="admin-nav-icon">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M10 17l5-5-5-5"></path>
+                            <path d="M15 12H3"></path>
+                            <path d="M21 19V5a2 2 0 0 0-2-2h-6"></path>
+                        </svg>
+                    </span>
+
+                    <span>Logout</span>
+                </a>
+
+            </nav>
+
+
+            <!-- Sidebar footer -->
+
+            <div class="admin-sidebar-footer">
+
+                <div class="admin-system-status">
+
+                    <span class="admin-status-indicator"></span>
+
+                    <div>
+                        <strong>System Online</strong>
+                        <span>RI Administration</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =================================================
+             SIDEBAR OVERLAY
+        ================================================== -->
+
+        <div
+            class="admin-sidebar-overlay"
+            id="adminSidebarOverlay"
+        ></div>
+
+
+        <!-- =================================================
+             MAIN CONTENT
+        ================================================== -->
+
+        <main class="admin-main">
+
+
+            <!-- =================================================
+                 OVERVIEW
+            ================================================== -->
+
+            <section
+                class="admin-section active"
+                id="overviewSection"
+            >
+
+                <div class="admin-page-heading">
+
+                    <div>
+
+                        <span class="admin-kicker">
+                            ADMIN COMMAND CENTRE
+                        </span>
+
+                        <h1>
+                            Welcome back,
+                            <span id="adminWelcomeName">
+                                Administrator
+                            </span>
+                        </h1>
+
+                        <p>
+                            Manage students, events and campus activity
+                            across the RI Student Environment.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Statistics -->
+
+                <div class="admin-stats-grid">
+
+
+                    <!-- Students -->
+
+                    <article class="admin-stat-card">
+
+                        <div class="admin-stat-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                            </svg>
+                        </div>
+
+                        <span class="admin-stat-label">
+                            Total Students
+                        </span>
+
+                        <strong
+                            class="admin-stat-value"
+                            id="totalStudents"
+                        >
+                            0
+                        </strong>
+
+                    </article>
+
+
+                    <!-- Pending Events -->
+
+                    <article class="admin-stat-card">
+
+                        <div class="admin-stat-icon warning">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <rect x="3" y="5" width="18" height="16" rx="2"></rect>
+                                <path d="M16 3v4M8 3v4M3 10h18"></path>
+                            </svg>
+                        </div>
+
+                        <span class="admin-stat-label">
+                            Pending Events
+                        </span>
+
+                        <strong
+                            class="admin-stat-value"
+                            id="totalPendingEvents"
+                        >
+                            0
+                        </strong>
+
+                    </article>
+
+
+                    <!-- Active -->
+
+                    <article class="admin-stat-card">
+
+                        <div class="admin-stat-icon success">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="m5 12 4 4L19 6"></path>
+                            </svg>
+                        </div>
+
+                        <span class="admin-stat-label">
+                            Active Accounts
+                        </span>
+
+                        <strong
+                            class="admin-stat-value"
+                            id="totalActiveStudents"
+                        >
+                            0
+                        </strong>
+
+                    </article>
+
+
+                    <!-- Suspended -->
+
+                    <article class="admin-stat-card">
+
+                        <div class="admin-stat-icon danger">
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="12" cy="12" r="9"></circle>
+                                <path d="M8 8l8 8M16 8l-8 8"></path>
+                            </svg>
+                        </div>
+
+                        <span class="admin-stat-label">
+                            Suspended Accounts
+                        </span>
+
+                        <strong
+                            class="admin-stat-value"
+                            id="totalSuspendedStudents"
+                        >
+                            0
+                        </strong>
+
+                    </article>
+
+                </div>
+
+
+                <!-- Dashboard panels -->
+
+                <div class="admin-content-grid">
+
+
+                    <!-- Pending Events -->
+
+                    <section class="admin-panel">
+
+                        <div class="admin-panel-header">
+
+                            <div>
+                                <h2>Pending Event Approvals</h2>
+
+                                <p>
+                                    Events submitted by SRC members
+                                    awaiting administrator review.
+                                </p>
+                            </div>
+
+                            <button
+                                type="button"
+                                class="admin-text-button"
+                                data-section-target="events"
+                            >
+                                View all
+                            </button>
+
+                        </div>
+
+                        <div
+                            class="admin-panel-body"
+                            id="overviewEvents"
+                        >
+
+                            <div class="admin-empty-state">
+                                <strong>No pending events</strong>
+                                <span>
+                                    New event submissions will appear here.
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+
+                    <!-- System Summary -->
+
+                    <section class="admin-panel">
+
+                        <div class="admin-panel-header">
+
+                            <div>
+                                <h2>System Summary</h2>
+
+                                <p>
+                                    Current administration overview.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <div class="admin-summary-list">
+
+                            <div class="admin-summary-row">
+                                <span>Student accounts</span>
+                                <strong id="summaryStudents">0</strong>
+                            </div>
+
+                            <div class="admin-summary-row">
+                                <span>Active accounts</span>
+                                <strong id="summaryActive">0</strong>
+                            </div>
+
+                            <div class="admin-summary-row">
+                                <span>Suspended accounts</span>
+                                <strong id="summarySuspended">0</strong>
+                            </div>
+
+                            <div class="admin-summary-row">
+                                <span>Events awaiting review</span>
+                                <strong id="summaryPendingEvents">0</strong>
+                            </div>
+
+                        </div>
+
+                    </section>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================================
+                 EVENT APPROVALS
+            ================================================== -->
+
+            <section
+                class="admin-section"
+                id="eventsSection"
+            >
+
+                <div class="admin-page-heading">
+
+                    <div>
+
+                        <span class="admin-kicker">
+                            EVENT MANAGEMENT
+                        </span>
+
+                        <h1>
+                            Event Approvals
+                        </h1>
+
+                        <p>
+                            Review and manage events submitted by SRC members.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <section class="admin-panel">
+
+                    <div class="admin-panel-header">
+
+                        <div>
+                            <h2>Pending Events</h2>
+
+                            <p>
+                                Review each event before it becomes visible
+                                to students.
+                            </p>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="admin-secondary-button"
+                            id="refreshEventsButton"
+                        >
+                            Refresh
+                        </button>
+
+                    </div>
+
+                    <div
+                        class="admin-panel-body"
+                        id="pendingEventsContainer"
+                    >
+
+                        <div class="admin-loading-state">
+                            Loading events...
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+
+            <!-- =================================================
+                 STUDENT MANAGEMENT
+            ================================================== -->
+
+            <section
+                class="admin-section"
+                id="studentsSection"
+            >
+
+                <div class="admin-page-heading">
+
+                    <div>
+
+                        <span class="admin-kicker">
+                            STUDENT MANAGEMENT
+                        </span>
+
+                        <h1>
+                            Students
+                        </h1>
+
+                        <p>
+                            View student accounts and manage account status.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <section class="admin-panel">
+
+                    <div class="admin-panel-header">
+
+                        <div>
+                            <h2>Student Accounts</h2>
+
+                            <p>
+                                Manage active and suspended student accounts.
+                            </p>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="admin-secondary-button"
+                            id="refreshStudentsButton"
+                        >
+                            Refresh
+                        </button>
+
+                    </div>
+
+
+                    <div class="admin-table-wrapper">
+
+                        <table class="admin-students-table">
+
+                            <thead>
+
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Email</th>
+                                    <th>Campus</th>
+                                    <th>Role</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+
+                            </thead>
+
+                            <tbody id="studentsTableBody">
+
+                                <tr>
+                                    <td
+                                        colspan="6"
+                                        class="admin-table-message"
+                                    >
+                                        Loading students...
+                                    </td>
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =====================================================
+         MODAL — REJECT EVENT
+    ====================================================== -->
+
+    <div
+        class="admin-modal"
+        id="rejectEventModal"
+        aria-hidden="true"
+    >
+
+        <div
+            class="admin-modal-backdrop"
+            id="rejectModalBackdrop"
+        ></div>
+
+        <div
+            class="admin-modal-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="rejectModalTitle"
+        >
+
+            <div class="admin-modal-header">
+
+                <div>
+                    <span class="admin-kicker">
+                        EVENT REVIEW
+                    </span>
+
+                    <h2 id="rejectModalTitle">
+                        Reject Event
+                    </h2>
+                </div>
+
+                <button
+                    type="button"
+                    class="admin-modal-close"
+                    id="closeRejectModal"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="admin-modal-body">
+
+                <p>
+                    Please provide a reason for rejecting this event.
+                    The reason will be recorded for administration purposes.
+                </p>
+
+                <label for="rejectReason">
+                    Rejection reason
+                </label>
+
+                <textarea
+                    id="rejectReason"
+                    rows="5"
+                    maxlength="1000"
+                    placeholder="Enter the reason for rejection..."
+                ></textarea>
+
+                <span
+                    class="admin-form-error"
+                    id="rejectReasonError"
+                ></span>
+
+            </div>
+
+
+            <div class="admin-modal-footer">
+
+                <button
+                    type="button"
+                    class="admin-secondary-button"
+                    id="cancelRejectButton"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="button"
+                    class="admin-danger-button"
+                    id="confirmRejectButton"
+                >
+                    Reject Event
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         SCRIPTS
+    ====================================================== -->
+
+    <script src="admin.js"></script>
+
+</body>
+</html>

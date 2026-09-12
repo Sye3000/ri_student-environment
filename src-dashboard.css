@@ -1,0 +1,284 @@
+/* =========================================================
+   SRC DASHBOARD
+   ========================================================= */
+
+.src-dashboard-main {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 48px 28px 80px;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.src-dashboard-hero {
+    margin-bottom: 36px;
+}
+
+.src-dashboard-hero h1 {
+    margin: 8px 0 12px;
+    max-width: 850px;
+    font-size: 40px;
+    line-height: 1.15;
+    color: #111827;
+}
+
+.src-dashboard-hero p {
+    max-width: 720px;
+    margin: 0;
+    color: #6b7280;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+/* =========================================================
+   STAT CARDS
+   ========================================================= */
+
+.src-dashboard-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-bottom: 42px;
+}
+
+.src-stat-card {
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+}
+
+.src-stat-card span {
+    display: block;
+    margin-bottom: 10px;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.src-stat-card strong {
+    display: block;
+    color: #1d4ed8;
+    font-size: 34px;
+    line-height: 1;
+}
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.src-dashboard-section {
+    margin-top: 10px;
+}
+
+.src-dashboard-section-heading {
+    margin-bottom: 24px;
+}
+
+.src-dashboard-section-heading h2 {
+    margin: 8px 0 8px;
+    color: #111827;
+    font-size: 28px;
+}
+
+.src-dashboard-section-heading p {
+    max-width: 720px;
+    margin: 0;
+    color: #6b7280;
+    line-height: 1.6;
+}
+
+/* =========================================================
+   REQUEST LIST
+   ========================================================= */
+
+.src-requests-list {
+    display: grid;
+    gap: 18px;
+}
+
+.src-requests-loading,
+.src-requests-empty,
+.src-requests-error {
+    margin: 0;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    color: #6b7280;
+}
+
+/* =========================================================
+   REQUEST CARD
+   ========================================================= */
+
+.src-request-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+}
+
+.src-request-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 16px;
+}
+
+.src-request-card h3 {
+    margin: 0;
+    color: #111827;
+    font-size: 20px;
+}
+
+.src-request-student {
+    margin: 6px 0 0;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.src-request-type {
+    display: inline-block;
+    margin-top: 14px;
+    padding: 5px 9px;
+    border-radius: 7px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+.src-request-status {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 6px 11px;
+    background: #eff6ff;
+    color: #1d4ed8;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    text-transform: capitalize;
+}
+
+.src-request-description {
+    margin: 18px 0;
+    color: #374151;
+    line-height: 1.65;
+    white-space: pre-wrap;
+}
+
+.src-request-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #f1f5f9;
+    color: #6b7280;
+    font-size: 13px;
+}
+
+.src-request-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.src-request-action {
+    border: none;
+    border-radius: 9px;
+    padding: 10px 16px;
+    background: #1d4ed8;
+    color: #ffffff;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.src-request-action:hover {
+    background: #1e40af;
+}
+
+.src-request-action.secondary {
+    background: #f3f4f6;
+    color: #374151;
+}
+
+.src-request-action.secondary:hover {
+    background: #e5e7eb;
+}
+
+/* =========================================================
+   LOGOUT
+   ========================================================= */
+
+.src-logout-button {
+    width: 100%;
+    border: none;
+    background: transparent;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 850px) {
+
+    .src-dashboard-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .src-dashboard-hero h1 {
+        font-size: 34px;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .src-dashboard-main {
+        padding: 32px 18px 60px;
+    }
+
+    .src-dashboard-hero h1 {
+        font-size: 30px;
+    }
+
+    .src-dashboard-hero p {
+        font-size: 15px;
+    }
+
+    .src-request-card {
+        padding: 18px;
+    }
+
+    .src-request-card-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .src-request-status {
+        align-self: flex-start;
+    }
+
+    .src-request-actions {
+        flex-direction: column;
+    }
+
+    .src-request-action {
+        width: 100%;
+    }
+
+}

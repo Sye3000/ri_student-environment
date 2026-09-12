@@ -1,0 +1,629 @@
+// ─── Menu Items ───────────────────────────────────────────
+const restaurantProducts = [
+    {
+        id: 1,
+        name: "Cheeseburger",
+        price: 65,
+        image: "cheesebugger.jpeg",
+        description: "Juicy beef patty with melted cheese and fresh toppings."
+    },
+    {
+        id: 2,
+        name: "Fast Food Combo",
+        price: 80,
+        image: "fastfood.jpeg",
+        description: "Burger, fries and a cold drink — the full deal."
+    },
+    {
+        id: 3,
+        name: "Coffee",
+        price: 35,
+        image: "Coffe.jpeg",
+        description: "Freshly brewed hot coffee to keep you going."
+    },
+    {
+        id: 4,
+        name: "Cool Drinks",
+        price: 25,
+        image: "Energy-drinks.jpeg",
+        description: "Chilled energy drinks and sodas."
+    }
+];
+
+// ─── Wallet Setup ─────────────────────────────────────────
+const savedStudent = localStorage.getItem("ri_student");
+
+let studentWalletId = "guest";
+
+if (savedStudent) {
+    try {
+        const student = JSON.parse(savedStudent);
+        studentWalletId = student.student_number || student.student_id || student.email || "guest";
+    } catch {
+        studentWalletId = "guest";
+    }
+}
+
+const restaurantWalletKey = `studentWallet_${studentWalletId}`;
+
+const savedRestaurantWallet =
+    localStorage.getItem(restaurantWalletKey);
+
+const restaurantWallet = savedRestaurantWallet
+    ? JSON.parse(savedRestaurantWallet)
+    : {
+        balance: 1000,
+        transactions: []
+    };
+
+// ─── Cart Setup ───────────────────────────────────────────
+const restaurantCartKey = "restaurantCart";
+const restaurantOrderHistoryKey = "ri_restaurant_order_history";
+
+const savedRestaurantCart =
+    localStorage.getItem(restaurantCartKey);
+
+const restaurantCart = savedRestaurantCart
+    ? JSON.parse(savedRestaurantCart)
+    : [];
+
+function getRestaurantOrderHistory() {
+    const saved = localStorage.getItem(restaurantOrderHistoryKey);
+    if (saved) {
+        try {
+            const parsed = JSON.parse(saved);
+            if (Array.isArray(parsed) && parsed.length) return parsed;
+        } catch (error) {
+            console.error("Invalid restaurant order history:", error);
+        }
+    }
+
+    const starterOrders = [
+        {
+            id: "FD-2045",
+            date: "2026-08-16",
+            deliveryDate: "2026-08-16",
+            total: 145,
+            quantity: 2,
+            status: "Delivered",
+            lastUpdate: "2026-08-16",
+            reference: "DINNER-2045",
+            items: [{ id: 1, name: "Cheeseburger", quantity: 1 }, { id: 2, name: "Fast Food Combo", quantity: 1 }]
+        },
+        {
+            id: "FD-2128",
+            date: "2026-08-29",
+            deliveryDate: "2026-08-29",
+            total: 80,
+            quantity: 1,
+            status: "Ready",
+            lastUpdate: "2026-08-29",
+            reference: "DINNER-2128",
+            items: [{ id: 2, name: "Fast Food Combo", quantity: 1 }]
+        },
+        {
+            id: "FD-2186",
+            date: "2026-09-02",
+            deliveryDate: "2026-09-02",
+            total: 110,
+            quantity: 3,
+            status: "Preparing",
+            lastUpdate: "2026-09-02",
+            reference: "DINNER-2186",
+            items: [{ id: 3, name: "Coffee", quantity: 1 }, { id: 4, name: "Cool Drinks", quantity: 2 }]
+        }
+    ];
+
+    localStorage.setItem(restaurantOrderHistoryKey, JSON.stringify(starterOrders));
+    return starterOrders;
+}
+
+function saveRestaurantOrderHistory(orders) {
+    localStorage.setItem(restaurantOrderHistoryKey, JSON.stringify(orders));
+}
+
+function addRestaurantOrderRecord(total, quantity, status = "Processing") {
+    const orders = getRestaurantOrderHistory();
+    const today = new Date();
+    const nextId = `FD-${Math.floor(2000 + Math.random() * 9000)}`;
+    const order = {
+        id: nextId,
+        date: today.toISOString().slice(0, 10),
+        deliveryDate: today.toISOString().slice(0, 10),
+        total: Number(total),
+        quantity: Number(quantity),
+        status: status,
+        lastUpdate: today.toISOString().slice(0, 10),
+        reference: `${nextId.toLowerCase()}-ref`,
+        items: restaurantCart.map(item => ({ id: item.id, name: item.name, quantity: item.quantity }))
+    };
+    orders.unshift(order);
+    saveRestaurantOrderHistory(orders);
+    renderRestaurantOrderHistory();
+}
+
+function renderRestaurantOrderHistory() {
+    const tbody = document.getElementById("restaurantOrderHistoryBody");
+    if (!tbody) return;
+
+    const fromDate = document.getElementById("restaurantOrderFromDate")?.value || "";
+    const toDate = document.getElementById("restaurantOrderToDate")?.value || "";
+    const statusFilter = document.getElementById("restaurantOrderStatus")?.value || "all";
+    const referenceFilter = (document.getElementById("restaurantOrderReference")?.value || "").trim().toLowerCase();
+
+    const rows = getRestaurantOrderHistory().filter(order => {
+        const matchesFrom = !fromDate || order.date >= fromDate;
+        const matchesTo = !toDate || order.date <= toDate;
+        const matchesStatus = statusFilter === "all" || order.status === statusFilter;
+        const matchesReference = !referenceFilter || order.reference.toLowerCase().includes(referenceFilter) || order.id.toLowerCase().includes(referenceFilter);
+        return matchesFrom && matchesTo && matchesStatus && matchesReference;
+    });
+
+    if (!rows.length) {
+        tbody.innerHTML = '<tr><td colspan="8" style="padding:20px;color:#64748b;text-align:center;">No matching orders found.</td></tr>';
+        return;
+    }
+
+    tbody.innerHTML = rows.map(order => `
+        <tr>
+            <td>${order.id}</td>
+            <td>${order.date}</td>
+            <td>${order.deliveryDate}</td>
+            <td>R${Number(order.total).toFixed(2)}</td>
+            <td>${order.quantity}</td>
+            <td>${order.lastUpdate}</td>
+            <td><button type="button" class="view-btn" data-order-id="${order.id}">View</button></td>
+            <td><button type="button" class="reorder-btn" data-order-id="${order.id}">Re-order</button></td>
+        </tr>
+    `).join("");
+
+    tbody.querySelectorAll(".view-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            const order = getRestaurantOrderHistory().find(item => item.id === button.dataset.orderId);
+            if (!order) return;
+            alert(`${order.id}\nStatus: ${order.status}\nReference: ${order.reference}\nTotal: R${Number(order.total).toFixed(2)}\nItems: ${order.items.map(item => `${item.name} x${item.quantity}`).join(", ")}`);
+        });
+    });
+
+    tbody.querySelectorAll(".reorder-btn").forEach(button => {
+        button.addEventListener("click", () => {
+            const order = getRestaurantOrderHistory().find(item => item.id === button.dataset.orderId);
+            if (!order) return;
+            order.items.forEach(item => {
+                const product = restaurantProducts.find(productItem => productItem.id === item.id);
+                if (product) {
+                    const existing = restaurantCart.find(cartItem => cartItem.id === product.id);
+                    if (existing) {
+                        existing.quantity += item.quantity;
+                    } else {
+                        restaurantCart.push({ id: product.id, name: product.name, price: product.price, quantity: item.quantity });
+                    }
+                }
+            });
+            saveRestaurantCart();
+            renderRestaurantCart();
+            alert(`Added ${order.items.map(item => `${item.name} x${item.quantity}`).join(", ")} back to your order.`);
+        });
+    });
+}
+
+// ─── Wallet Functions ─────────────────────────────────────
+function saveRestaurantWallet() {
+    localStorage.setItem(
+        restaurantWalletKey,
+        JSON.stringify(restaurantWallet)
+    );
+}
+
+function updateRestaurantWalletDisplay() {
+    const balanceElement =
+        document.getElementById("restaurantWalletBalance");
+
+    if (!balanceElement) {
+        return;
+    }
+
+    balanceElement.textContent =
+        `R${restaurantWallet.balance.toFixed(2)}`;
+}
+
+function addRestaurantFunds(amount) {
+    if (amount <= 0) {
+        return false;
+    }
+
+    restaurantWallet.balance += amount;
+
+    restaurantWallet.transactions.push({
+        type: "top-up",
+        amount: amount,
+        date: new Date().toISOString()
+    });
+
+    saveRestaurantWallet();
+    updateRestaurantWalletDisplay();
+    renderRestaurantTransactionHistory();
+
+    return true;
+}
+
+// ─── Cart Functions ───────────────────────────────────────
+function saveRestaurantCart() {
+    localStorage.setItem(
+        restaurantCartKey,
+        JSON.stringify(restaurantCart)
+    );
+}
+
+function addToRestaurantCart(productId) {
+    const product = restaurantProducts.find(
+        item => item.id === productId
+    );
+
+    if (!product) {
+        return;
+    }
+
+    const existingItem = restaurantCart.find(
+        item => item.id === productId
+    );
+
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        restaurantCart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            quantity: 1
+        });
+    }
+
+    saveRestaurantCart();
+    renderRestaurantCart();
+}
+
+function removeFromRestaurantCart(productId) {
+    const index = restaurantCart.findIndex(
+        item => item.id === productId
+    );
+
+    if (index === -1) {
+        return;
+    }
+
+    restaurantCart.splice(index, 1);
+
+    saveRestaurantCart();
+    renderRestaurantCart();
+}
+
+function calculateRestaurantCartTotal() {
+    return restaurantCart.reduce(
+        (total, item) => total + (item.price * item.quantity),
+        0
+    );
+}
+
+function renderRestaurantCart() {
+    const cartContainer =
+        document.getElementById("restaurantCartItems");
+
+    const totalElement =
+        document.getElementById("restaurantCartTotal");
+
+    if (!cartContainer || !totalElement) {
+        return;
+    }
+
+    if (restaurantCart.length === 0) {
+        cartContainer.innerHTML = "<p>Your cart is empty.</p>";
+        totalElement.textContent = "R0.00";
+        return;
+    }
+
+    cartContainer.replaceChildren();
+
+    restaurantCart.forEach(item => {
+        const cartItem = document.createElement("div");
+        cartItem.className = "cart-item";
+
+        const itemName = document.createElement("span");
+        itemName.textContent = `${item.name} × ${item.quantity}`;
+
+        const itemPrice = document.createElement("span");
+        itemPrice.textContent =
+            `R${(item.price * item.quantity).toFixed(2)}`;
+
+        const removeButton = document.createElement("button");
+        removeButton.type = "button";
+        removeButton.textContent = "Remove";
+        removeButton.addEventListener(
+            "click",
+            () => removeFromRestaurantCart(item.id)
+        );
+
+        cartItem.append(itemName, itemPrice, removeButton);
+        cartContainer.appendChild(cartItem);
+    });
+
+    totalElement.textContent =
+        `R${calculateRestaurantCartTotal().toFixed(2)}`;
+}
+
+function restaurantCheckout() {
+    const checkoutMessage =
+        document.getElementById("restaurantCheckoutMessage");
+
+    if (restaurantCart.length === 0) {
+        if (checkoutMessage) {
+            checkoutMessage.textContent = "Your cart is empty.";
+        }
+        return;
+    }
+
+    const total = calculateRestaurantCartTotal();
+
+    if (restaurantWallet.balance < total) {
+        if (checkoutMessage) {
+            checkoutMessage.textContent =
+                "Insufficient wallet balance. Please add funds.";
+        }
+        return;
+    }
+
+    restaurantWallet.balance -= total;
+
+    restaurantWallet.transactions.push({
+        type: "purchase",
+        amount: total,
+        items: restaurantCart.map(item => ({
+            name: item.name,
+            quantity: item.quantity
+        })),
+        date: new Date().toISOString()
+    });
+
+    addRestaurantOrderRecord(total, restaurantCart.reduce((sum, item) => sum + item.quantity, 0), "Processing");
+
+    restaurantCart.length = 0;
+
+    saveRestaurantWallet();
+    saveRestaurantCart();
+    updateRestaurantWalletDisplay();
+    renderRestaurantCart();
+    renderRestaurantTransactionHistory();
+
+    if (checkoutMessage) {
+        checkoutMessage.textContent =
+            `Order placed! R${total.toFixed(2)} deducted from your wallet.`;
+    }
+
+    // ✅ Trigger order status
+    showOrderStatus();
+}
+
+function showOrderStatus() {
+    const section = document.getElementById("orderStatusSection");
+    const statusPlaced = document.getElementById("statusPlaced");
+    const statusPreparing = document.getElementById("statusPreparing");
+    const statusReady = document.getElementById("statusReady");
+    const statusMessage = document.getElementById("orderStatusMessage");
+    const dividers = document.querySelectorAll(".status-divider");
+
+    if (!section) return;
+
+    // Show the section and scroll to it
+    section.style.display = "block";
+    section.scrollIntoView({ behavior: "smooth", block: "center" });
+
+    // Step 1 — Order Placed (immediately)
+    statusPlaced.classList.add("active");
+    statusMessage.textContent = "Your order has been received!";
+
+    // Step 2 — Preparing (after 2 seconds)
+    setTimeout(() => {
+        statusPreparing.classList.remove("dimmed");
+        statusPreparing.classList.add("active");
+        dividers[0].classList.add("filled");
+        statusMessage.textContent = "The kitchen is preparing your order...";
+    }, 2000);
+
+    // Step 3 — Ready (after 30 seconds)
+    setTimeout(() => {
+        statusReady.classList.remove("dimmed");
+        statusReady.classList.add("active");
+        dividers[1].classList.add("filled");
+        statusMessage.textContent = "🎉 Your order is ready for collection!";
+    }, 30000);
+}
+
+// ─── Menu Render ──────────────────────────────────────────
+function createMenuCard(product) {
+    const card = document.createElement("article");
+    card.className = "restaurant-card";
+
+    const imageDiv = document.createElement("div");
+    imageDiv.className = "rest-img";
+
+    const img = document.createElement("img");
+    img.src = product.image;
+    img.alt = product.name;
+    img.className = "rest-card-img";
+    img.loading = "lazy";
+    imageDiv.appendChild(img);
+
+    const info = document.createElement("div");
+    info.className = "rest-info";
+
+    const name = document.createElement("h3");
+    name.textContent = product.name;
+
+    const description = document.createElement("p");
+    description.className = "cuisine";
+    description.textContent = product.description;
+
+    const price = document.createElement("p");
+    price.className = "price";
+    price.textContent = `R${product.price.toFixed(2)}`;
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "btn-menu";
+    button.textContent = "Add to Order";
+    button.addEventListener(
+        "click",
+        () => addToRestaurantCart(product.id)
+    );
+
+    info.append(name, description, price, button);
+    card.append(imageDiv, info);
+
+    return card;
+}
+
+function renderRestaurantMenu() {
+    const grid = document.getElementById("restaurantMenuGrid");
+
+    if (!grid) {
+        return;
+    }
+
+    const fragment = document.createDocumentFragment();
+
+    restaurantProducts.forEach(product => {
+        fragment.appendChild(createMenuCard(product));
+    });
+
+    grid.replaceChildren(fragment);
+}
+
+// ─── Transaction History ──────────────────────────────────
+function renderRestaurantTransactionHistory() {
+    const historyContainer =
+        document.getElementById("restaurantTransactionHistory");
+
+    if (!historyContainer) {
+        return;
+    }
+
+    if (restaurantWallet.transactions.length === 0) {
+        historyContainer.innerHTML = "<p>No transactions yet.</p>";
+        return;
+    }
+
+    historyContainer.replaceChildren();
+
+    const transactions =
+        [...restaurantWallet.transactions].reverse();
+
+    transactions.forEach(transaction => {
+        const transactionItem = document.createElement("article");
+        transactionItem.className = "transaction-item";
+
+        const transactionInfo = document.createElement("div");
+        transactionInfo.className = "transaction-info";
+
+        const transactionType = document.createElement("strong");
+        transactionType.textContent =
+            transaction.type === "top-up"
+                ? "Wallet Top-up"
+                : "Food Order";
+
+        const transactionDate = document.createElement("small");
+        transactionDate.textContent =
+            new Date(transaction.date).toLocaleString();
+
+        transactionInfo.append(transactionType, transactionDate);
+
+        const transactionAmount = document.createElement("strong");
+        const isCredit = transaction.type === "top-up";
+        transactionAmount.textContent =
+            `${isCredit ? "+" : "-"}R${transaction.amount.toFixed(2)}`;
+        transactionAmount.className =
+            isCredit ? "transaction-credit" : "transaction-debit";
+
+        transactionItem.append(transactionInfo, transactionAmount);
+        historyContainer.appendChild(transactionItem);
+    });
+}
+
+// ─── Event Listeners ──────────────────────────────────────
+const restaurantAddFundsButton =
+    document.getElementById("restaurantAddFundsBtn");
+
+const restaurantTopupInput =
+    document.getElementById("restaurantTopupAmount");
+
+const restaurantWalletMessage =
+    document.getElementById("restaurantWalletMessage");
+
+if (restaurantAddFundsButton) {
+    restaurantAddFundsButton.addEventListener("click", () => {
+        const amount = Number(restaurantTopupInput?.value);
+
+        if (!Number.isFinite(amount) || amount <= 0) {
+            if (restaurantWalletMessage) {
+                restaurantWalletMessage.textContent =
+                    "Please enter a valid amount.";
+            }
+            return;
+        }
+
+        addRestaurantFunds(amount);
+
+        if (restaurantWalletMessage) {
+            restaurantWalletMessage.textContent =
+                `R${amount.toFixed(2)} added successfully.`;
+        }
+
+        if (restaurantTopupInput) {
+            restaurantTopupInput.value = "";
+        }
+    });
+}
+
+const restaurantCheckoutBtn =
+    document.getElementById("restaurantCheckoutBtn");
+
+if (restaurantCheckoutBtn) {
+    restaurantCheckoutBtn.addEventListener(
+        "click",
+        restaurantCheckout
+    );
+}
+
+// ─── Startup ──────────────────────────────────────────────
+renderRestaurantMenu();
+renderRestaurantCart();
+updateRestaurantWalletDisplay();
+renderRestaurantTransactionHistory();
+renderRestaurantOrderHistory();
+
+const restaurantOrderSearchBtn = document.getElementById("restaurantOrderSearchBtn");
+if (restaurantOrderSearchBtn) {
+    restaurantOrderSearchBtn.addEventListener("click", renderRestaurantOrderHistory);
+}
+
+const restaurantOrderClearBtn = document.getElementById("restaurantOrderClearBtn");
+if (restaurantOrderClearBtn) {
+    restaurantOrderClearBtn.addEventListener("click", () => {
+        const fromDate = document.getElementById("restaurantOrderFromDate");
+        const toDate = document.getElementById("restaurantOrderToDate");
+        const status = document.getElementById("restaurantOrderStatus");
+        const reference = document.getElementById("restaurantOrderReference");
+        if (fromDate) fromDate.value = "";
+        if (toDate) toDate.value = "";
+        if (status) status.value = "all";
+        if (reference) reference.value = "";
+        renderRestaurantOrderHistory();
+    });
+}
+
+["restaurantOrderFromDate", "restaurantOrderToDate", "restaurantOrderStatus", "restaurantOrderReference"].forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+        element.addEventListener("input", renderRestaurantOrderHistory);
+        element.addEventListener("change", renderRestaurantOrderHistory);
+    }
+});

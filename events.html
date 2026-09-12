@@ -21,78 +21,700 @@
 
 </head>
 
-<!-- Hamburger Button -->
-<button class="hamburger-btn" id="hamburgerBtn" aria-label="Open campus menu">
-  ☰
-</button>
 
-<!-- Sidebar Overlay -->
-<div class="sidebar-overlay" id="sidebarOverlay"></div>
-
-<!-- Sidebar Drawer -->
-<aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Campus services">
-  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
-
-  <div class="sidebar-header">
-    <img src="Rosebank Logo.webp" alt="RI Student Environment" width="120">
-    <p>Campus Services</p>
-  </div>
-
-  <nav class="sidebar-nav">
-
-    <a href="resturant.html" class="sidebar-link">
-      <span class="sidebar-icon">🍽️</span>
-      <div>
-        <strong>ORA Café</strong>
-        <small>Order food & drinks</small>
-      </div>
-    </a>
-
-    <a href="store.html" class="sidebar-link">
-      <span class="sidebar-icon">🛍️</span>
-      <div>
-        <strong>University Store</strong>
-        <small>Campus clothing & gear</small>
-      </div>
-    </a>
-
-    <a href="lostfound.html" class="sidebar-link">
-      <span class="sidebar-icon">🔍</span>
-      <div>
-        <strong>Lost & Found</strong>
-        <small>Find or report lost items</small>
-      </div>
-    </a>
-
-  </nav>
-
-</aside>
 <body>
 
-    <!-- =========================
-         SITE HEADER
-         ========================= -->
+<!-- =========================
+     MOBILE CAMPUS MENU
+     ========================= -->
 
-    <header class="navbar">
+<button
+    class="hamburger-btn"
+    id="hamburgerBtn"
+    aria-label="Open campus menu"
+    type="button"
+>
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
 
-        <a
-            href="index.html"
-            class="logo"
-            aria-label="RI Student Environment home"
+
+<!-- Sidebar Overlay -->
+
+<div
+    class="sidebar-overlay"
+    id="sidebarOverlay"
+></div>
+
+
+<!-- Sidebar Drawer -->
+
+<aside
+    class="sidebar-drawer"
+    id="sidebarDrawer"
+    aria-label="Campus services"
+>
+
+    <button
+        class="sidebar-close"
+        id="sidebarClose"
+        aria-label="Close menu"
+        type="button"
+    >
+        <span></span>
+        <span></span>
+    </button>
+
+
+    <div class="sidebar-header">
+
+        <img
+            src="Rosebank Logo.webp"
+            alt="RI Student Environment"
+            width="120"
         >
 
-            <img
-                src="Rosebank Logo.webp"
-                alt="RI Student Environment Logo"
-                width="160"
+        <p>
+            Campus Services
+        </p>
+
+    </div>
+
+
+    <nav class="sidebar-nav">
+
+
+        <!-- =========================
+             ORA CAFÉ
+             ========================= -->
+
+        <a
+            href="resturant.html"
+            class="sidebar-link"
+        >
+
+            <span
+                class="sidebar-icon"
+                aria-hidden="true"
             >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <path d="M17 8h1a4 4 0 0 1 0 8h-1"/>
+
+                    <path d="M3 8h14v5a6 6 0 0 1-6 6H9a6 6 0 0 1-6-6V8Z"/>
+
+                    <path d="M6 3v2"/>
+                    <path d="M10 3v2"/>
+                    <path d="M14 3v2"/>
+
+                </svg>
+
+            </span>
+
+
+            <div>
+
+                <strong>
+                    ORA Café
+                </strong>
+
+                <small>
+                    Order food &amp; drinks
+                </small>
+
+            </div>
 
         </a>
 
 
+        <!-- =========================
+             UNIVERSITY STORE
+             ========================= -->
+
+        <a
+            href="store.html"
+            class="sidebar-link"
+        >
+
+            <span
+                class="sidebar-icon"
+                aria-hidden="true"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <path d="M6 2l-4 6v13h20V8l-4-6H6Z"/>
+
+                    <path d="M2 8h20"/>
+
+                    <path d="M16 8a4 4 0 0 1-8 0"/>
+
+                    <path d="M6 21v-5h12v5"/>
+
+                </svg>
+
+            </span>
+
+
+            <div>
+
+                <strong>
+                    University Store
+                </strong>
+
+                <small>
+                    Campus clothing &amp; gear
+                </small>
+
+            </div>
+
+        </a>
+
+
+        <!-- =========================
+             LOST & FOUND
+             ========================= -->
+
+        <a
+            href="lostfound.html"
+            class="sidebar-link"
+        >
+
+            <span
+                class="sidebar-icon"
+                aria-hidden="true"
+            >
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+
+                    <circle
+                        cx="11"
+                        cy="11"
+                        r="7"
+                    />
+
+                    <path d="m20 20-4-4"/>
+
+                    <path d="M11 8v4"/>
+
+                    <circle
+                        cx="11"
+                        cy="15"
+                        r=".5"
+                    />
+
+                </svg>
+
+            </span>
+
+
+            <div>
+
+                <strong>
+                    Lost &amp; Found
+                </strong>
+
+                <small>
+                    Find or report lost items
+                </small>
+
+            </div>
+
+        </a>
+
+    </nav>
+
+</aside>
+
+
+<!-- =========================
+     SITE HEADER
+     ========================= -->
+
+<header class="navbar">
+
+    <a
+        href="index.html"
+        class="logo"
+        aria-label="RI Student Environment home"
+    >
+
+        <img
+            src="Rosebank Logo.webp"
+            alt="RI Student Environment Logo"
+            width="160"
+        >
+
+    </a>
+
+
+    <nav
+        class="nav-links"
+        aria-label="Primary navigation"
+    >
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="about.html">
+            About
+        </a>
+
+        <a href="impact.html">
+            Impact
+        </a>
+
+        <a href="programs.html">
+            Programs
+        </a>
+
+        <a
+            href="events.html"
+            class="active"
+            aria-current="page"
+        >
+            Events
+        </a>
+
+        <a href="src.html">
+            SRC
+        </a>
+
+        <a href="community.html">
+            Community
+        </a>
+
+        <a href="contact.html">
+            Contact
+        </a>
+
+    </nav>
+
+
+    <div class="nav-actions">
+
+        <a
+            href="login.html"
+            class="login-link"
+        >
+            Login
+        </a>
+
+        <a
+            href="register.html"
+            class="register-btn"
+        >
+            Join Us
+        </a>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     MAIN CONTENT
+     ========================= -->
+
+<main>
+
+
+    <!-- =========================
+         EVENTS HERO
+         ========================= -->
+
+    <section class="events-hero">
+
+        <div class="events-hero-content">
+
+            <p class="eyebrow">
+                STUDENT EVENTS
+            </p>
+
+            <h1>
+                Connect.
+                <strong>Experience.</strong>
+                Participate.
+            </h1>
+
+            <p>
+                Discover events, competitions, networking
+                opportunities and campus activities happening
+                across the RI Student Environment.
+            </p>
+
+
+            <div class="events-hero-buttons">
+
+                <a
+                    href="#upcoming-events"
+                    class="primary-btn"
+                >
+                    Explore Events
+                </a>
+
+                <a
+                    href="register.html"
+                    class="secondary-btn"
+                >
+                    Join Us
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         UPCOMING EVENTS PLATFORM
+         ========================= -->
+
+    <section
+        class="events-platform"
+        id="upcoming-events"
+    >
+
+        <div class="platform-header">
+
+            <div>
+                <p class="eyebrow">
+                    UPCOMING EVENTS
+                </p>
+
+                <h2>
+                    A premium student experience,
+                    <strong>all in one place.</strong>
+                </h2>
+            </div>
+
+            <div class="platform-status">
+                <span class="status-dot"></span>
+                5 new experiences
+            </div>
+
+        </div>
+
+        <div class="platform-summary">
+            <div class="summary-chip">
+                <strong>12+</strong>
+                <span>Student experiences</span>
+            </div>
+            <div class="summary-chip">
+                <strong>4</strong>
+                <span>Campus communities</span>
+            </div>
+            <div class="summary-chip">
+                <strong>Live</strong>
+                <span>Open registrations</span>
+            </div>
+        </div>
+
+        <div class="ticket-list" id="events-list">
+
+            <article class="event-ticket">
+                <div class="ticket-date-block">
+                    <span>APR</span>
+                    <strong>18</strong>
+                </div>
+
+                <div class="ticket-body">
+                    <div class="ticket-meta">
+                        <span class="ticket-tag">TECHNOLOGY</span>
+                        <span class="ticket-location">Campus + Online</span>
+                    </div>
+                    <h3>RI Student Hackathon</h3>
+                    <p>Build, prototype and pitch solutions to real campus and community challenges.</p>
+                </div>
+
+                <div class="ticket-action">
+                    <span>From R 45</span>
+                    <a href="register.html">Reserve →</a>
+                </div>
+            </article>
+
+            <article class="event-ticket">
+                <div class="ticket-date-block">
+                    <span>APR</span>
+                    <strong>26</strong>
+                </div>
+
+                <div class="ticket-body">
+                    <div class="ticket-meta">
+                        <span class="ticket-tag">CAREER</span>
+                        <span class="ticket-location">Innovation Hub</span>
+                    </div>
+                    <h3>Student Networking Day</h3>
+                    <p>Meet future mentors, employers and student leaders in a relaxed professional setting.</p>
+                </div>
+
+                <div class="ticket-action">
+                    <span>Free entry</span>
+                    <a href="register.html">Reserve →</a>
+                </div>
+            </article>
+
+            <article class="event-ticket">
+                <div class="ticket-date-block">
+                    <span>MAY</span>
+                    <strong>03</strong>
+                </div>
+
+                <div class="ticket-body">
+                    <div class="ticket-meta">
+                        <span class="ticket-tag">COMPETITION</span>
+                        <span class="ticket-location">Main Stage</span>
+                    </div>
+                    <h3>Student Innovation Challenge</h3>
+                    <p>Present inspired ideas, compete with confidence and showcase your creativity.</p>
+                </div>
+
+                <div class="ticket-action">
+                    <span>From R 60</span>
+                    <a href="register.html">Reserve →</a>
+                </div>
+            </article>
+
+            <article class="event-ticket">
+                <div class="ticket-date-block">
+                    <span>MAY</span>
+                    <strong>15</strong>
+                </div>
+
+                <div class="ticket-body">
+                    <div class="ticket-meta">
+                        <span class="ticket-tag">ACADEMIC</span>
+                        <span class="ticket-location">Library Lounge</span>
+                    </div>
+                    <h3>Student Study Sessions</h3>
+                    <p>Learn together, stay accountable and sharpen your academic strategy in a peer-led format.</p>
+                </div>
+
+                <div class="ticket-action">
+                    <span>Open invite</span>
+                    <a href="register.html">Reserve →</a>
+                </div>
+            </article>
+
+            <article class="event-ticket">
+                <div class="ticket-date-block">
+                    <span>MAY</span>
+                    <strong>22</strong>
+                </div>
+
+                <div class="ticket-body">
+                    <div class="ticket-meta">
+                        <span class="ticket-tag">COMMUNITY</span>
+                        <span class="ticket-location">Campus Grounds</span>
+                    </div>
+                    <h3>Campus Community Day</h3>
+                    <p>Connect with student groups, discover activations and enjoy a vibrant campus atmosphere.</p>
+                </div>
+
+                <div class="ticket-action">
+                    <span>Free event</span>
+                    <a href="register.html">Reserve →</a>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PARTICIPATION
+         ========================= -->
+
+    <section class="event-participation">
+
+        <div class="section-heading">
+
+            <p class="eyebrow">
+                GET INVOLVED
+            </p>
+
+            <h2>
+                There Is Always
+                <strong>Something Happening.</strong>
+            </h2>
+
+        </div>
+
+
+        <div class="participation-grid">
+
+
+            <article class="participation-card">
+
+                <span class="participation-number">
+                    01
+                </span>
+
+                <h3>
+                    Discover
+                </h3>
+
+                <p>
+                    Find events that match your
+                    interests and goals.
+                </p>
+
+            </article>
+
+
+            <article class="participation-card">
+
+                <span class="participation-number">
+                    02
+                </span>
+
+                <h3>
+                    Register
+                </h3>
+
+                <p>
+                    Reserve your place at upcoming events.
+                </p>
+
+            </article>
+
+
+            <article class="participation-card">
+
+                <span class="participation-number">
+                    03
+                </span>
+
+                <h3>
+                    Participate
+                </h3>
+
+                <p>
+                    Meet people, share ideas and
+                    make connections.
+                </p>
+
+            </article>
+
+
+            <article class="participation-card">
+
+                <span class="participation-number">
+                    04
+                </span>
+
+                <h3>
+                    Create
+                </h3>
+
+                <p>
+                    Approved SRC members can submit
+                    events for students.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CTA
+         ========================= -->
+
+    <section class="events-cta">
+
+        <p class="eyebrow">
+            BE PART OF IT
+        </p>
+
+        <h2>
+            Don't Just Watch.
+            <strong>Participate.</strong>
+        </h2>
+
+        <p>
+            Join RI Student Environment and stay
+            connected to events and opportunities.
+        </p>
+
+        <a
+            href="register.html"
+            class="cta-button"
+        >
+            Join Us →
+        </a>
+
+    </section>
+
+</main>
+
+
+<!-- =========================
+     SITE FOOTER
+     ========================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+
+        <div>
+
+            <a
+                href="index.html"
+                class="logo"
+                aria-label="RI Student Environment home"
+            >
+
+                <img
+                    src="Rosebank Logo.webp"
+                    alt="RI Student Environment Logo"
+                    width="160"
+                    loading="lazy"
+                >
+
+            </a>
+
+            <p>
+                Connecting students, campuses,
+                and opportunities through one
+                student environment.
+            </p>
+
+        </div>
+
+
         <nav
-            class="nav-links"
-            aria-label="Primary navigation"
+            class="footer-links"
+            aria-label="Footer navigation"
         >
 
             <a href="index.html">
@@ -102,8 +724,10 @@
             <a href="about.html">
                 About
             </a>
+
             <a href="impact.html">
                 Impact
+            </a>
 
             <a href="programs.html">
                 Programs
@@ -111,7 +735,6 @@
 
             <a
                 href="events.html"
-                class="active"
                 aria-current="page"
             >
                 Events
@@ -124,871 +747,39 @@
             <a href="community.html">
                 Community
             </a>
+
             <a href="contact.html">
                 Contact
             </a>
 
-        </nav>
-
-
-        <div class="nav-actions">
-
-            <a
-                href="login.html"
-                class="login-link"
-            >
+            <a href="login.html">
                 Login
             </a>
 
-            <a
-                href="register.html"
-                class="register-btn"
-            >
+            <a href="register.html">
                 Join Us
             </a>
 
-        </div>
+        </nav>
 
-    </header>
+    </div>
 
 
+    <div class="copyright">
 
-    <!-- =========================
-         MAIN CONTENT
-         ========================= -->
+        <p>
+            &copy; 2026 RI Student Environment.
+            All rights reserved.
+        </p>
 
-    <main>
+    </div>
 
+</footer>
 
-        <!-- =========================
-             EVENTS HERO
-             ========================= -->
-
-        <section class="events-hero">
-
-            <div class="events-hero-content">
-
-                <p class="eyebrow">
-                    STUDENT EVENTS
-                </p>
-
-                <h1>
-                    Connect.
-                    <strong>Experience.</strong>
-                    Participate.
-                </h1>
-
-                <p>
-                    Discover events, competitions, networking
-                    opportunities and campus activities happening
-                    across the RI Student Environment.
-                </p>
-
-
-                <div class="events-hero-buttons">
-
-                    <a
-                        href="#upcoming-events"
-                        class="primary-btn"
-                    >
-                        Explore Events
-                    </a>
-
-                    <a
-                        href="register.html"
-                        class="secondary-btn"
-                    >
-                        Join Us
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             FEATURED EVENT
-             ========================= -->
-
-        <section class="featured-event">
-
-            <div class="featured-event-content">
-
-                <p class="eyebrow">
-                    FEATURED EVENT
-                </p>
-
-                <p class="featured-event-label">
-                    TECHNOLOGY &amp; INNOVATION
-                </p>
-
-                <h2>
-                    RI Student
-                    <strong>Hackathon</strong>
-                </h2>
-
-                <p>
-                    Bring your ideas to life. Work with students
-                    from different campuses, solve real-world
-                    problems and build innovative technology
-                    solutions.
-                </p>
-
-
-                <div class="event-details">
-
-                    <div>
-
-                        <span>
-                            Date
-                        </span>
-
-                        <strong>
-                            Coming Soon
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>
-                            Location
-                        </span>
-
-                        <strong>
-                            To Be Announced
-                        </strong>
-
-                    </div>
-
-
-                    <div>
-
-                        <span>
-                            Team Size
-                        </span>
-
-                        <strong>
-                            2–5 Students
-                        </strong>
-
-                    </div>
-
-                </div>
-
-
-                <a
-                    href="register.html"
-                    class="cta-button"
-                >
-                    Join the Community →
-                </a>
-
-            </div>
-
-
-            <div class="featured-event-visual">
-
-                <div class="hackathon-symbol">
-                    &lt;/&gt;
-                </div>
-
-
-                <div class="hackathon-floating-card">
-
-                    <span>
-                        Build
-                    </span>
-
-                    <strong>
-                        Innovate
-                    </strong>
-
-                </div>
-
-
-                <div class="hackathon-floating-card second">
-
-                    <span>
-                        Create
-                    </span>
-
-                    <strong>
-                        Compete
-                    </strong>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             UPCOMING EVENTS
-             ========================= -->
-
-        <section
-            class="events-list-section"
-            id="upcoming-events"
-        >
-
-            <div class="section-heading">
-
-                <p class="eyebrow">
-                    WHAT'S HAPPENING
-                </p>
-
-                <h2>
-                    Upcoming
-                    <strong>Events</strong>
-                </h2>
-
-                <p>
-                    Explore opportunities to learn,
-                    connect, compete and participate.
-                </p>
-
-            </div>
-
-
-            <div class="events-grid">
-
-
-                <!-- HACKATHON -->
-
-                <article class="event-card">
-
-                    <div class="event-image">
-
-                        <span class="event-type">
-                            HACKATHON
-                        </span>
-
-                        <span
-                            class="event-icon"
-                            aria-hidden="true"
-                        >
-                            &lt;/&gt;
-                        </span>
-
-                    </div>
-
-
-                    <div class="event-card-content">
-
-                        <div class="event-date">
-
-                            <span>
-                                DATE
-                            </span>
-
-                            <strong>
-                                Coming Soon
-                            </strong>
-
-                            <span>
-                                2026
-                            </span>
-
-                        </div>
-
-
-                        <div class="event-card-info">
-
-                            <p class="event-category">
-                                TECHNOLOGY
-                            </p>
-
-                            <h3>
-                                RI Student Hackathon
-                            </h3>
-
-                            <p>
-                                Work with students and build
-                                innovative solutions to
-                                real-world challenges.
-                            </p>
-
-                            <a href="register.html">
-                                Register Interest →
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- NETWORKING -->
-
-                <article class="event-card">
-
-                    <div class="event-image">
-
-                        <span class="event-type">
-                            NETWORKING
-                        </span>
-
-                        <span
-                            class="event-icon"
-                            aria-hidden="true"
-                        >
-                            🤝
-                        </span>
-
-                    </div>
-
-
-                    <div class="event-card-content">
-
-                        <div class="event-date">
-
-                            <span>
-                                DATE
-                            </span>
-
-                            <strong>
-                                Coming Soon
-                            </strong>
-
-                            <span>
-                                2026
-                            </span>
-
-                        </div>
-
-
-                        <div class="event-card-info">
-
-                            <p class="event-category">
-                                CAREER
-                            </p>
-
-                            <h3>
-                                Student Networking Day
-                            </h3>
-
-                            <p>
-                                Meet students and professionals
-                                while building your network.
-                            </p>
-
-                            <a href="register.html">
-                                Register Interest →
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- INNOVATION -->
-
-                <article class="event-card">
-
-                    <div class="event-image">
-
-                        <span class="event-type">
-                            COMPETITION
-                        </span>
-
-                        <span
-                            class="event-icon"
-                            aria-hidden="true"
-                        >
-                            🏆
-                        </span>
-
-                    </div>
-
-
-                    <div class="event-card-content">
-
-                        <div class="event-date">
-
-                            <span>
-                                DATE
-                            </span>
-
-                            <strong>
-                                Coming Soon
-                            </strong>
-
-                            <span>
-                                2026
-                            </span>
-
-                        </div>
-
-
-                        <div class="event-card-info">
-
-                            <p class="event-category">
-                                INNOVATION
-                            </p>
-
-                            <h3>
-                                Student Innovation Challenge
-                            </h3>
-
-                            <p>
-                                Present your ideas and showcase
-                                your creativity.
-                            </p>
-
-                            <a href="register.html">
-                                Register Interest →
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- STUDY SESSION -->
-
-                <article class="event-card">
-
-                    <div class="event-image">
-
-                        <span class="event-type">
-                            ACADEMIC
-                        </span>
-
-                        <span
-                            class="event-icon"
-                            aria-hidden="true"
-                        >
-                            🎓
-                        </span>
-
-                    </div>
-
-
-                    <div class="event-card-content">
-
-                        <div class="event-date">
-
-                            <span>
-                                DATE
-                            </span>
-
-                            <strong>
-                                Coming Soon
-                            </strong>
-
-                            <span>
-                                2026
-                            </span>
-
-                        </div>
-
-
-                        <div class="event-card-info">
-
-                            <p class="event-category">
-                                ACADEMIC
-                            </p>
-
-                            <h3>
-                                Student Study Sessions
-                            </h3>
-
-                            <p>
-                                Collaborative study sessions
-                                and academic discussions.
-                            </p>
-
-                            <a href="register.html">
-                                Register Interest →
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- CAMPUS DAY -->
-
-                <article class="event-card">
-
-                    <div class="event-image">
-
-                        <span class="event-type">
-                            CAMPUS
-                        </span>
-
-                        <span
-                            class="event-icon"
-                            aria-hidden="true"
-                        >
-                            🏫
-                        </span>
-
-                    </div>
-
-
-                    <div class="event-card-content">
-
-                        <div class="event-date">
-
-                            <span>
-                                DATE
-                            </span>
-
-                            <strong>
-                                Coming Soon
-                            </strong>
-
-                            <span>
-                                2026
-                            </span>
-
-                        </div>
-
-
-                        <div class="event-card-info">
-
-                            <p class="event-category">
-                                CAMPUS
-                            </p>
-
-                            <h3>
-                                Campus Community Day
-                            </h3>
-
-                            <p>
-                                Connect with students and
-                                discover campus activities.
-                            </p>
-
-                            <a href="register.html">
-                                Register Interest →
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-
-
-                <!-- LEADERSHIP -->
-
-                <article class="event-card">
-
-                    <div class="event-image">
-
-                        <span class="event-type">
-                            LEADERSHIP
-                        </span>
-
-                        <span
-                            class="event-icon"
-                            aria-hidden="true"
-                        >
-                            👑
-                        </span>
-
-                    </div>
-
-
-                    <div class="event-card-content">
-
-                        <div class="event-date">
-
-                            <span>
-                                DATE
-                            </span>
-
-                            <strong>
-                                Coming Soon
-                            </strong>
-
-                            <span>
-                                2026
-                            </span>
-
-                        </div>
-
-
-                        <div class="event-card-info">
-
-                            <p class="event-category">
-                                LEADERSHIP
-                            </p>
-
-                            <h3>
-                                Student Leadership Forum
-                            </h3>
-
-                            <p>
-                                Discuss student issues and
-                                develop leadership skills.
-                            </p>
-
-                            <a href="register.html">
-                                Register Interest →
-                            </a>
-
-                        </div>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             PARTICIPATION
-             ========================= -->
-
-        <section class="event-participation">
-
-            <div class="section-heading">
-
-                <p class="eyebrow">
-                    GET INVOLVED
-                </p>
-
-                <h2>
-                    There Is Always
-                    <strong>Something Happening.</strong>
-                </h2>
-
-            </div>
-
-
-            <div class="participation-grid">
-
-
-                <article class="participation-card">
-
-                    <span class="participation-number">
-                        01
-                    </span>
-
-                    <h3>
-                        Discover
-                    </h3>
-
-                    <p>
-                        Find events that match your
-                        interests and goals.
-                    </p>
-
-                </article>
-
-
-                <article class="participation-card">
-
-                    <span class="participation-number">
-                        02
-                    </span>
-
-                    <h3>
-                        Register
-                    </h3>
-
-                    <p>
-                        Reserve your place at upcoming events.
-                    </p>
-
-                </article>
-
-
-                <article class="participation-card">
-
-                    <span class="participation-number">
-                        03
-                    </span>
-
-                    <h3>
-                        Participate
-                    </h3>
-
-                    <p>
-                        Meet people, share ideas and
-                        make connections.
-                    </p>
-
-                </article>
-
-
-                <article class="participation-card">
-
-                    <span class="participation-number">
-                        04
-                    </span>
-
-                    <h3>
-                        Create
-                    </h3>
-
-                    <p>
-                        Approved SRC members can submit
-                        events for students.
-                    </p>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =========================
-             CTA
-             ========================= -->
-
-        <section class="events-cta">
-
-            <p class="eyebrow">
-                BE PART OF IT
-            </p>
-
-            <h2>
-                Don't Just Watch.
-                <strong>Participate.</strong>
-            </h2>
-
-            <p>
-                Join RI Student Environment and stay
-                connected to events and opportunities.
-            </p>
-
-            <a
-                href="register.html"
-                class="cta-button"
-            >
-                Join Us →
-            </a>
-
-        </section>
-
-    </main>
-
-
-
-    <!-- =========================
-         SITE FOOTER
-         ========================= -->
-
-    <footer>
-
-        <div class="footer-content">
-
-
-            <div>
-
-                <a
-                    href="index.html"
-                    class="logo"
-                    aria-label="RI Student Environment home"
-                >
-
-                    <img
-                        src="Rosebank Logo.webp"
-                        alt="RI Student Environment Logo"
-                        width="160"
-                        loading="lazy"
-                    >
-
-                </a>
-
-                <p>
-                    Connecting students, campuses,
-                    and opportunities through one
-                    student environment.
-                </p>
-
-            </div>
-
-
-            <nav
-                class="footer-links"
-                aria-label="Footer navigation"
-            >
-
-                <a href="index.html">
-                    Home
-                </a>
-
-                <a href="about.html">
-                    About
-                </a>
-                <a href="impact.html">
-                    Impact
-
-                <a href="programs.html">
-                    Programs
-                </a>
-
-                <a
-                    href="events.html"
-                    aria-current="page"
-                >
-                    Events
-                </a>
-
-                <a href="src.html">
-                    SRC
-                </a>
-
-                <a href="community.html">
-                    Community
-                </a>
-                <a href="contact.html">
-                    Contact
-
-                <a href="login.html">
-                    Login
-                </a>
-
-                <a href="register.html">
-                    Join Us
-                </a>
-
-            </nav>
-
-        </div>
-
-
-        <div class="copyright">
-
-            <p>
-                &copy; 2026 RI Student Environment.
-                All rights reserved.
-            </p>
-
-        </div>
-
-    </footer>
 
 <script src="sidebar.js"></script>
+<script src="events.js"></script>
+
 </body>
 
 </html>

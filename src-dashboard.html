@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="SRC Portal for managing student requests and campus representation."
+    >
+
+    <title>SRC Portal | RI Student Environment</title>
+
+    <link rel="stylesheet" href="lostfound.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="src-dashboard.css">
+
+</head>
+
+
+<body class="lf-page dashboard-v2-page">
+
+
+    <!-- =========================
+         HEADER
+         ========================= -->
+
+    <header class="lf-header">
+
+        <div class="lf-header-inner">
+
+            <a
+                href="dashboard.html"
+                class="lf-logo"
+                aria-label="RI Student Environment dashboard"
+            >
+                <img
+                    src="Rosebank Logo.webp"
+                    alt="RI Student Environment"
+                >
+            </a>
+
+
+            <div class="lf-header-right">
+
+                <a
+                    href="profile.html"
+                    class="lf-header-profile"
+                    aria-label="Open SRC profile"
+                >
+
+                    <div class="lf-header-avatar">
+                        <span id="header-student-initial">S</span>
+                    </div>
+
+
+                    <div class="lf-header-profile-text">
+
+                        <strong id="header-student-name">
+                            SRC Member
+                        </strong>
+
+                        <span id="header-student-role">
+                            SRC
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MOBILE MENU
+         ========================= -->
+
+    <button
+        type="button"
+        class="dashboard-mobile-menu"
+        id="hamburgerBtn"
+        aria-label="Open navigation"
+    >
+        ☰
+    </button>
+
+
+    <div
+        class="dashboard-sidebar-overlay"
+        id="sidebarOverlay"
+        aria-hidden="true"
+    ></div>
+
+
+    <!-- =========================
+         LAYOUT
+         ========================= -->
+
+    <div class="lf-layout">
+
+
+        <!-- =========================
+             SIDEBAR
+             ========================= -->
+
+        <aside
+            class="lf-sidebar"
+            id="sidebarDrawer"
+        >
+
+            <button
+                type="button"
+                class="dashboard-sidebar-close"
+                id="sidebarClose"
+                aria-label="Close navigation"
+            >
+                ×
+            </button>
+
+
+            <nav
+                class="lf-sidebar-nav"
+                aria-label="SRC portal navigation"
+            >
+
+                <a
+                    href="src-dashboard.html"
+                    class="lf-nav-link active"
+                >
+
+                    <span class="lf-nav-icon">
+                        ◈
+                    </span>
+
+                    <span>
+                        SRC Dashboard
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="#requests"
+                    class="lf-nav-link"
+                >
+
+                    <span class="lf-nav-icon">
+                        ✓
+                    </span>
+
+                    <span>
+                        Student Requests
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="events.html"
+                    class="lf-nav-link"
+                >
+
+                    <span class="lf-nav-icon">
+                        ◇
+                    </span>
+
+                    <span>
+                        Events
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="profile.html"
+                    class="lf-nav-link"
+                >
+
+                    <span class="lf-nav-icon">
+                        ○
+                    </span>
+
+                    <span>
+                        My Profile
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="src.html"
+                    class="lf-nav-link"
+                >
+
+                    <span class="lf-nav-icon">
+                        ℹ
+                    </span>
+
+                    <span>
+                        Public SRC Page
+                    </span>
+
+                </a>
+
+
+                <a
+                    href="dashboard.html"
+                    class="lf-nav-link"
+                >
+
+                    <span class="lf-nav-icon">
+                        ←
+                    </span>
+
+                    <span>
+                        Student Dashboard
+                    </span>
+
+                </a>
+
+
+                <button
+                    type="button"
+                    id="logoutButton"
+                    class="lf-nav-link src-logout-button"
+                >
+
+                    <span class="lf-nav-icon">
+                        ↪
+                    </span>
+
+                    <span>
+                        Logout
+                    </span>
+
+                </button>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- =========================
+             MAIN CONTENT
+             ========================= -->
+
+        <main class="src-dashboard-main">
+
+
+            <!-- HERO -->
+
+            <section class="src-dashboard-hero">
+
+                <span class="dashboard-kicker">
+                    SRC PORTAL
+                </span>
+
+                <h1>
+                    Student Representation Dashboard
+                </h1>
+
+                <p>
+                    Manage student concerns, respond to requests
+                    and represent your campus community.
+                </p>
+
+            </section>
+
+
+            <!-- SUMMARY CARDS -->
+
+            <section class="src-dashboard-stats">
+
+                <article class="src-stat-card">
+
+                    <span>
+                        New Requests
+                    </span>
+
+                    <strong id="newRequestsCount">
+                        0
+                    </strong>
+
+                </article>
+
+
+                <article class="src-stat-card">
+
+                    <span>
+                        In Review
+                    </span>
+
+                    <strong id="inReviewRequestsCount">
+                        0
+                    </strong>
+
+                </article>
+
+
+                <article class="src-stat-card">
+
+                    <span>
+                        Resolved
+                    </span>
+
+                    <strong id="resolvedRequestsCount">
+                        0
+                    </strong>
+
+                </article>
+
+            </section>
+
+
+            <!-- REQUESTS -->
+
+            <section
+                class="src-dashboard-section"
+                id="requests"
+            >
+
+                <div class="src-dashboard-section-heading">
+
+                    <div>
+
+                        <span class="dashboard-kicker">
+                            STUDENT VOICE
+                        </span>
+
+                        <h2>
+                            Student Requests
+                        </h2>
+
+                        <p>
+                            Review complaints, suggestions and
+                            event requests submitted by students.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    id="srcRequestsList"
+                    class="src-requests-list"
+                >
+
+                    <p class="src-requests-loading">
+                        Loading student requests...
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <script src="app.js"></script>
+    <script src="src-dashboard.js"></script>
+
+</body>
+
+</html>
