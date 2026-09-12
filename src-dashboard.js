@@ -1,4 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
+
+    const student = await requireRole("src");
+
+    if (!student) {
+        return;
+    }
 
     const requestsList =
         document.getElementById("srcRequestsList");

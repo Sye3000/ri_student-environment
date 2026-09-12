@@ -383,14 +383,40 @@ async function loadCurrentStudent() {
         return null;
     }
 }
+/* =========================================================
+   ROLE-BASED PAGE ACCESS
+   ========================================================= */
 
+async function requireRole(requiredRole) {
+
+    const student = await loadCurrentStudent();
+
+    if (!student) {
+        return null;
+    }
+
+    if (student.role !== requiredRole) {
+
+        if (student.role === "admin") {
+            window.location.href = "admin.html";
+        } else if (student.role === "src") {
+            window.location.href = "src-dashboard.html";
+        } else {
+            window.location.href = "dashboard.html";
+        }
+
+        return null;
+    }
+
+    return student;
+}
 
 /* =========================================================
    DASHBOARD
    ========================================================= */
 
 async function initialiseDashboard() {
-    const student = await loadCurrentStudent();
+    const student = await requireRole("student");
 
     if (!student) {
         return;
