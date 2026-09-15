@@ -410,7 +410,308 @@ async function requireRole(requiredRole) {
 
     return student;
 }
+/* =========================================================
+   NOTIFICATIONS
+   ========================================================= */
 
+async function loadDashboardNotifications() {
+
+    const notificationButton =
+        document.querySelector(".lf-icon-button");
+
+    const notificationDot =
+        document.querySelector(".lf-notification-dot");
+
+    const notificationPanel =
+        document.getElementById("notificationPanel");
+
+    const notificationList =
+        document.getElementById("notificationList");
+
+    const notificationSummary =
+        document.getElementById("notificationSummary");
+
+    const notificationClose =
+        document.getElementById("notificationClose");
+
+    if (
+        !notificationButton ||
+        !notificationDot ||
+        !notificationPanel ||
+        !notificationList
+    ) {
+        return;
+    }
+
+    const token = getToken();
+
+    if (!token) {
+        return;
+    }
+
+    function updateNotificationDot(unreadCount) {
+
+        notificationDot.hidden = unreadCount <= 0;
+
+        notificationButton.setAttribute(
+            "aria-label",
+            unreadCount > 0
+                ? `Notifications, ${unreadCount} unread`
+                : "Notifications"
+        );
+    }
+
+    function formatNotificationTime(dateValue) {
+
+        if (!dateValue) {
+            return "";
+        }
+
+        const date = new Date(dateValue);
+
+        if (Number.isNaN(date.getTime())) {
+            return "";
+        }
+
+        return date.toLocaleString(
+            "en-ZA",
+            {
+                dateStyle: "medium",
+                timeStyle: "short"
+            }
+        );
+    }
+
+    function escapeNotificationText(value) {
+
+        return String(value ?? "")
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/"/g, "&quot;")
+            .replace(/'/g, "&#039;");
+    }
+
+    async function fetchNotifications() {
+
+        const data = await apiRequest(
+            "/api/community/notifications?limit=50",
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        );
+
+        updateNotificationDot(
+            Number(data.unread_count || 0)
+        );
+
+        return data;
+    }
+
+    function renderNotifications(data) {
+
+        const notifications =
+            Array.isArray(data.notifications)
+                ? data.notifications
+                : [];
+
+        const unreadCount =
+            Number(data.unread_count || 0);
+
+        if (notificationSummary) {
+
+            notificationSummary.textContent =
+                unreadCount > 0
+                    ? `${unreadCount} unread notification${unreadCount === 1 ? "" : "s"}`
+                    : "No new notifications";
+        }
+
+        if (notifications.length === 0) {
+
+            notificationList.innerHTML = `
+                <div class="ri-notification-empty">
+                    You're all caught up.
+                </div>
+            `;
+
+            return;
+        }
+
+        notificationList.innerHTML =
+            notifications.map(notification => {
+
+                const isUnread =
+                    !Boolean(notification.is_read);
+
+                return `
+                    <button
+                        type="button"
+                        class="ri-notification-item ${isUnread ? "unread" : ""}"
+                        data-notification-id="${Number(notification.notification_id)}"
+                    >
+                        <span
+                            class="ri-notification-item-dot ${isUnread ? "" : "read"}"
+                            aria-hidden="true"
+                        ></span>
+
+                        <span class="ri-notification-content">
+
+                            <strong>
+                                ${escapeNotificationText(notification.title)}
+                            </strong>
+
+                            <p>
+                                ${escapeNotificationText(notification.message)}
+                            </p>
+
+                            <time>
+                                ${escapeNotificationText(
+                                    formatNotificationTime(notification.created_at)
+                                )}
+                            </time>
+
+                        </span>
+                    </button>
+                `;
+
+            }).join("");
+    }
+
+    async function markNotificationAsRead(notificationId) {
+
+        await apiRequest(
+            `/api/community/notifications/${notificationId}/read`,
+            {
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        );
+    }
+
+    async function refreshNotifications() {
+
+        try {
+
+            const data =
+                await fetchNotifications();
+
+            renderNotifications(data);
+
+        } catch (error) {
+
+            console.error(
+                "Dashboard notification error:",
+                error
+            );
+
+            notificationList.innerHTML = `
+                <div class="ri-notification-empty">
+                    Unable to load notifications.
+                </div>
+            `;
+        }
+    }
+
+    async function openNotifications() {
+
+        notificationPanel.hidden = false;
+        notificationPanel.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        await refreshNotifications();
+    }
+
+    function closeNotifications() {
+
+        notificationPanel.hidden = true;
+
+        notificationPanel.setAttribute(
+            "aria-hidden",
+            "true"
+        );
+    }
+
+    notificationButton.addEventListener(
+        "click",
+        async () => {
+
+            if (notificationPanel.hidden) {
+                await openNotifications();
+            } else {
+                closeNotifications();
+            }
+        }
+    );
+
+    if (notificationClose) {
+
+        notificationClose.addEventListener(
+            "click",
+            closeNotifications
+        );
+    }
+
+    notificationList.addEventListener(
+        "click",
+        async (event) => {
+
+            const notificationItem =
+                event.target.closest(
+                    ".ri-notification-item"
+                );
+
+            if (!notificationItem) {
+                return;
+            }
+
+            const notificationId =
+                Number(
+                    notificationItem.dataset.notificationId
+                );
+
+            if (!notificationId) {
+                return;
+            }
+
+            try {
+
+                await markNotificationAsRead(
+                    notificationId
+                );
+
+                notificationItem.classList.remove(
+                    "unread"
+                );
+
+                const dot =
+                    notificationItem.querySelector(
+                        ".ri-notification-item-dot"
+                    );
+
+                if (dot) {
+                    dot.classList.add("read");
+                }
+
+                await refreshNotifications();
+
+            } catch (error) {
+
+                console.error(
+                    "Mark notification as read error:",
+                    error
+                );
+            }
+        }
+    );
+
+    await refreshNotifications();
+}
 /* =========================================================
    DASHBOARD
    ========================================================= */
@@ -452,6 +753,7 @@ async function initialiseDashboard() {
         roleElement.textContent =
             student.role || "Student";
     }
+    await loadDashboardNotifications();
 }
 /* =========================================================
    PROFILE
@@ -556,10 +858,139 @@ function logoutStudent(event) {
 
 
 /* =========================================================
+   GLOBAL AUTHENTICATED NAVIGATION
+   ========================================================= */
+
+async function initialiseAuthNavigation() {
+
+    const navActions =
+        document.querySelectorAll(".nav-actions");
+
+    if (!navActions.length) {
+        return;
+    }
+
+    const token = getToken();
+
+    /*
+       No token = visitor is logged out.
+       Keep the normal Login / Join Us navigation.
+    */
+    if (!token) {
+        return;
+    }
+
+    /*
+       We have a token.
+       Use the saved student immediately so the navbar
+       does not unnecessarily wait for the API.
+    */
+    let student = getSavedStudent();
+
+    navActions.forEach((actions) => {
+
+        actions.innerHTML = `
+            <a
+                href="dashboard.html"
+                class="login-link"
+            >
+                Dashboard
+            </a>
+
+            <a
+                href="profile.html"
+                class="register-btn"
+            >
+                Profile
+            </a>
+
+            <a
+                href="index.html"
+                class="auth-logout-link"
+            >
+                Logout
+            </a>
+        `;
+
+        const logoutLink =
+            actions.querySelector(".auth-logout-link");
+
+        if (logoutLink) {
+            logoutLink.addEventListener(
+                "click",
+                logoutStudent
+            );
+        }
+    });
+
+    /*
+       Verify the token in the background.
+
+       This prevents an expired/invalid token from making
+       the website appear logged in forever.
+    */
+    try {
+
+        const data = await apiRequest(
+            "/api/auth/me",
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        );
+
+        if (data.student) {
+            saveStudent(data.student);
+            student = data.student;
+        }
+
+    } catch (error) {
+
+        console.warn(
+            "Authentication verification failed:",
+            error.message
+        );
+
+        removeToken();
+        localStorage.removeItem("ri_student");
+
+        /*
+           Restore the normal logged-out navigation.
+        */
+        navActions.forEach((actions) => {
+
+            actions.innerHTML = `
+                <a
+                    href="login.html"
+                    class="login-link"
+                >
+                    Login
+                </a>
+
+                <a
+                    href="register.html"
+                    class="register-btn"
+                >
+                    Join Us
+                </a>
+            `;
+
+        });
+
+    }
+}
+
+
+/* =========================================================
    PAGE INITIALISATION
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    /* Global authentication navigation */
+
+    initialiseAuthNavigation();
 
     /* Registration page */
 

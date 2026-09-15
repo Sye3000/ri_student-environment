@@ -1,1020 +1,329 @@
+html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
-        name="description"
-        content="Manage your student identity, campus information and account activity."
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
     >
 
     <title>My Profile | RI Student Environment</title>
 
+    <meta
+        name="description"
+        content="Student profile for RI Student Environment."
+    >
+
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="lostfound.css">
-    <link rel="stylesheet" href="profile.css">
 </head>
 
-<body class="lf-page profile-page">
+<body class="dashboard-page profile-page">
 
-<header class="lf-header">
-    <div class="lf-header-inner">
+<header class="dashboard-header">
 
-        <a href="dashboard.html" class="lf-logo" aria-label="RI Student Environment dashboard">
-            <img src="Rosebank Logo.webp" alt="RI Student Environment">
+    <div class="dashboard-container dashboard-nav">
+
+        <a
+            href="dashboard.html"
+            class="dashboard-logo"
+            aria-label="RI Student Environment Dashboard"
+        >
+            <img
+                src="Rosebank Logo.webp"
+                alt="RI Student Environment"
+            >
         </a>
 
-        <div class="lf-header-right">
+        <nav
+            class="dashboard-nav-links"
+            aria-label="Main navigation"
+        >
 
-            <button
-                type="button"
-                class="lf-icon-button"
-                id="notificationBtn"
-                aria-label="Notifications"
-                title="Notifications"
-            >
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path>
-                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-                </svg>
-                <span class="lf-notification-dot"></span>
-            </button>
-
-            <a href="profile.html" class="lf-profile">
-                <div class="lf-profile-avatar">
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <circle cx="12" cy="8" r="4"></circle>
-                        <path d="M4 21a8 8 0 0 1 16 0"></path>
-                    </svg>
-                </div>
-
-                <div class="lf-profile-text">
-                    <strong id="headerStudentName">Student</strong>
-                    <span>Student Portal</span>
-                </div>
-
-                <svg class="lf-chevron" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="m6 9 6 6 6-6"></path>
-                </svg>
+            <a href="dashboard.html">
+                Dashboard
             </a>
 
-        </div>
-    </div>
-</header>
+            <a href="events.html">
+                Events
+            </a>
 
-<div class="lf-layout">
+            <a href="programs.html">
+                Programs
+            </a>
 
-    <!-- SIDEBAR -->
-    <aside class="lf-sidebar">
+            <a href="community.html">
+                Community
+            </a>
 
-        <nav class="lf-sidebar-nav" aria-label="Student portal navigation">
-
-            <div class="lf-nav-section">
-                <span class="lf-nav-label">STUDENT PORTAL</span>
-
-                <a href="dashboard.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="3" y="3" width="7" height="7" rx="1"></rect>
-                            <rect x="14" y="3" width="7" height="7" rx="1"></rect>
-                            <rect x="3" y="14" width="7" height="7" rx="1"></rect>
-                            <rect x="14" y="14" width="7" height="7" rx="1"></rect>
-                        </svg>
-                    </span>
-                    <span>Dashboard</span>
-                </a>
-
-                <a href="profile.html" class="lf-nav-link active" aria-current="page">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <circle cx="12" cy="8" r="4"></circle>
-                            <path d="M4 21a8 8 0 0 1 16 0"></path>
-                        </svg>
-                    </span>
-                    <span>Profile</span>
-                </a>
-
-                <a href="events.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="3" y="4" width="18" height="17" rx="2"></rect>
-                            <path d="M16 2v4M8 2v4M3 10h18"></path>
-                        </svg>
-                    </span>
-                    <span>Events</span>
-                </a>
-
-                <a href="programs.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v17H6.5A2.5 2.5 0 0 0 4 21.5z"></path>
-                            <path d="M4 4.5v17"></path>
-                        </svg>
-                    </span>
-                    <span>Programs</span>
-                </a>
-
-                <a href="community.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="9" cy="7" r="4"></circle>
-                            <path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"></path>
-                        </svg>
-                    </span>
-                    <span>Community</span>
-                </a>
-
-                <a href="src.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                            <path d="m9 12 2 2 4-4"></path>
-                        </svg>
-                    </span>
-                    <span>SRC</span>
-                </a>
-
-                <a href="lostfound.html" class="lf-nav-link active">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <circle cx="11" cy="11" r="7"></circle>
-                            <path d="m20 20-4-4"></path>
-                            <path d="M8.5 11h5M11 8.5v5"></path>
-                        </svg>
-                    </span>
-                    <span>Lost &amp; Found</span>
-                </a>
-
-                <a href="store.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M6 8h12l1 13H5L6 8z"></path>
-                            <path d="M9 8a3 3 0 0 1 6 0"></path>
-                        </svg>
-                    </span>
-                    <span>Store</span>
-                </a>
-
-                <a href="resturant.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M7 3v8"></path>
-                            <path d="M4 3v5a3 3 0 0 0 6 0V3"></path>
-                            <path d="M7 11v10"></path>
-                            <path d="M17 3v18"></path>
-                            <path d="M17 3c2 1.5 3 4 3 7h-3"></path>
-                        </svg>
-                    </span>
-                    <span>Dining</span>
-                </a>
-            </div>
-
-            <div class="lf-nav-section lf-nav-section-account">
-                <span class="lf-nav-label">ACCOUNT</span>
-
-                <a href="profile.html" class="lf-nav-link">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <circle cx="12" cy="12" r="3"></circle>
-                            <path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-1.4 1.4-.06-.06A1.7 1.7 0 0 0 16.46 18a1.7 1.7 0 0 0-1.46 1.7V20h-2v-.3A1.7 1.7 0 0 0 11.54 18a1.7 1.7 0 0 0-1.88.34l-.06.06-1.4-1.4.06-.06A1.7 1.7 0 0 0 8 15.06a1.7 1.7 0 0 0-1.7-1.46H6v-2h.3A1.7 1.7 0 0 0 8 10.14a1.7 1.7 0 0 0-.34-1.88L7.6 8.2l1.4-1.4.06.06A1.7 1.7 0 0 0 10.94 7a1.7 1.7 0 0 0 1.46-1.7V5h2v.3A1.7 1.7 0 0 0 15.86 7a1.7 1.7 0 0 0 1.88-.34l.06-.06 1.4 1.4-.06.06A1.7 1.7 0 0 0 19 9.94a1.7 1.7 0 0 0 1.7 1.46H21v2h-.3A1.7 1.7 0 0 0 19.4 15z"></path>
-                        </svg>
-                    </span>
-                    <span>Settings</span>
-                </a>
-
-                <a href="login.html" class="lf-nav-link lf-logout-link" id="logoutLink">
-                    <span class="lf-nav-icon">
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M10 17l5-5-5-5"></path>
-                            <path d="M15 12H3"></path>
-                            <path d="M21 19V5a2 2 0 0 0-2-2h-6"></path>
-                        </svg>
-                    </span>
-                    <span>Logout</span>
-                </a>
-            </div>
+            <a href="src.html">
+                SRC
+            </a>
 
         </nav>
 
-        <div class="lf-sidebar-footer">
-            <div class="lf-campus-status">
-                <span class="lf-status-indicator"></span>
-                <div>
-                    <strong id="sidebarCampusName">Campus</strong>
-                    <span>Student Environment</span>
-                </div>
-            </div>
+        <div class="dashboard-actions">
+
+            <a
+                href="profile.html"
+                class="profile-link active"
+                aria-current="page"
+            >
+                My Profile
+            </a>
+
+            <a
+                href="index.html"
+                class="logout-button"
+            >
+                Logout
+            </a>
+
         </div>
 
-    </aside>
+    </div>
 
-    <!-- MAIN CONTENT -->
-    <main class="profile-main">
+</header>
 
+<main>
 
-        <!-- =====================================================
-             PROFILE HERO
-        ====================================================== -->
+<section class="dashboard-welcome">
 
-        <section class="profile-hero-v3">
+    <div class="dashboard-container">
 
-            <div class="profile-hero-copy">
+        <p class="dashboard-eyebrow">
+            STUDENT PROFILE
+        </p>
 
-                <span class="profile-kicker">
-                    Student Identity
-                </span>
+        <h1>
+            My <strong>Profile</strong>
+        </h1>
 
-                <h1>
-                    My Profile
-                </h1>
+        <p class="dashboard-welcome-text">
+            View your student information and campus details.
+        </p>
+
+    </div>
+
+</section>
+
+<section class="dashboard-section">
+
+    <div class="dashboard-container">
+
+        <div class="dashboard-grid">
+
+            <article class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    Student
+                </div>
+
+                <h3>
+                    Student Information
+                </h3>
+
+                <div class="profile-avatar-block">
+
+                    <img
+                        id="profile-avatar"
+                        src=""
+                        alt="Profile picture"
+                        width="120"
+                        height="120"
+                        style="border-radius:50%; object-fit:cover;"
+                    >
+
+                    <div class="profile-avatar-controls">
+
+                        <label
+                            for="profile-avatar-input"
+                            class="text-link"
+                        >
+                            Change profile picture
+                        </label>
+
+                        <input
+                            type="file"
+                            id="profile-avatar-input"
+                            accept="image/png,image/jpeg,image/webp"
+                            aria-label="Choose a profile picture"
+                            style="display:block; margin-top:8px;"
+                        >
+
+                        <button
+                            id="profile-avatar-upload"
+                            class="button"
+                            type="button"
+                            style="margin-top:8px;"
+                        >
+                            Upload
+                        </button>
+
+                    </div>
+
+                </div>
 
                 <p>
-                    Manage your student identity, campus information
-                    and activity across the RI Student Environment.
+                    <strong>Full Name</strong><br>
+
+                    <span id="profile-full-name">
+                        Loading...
+                    </span>
                 </p>
 
-            </div>
+                <p>
+                    <strong>Student Number</strong><br>
 
-
-            <div class="profile-identity-card">
-
-                <div class="profile-avatar-wrapper">
-
-                    <div
-                        id="profile-picture"
-                        class="profile-avatar"
-                    >
-                        <span id="profile-avatar-initial">
-                            S
-                        </span>
-                    </div>
-
-                    <span class="profile-avatar-status"></span>
-
-                </div>
-
-
-                <div class="profile-identity-content">
-
-                    <span class="profile-eyebrow">
-                        Student Account
-                    </span>
-
-                    <h2 id="profile-hero-name">
+                    <span id="profile-student-number">
                         Loading...
-                    </h2>
+                    </span>
+                </p>
 
-                    <p id="profile-hero-number">
-                        Student number loading...
-                    </p>
+                <p id="profile-email-row">
 
-                    <div class="profile-identity-meta">
+                    <strong>Email</strong><br>
 
-                        <span
-                            id="profile-hero-role"
-                            class="profile-role-badge"
-                        >
-                            Student
-                        </span>
-
-                        <span
-                            id="profile-hero-campus"
-                            class="profile-campus-badge"
-                        >
-                            Loading campus...
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             ACCOUNT OVERVIEW
-        ====================================================== -->
-
-        <section class="profile-overview-grid">
-
-
-            <!-- WALLET -->
-
-            <article class="profile-overview-card profile-wallet-card">
-
-                <div class="profile-overview-card-top">
-
-                    <div class="profile-overview-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="3" y="6" width="18" height="14" rx="2"></rect>
-                            <path d="M16 10h5v6h-5a3 3 0 0 1 0-6z"></path>
-                            <path d="M7 6V4h11l2 2"></path>
-                            <circle cx="17" cy="13" r="1"></circle>
-                        </svg>
-
-                    </div>
-
-                    <span class="profile-card-label">
-                        Wallet Balance
+                    <span id="profile-email">
+                        Loading...
                     </span>
 
+                </p>
+
+                <p>
+                    <strong>Role</strong><br>
+
+                    <span id="profile-role">
+                        Loading...
+                    </span>
+
+                    <small class="profile-help">
+                        Your access level in the student environment.
+                    </small>
+                </p>
+
+                <hr>
+
+                <div class="profile-bio-section">
+
+                    <label for="profile-bio">
+                        <strong>Bio</strong>
+                    </label>
+
+                    <textarea
+                        id="profile-bio"
+                        rows="4"
+                        placeholder="Tell other students a little about yourself..."
+                        aria-label="Student bio"
+                        style="width:100%; margin-top:8px;"
+                    ></textarea>
+
+                    <button
+                        id="profile-bio-save"
+                        class="button"
+                        type="button"
+                        style="margin-top:8px;"
+                    >
+                        Save Bio
+                    </button>
+
                 </div>
 
-                <div
-                    id="student-wallet-balance"
-                    class="profile-wallet-amount"
+            </article>
+
+            <article class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    Campus
+                </div>
+
+                <h3>
+                    Campus Information
+                </h3>
+
+                <p>
+                    <strong>Campus</strong><br>
+
+                    <span id="profile-campus">
+                        Loading...
+                    </span>
+                </p>
+
+                <p>
+                    <strong>Campus Code</strong><br>
+
+                    <span id="profile-campus-code">
+                        Loading...
+                    </span>
+
+                    <small class="profile-help">
+                        The short code used to identify your campus.
+                    </small>
+                </p>
+
+                <p>
+                    <strong>City</strong><br>
+
+                    <span id="profile-city">
+                        Loading...
+                    </span>
+                </p>
+
+            </article>
+
+            <article class="dashboard-card">
+
+                <div class="dashboard-card-icon">
+                    Account
+                </div>
+
+                <h3>
+                    Account Status
+                </h3>
+
+                <p>
+                    <strong>Status</strong><br>
+
+                    <span id="profile-status">
+                        Loading...
+                    </span>
+
+                    <small class="profile-help">
+                        Active means your account can access the portal.
+                    </small>
+                </p>
+
+                <p
+                    id="profile-error"
+                    class="profile-error"
+                    role="alert"
+                    hidden
                 >
-                    R0.00
-                </div>
+                    We could not load your profile.
+                    <a href="profile.html">
+                        Try again
+                    </a>
+                </p>
 
-                <a href="store.html" class="profile-card-link">
-                    Manage wallet
-                    <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="M5 12h14"></path>
-                        <path d="M13 6l6 6-6 6"></path>
-                    </svg>
+                <a href="dashboard.html">
+                    ← Back to Dashboard
                 </a>
 
             </article>
-
-
-            <!-- ACCOUNT STATUS -->
-
-            <article class="profile-overview-card profile-status-card">
-
-                <div class="profile-overview-card-top">
-
-                    <div class="profile-overview-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 3l7 4v5c0 4.5-3 7.8-7 9-4-1.2-7-4.5-7-9V7l7-4z"></path>
-                            <path d="M9 12l2 2 4-4"></path>
-                        </svg>
-
-                    </div>
-
-                    <span class="profile-card-label">
-                        Account Status
-                    </span>
-
-                </div>
-
-                <div class="profile-status-display">
-
-                    <span class="profile-status-indicator"></span>
-
-                    <strong id="profile-status">
-                        Loading...
-                    </strong>
-
-                </div>
-
-                <p class="profile-card-description">
-                    Your student account status.
-                </p>
-
-            </article>
-
-        </section>
-
-
-        <!-- =====================================================
-             PERSONAL INFORMATION
-        ====================================================== -->
-
-        <section class="profile-content-section">
-
-            <div class="profile-section-heading">
-
-                <div>
-                    <span class="profile-eyebrow">
-                        Identity
-                    </span>
-
-                    <h2>
-                        Personal Information
-                    </h2>
-
-                    <p>
-                        Your registered student account information.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="profile-details-grid">
-
-                <article class="profile-detail-card">
-
-                    <div class="profile-detail-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <circle cx="12" cy="8" r="3"></circle>
-                            <path d="M5 20c.7-3.2 3.1-5 7-5s6.3 1.8 7 5"></path>
-                        </svg>
-
-                    </div>
-
-                    <div class="profile-detail-content">
-
-                        <span>
-                            Full Name
-                        </span>
-
-                        <strong id="profile-full-name">
-                            Loading...
-                        </strong>
-
-                    </div>
-
-                </article>
-
-
-                <article class="profile-detail-card">
-
-                    <div class="profile-detail-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="4" y="5" width="16" height="14" rx="2"></rect>
-                            <path d="M8 9h8M8 13h5"></path>
-                        </svg>
-
-                    </div>
-
-                    <div class="profile-detail-content">
-
-                        <span>
-                            Student Number
-                        </span>
-
-                        <strong id="profile-student-number">
-                            Loading...
-                        </strong>
-
-                    </div>
-
-                </article>
-
-
-                <article class="profile-detail-card">
-
-                    <div class="profile-detail-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                            <path d="M3 7l9 6 9-6"></path>
-                        </svg>
-
-                    </div>
-
-                    <div class="profile-detail-content">
-
-                        <span>
-                            Email Address
-                        </span>
-
-                        <strong id="profile-email">
-                            Loading...
-                        </strong>
-
-                    </div>
-
-                </article>
-
-
-                <article class="profile-detail-card">
-
-                    <div class="profile-detail-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 6h16v12H4z"></path>
-                            <path d="M8 10h8M8 14h5"></path>
-                        </svg>
-
-                    </div>
-
-                    <div class="profile-detail-content">
-
-                        <span>
-                            Account Role
-                        </span>
-
-                        <strong id="profile-role">
-                            Loading...
-                        </strong>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             CAMPUS INFORMATION
-        ====================================================== -->
-
-        <section class="profile-content-section">
-
-            <div class="profile-section-heading">
-
-                <div>
-                    <span class="profile-eyebrow">
-                        Campus
-                    </span>
-
-                    <h2>
-                        Campus Information
-                    </h2>
-
-                    <p>
-                        The campus associated with your student account.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="profile-campus-grid">
-
-                <article class="profile-campus-card profile-campus-primary">
-
-                    <div class="profile-campus-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M3 21h18"></path>
-                            <path d="M5 21V9l7-5 7 5v12"></path>
-                            <path d="M9 21v-5h6v5"></path>
-                            <path d="M9 11h.01M15 11h.01"></path>
-                        </svg>
-
-                    </div>
-
-                    <div>
-
-                        <span>
-                            Campus
-                        </span>
-
-                        <strong id="profile-campus">
-                            Loading...
-                        </strong>
-
-                    </div>
-
-                </article>
-
-
-                <article class="profile-campus-card">
-
-                    <div class="profile-campus-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="4" y="4" width="16" height="16" rx="2"></rect>
-                            <path d="M8 8h8M8 12h8M8 16h5"></path>
-                        </svg>
-
-                    </div>
-
-                    <div>
-
-                        <span>
-                            Campus Code
-                        </span>
-
-                        <strong id="profile-campus-code">
-                            Loading...
-                        </strong>
-
-                    </div>
-
-                </article>
-
-
-                <article class="profile-campus-card">
-
-                    <div class="profile-campus-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z"></path>
-                            <circle cx="12" cy="9" r="2.5"></circle>
-                        </svg>
-
-                    </div>
-
-                    <div>
-
-                        <span>
-                            City
-                        </span>
-
-                        <strong id="profile-city">
-                            Loading...
-                        </strong>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             ACCOUNT ACTIVITY
-        ====================================================== -->
-
-        <section class="profile-content-section">
-
-            <div class="profile-section-heading">
-
-                <div>
-                    <span class="profile-eyebrow">
-                        Activity
-                    </span>
-
-                    <h2>
-                        Account Activity
-                    </h2>
-
-                    <p>
-                        Your activity across the Student Environment.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="profile-activity-grid">
-
-
-                <!-- WALLET ACTIVITY -->
-
-                <article class="profile-activity-card">
-
-                    <div class="profile-activity-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <rect x="3" y="6" width="18" height="14" rx="2"></rect>
-                            <path d="M16 10h5v6h-5a3 3 0 0 1 0-6z"></path>
-                            <circle cx="17" cy="13" r="1"></circle>
-                        </svg>
-
-                    </div>
-
-                    <div class="profile-activity-content">
-
-                        <span>
-                            Wallet
-                        </span>
-
-                        <strong id="profile-wallet-activity">
-                            Connected
-                        </strong>
-
-                        <p>
-                            View your wallet activity and transactions.
-                        </p>
-
-                    </div>
-
-                    <a href="store.html" aria-label="Open wallet">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M5 12h14"></path>
-                            <path d="M13 6l6 6-6 6"></path>
-                        </svg>
-
-                    </a>
-
-                </article>
-
-
-                <!-- ORDERS -->
-
-                <article class="profile-activity-card">
-
-                    <div class="profile-activity-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 9h16l-1 11H5L4 9z"></path>
-                            <path d="M8 9V7a4 4 0 0 1 8 0v2"></path>
-                        </svg>
-
-                    </div>
-
-                    <div class="profile-activity-content">
-
-                        <span>
-                            Orders
-                        </span>
-
-                        <strong id="profile-order-activity">
-                            Connected
-                        </strong>
-
-                        <p>
-                            Access your Store and Dining orders.
-                        </p>
-
-                    </div>
-
-                    <a href="store.html" aria-label="Open orders">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M5 12h14"></path>
-                            <path d="M13 6l6 6-6 6"></path>
-                        </svg>
-
-                    </a>
-
-                </article>
-
-
-                <!-- LOST & FOUND -->
-
-                <article class="profile-activity-card">
-
-                    <div class="profile-activity-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <circle cx="11" cy="11" r="6"></circle>
-                            <path d="M16 16l5 5"></path>
-                            <path d="M8.5 11h5"></path>
-                        </svg>
-
-                    </div>
-
-                    <div class="profile-activity-content">
-
-                        <span>
-                            Lost &amp; Found
-                        </span>
-
-                        <strong id="profile-lostfound-activity">
-                            Connected
-                        </strong>
-
-                        <p>
-                            Manage your lost and found reports.
-                        </p>
-
-                    </div>
-
-                    <a href="lostfound.html" aria-label="Open Lost and Found">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M5 12h14"></path>
-                            <path d="M13 6l6 6-6 6"></path>
-                        </svg>
-
-                    </a>
-
-                </article>
-
-
-                <!-- COMMUNITY -->
-
-                <article class="profile-activity-card">
-
-                    <div class="profile-activity-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M16 20v-1.5a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4V20"></path>
-                            <circle cx="9.5" cy="7" r="3"></circle>
-                            <path d="M17 11a3 3 0 1 0-1-5.8"></path>
-                        </svg>
-
-                    </div>
-
-                    <div class="profile-activity-content">
-
-                        <span>
-                            Community
-                        </span>
-
-                        <strong id="profile-message-activity">
-                            Connected
-                        </strong>
-
-                        <p>
-                            Access groups and student conversations.
-                        </p>
-
-                    </div>
-
-                    <a href="community.html" aria-label="Open Community">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M5 12h14"></path>
-                            <path d="M13 6l6 6-6 6"></path>
-                        </svg>
-
-                    </a>
-
-                </article>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             QUICK ACCESS
-        ====================================================== -->
-
-        <section class="profile-content-section">
-
-            <div class="profile-section-heading">
-
-                <div>
-                    <span class="profile-eyebrow">
-                        Student Services
-                    </span>
-
-                    <h2>
-                        Quick Access
-                    </h2>
-
-                    <p>
-                        Jump directly to the services you use most.
-                    </p>
-                </div>
-
-            </div>
-
-
-            <div class="profile-services-grid">
-
-
-                <a href="store.html" class="profile-service-card">
-
-                    <div class="profile-service-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M4 9h16l-1 11H5L4 9z"></path>
-                            <path d="M8 9V7a4 4 0 0 1 8 0v2"></path>
-                        </svg>
-
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Campus Store
-                        </strong>
-
-                        <span>
-                            Shop student products
-                        </span>
-
-                    </div>
-
-                    <svg
-                        class="profile-service-arrow"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <path d="M5 12h14"></path>
-                        <path d="M13 6l6 6-6 6"></path>
-                    </svg>
-
-                </a>
-
-
-                <a href="resturant.html" class="profile-service-card">
-
-                    <div class="profile-service-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M7 3v8"></path>
-                            <path d="M4 3v5a3 3 0 0 0 6 0V3"></path>
-                            <path d="M7 11v10"></path>
-                            <path d="M16 3v18"></path>
-                            <path d="M16 3c3 2 4 5 4 8h-4"></path>
-                        </svg>
-
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Campus Dining
-                        </strong>
-
-                        <span>
-                            Browse campus food
-                        </span>
-
-                    </div>
-
-                    <svg
-                        class="profile-service-arrow"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <path d="M5 12h14"></path>
-                        <path d="M13 6l6 6-6 6"></path>
-                    </svg>
-
-                </a>
-
-
-                <a href="lostfound.html" class="profile-service-card">
-
-                    <div class="profile-service-icon">
-
-                        <svg viewBox="0 0 24 24" aria-hidden="true">
-                            <circle cx="11" cy="11" r="6"></circle>
-                            <path d="M16 16l5 5"></path>
-                            <path d="M8.5 11h5"></path>
-                        </svg>
-
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Lost &amp; Found
-                        </strong>
-
-                        <span>
-                            Report or find an item
-                        </span>
-
-                    </div>
-
-                    <svg
-                        class="profile-service-arrow"
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                    >
-                        <path d="M5 12h14"></path>
-                        <path d="M13 6l6 6-6 6"></path>
-                    </svg>
-
-                </a>
-
-            </div>
-
-        </section>
-
-
-        <!-- =====================================================
-             ERROR MESSAGE
-        ====================================================== -->
-
-        <div
-            id="profile-error"
-            class="profile-error"
-            hidden
-            role="alert"
-        >
-
-            <div class="profile-error-icon">
-
-                <svg viewBox="0 0 24 24" aria-hidden="true">
-                    <circle cx="12" cy="12" r="9"></circle>
-                    <path d="M12 8v5"></path>
-                    <path d="M12 16h.01"></path>
-                </svg>
-
-            </div>
-
-            <div>
-
-                <strong>
-                    Unable to load profile
-                </strong>
-
-                <p>
-                    We could not retrieve your latest profile information.
-                    Please refresh the page and try again.
-                </p>
-
-            </div>
 
         </div>
 
+    </div>
 
-    </main>
+</section>
 
+</main>
 
-    <!-- =========================================================
-         SCRIPTS
-    ========================================================== -->
-
-    <script src="sidebar.js"></script>
-    <script src="app.js"></script>
+<script src="app.js"></script>
 
 </body>
+
 </html>
+

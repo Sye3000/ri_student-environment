@@ -85,7 +85,46 @@
 
     </header>
 
+    <!-- =====================================================
+         NOTIFICATIONS PANEL
+    ====================================================== -->
 
+    <div
+        class="ri-notification-panel"
+        id="notificationPanel"
+        hidden
+        aria-hidden="true"
+    >
+        <div class="ri-notification-panel-header">
+
+            <div>
+                <strong>Notifications</strong>
+                <span id="notificationSummary">
+                    No new notifications
+                </span>
+            </div>
+
+            <button
+                type="button"
+                class="ri-notification-close"
+                id="notificationClose"
+                aria-label="Close notifications"
+            >
+                &times;
+            </button>
+
+        </div>
+
+        <div
+            class="ri-notification-list"
+            id="notificationList"
+        >
+            <div class="ri-notification-empty">
+                Loading notifications...
+            </div>
+        </div>
+
+    </div>
     <!-- =====================================================
          MOBILE SIDEBAR CONTROLS
     ====================================================== -->

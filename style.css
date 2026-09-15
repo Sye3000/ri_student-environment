@@ -7651,9 +7651,8 @@ footer {
     .impact-button {
         width: 100%;
     }
-        text-align: center;
-    }
 }
+
 .store-hero {
     padding: 70px 7%;
     background: linear-gradient(135deg, var(--royal-blue), var(--royal-blue-dark));
