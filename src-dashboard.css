@@ -282,3 +282,158 @@
     }
 
 }
+
+
+/* =========================================================
+   SRC CREATE EVENT
+   ========================================================= */
+
+.src-create-event-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 6px 24px rgba(15, 23, 42, 0.05);
+}
+
+.src-event-form {
+    max-width: 900px;
+}
+
+.src-event-form .form-group {
+    margin-bottom: 20px;
+}
+
+.src-event-form .form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #111827;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.src-event-form .form-group input,
+.src-event-form .form-group select,
+.src-event-form .form-group textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #111827;
+    font: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.src-event-form .form-group input:focus,
+.src-event-form .form-group select:focus,
+.src-event-form .form-group textarea:focus {
+    border-color: #1d4ed8;
+    box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.10);
+}
+
+.src-event-form .form-group textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.src-event-form .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.src-event-form input[type="file"] {
+    padding: 12px;
+    cursor: pointer;
+    background: #f8fafc;
+}
+
+.src-event-upload-help {
+    display: block;
+    margin-top: 7px;
+    color: #6b7280;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.src-event-submission-note {
+    margin: 8px 0 22px;
+    padding: 14px 16px;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+    background: #eff6ff;
+    color: #374151;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.src-event-submission-note strong {
+    color: #1d4ed8;
+}
+
+.src-event-form .form-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.src-event-form .form-actions span {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+.src-event-form button[type="submit"] {
+    border: none;
+    border-radius: 9px;
+    padding: 12px 20px;
+    background: #1d4ed8;
+    color: #ffffff;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.src-event-form button[type="submit"]:hover {
+    background: #1e40af;
+    transform: translateY(-1px);
+}
+
+.src-event-form button[type="submit"]:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* =========================================================
+   SRC EVENT RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .src-create-event-card {
+        padding: 20px;
+    }
+
+    .src-event-form .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .src-event-form .form-actions {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .src-event-form button[type="submit"] {
+        width: 100%;
+    }
+
+}

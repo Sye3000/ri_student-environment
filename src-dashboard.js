@@ -418,4 +418,184 @@ document.addEventListener("click", async (event) => {
      */
     loadSrcRequests();
 
+    /*
+     * Submit a new SRC event.
+     */
+    const srcEventForm =
+        document.getElementById("srcEventForm");
+
+    const srcEventStatus =
+        document.getElementById("srcEventStatus");
+
+
+    if (srcEventForm) {
+
+        srcEventForm.addEventListener("submit", async (event) => {
+
+            event.preventDefault();
+
+            const token =
+                localStorage.getItem("ri_student_token");
+
+            if (!token) {
+
+                alert("Please log in again.");
+
+                return;
+            }
+
+
+            const submitButton =
+                srcEventForm.querySelector(
+                    'button[type="submit"]'
+                );
+
+
+            const title =
+                document.getElementById("eventTitle")
+                    ?.value
+                    .trim();
+
+            const description =
+                document.getElementById("eventDescription")
+                    ?.value
+                    .trim();
+
+            const eventDate =
+                document.getElementById("eventDate")
+                    ?.value;
+
+            const startTime =
+                document.getElementById("eventStartTime")
+                    ?.value;
+
+            const endTime =
+                document.getElementById("eventEndTime")
+                    ?.value;
+
+            const location =
+                document.getElementById("eventLocation")
+                    ?.value
+                    .trim();
+
+
+            if (
+                !title ||
+                !description ||
+                !eventDate ||
+                !location
+            ) {
+
+                alert(
+                    "Please complete all required event fields."
+                );
+
+                return;
+            }
+
+
+            if (submitButton) {
+
+                submitButton.disabled = true;
+
+                submitButton.textContent =
+                    "Submitting...";
+            }
+
+
+            if (srcEventStatus) {
+
+                srcEventStatus.textContent =
+                    "Submitting event for administrator review...";
+            }
+
+
+            try {
+
+                const response = await fetch(
+                    `${API_BASE_URL}/api/events`,
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${token}`
+                        },
+
+                        body: JSON.stringify({
+                            title,
+                            description,
+                            event_date: eventDate,
+                            start_time: startTime || null,
+                            end_time: endTime || null,
+                            location
+                        })
+                    }
+                );
+
+
+                const data =
+                    await response.json();
+
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.message ||
+                        "Unable to submit event."
+                    );
+                }
+
+
+                alert(
+                    "Event submitted successfully. It is now waiting for administrator approval."
+                );
+
+
+                srcEventForm.reset();
+
+
+                if (srcEventStatus) {
+
+                    srcEventStatus.textContent =
+                        "Event submitted successfully and is awaiting administrator approval.";
+                }
+
+
+            } catch (error) {
+
+                console.error(
+                    "SRC event submission error:",
+                    error
+                );
+
+
+                alert(
+                    error.message ||
+                    "Unable to submit event."
+                );
+
+
+                if (srcEventStatus) {
+
+                    srcEventStatus.textContent =
+                        error.message ||
+                        "Unable to submit event.";
+                }
+
+
+            } finally {
+
+                if (submitButton) {
+
+                    submitButton.disabled = false;
+
+                    submitButton.textContent =
+                        "Submit Event for Approval";
+                }
+            }
+
+        });
+
+    }
 });

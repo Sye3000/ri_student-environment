@@ -389,7 +389,7 @@ async function loadRestaurant() {
 
     try {
         const data =
-            await apiRequest("/dining/restaurants");
+            await apiRequest("/api/dining/restaurants");
 
         if (
             !data.restaurants ||
@@ -458,7 +458,7 @@ async function loadRestaurantCategories() {
     try {
         const data =
             await apiRequest(
-                `/dining/categories?restaurant_id=${encodeURIComponent(
+                `/api/dining/categories?restaurant_id=${encodeURIComponent(
                     currentRestaurant.restaurant_id
                 )}`
             );
@@ -595,7 +595,7 @@ async function loadRestaurantMenu(categoryId = "") {
 
     try {
         let endpoint =
-            `/dining/menu?restaurant_id=${encodeURIComponent(
+            `/api/dining/menu?restaurant_id=${encodeURIComponent(
                 currentRestaurant.restaurant_id
             )}`;
 
@@ -1092,7 +1092,7 @@ async function createDiningOrder() {
 
     const data =
         await apiRequest(
-            "/dining/orders",
+            "/api/dining/orders",
             {
                 method: "POST",
                 body: JSON.stringify({
@@ -1119,7 +1119,7 @@ async function payDiningOrder(orderId) {
 
     const data =
         await apiRequest(
-            `/dining/orders/${encodeURIComponent(
+            `/api/dining/orders/${encodeURIComponent(
                 orderId
             )}/pay`,
             {
@@ -1479,7 +1479,7 @@ async function loadRestaurantOrderHistory() {
     try {
         const data =
             await apiRequest(
-                "/dining/orders"
+                "/api/dining/orders"
             );
 
         cachedDiningOrders =
@@ -1760,7 +1760,7 @@ async function viewDiningOrder(orderId) {
     try {
         const data =
             await apiRequest(
-                `/dining/orders/${encodeURIComponent(
+                `/api/dining/orders/${encodeURIComponent(
                     orderId
                 )}`
             );
@@ -1815,7 +1815,7 @@ async function reorderDiningOrder(orderId) {
     try {
         const data =
             await apiRequest(
-                `/dining/orders/${encodeURIComponent(
+                `/api/dining/orders/${encodeURIComponent(
                     orderId
                 )}`
             );

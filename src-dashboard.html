@@ -324,6 +324,206 @@
 
             <!-- REQUESTS -->
 
+                <section
+                    class="src-dashboard-section"
+                    id="create-event"
+                >
+
+                    <div class="src-dashboard-section-heading">
+
+                        <div>
+
+                            <span class="dashboard-kicker">
+                                EVENT MANAGEMENT
+                            </span>
+
+                            <h2>
+                                Create an Event
+                            </h2>
+
+                            <p>
+                                Post a campus event for administrator review.
+                                Approved events will become visible to students.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="src-create-event-card">
+
+                        <form
+                            id="srcEventForm"
+                            class="src-event-form"
+                            method="POST"
+                            enctype="multipart/form-data"
+                        >
+
+                            <div class="form-group">
+
+                                <label for="eventTitle">
+                                    Event Title
+                                </label>
+
+                                <input
+                                    type="text"
+                                    id="eventTitle"
+                                    name="title"
+                                    placeholder="Enter the event title"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="eventDescription">
+                                    About the Event
+                                </label>
+
+                                <textarea
+                                    id="eventDescription"
+                                    name="description"
+                                    placeholder="Tell students what the event is about..."
+                                    rows="6"
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="eventDate">
+                                        Event Date
+                                    </label>
+
+                                    <input
+                                        type="date"
+                                        id="eventDate"
+                                        name="event_date"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="eventStartTime">
+                                        Start Time
+                                    </label>
+
+                                    <input
+                                        type="time"
+                                        id="eventStartTime"
+                                        name="start_time"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-row">
+
+                                <div class="form-group">
+
+                                    <label for="eventEndTime">
+                                        End Time
+                                    </label>
+
+                                    <input
+                                        type="time"
+                                        id="eventEndTime"
+                                        name="end_time"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="eventLocation">
+                                        Venue / Location
+                                    </label>
+
+                                    <input
+                                        type="text"
+                                        id="eventLocation"
+                                        name="location"
+                                        placeholder="e.g. Auditorium, Floor 7"
+                                        required
+                                    >
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="eventImage">
+                                    Event Poster
+                                </label>
+
+                                <input
+                                    type="file"
+                                    id="eventImage"
+                                    name="event_image"
+                                    accept="image/jpeg,image/png,image/webp"
+                                    required
+                                >
+
+                                <small class="src-event-upload-help">
+                                    Upload a JPG, PNG or WebP poster.
+                                    Maximum size: 5 MB.
+                                </small>
+
+                            </div>
+
+
+                            <div class="src-event-submission-note">
+
+                                <strong>
+                                    Before you submit:
+                                </strong>
+
+                                Your event will be reviewed by an administrator
+                                before it becomes visible to students.
+
+                            </div>
+
+
+                            <div class="form-actions">
+
+                                <button
+                                    type="submit"
+                                    class="src-request-action"
+                                >
+                                    Submit Event for Approval
+                                </button>
+
+                                <span id="srcEventStatus">
+                                    Your campus is automatically determined
+                                    from your SRC account.
+                                </span>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </section>
+
+
             <section
                 class="src-dashboard-section"
                 id="requests"
