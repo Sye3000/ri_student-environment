@@ -3,54 +3,13 @@
    Frontend Application JavaScript
    ========================================================= */
 
-    const API_BASE_URL = "http://192.168.122.10";
 /* =========================================================
-   API REQUEST HELPER
+   API REQUEST COMPATIBILITY LAYER
    ========================================================= */
 
 async function apiRequest(endpoint, options = {}) {
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 10000);
-
-    let response;
-
-    try {
-        response = await fetch(`${API_BASE_URL}${endpoint}`, {
-            headers: {
-                "Content-Type": "application/json",
-                ...(options.headers || {})
-            },
-            ...options,
-            signal: options.signal || controller.signal
-        });
-    } catch (error) {
-        if (error.name === "AbortError") {
-            throw new Error("The server took too long to respond.");
-        }
-
-        throw new Error("Unable to connect to the server.");
-    } finally {
-        clearTimeout(timeout);
-    }
-
-    let data;
-
-    try {
-        data = await response.json();
-    } catch {
-        data = {
-            status: "error",
-            message: "Invalid server response"
-        };
-    }
-
-    if (!response.ok) {
-        throw new Error(data.message || "Request failed");
-    }
-
-    return data;
+    return RI_API.request(endpoint, options);
 }
-
 
 /* =========================================================
    AUTH TOKEN
@@ -237,16 +196,17 @@ async function handleLogin(event) {
     button.textContent = "Signing In...";
 
     try {
-        const data = await apiRequest(
-            "/api/students/login",
-            {
-                method: "POST",
-                body: JSON.stringify({
-                    email,
-                    password
-                })
-            }
-        );
+console.log("HANDLE LOGIN VALUES:", {
+    email,
+    passwordLength: password.length
+});
+        const data = await RI_API.post(
+    "/api/students/login",
+    {
+        email,
+        password
+    }
+);
 
         if (!data.token || !data.student) {
             throw new Error("The server returned an incomplete login response.");

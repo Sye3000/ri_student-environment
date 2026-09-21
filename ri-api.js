@@ -4,6 +4,12 @@ const RI_API = {
 
         const token = localStorage.getItem("ri_student_token");
 
+        const controller = new AbortController();
+
+        const timeout = setTimeout(() => {
+            controller.abort();
+        }, 10000);
+
         const headers = {
             "Content-Type": "application/json",
             ...(options.headers || {})
@@ -13,32 +19,65 @@ const RI_API = {
             headers.Authorization = `Bearer ${token}`;
         }
 
-        const response = await fetch(
-            `${RI_CONFIG.API_BASE_URL}${endpoint}`,
-            {
-                ...options,
-                headers
+        let response;
+
+        try {
+
+            response = await fetch(
+                `${RI_CONFIG.API_BASE_URL}${endpoint}`,
+                {
+                    ...options,
+                    headers,
+                    signal: options.signal || controller.signal
+                }
+            );
+
+        } catch (error) {
+
+            if (error.name === "AbortError") {
+                throw new Error(
+                    "The server took too long to respond."
+                );
             }
-        );
 
-        let data = null;
+            throw new Error(
+                "Unable to connect to the server."
+            );
 
-        const contentType = response.headers.get("content-type") || "";
+        } finally {
 
-        if (contentType.includes("application/json")) {
-            data = await response.json();
-        } else {
-            const text = await response.text();
-            data = text;
+            clearTimeout(timeout);
+        }
+
+        let data;
+
+        try {
+
+            const contentType =
+                response.headers.get("content-type") || "";
+
+            if (contentType.includes("application/json")) {
+                data = await response.json();
+            } else {
+                data = {
+                    status: "error",
+                    message: "Invalid server response"
+                };
+            }
+
+        } catch {
+
+            data = {
+                status: "error",
+                message: "Invalid server response"
+            };
         }
 
         if (!response.ok) {
-            const message =
-                data && typeof data === "object" && data.message
-                    ? data.message
-                    : `Request failed with status ${response.status}`;
 
-            throw new Error(message);
+            throw new Error(
+                data.message || "Request failed"
+            );
         }
 
         return data;
