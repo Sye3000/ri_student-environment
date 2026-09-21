@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RI API Test</title>
+</head>
+<body>
+
+    <h1>RI API Test</h1>
+
+    <button id="test-button">Test Login + Auth</button>
+
+    <pre id="result">Waiting...</pre>
+
+<script src="ri-config.js"></script>
+<script src="ri-api.js"></script>
+
+<script>
+    document
+        .getElementById("test-button")
+        .addEventListener("click", async () => {
+
+            const result =
+                document.getElementById("result");
+
+            result.textContent = "Logging in...";
+
+            try {
+
+                const loginData = await RI_API.post(
+                    "/api/students/login",
+                    {
+                        email: "src.test@ri.ac.za",
+                        password: "sunny@day"
+                    }
+                );
+
+                if (!loginData.token || !loginData.student) {
+                    throw new Error(
+                        "Login response did not contain token and student."
+                    );
+                }
+
+                localStorage.setItem(
+                    "ri_student_token",
+                    loginData.token
+                );
+
+                result.textContent =
+                    "Login successful. Checking authentication...";
+
+                const meData =
+                    await RI_API.get("/api/auth/me");
+
+                result.textContent = JSON.stringify(
+                    {
+                        login: {
+                            status: loginData.status,
+                            message: loginData.message
+                        },
+
+                        authenticatedUser:
+                            meData.student,
+
+                        tokenSaved:
+                            !!localStorage.getItem(
+                                "ri_student_token"
+                            ),
+
+                        authenticationTest:
+                            "PASSED"
+                    },
+                    null,
+                    2
+                );
+
+            } catch (error) {
+
+                result.textContent =
+                    "AUTH TEST ERROR: " + error.message;
+
+                console.error(error);
+            }
+        });
+</script>
+
+</body>
+</html>

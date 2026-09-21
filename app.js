@@ -212,7 +212,19 @@ console.log("HANDLE LOGIN VALUES:", {
             throw new Error("The server returned an incomplete login response.");
         }
 
-        saveToken(data.token);
+        console.log("LOGIN RESPONSE DATA:", data);
+console.log("TOKEN PASSED TO saveToken:", data.token);
+console.log("LOGIN ORIGIN:", window.location.origin);
+
+saveToken(data.token);
+
+console.log(
+    "TOKEN AFTER saveToken:",
+    localStorage.getItem("ri_student_token")
+        ? "TOKEN EXISTS"
+        : "NO TOKEN"
+);
+
 saveStudent(data.student);
 
 if (data.student.role === "admin") {
@@ -307,6 +319,15 @@ async function handleForgotPassword(event) {
    ========================================================= */
 
 async function loadCurrentStudent() {
+
+    console.log("DASHBOARD ORIGIN:", window.location.origin);
+    console.log(
+        "TOKEN ON DASHBOARD:",
+        localStorage.getItem("ri_student_token")
+            ? "TOKEN EXISTS"
+            : "NO TOKEN"
+    );
+
     const token = getToken();
 
     if (!token) {
@@ -954,44 +975,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* Registration page */
 
-    const registrationForm =
-        document.querySelector(".join-form");
+    /* Registration page */
 
-    if (registrationForm) {
-        loadCampuses();
+const registrationForm =
+    document.querySelector(".join-form");
 
-        registrationForm.addEventListener(
-            "submit",
-            handleRegistration
-        );
-    }
+if (registrationForm) {
+    loadCampuses();
 
-
-    /* Login page */
-
-    const loginForm =
-        document.querySelector(".login-form");
-
-    if (loginForm) {
-        loginForm.addEventListener(
-            "submit",
-            handleLogin
-        );
-    }
+    registrationForm.addEventListener(
+        "submit",
+        handleRegistration
+    );
+}
 
 
-    /* Contact page */
+/* Login page */
 
-    const contactForm =
-        document.querySelector(".contact-form form");
+const loginForm =
+    document.querySelector(".login-form");
 
-    if (contactForm) {
-        contactForm.addEventListener(
-            "submit",
-            handleContact
-        );
-    }
+if (loginForm) {
+    loginForm.addEventListener(
+        "submit",
+        handleLogin
+    );
 
+    console.log("LOGIN HANDLER ATTACHED");
+}
+
+
+/* Contact page */
+
+const contactForm =
+    document.querySelector(".contact-form form");
 
     /* Password recovery */
 

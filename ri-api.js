@@ -20,9 +20,14 @@ const RI_API = {
         }
 
         let response;
-
+ 
         try {
-
+console.log("RI_API REQUEST BEFORE FETCH:", {
+    endpoint,
+    method: options.method,
+    body: options.body,
+    headers
+});
             response = await fetch(
                 `${RI_CONFIG.API_BASE_URL}${endpoint}`,
                 {
