@@ -8,7 +8,7 @@ const RI_API = {
 
         const timeout = setTimeout(() => {
             controller.abort();
-        }, 10000);
+        }, 30000);
 
         const headers = {
             "Content-Type": "application/json",
