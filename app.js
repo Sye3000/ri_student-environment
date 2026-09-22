@@ -190,10 +190,14 @@ async function handleLogin(event) {
         document.getElementById("password").value;
 
     const button =
-        form.querySelector('button[type="submit"]');
+        form.querySelector('button[type="submit"]') ||
+        form.querySelector('button.login-button') ||
+        form.querySelector('button');
 
-    button.disabled = true;
-    button.textContent = "Signing In...";
+    if (button) {
+        button.disabled = true;
+        button.textContent = "Signing In...";
+    }
 
     try {
 console.log("HANDLE LOGIN VALUES:", {
@@ -238,8 +242,10 @@ if (data.student.role === "admin") {
     } catch (error) {
         alert(error.message);
     } finally {
-        button.disabled = false;
-        button.textContent = "Login";
+        if (button) {
+            button.disabled = false;
+            button.textContent = "Login";
+        }
     }
 }
 
@@ -971,7 +977,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* Global authentication navigation */
 
-    initialiseAuthNavigation();
+    if (!document.body.classList.contains("login-page")) {
+        initialiseAuthNavigation();
+    }
 
     /* Registration page */
 
