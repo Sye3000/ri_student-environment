@@ -19,7 +19,7 @@
 /* ─── CONFIGURATION ──────────────────────────────────────────
    Set BASE_URL to your hosted address so QR codes work when
    scanned across the network. Leave null to auto-detect.
-   Example: const BASE_URL = 'http://192.168.122.10/campus-nav.html';
+   Example: const BASE_URL = 'https://example.com/campus-nav.html';
    ──────────────────────────────────────────────────────────── */
 const BASE_URL = null;
 
