@@ -525,7 +525,7 @@
 
                         </div>
 
-                        <a href="store.html">
+                        <a href="ewallet.html">
                             Manage
                         </a>
 
@@ -556,7 +556,7 @@
 
                         </div>
 
-                        <a href="events.html">
+    <a href="events.html">
                             View events
                         </a>
 
@@ -637,39 +637,75 @@
             <section class="dashboard-content-v2">
 
 
-                <!-- Upcoming events -->
+                <!-- Campus Life / Upcoming Events -->
 
-                <article class="dashboard-panel-v2 dashboard-events-panel">
+                <article class="dashboard-panel-v2 dashboard-events-panel dashboard-campus-life-panel">
 
-                    <div class="dashboard-panel-header-v2">
+                    <div class="dashboard-campus-video">
 
-                        <div>
+                        <video
+                            class="dashboard-campus-video-player"
+                            autoplay
+                            muted
+                            loop
+                            playsinline
+                            preload="auto"
+                            aria-hidden="true"
+                        >
+                            <source
+                                src="WhatsApp Video 2026-08-10 at 11.47.33 PM.mp4"
+                                type="video/mp4"
+                            >
+                        </video>
 
-                            <span class="dashboard-kicker">
+                        <div class="dashboard-campus-video-overlay"></div>
+
+                        <div class="dashboard-campus-video-content">
+                            <span class="dashboard-video-label">
                                 CAMPUS LIFE
                             </span>
 
-                            <h2>
-                                Upcoming events
-                            </h2>
+                            <h3>
+                                Life at RI
+                            </h3>
 
+                            <p>
+                                Discover the people, moments and experiences
+                                that make campus life feel like home.
+                            </p>
+
+                            <a href="events.html" class="dashboard-video-button">
+                                Explore events
+                            </a>
                         </div>
-
-                        <a href="events.html">
-                            View all
-                        </a>
 
                     </div>
 
+                    <div class="dashboard-events-subsection">
 
-                    <div
-                        class="dashboard-event-list-v2"
-                        id="dashboard-events-list"
-                    >
+                        <div class="dashboard-events-subsection-header">
+                            <div>
+                                <span class="dashboard-kicker">
+                                    EVENTS
+                                </span>
+                                <h3>Upcoming events</h3>
+                            </div>
 
-                        <div class="dashboard-empty-state">
-                            <div class="dashboard-loading-line"></div>
-                            <div class="dashboard-loading-line short"></div>
+                            <a href="events.html">
+                                Explore all
+                            </a>
+                        </div>
+
+                        <div
+                            class="dashboard-event-list-v2"
+                            id="dashboard-events-list"
+                        >
+
+                            <div class="dashboard-empty-state">
+                                <div class="dashboard-loading-line"></div>
+                                <div class="dashboard-loading-line short"></div>
+                            </div>
+
                         </div>
 
                     </div>
@@ -712,11 +748,11 @@
 
                             <div>
                                 <strong>
-                                    Report an item
+                                    Lost &amp; Found
                                 </strong>
 
                                 <span>
-                                    Lost or found something
+                                    Report or find an item
                                 </span>
                             </div>
                         </a>
@@ -735,11 +771,11 @@
 
                             <div>
                                 <strong>
-                                    Visit the store
+                                    Campus Store
                                 </strong>
 
                                 <span>
-                                    Browse campus products
+                                    Shop student essentials
                                 </span>
                             </div>
                         </a>
@@ -761,11 +797,11 @@
 
                             <div>
                                 <strong>
-                                    Browse dining
+                                    Campus Dining
                                 </strong>
 
                                 <span>
-                                    Explore campus food
+                                    Find food &amp; meals
                                 </span>
                             </div>
                         </a>
@@ -786,7 +822,7 @@
 
                             <div>
                                 <strong>
-                                    Join community
+                                    Community
                                 </strong>
 
                                 <span>
@@ -813,10 +849,35 @@
         </strong>
 
         <span>
-            Complaints, suggestions &amp; events
+            Share feedback &amp; requests
         </span>
     </div>
 </a>
+
+                        <a
+                            href="campus-nav.html"
+                            class="dashboard-action-card dashboard-campus-action"
+                        >
+                            <span class="dashboard-action-icon">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M9 18l-6 3V6l6-3 6 3 6-3v15l-6 3-6-3z"></path>
+                                    <path d="M9 3v15"></path>
+                                    <path d="M15 6v15"></path>
+                                    <path d="M12 9h.01"></path>
+                                </svg>
+                            </span>
+
+                            <div>
+                                <strong>
+                                    Campus Navigator
+                                </strong>
+
+                                <span>
+                                    Find buildings &amp; directions
+                                </span>
+                            </div>
+                        </a>
+
                     </div>
 
                 </article>
@@ -944,7 +1005,10 @@
     ====================================================== -->
 
     <script src="sidebar.js"></script>
+    <script src="ri-config.js"></script>
+    <script src="ri-api.js"></script>
     <script src="app.js"></script>
+    <script src="student-dashboard.js"></script>
 
 </body>
 </html>

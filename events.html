@@ -276,17 +276,6 @@
         aria-label="Primary navigation"
     >
 
-        <a href="index.html">
-            Home
-        </a>
-
-        <a href="about.html">
-            About
-        </a>
-
-        <a href="impact.html">
-            Impact
-        </a>
 
         <a href="programs.html">
             Programs
@@ -308,9 +297,7 @@
             Community
         </a>
 
-        <a href="contact.html">
-            Contact
-        </a>
+
 
     </nav>
 
@@ -434,7 +421,42 @@
                 <span>Open registrations</span>
             </div>
         </div>
+        <!-- EVENT SEARCH AND FILTERS -->
 
+<div class="events-controls">
+
+    <div class="events-search">
+        <label for="event-search">
+            Search Events
+        </label>
+
+        <input
+            type="search"
+            id="event-search"
+            placeholder="Search by title, description or location..."
+            autocomplete="off"
+        >
+    </div>
+
+    <div class="events-filter">
+        <label for="event-category-filter">
+            Filter by Category
+        </label>
+
+        <select id="event-category-filter">
+            <option value="all">All Categories</option>
+        </select>
+    </div>
+
+    <p
+        id="events-result-count"
+        role="status"
+        aria-live="polite"
+    >
+        Loading events...
+    </p>
+
+</div>
         <div class="ticket-list" id="events-list">
 
             <article class="event-ticket">
@@ -712,55 +734,24 @@
         </div>
 
 
-        <nav
-            class="footer-links"
-            aria-label="Footer navigation"
-        >
+        <nav class="footer-links" aria-label="Footer navigation">
 
-            <a href="index.html">
-                Home
-            </a>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="impact.html">Impact</a>
+    <a href="programs.html">Programs</a>
 
-            <a href="about.html">
-                About
-            </a>
+    <a href="events.html" aria-current="page">
+        Events
+    </a>
 
-            <a href="impact.html">
-                Impact
-            </a>
+    <a href="src.html">SRC</a>
+    <a href="community.html">Community</a>
+    <a href="contact.html">Contact</a>
+    <a href="login.html">Login</a>
+    <a href="register.html">Join Us</a>
 
-            <a href="programs.html">
-                Programs
-            </a>
-
-            <a
-                href="events.html"
-                aria-current="page"
-            >
-                Events
-            </a>
-
-            <a href="src.html">
-                SRC
-            </a>
-
-            <a href="community.html">
-                Community
-            </a>
-
-            <a href="contact.html">
-                Contact
-            </a>
-
-            <a href="login.html">
-                Login
-            </a>
-
-            <a href="register.html">
-                Join Us
-            </a>
-
-        </nav>
+</nav>
 
     </div>
 
@@ -778,6 +769,8 @@
 
 
 <script src="sidebar.js"></script>
+<script src="ri-config.js"></script>
+<script src="ri-api.js"></script>
 <script src="events.js"></script>
 
 <script src="app.js"></script>

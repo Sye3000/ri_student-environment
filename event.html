@@ -143,9 +143,32 @@
                 </span>
             </h1>
 
-            <p id="event-description">
-                Loading event information...
-            </p>
+            <div class="ri-event-about">
+
+                <p class="eyebrow">
+                    ABOUT THIS EVENT
+                </p>
+
+                <p id="event-description">
+                    Loading event information...
+                </p>
+
+            </div>
+
+            <div
+                id="event-poster-container"
+                class="ri-event-poster-container"
+                hidden
+            >
+
+                <img
+                    id="event-poster"
+                    class="ri-event-poster"
+                    src=""
+                    alt="Event poster"
+                >
+
+            </div>
 
         </div>
 
@@ -224,6 +247,43 @@
             </article>
 
         </div>
+
+<!-- =========================
+     EVENT LOCATION
+     ========================= -->
+
+<div class="ri-event-location-panel">
+
+    <div>
+
+        <p class="eyebrow">
+            LOCATION
+        </p>
+
+        <h2>
+            Find the Event
+        </h2>
+
+        <p>
+            Use the campus and venue information
+            above to find your way to the event.
+        </p>
+
+    </div>
+
+    <a
+        id="event-directions"
+        class="cta-button"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        hidden
+    >
+        Get Directions
+    </a>
+
+</div>
+
 
 <!-- =========================
      TICKETS
@@ -370,6 +430,8 @@
 
 
 <script src="sidebar.js"></script>
+<script src="ri-config.js"></script>
+<script src="ri-api.js"></script>
 <script src="event.js"></script>
 
 <script src="app.js"></script>

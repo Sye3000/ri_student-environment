@@ -209,6 +209,39 @@ The following items document the reported responsive design, accessibility, and 
 
 ---
 
+
+### Additional Part 3 implementation and verification
+
+**Dynamic events**
+- Added event category support to event submissions and API retrieval.
+- Implemented keyword search and category filtering on the Events page.
+- Added dynamic category options and result feedback.
+
+**Forms**
+- Updated the Contact form with message-type selection and validation.
+- Created an Enquiry page covering services, products, volunteering and sponsorship.
+- Added category-specific guidance, submission feedback and email composition links.
+- The backend currently logs contact submissions; it does not automatically send email.
+
+**Interactive functionality**
+- Added a photo lightbox to the existing five-image hiking slideshow.
+- Added previous, next, close and keyboard controls.
+- The Campus Navigator provides an indoor floor directory, searchable facilities, QR links and printable floor guides. It is not a verified geographical map.
+
+**SEO**
+- Added missing meta descriptions to inspected pages.
+- Added robots.txt with restrictions for selected private and diagnostic pages.
+- Added noindex directives to selected portal pages.
+
+**Testing**
+- JavaScript syntax checks passed for app.js, events.js, enquiry.js, hiking-lightbox.js and campus-nav.js.
+- Backend health check confirmed MySQL connectivity.
+- Local HTTP requests returned status 200 for the Programs, Contact and Enquiry pages.
+- Browser testing confirmed that the hiking lightbox and both forms work.
+- Event keyword search and category filtering were also tested successfully.
+
+**Outstanding:** Public deployment, sitemap.xml creation after confirming the public domain, and public API configuration remain to be completed.
+
 ## 10. Project Structure
 
 The project structure may include the following files and directories:

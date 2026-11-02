@@ -5,3 +5,21 @@
 *.avi
 *.mkv
 
+
+# Local backups and temporary development files
+*.backup
+*.backup-*
+*.before-*
+*.part3-*
+*.zip
+/backups/
+
+# Local dependencies and Python cache
+node_modules/
+__pycache__/
+*.pyc
+
+# Environment and secret files
+.env
+.env.*
+!.env.example

@@ -1,120 +1,100 @@
 const RI_API = {
-
     async request(endpoint, options = {}) {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000);
 
-        const token = localStorage.getItem("ri_student_token");
+    const isFormData =
+        options.body instanceof FormData;
 
-        const controller = new AbortController();
+    const headers = {
+        ...(isFormData
+            ? {}
+            : { "Content-Type": "application/json" }),
+        ...(options.headers || {})
+    };
 
-        const timeout = setTimeout(() => {
-            controller.abort();
-        }, 30000);
+   try {
+    const apiEndpoint =
+        endpoint.startsWith("/api/")
+            ? endpoint
+            : `/api${endpoint}`;
 
-        const headers = {
-            "Content-Type": "application/json",
-            ...(options.headers || {})
-        };
-
-        if (token) {
-            headers.Authorization = `Bearer ${token}`;
+    const response = await fetch(
+        `${RI_CONFIG.API_BASE_URL}${apiEndpoint}`,
+        {
+            ...options,
+            headers,
+            signal:
+                options.signal ||
+                controller.signal
         }
-
-        let response;
- 
-        try {
-console.log("RI_API REQUEST BEFORE FETCH:", {
-    endpoint,
-    method: options.method,
-    body: options.body,
-    headers
-});
-            response = await fetch(
-                `${RI_CONFIG.API_BASE_URL}${endpoint}`,
-                {
-                    ...options,
-                    headers,
-                    signal: options.signal || controller.signal
-                }
-            );
-
-        } catch (error) {
-
-            if (error.name === "AbortError") {
-                throw new Error(
-                    "The server took too long to respond."
-                );
-            }
-
-            throw new Error(
-                "Unable to connect to the server."
-            );
-
-        } finally {
-
-            clearTimeout(timeout);
-        }
+    );
 
         let data;
 
         try {
-
-            const contentType =
-                response.headers.get("content-type") || "";
-
-            if (contentType.includes("application/json")) {
-                data = await response.json();
-            } else {
-                data = {
-                    status: "error",
-                    message: "Invalid server response"
-                };
-            }
-
+            data = await response.json();
         } catch {
-
-            data = {
-                status: "error",
-                message: "Invalid server response"
-            };
+            throw new Error(
+                "The server returned invalid JSON."
+            );
         }
 
         if (!response.ok) {
-
             throw new Error(
-                data.message || "Request failed"
+                data.message ||
+                "Request failed."
             );
         }
 
         return data;
-    },
+
+    } catch (error) {
+
+        if (error.name === "AbortError") {
+            throw new Error(
+                "The server took too long to respond."
+            );
+        }
+
+        throw error;
+
+    } finally {
+        clearTimeout(timeout);
+    }
+},
 
     get(endpoint, options = {}) {
-        return this.request(endpoint, {
-            ...options,
-            method: "GET"
-        });
+        return this.request(endpoint, { ...options, method: "GET" });
     },
 
     post(endpoint, body, options = {}) {
-        return this.request(endpoint, {
-            ...options,
-            method: "POST",
-            body: JSON.stringify(body)
-        });
-    },
+    const requestBody =
+        body instanceof FormData
+            ? body
+            : JSON.stringify(body);
+
+    return this.request(endpoint, {
+        ...options,
+        method: "POST",
+        body: requestBody
+    });
+},
 
     put(endpoint, body, options = {}) {
-        return this.request(endpoint, {
-            ...options,
-            method: "PUT",
-            body: JSON.stringify(body)
-        });
-    },
+    const requestBody =
+        body instanceof FormData
+            ? body
+            : JSON.stringify(body);
+
+    return this.request(endpoint, {
+        ...options,
+        method: "PUT",
+        body: requestBody
+    });
+},
 
     delete(endpoint, options = {}) {
-        return this.request(endpoint, {
-            ...options,
-            method: "DELETE"
-        });
+        return this.request(endpoint, { ...options, method: "DELETE" });
     }
 };

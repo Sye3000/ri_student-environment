@@ -175,125 +175,100 @@ async function handleRegistration(event) {
 
 
 /* =========================================================
-   LOGIN
+   CONTACT FORM
    ========================================================= */
 
-async function handleLogin(event) {
-    event.preventDefault();
+function addContactEmailLink(status, details) {
+    const emailSubject =
+        `[RI Student Environment] ${details.messageType}: ${details.subject}`;
 
-    const form = event.target;
+    const emailBody = [
+        `Name: ${details.name}`,
+        `Email: ${details.email}`,
+        `Message type: ${details.messageType}`,
+        "",
+        details.message
+    ].join("\n");
 
-    const email =
-        document.getElementById("student-email").value.trim();
+    const link = document.createElement("a");
+    link.href =
+        `mailto:support@ristudentenvironment.co.za?${new URLSearchParams({
+            subject: emailSubject,
+            body: emailBody
+        }).toString()}`;
 
-    const password =
-        document.getElementById("password").value;
-
-    const button =
-        form.querySelector('button[type="submit"]') ||
-        form.querySelector('button.login-button') ||
-        form.querySelector('button');
-
-    if (button) {
-        button.disabled = true;
-        button.textContent = "Signing In...";
-    }
-
-    try {
-console.log("HANDLE LOGIN VALUES:", {
-    email,
-    passwordLength: password.length
-});
-        const data = await RI_API.post(
-    "/api/students/login",
-    {
-        email,
-        password
-    }
-);
-
-        if (!data.token || !data.student) {
-            throw new Error("The server returned an incomplete login response.");
-        }
-
-        console.log("LOGIN RESPONSE DATA:", data);
-console.log("TOKEN PASSED TO saveToken:", data.token);
-console.log("LOGIN ORIGIN:", window.location.origin);
-
-saveToken(data.token);
-
-console.log(
-    "TOKEN AFTER saveToken:",
-    localStorage.getItem("ri_student_token")
-        ? "TOKEN EXISTS"
-        : "NO TOKEN"
-);
-
-saveStudent(data.student);
-
-if (data.student.role === "admin") {
-    window.location.href = "admin.html";
-} else if (data.student.role === "src") {
-    window.location.href = "src-dashboard.html";
-} else {
-    window.location.href = "dashboard.html";
+    link.textContent = "Open your email application to send the message";
+    link.className = "form-mail-link";
+    status.append(document.createTextNode(" "), link);
 }
-
-    } catch (error) {
-        alert(error.message);
-    } finally {
-        if (button) {
-            button.disabled = false;
-            button.textContent = "Login";
-        }
-    }
-}
-
-
-/* =========================================================
-   CONTACT
-   ========================================================= */
 
 async function handleContact(event) {
     event.preventDefault();
 
-    const form = event.target;
-    const button = form.querySelector('button[type="submit"]');
-    const formData = new FormData(form);
-    const status = document.createElement("p");
+    const form = event.currentTarget;
 
-    status.className = "form-status";
-    status.setAttribute("role", "status");
-    form.appendChild(status);
+    if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+    }
+
+    const formData = new FormData(form);
+    const details = {
+        name: String(formData.get("full-name") || "").trim(),
+        email: String(formData.get("email") || "").trim(),
+        subject: String(formData.get("subject") || "").trim(),
+        messageType: String(formData.get("message-type") || "").trim(),
+        message: String(formData.get("message") || "").trim()
+    };
+
+    if (details.name.length < 2 || details.message.length < 20) {
+        alert("Please enter a valid name and a message of at least 20 characters.");
+        return;
+    }
+
+    const button = form.querySelector('button[type="submit"]');
+    let status = form.querySelector(".form-status");
+
+    if (!status) {
+        status = document.createElement("p");
+        status.className = "form-status";
+        status.setAttribute("role", "status");
+        status.setAttribute("aria-live", "polite");
+        form.appendChild(status);
+    }
+
+    status.replaceChildren();
+    status.classList.remove("form-status-success", "form-status-error");
+
     button.disabled = true;
-    button.textContent = "Sending...";
+    button.textContent = "Preparing...";
 
     try {
-        const data = await apiRequest(
-            "/api/contact",
-            {
-                method: "POST",
-                body: JSON.stringify({
-                    full_name: formData.get("full-name"),
-                    email: formData.get("email"),
-                    subject: formData.get("subject"),
-                    message: formData.get("message")
-                })
-            }
-        );
+        await apiRequest("/api/contact", {
+            method: "POST",
+            body: JSON.stringify({
+                full_name: details.name,
+                email: details.email,
+                subject: `[${details.messageType}] ${details.subject}`,
+                message: details.message,
+                message_type: details.messageType
+            })
+        });
 
-        status.textContent = data.message || "Your message was sent successfully.";
+        status.textContent =
+            "The website demo accepted your submission. No email has been sent automatically. Use this link to send it to the RI team:";
         status.classList.add("form-status-success");
-        form.reset();
     } catch (error) {
-        status.textContent = error.message;
+        status.textContent =
+            "The website could not submit your message automatically. You can still send it directly to the RI team:";
         status.classList.add("form-status-error");
-    } finally {
-        button.disabled = false;
-        button.textContent = "Send Message";
     }
-}
 
+    addContactEmailLink(status, details);
+
+    button.disabled = false;
+    button.textContent = "Send Message";
+}
 
 async function handleForgotPassword(event) {
     event.preventDefault();
@@ -325,18 +300,12 @@ async function handleForgotPassword(event) {
    ========================================================= */
 
 async function loadCurrentStudent() {
-
-    console.log("DASHBOARD ORIGIN:", window.location.origin);
-    console.log(
-        "TOKEN ON DASHBOARD:",
-        localStorage.getItem("ri_student_token")
-            ? "TOKEN EXISTS"
-            : "NO TOKEN"
-    );
-
     const token = getToken();
 
+    console.log("DASHBOARD: TOKEN READ", token ? "TOKEN EXISTS" : "NO TOKEN");
+
     if (!token) {
+        console.log("DASHBOARD: NO TOKEN, REDIRECTING TO LOGIN");
         window.location.href = "login.html";
         return null;
     }
@@ -356,17 +325,12 @@ async function loadCurrentStudent() {
         }
 
         saveStudent(data.student);
-
         return data.student;
-
     } catch (error) {
         console.error("Authentication error:", error);
-
         removeToken();
         localStorage.removeItem("ri_student");
-
         window.location.href = "login.html";
-
         return null;
     }
 }
@@ -741,7 +705,64 @@ async function initialiseDashboard() {
             student.role || "Student";
     }
     await loadDashboardNotifications();
+    await loadDashboardWallet();
 }
+/* =========================================================
+   DASHBOARD WALLET
+   ========================================================= */
+
+async function loadDashboardWallet() {
+
+    const balanceElement =
+        document.getElementById("dashboard-wallet-balance");
+
+    if (!balanceElement) {
+        return;
+    }
+
+    const token = getToken();
+
+    if (!token) {
+        return;
+    }
+
+    try {
+
+        const data = await apiRequest(
+            "/api/wallet",
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`
+                }
+            }
+        );
+
+        const wallet =
+            data.wallet || data.data || data;
+
+        const balance =
+            Number(wallet.balance ?? 0);
+
+        if (!Number.isFinite(balance)) {
+            throw new Error("Invalid wallet balance returned by server.");
+        }
+
+        balanceElement.textContent =
+            `R${balance.toFixed(2)}`;
+
+    } catch (error) {
+
+        console.error(
+            "Dashboard wallet error:",
+            error
+        );
+
+        balanceElement.textContent =
+            "Unavailable";
+    }
+}
+
+
 /* =========================================================
    PROFILE
    ========================================================= */
@@ -844,14 +865,8 @@ function logoutStudent(event) {
 }
 
 
-/* =========================================================
-   GLOBAL AUTHENTICATED NAVIGATION
-   ========================================================= */
-
-async function initialiseAuthNavigation() {
-
-    const navActions =
-        document.querySelectorAll(".nav-actions");
+function initialiseAuthNavigation() {
+    const navActions = document.querySelectorAll(".nav-actions");
 
     if (!navActions.length) {
         return;
@@ -859,113 +874,23 @@ async function initialiseAuthNavigation() {
 
     const token = getToken();
 
-    /*
-       No token = visitor is logged out.
-       Keep the normal Login / Join Us navigation.
-    */
     if (!token) {
         return;
     }
 
-    /*
-       We have a token.
-       Use the saved student immediately so the navbar
-       does not unnecessarily wait for the API.
-    */
-    let student = getSavedStudent();
-
     navActions.forEach((actions) => {
-
         actions.innerHTML = `
-            <a
-                href="dashboard.html"
-                class="login-link"
-            >
-                Dashboard
-            </a>
-
-            <a
-                href="profile.html"
-                class="register-btn"
-            >
-                Profile
-            </a>
-
-            <a
-                href="index.html"
-                class="auth-logout-link"
-            >
-                Logout
-            </a>
+            <a href="dashboard.html" class="login-link">Dashboard</a>
+            <a href="profile.html" class="register-btn">Profile</a>
+            <a href="index.html" class="auth-logout-link">Logout</a>
         `;
 
-        const logoutLink =
-            actions.querySelector(".auth-logout-link");
+        const logoutLink = actions.querySelector(".auth-logout-link");
 
         if (logoutLink) {
-            logoutLink.addEventListener(
-                "click",
-                logoutStudent
-            );
+            logoutLink.addEventListener("click", logoutStudent);
         }
     });
-
-    /*
-       Verify the token in the background.
-
-       This prevents an expired/invalid token from making
-       the website appear logged in forever.
-    */
-    try {
-
-        const data = await apiRequest(
-            "/api/auth/me",
-            {
-                headers: {
-                    Authorization: `Bearer ${token}`
-                }
-            }
-        );
-
-        if (data.student) {
-            saveStudent(data.student);
-            student = data.student;
-        }
-
-    } catch (error) {
-
-        console.warn(
-            "Authentication verification failed:",
-            error.message
-        );
-
-        removeToken();
-        localStorage.removeItem("ri_student");
-
-        /*
-           Restore the normal logged-out navigation.
-        */
-        navActions.forEach((actions) => {
-
-            actions.innerHTML = `
-                <a
-                    href="login.html"
-                    class="login-link"
-                >
-                    Login
-                </a>
-
-                <a
-                    href="register.html"
-                    class="register-btn"
-                >
-                    Join Us
-                </a>
-            `;
-
-        });
-
-    }
 }
 
 
@@ -974,144 +899,44 @@ async function initialiseAuthNavigation() {
    ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* Global authentication navigation */
-
     if (!document.body.classList.contains("login-page")) {
         initialiseAuthNavigation();
     }
 
-    /* Registration page */
+    const registrationForm = document.querySelector(".join-form");
 
-    /* Registration page */
+    if (registrationForm) {
+        loadCampuses();
+        registrationForm.addEventListener("submit", handleRegistration);
+    }
 
-const registrationForm =
-    document.querySelector(".join-form");
+    const contactForm = document.querySelector(".contact-form form");
 
-if (registrationForm) {
-    loadCampuses();
+    if (contactForm) {
+        contactForm.addEventListener("submit", handleContact);
+    }
 
-    registrationForm.addEventListener(
-        "submit",
-        handleRegistration
-    );
-}
-
-
-/* Login page */
-
-const loginForm =
-    document.querySelector(".login-form");
-
-if (loginForm) {
-    loginForm.addEventListener(
-        "submit",
-        handleLogin
-    );
-
-    console.log("LOGIN HANDLER ATTACHED");
-}
-
-
-/* Contact page */
-
-const contactForm =
-    document.querySelector(".contact-form form");
-
-    /* Password recovery */
-
-    const forgotPasswordLink =
-        document.querySelector(".forgot-password-link");
+    const forgotPasswordLink = document.querySelector(".forgot-password-link");
 
     if (forgotPasswordLink) {
-        forgotPasswordLink.addEventListener(
-            "click",
-            handleForgotPassword
-        );
+        forgotPasswordLink.addEventListener("click", handleForgotPassword);
     }
-
-
-    /* Dashboard */
 
     if (
-        document.body.classList.contains("dashboard-v2-page")&&
+        document.body.classList.contains("dashboard-v2-page") &&
         !document.body.classList.contains("profile-page")
-) {
-    initialiseDashboard();
-}
+    ) {
+        initialiseDashboard();
+    }
 
-
-    /* Logout */
-
-    const logoutButton =
-        document.querySelector(".logout-button");
+    const logoutButton = document.querySelector(".logout-button");
 
     if (logoutButton) {
-        logoutButton.addEventListener(
-            "click",
-            logoutStudent
-        );
+        logoutButton.addEventListener("click", logoutStudent);
     }
-
 });
-/* =====================================
-   STUDENT WALLET
-===================================== */
-
-const walletKey = "storeWallet";
-
-let studentWallet =
-    parseFloat(localStorage.getItem(walletKey)) || 1000;
 
 
-/* Display wallet balance */
-
-function updateWalletDisplay() {
-
-    const walletElement =
-        document.getElementById("student-wallet-balance");
-
-    if (!walletElement) return;
-
-    walletElement.textContent =
-        studentWallet.toFixed(2);
-}
-
-
-/* Add funds */
-
-function addFunds() {
-
-    const amount =
-        prompt("Enter the amount you want to add to your student account:");
-
-    if (amount === null) return;
-
-    const value =
-        parseFloat(amount);
-
-    if (isNaN(value) || value <= 0) {
-
-        alert("Please enter a valid amount.");
-
-        return;
-    }
-
-    studentWallet += value;
-
-    localStorage.setItem(
-        walletKey,
-        studentWallet.toFixed(2)
-    );
-
-    updateWalletDisplay();
-
-    alert(
-        "R" +
-        value.toFixed(2) +
-        " has been added to your student account."
-    );
-}
 
 
 /* =====================================
@@ -1171,7 +996,6 @@ function updateProfileHero() {
 
 /* Initialise wallet */
 
-updateWalletDisplay();
 
 
 /*

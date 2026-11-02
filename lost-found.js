@@ -491,7 +491,7 @@ function renderLostFoundItems(items) {
     if (!items.length) {
         container.innerHTML = `
             <div class="lf-empty">
-                <div class="lf-empty-icon">🔎</div>
+                <div class="lf-empty-icon"><i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i></div>
                 <h3>No matching items</h3>
                 <p>
                     No open Lost & Found reports were found
@@ -529,12 +529,12 @@ function renderLostFoundItems(items) {
                                     alt="${escapeHtml(
                                         item.item_category || "Lost & Found item"
                                     )}"
-                                    onerror="this.parentElement.innerHTML='<span>📦</span>'"
+                                    onerror="this.parentElement.innerHTML='<span><i class="fa-solid fa-box-open" aria-hidden="true"></i></span>'"
                                 >
                               `
                             : `
                                 <span>
-                                    ${isFound ? "📦" : "🔎"}
+                                    ${isFound ? "<i class="fa-solid fa-box-open" aria-hidden="true"></i>" : "<i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>"}
                                 </span>
                               `
                     }

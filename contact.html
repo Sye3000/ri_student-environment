@@ -123,7 +123,7 @@
             <div>
 
                 <strong>
-                    ORA Café
+                    RI Breakfast
                 </strong>
 
                 <small>
@@ -174,7 +174,7 @@
             <div>
 
                 <strong>
-                    University Store
+                    RI Store
                 </strong>
 
                 <small>
@@ -285,6 +285,8 @@
         <a href="impact.html">
             Impact
         </a>
+
+        <a href="enquiry.html">Enquiries</a>
 
         <a
             href="contact.html"
@@ -414,7 +416,7 @@
 
                     <div>
                         <span class="contact-label">Email</span>
-                        <a href="mailto:hello@ristudentenvironment.com">support@ristudentenvironment.co.za</a>
+                        <a href="mailto:support@ristudentenvironment.co.za">support@ristudentenvironment.co.za</a>
                     </div>
 
                 </div>
@@ -520,7 +522,7 @@
 
             <form
                 class="contact-form-fields"
-                action="#"
+                action="mailto:support@ristudentenvironment.co.za" method="post" enctype="text/plain"
                 method="post"
             >
 
@@ -533,6 +535,8 @@
                             id="full-name"
                             name="full-name"
                             autocomplete="name"
+                            minlength="2"
+                            maxlength="100"
                             required
                         >
                     </div>
@@ -544,6 +548,7 @@
                             id="email"
                             name="email"
                             autocomplete="email"
+                            maxlength="254"
                             required
                         >
                     </div>
@@ -556,9 +561,24 @@
                         type="text"
                         id="subject"
                         name="subject"
+                        minlength="3"
+                        maxlength="120"
                         required
                     >
                 </div>
+                <div>
+                    <label for="message-type">Message Type</label>
+                    <select id="message-type" name="message-type" required>
+                        <option value="">Select a message type</option>
+                        <option value="General enquiry">General enquiry</option>
+                        <option value="Student support">Student support</option>
+                        <option value="Programme information">Programme information</option>
+                        <option value="Partnership or sponsorship">Partnership or sponsorship</option>
+                        <option value="Website feedback">Website feedback</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
 
                 <div>
                     <label for="message">Message</label>
@@ -566,6 +586,8 @@
                         id="message"
                         name="message"
                         rows="8"
+                        minlength="20"
+                        maxlength="3000"
                         required
                     ></textarea>
                 </div>
@@ -758,7 +780,8 @@
 
 
 <script src="sidebar.js"></script>
-
+<script src="ri-config.js"></script>
+<script src="ri-api.js"></script>
 <script src="app.js"></script>
 </body>
 

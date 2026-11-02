@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin.html
+Disallow: /dashboard.html
+Disallow: /student-dashboard.html
+Disallow: /src-dashboard.html
+Disallow: /student-requests.html
+Disallow: /api-test.html

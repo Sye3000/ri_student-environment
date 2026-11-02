@@ -1,329 +1,555 @@
-html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>My Profile | RI Student Environment</title>
-
-    <meta
-        name="description"
-        content="Student profile for RI Student Environment."
-    >
+    <title>My Profile — RI Student Environment</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="description" content="View and manage your student profile in the RI Student Environment portal.">
+    <meta name="robots" content="noindex, nofollow">
 </head>
 
 <body class="dashboard-page profile-page">
 
-<header class="dashboard-header">
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+    <header class="profile-navbar">
+        <div class="profile-nav-inner">
 
-    <div class="dashboard-container dashboard-nav">
-
-        <a
-            href="dashboard.html"
-            class="dashboard-logo"
-            aria-label="RI Student Environment Dashboard"
-        >
-            <img
-                src="Rosebank Logo.webp"
-                alt="RI Student Environment"
-            >
-        </a>
-
-        <nav
-            class="dashboard-nav-links"
-            aria-label="Main navigation"
-        >
-
-            <a href="dashboard.html">
-                Dashboard
+            <a href="index.html" class="profile-brand">
+                <img
+                    src="Rosebank Logo.webp"
+                    alt="Rosebank College"
+                    class="profile-brand-logo"
+                >
+                <div class="profile-brand-text">
+                    <strong>RI Student Environment</strong>
+                    <span>Student Portal</span>
+                </div>
             </a>
 
-            <a href="events.html">
-                Events
-            </a>
+            <nav class="profile-nav-links" aria-label="Profile navigation">
+                <a href="dashboard.html">Dashboard</a>
+                <a href="event.html">Events</a>
+                <a href="programs.html">Programs</a>
+                <a href="community.html">Community</a>
+                <a href="src.html">SRC</a>
+                <a href="profile.html" class="active">My Profile</a>
 
-            <a href="programs.html">
-                Programs
-            </a>
-
-            <a href="community.html">
-                Community
-            </a>
-
-            <a href="src.html">
-                SRC
-            </a>
-
-        </nav>
-
-        <div class="dashboard-actions">
-
-            <a
-                href="profile.html"
-                class="profile-link active"
-                aria-current="page"
-            >
-                My Profile
-            </a>
-
-            <a
-                href="index.html"
-                class="logout-button"
-            >
-                Logout
-            </a>
+                <a href="#" onclick="logoutStudent(event)" class="logout-link">
+                    Logout
+                </a>
+            </nav>
 
         </div>
+    </header>
 
-    </div>
 
-</header>
+    <!-- =====================================================
+         MAIN PROFILE
+         ===================================================== -->
+    <main class="profile-main">
 
-<main>
+        <!-- Page heading -->
+        <section class="profile-page-heading">
+            <div>
+                <span class="profile-eyebrow">RI STUDENT ENVIRONMENT</span>
+                <h1>My Profile</h1>
+                <p>
+                    Manage your personal information and view your official
+                    student and campus details.
+                </p>
+            </div>
 
-<section class="dashboard-welcome">
+            <a href="dashboard.html" class="profile-back-button">
+                ← Back to Dashboard
+            </a>
+        </section>
 
-    <div class="dashboard-container">
 
-        <p class="dashboard-eyebrow">
-            STUDENT PROFILE
-        </p>
+        <!-- =================================================
+             ERROR / SUCCESS MESSAGE
+             ================================================= -->
+        <div
+            id="profile-message"
+            class="profile-message"
+            role="alert"
+            aria-live="polite"
+            hidden
+        ></div>
 
-        <h1>
-            My <strong>Profile</strong>
-        </h1>
 
-        <p class="dashboard-welcome-text">
-            View your student information and campus details.
-        </p>
+        <!-- =================================================
+             PROFILE HERO
+             ================================================= -->
+        <section class="profile-hero">
 
-    </div>
+            <div class="profile-hero-content">
 
-</section>
+                <!-- Avatar -->
+                <div class="profile-avatar-section">
 
-<section class="dashboard-section">
-
-    <div class="dashboard-container">
-
-        <div class="dashboard-grid">
-
-            <article class="dashboard-card">
-
-                <div class="dashboard-card-icon">
-                    Student
-                </div>
-
-                <h3>
-                    Student Information
-                </h3>
-
-                <div class="profile-avatar-block">
-
-                    <img
-                        id="profile-avatar"
-                        src=""
-                        alt="Profile picture"
-                        width="120"
-                        height="120"
-                        style="border-radius:50%; object-fit:cover;"
-                    >
-
-                    <div class="profile-avatar-controls">
+                    <div class="profile-avatar-wrapper">
+                        <div
+                            id="profile-avatar"
+                            class="profile-avatar"
+                            aria-label="Student profile picture"
+                        >
+                            <span id="profile-avatar-initials">ST</span>
+                        </div>
 
                         <label
                             for="profile-avatar-input"
-                            class="text-link"
+                            class="profile-avatar-camera"
+                            title="Change profile picture"
+                            aria-label="Change profile picture"
                         >
-                            Change profile picture
+                            <i class="fa-solid fa-camera" aria-hidden="true"></i>
                         </label>
 
                         <input
                             type="file"
                             id="profile-avatar-input"
-                            accept="image/png,image/jpeg,image/webp"
-                            aria-label="Choose a profile picture"
-                            style="display:block; margin-top:8px;"
+                            accept="image/jpeg,image/png,image/webp"
+                            hidden
                         >
+                    </div>
 
-                        <button
-                            id="profile-avatar-upload"
-                            class="button"
-                            type="button"
-                            style="margin-top:8px;"
+                    <div class="profile-avatar-actions">
+                        <label
+                            for="profile-avatar-input"
+                            class="profile-button profile-button-secondary"
                         >
-                            Upload
-                        </button>
+                            Change Photo
+                        </label>
+
+                        <span class="profile-upload-hint">
+                            JPG, PNG or WEBP · Max 5MB
+                        </span>
+                    </div>
+
+                </div>
+
+
+                <!-- Identity -->
+                <div class="profile-identity">
+
+                    <span class="profile-role-label" id="profile-role-label">
+                        Student
+                    </span>
+
+                    <h2 id="profile-full-name">
+                        Loading profile...
+                    </h2>
+
+                    <p id="profile-email">
+                        Loading...
+                    </p>
+
+                    <div class="profile-status-row">
+                        <span
+                            id="profile-account-status"
+                            class="profile-status-badge"
+                        >
+                            Loading
+                        </span>
+
+                        <span
+                            id="profile-campus-summary"
+                            class="profile-campus-badge"
+                        >
+                            Loading campus...
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PROFILE CONTENT GRID
+             ================================================= -->
+        <section class="profile-content-grid">
+
+
+            <!-- =============================================
+                 PERSONAL INFORMATION
+                 ============================================= -->
+            <article class="profile-card profile-edit-card">
+
+                <div class="profile-card-header profile-view-header">
+                    <div>
+                        <span class="profile-card-eyebrow">
+                            PERSONAL INFORMATION
+                        </span>
+
+                        <h2>Personal Information</h2>
+
+                        <p>
+                            Your personal profile information.
+                        </p>
+                    </div>
+
+                    <button
+                        type="button"
+                        id="profile-edit-button"
+                        class="profile-button profile-button-primary"
+                    >
+                        Edit Profile
+                    </button>
+                </div>
+
+
+                <!-- VIEW MODE -->
+                <div
+                    id="profile-view-mode"
+                    class="profile-view-mode"
+                >
+
+                    <div class="profile-view-details">
+
+                        <div class="profile-view-item">
+                            <span>Full Name</span>
+                            <strong id="profile-view-name">—</strong>
+                        </div>
+
+                        <div class="profile-view-item">
+                            <span>Email Address</span>
+                            <strong id="profile-view-email">—</strong>
+                        </div>
+
+                        <div class="profile-view-item">
+                            <span>Student Number</span>
+                            <strong id="profile-view-student-number">—</strong>
+                        </div>
+
+                        <div class="profile-view-item profile-view-item-full">
+                            <span>About Me</span>
+                            <p id="profile-view-bio">
+                                No bio has been added yet.
+                            </p>
+                        </div>
 
                     </div>
 
                 </div>
 
-                <p>
-                    <strong>Full Name</strong><br>
 
-                    <span id="profile-full-name">
-                        Loading...
-                    </span>
-                </p>
-
-                <p>
-                    <strong>Student Number</strong><br>
-
-                    <span id="profile-student-number">
-                        Loading...
-                    </span>
-                </p>
-
-                <p id="profile-email-row">
-
-                    <strong>Email</strong><br>
-
-                    <span id="profile-email">
-                        Loading...
-                    </span>
-
-                </p>
-
-                <p>
-                    <strong>Role</strong><br>
-
-                    <span id="profile-role">
-                        Loading...
-                    </span>
-
-                    <small class="profile-help">
-                        Your access level in the student environment.
-                    </small>
-                </p>
-
-                <hr>
-
-                <div class="profile-bio-section">
-
-                    <label for="profile-bio">
-                        <strong>Bio</strong>
-                    </label>
-
-                    <textarea
-                        id="profile-bio"
-                        rows="4"
-                        placeholder="Tell other students a little about yourself..."
-                        aria-label="Student bio"
-                        style="width:100%; margin-top:8px;"
-                    ></textarea>
-
-                    <button
-                        id="profile-bio-save"
-                        class="button"
-                        type="button"
-                        style="margin-top:8px;"
-                    >
-                        Save Bio
-                    </button>
-
-                </div>
-
-            </article>
-
-            <article class="dashboard-card">
-
-                <div class="dashboard-card-icon">
-                    Campus
-                </div>
-
-                <h3>
-                    Campus Information
-                </h3>
-
-                <p>
-                    <strong>Campus</strong><br>
-
-                    <span id="profile-campus">
-                        Loading...
-                    </span>
-                </p>
-
-                <p>
-                    <strong>Campus Code</strong><br>
-
-                    <span id="profile-campus-code">
-                        Loading...
-                    </span>
-
-                    <small class="profile-help">
-                        The short code used to identify your campus.
-                    </small>
-                </p>
-
-                <p>
-                    <strong>City</strong><br>
-
-                    <span id="profile-city">
-                        Loading...
-                    </span>
-                </p>
-
-            </article>
-
-            <article class="dashboard-card">
-
-                <div class="dashboard-card-icon">
-                    Account
-                </div>
-
-                <h3>
-                    Account Status
-                </h3>
-
-                <p>
-                    <strong>Status</strong><br>
-
-                    <span id="profile-status">
-                        Loading...
-                    </span>
-
-                    <small class="profile-help">
-                        Active means your account can access the portal.
-                    </small>
-                </p>
-
-                <p
-                    id="profile-error"
-                    class="profile-error"
-                    role="alert"
+                <!-- EDIT MODE -->
+                <form
+                    id="profile-form"
+                    class="profile-form profile-edit-mode"
                     hidden
                 >
-                    We could not load your profile.
-                    <a href="profile.html">
-                        Try again
-                    </a>
-                </p>
 
-                <a href="dashboard.html">
-                    ← Back to Dashboard
-                </a>
+                    <div class="profile-form-grid">
+
+                        <!-- Full name -->
+                        <div class="profile-field profile-field-full">
+                            <label for="profile-name-input">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="profile-name-input"
+                                name="full_name"
+                                autocomplete="name"
+                                minlength="2"
+                                required
+                            >
+
+                            <small>
+                                Your official name is used throughout the
+                                student environment.
+                            </small>
+                        </div>
+
+
+                        <!-- Email -->
+                        <div class="profile-field">
+                            <label for="profile-email-input">
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                id="profile-email-input"
+                                readonly
+                            >
+
+                            <small>
+                                Managed by the student system.
+                            </small>
+                        </div>
+
+
+                        <!-- Student number -->
+                        <div class="profile-field">
+                            <label for="profile-student-number-input">
+                                Student Number
+                            </label>
+
+                            <input
+                                type="text"
+                                id="profile-student-number-input"
+                                readonly
+                            >
+
+                            <small>
+                                Your student number cannot be changed here.
+                            </small>
+                        </div>
+
+
+                        <!-- Bio -->
+                        <div class="profile-field profile-field-full">
+                            <label for="profile-bio-input">
+                                About Me
+                            </label>
+
+                            <textarea
+                                id="profile-bio-input"
+                                name="bio"
+                                rows="6"
+                                maxlength="1000"
+                                placeholder="Tell the RI community a little about yourself..."
+                            ></textarea>
+
+                            <div class="profile-character-row">
+                                <small>
+                                    Optional · Maximum 1000 characters
+                                </small>
+
+                                <span id="profile-bio-count">
+                                    0 / 1000
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-form-actions">
+
+                        <button
+                            type="button"
+                            id="profile-cancel-button"
+                            class="profile-button profile-button-secondary"
+                        >
+                            Cancel
+                        </button>
+
+                        <button
+                            type="submit"
+                            id="profile-save-button"
+                            class="profile-button profile-button-primary"
+                        >
+                            Save Changes
+                        </button>
+
+                    </div>
+
+                </form>
 
             </article>
 
-        </div>
 
-    </div>
+            <!-- =============================================
+                 STUDENT INFORMATION
+                 ============================================= -->
+            <article class="profile-card">
 
-</section>
+                <div class="profile-card-header">
+                    <div>
+                        <span class="profile-card-eyebrow">
+                            STUDENT INFORMATION
+                        </span>
 
-</main>
+                        <h2>Student Details</h2>
 
-<script src="app.js"></script>
+                        <p>
+                            Official information linked to your RI account.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="profile-detail-list">
+
+                    <div class="profile-detail-item">
+                        <span>Student Number</span>
+                        <strong id="profile-student-number">
+                            —
+                        </strong>
+                    </div>
+
+                    <div class="profile-detail-item">
+                        <span>Full Name</span>
+                        <strong id="profile-detail-name">
+                            —
+                        </strong>
+                    </div>
+
+                    <div class="profile-detail-item">
+                        <span>Email</span>
+                        <strong id="profile-detail-email">
+                            —
+                        </strong>
+                    </div>
+
+                    <div class="profile-detail-item">
+                        <span>Account Role</span>
+                        <strong id="profile-role">
+                            —
+                        </strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =============================================
+                 CAMPUS INFORMATION
+                 ============================================= -->
+            <article class="profile-card">
+
+                <div class="profile-card-header">
+                    <div>
+                        <span class="profile-card-eyebrow">
+                            CAMPUS INFORMATION
+                        </span>
+
+                        <h2>Your Campus</h2>
+
+                        <p>
+                            Your campus information is assigned by the
+                            student system.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="profile-campus-card">
+
+                    <div class="profile-campus-icon">
+                        <i class="fa-solid fa-building-columns" aria-hidden="true"></i>
+                    </div>
+
+                    <div class="profile-campus-main">
+
+                        <span class="profile-campus-label">
+                            Campus
+                        </span>
+
+                        <h3 id="profile-campus-name">
+                            Loading...
+                        </h3>
+
+                        <div class="profile-campus-meta">
+
+                            <div>
+                                <span>Campus Code</span>
+                                <strong id="profile-campus-code">
+                                    —
+                                </strong>
+                            </div>
+
+                            <div>
+                                <span>City</span>
+                                <strong id="profile-campus-city">
+                                    —
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+            <!-- =============================================
+                 ACCOUNT STATUS
+                 ============================================= -->
+            <article class="profile-card">
+
+                <div class="profile-card-header">
+                    <div>
+                        <span class="profile-card-eyebrow">
+                            ACCOUNT
+                        </span>
+
+                        <h2>Account Status</h2>
+
+                        <p>
+                            Current status of your RI student account.
+                        </p>
+                    </div>
+                </div>
+
+
+                <div class="profile-account-status">
+
+                    <div
+                        id="profile-account-status-large"
+                        class="profile-status-large"
+                    >
+                        Loading...
+                    </div>
+
+                    <p>
+                        Your account status is managed by the RI student
+                        administration system.
+                    </p>
+
+                    <div class="profile-account-note">
+                        <span><i class="fa-solid fa-lock" aria-hidden="true"></i></span>
+                        <span>
+                            Account status and role can only be changed by
+                            authorised RI administrators.
+                        </span>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- =================================================
+             PROFILE FOOTER NOTE
+             ================================================= -->
+        <section class="profile-footer-note">
+            <strong>RI Student Environment</strong>
+            <span>
+                Your profile information is connected to the official
+                student account system.
+            </span>
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         RI CORE JAVASCRIPT
+         ===================================================== -->
+    <script src="ri-config.js"></script>
+    <script src="ri-api.js"></script>
+    <script src="auth.js"></script>
+    <script src="profile.js"></script>
 
 </body>
-
 </html>
-

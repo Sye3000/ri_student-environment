@@ -1,0 +1,957 @@
+/* =========================================================
+   RI STUDENT ENVIRONMENT
+   eWallet
+   ========================================================= */
+
+:root {
+    --ri-blue: #0756a6;
+    --ri-blue-dark: #063d78;
+    --ri-blue-light: #eaf3ff;
+
+    --ri-gold: #d7a928;
+    --ri-gold-light: #fff7dc;
+
+    --white: #ffffff;
+    --background: #f4f7fb;
+    --surface: #ffffff;
+
+    --text: #172033;
+    --muted: #687386;
+
+    --border: #dfe6ef;
+
+    --success: #16844a;
+    --success-light: #e9f8f0;
+
+    --danger: #c93636;
+    --danger-light: #fff0f0;
+
+    --shadow: 0 8px 28px rgba(20, 50, 90, 0.08);
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background: var(--background);
+    color: var(--text);
+}
+
+
+button,
+input {
+    font: inherit;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.ewallet-header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+
+.header-inner {
+    width: min(1180px, calc(100% - 32px));
+    min-height: 72px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.brand-mark {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 12px;
+
+    background: var(--ri-blue);
+    color: var(--white);
+
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+
+.brand strong {
+    display: block;
+    font-size: 15px;
+}
+
+
+.brand small {
+    display: block;
+    margin-top: 2px;
+
+    color: var(--muted);
+    font-size: 12px;
+}
+
+
+.back-button {
+    padding: 9px 14px;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    color: var(--ri-blue);
+    background: var(--white);
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.back-button:hover {
+    background: var(--ri-blue-light);
+    border-color: #b9d2ef;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.ewallet-container {
+    width: min(1180px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 42px 0 70px;
+}
+
+
+.page-heading {
+    margin-bottom: 26px;
+}
+
+
+.eyebrow,
+.section-kicker {
+    display: block;
+
+    margin: 0 0 7px;
+
+    color: var(--ri-blue);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+
+.page-heading h1 {
+    margin: 0;
+
+    font-size: clamp(30px, 5vw, 44px);
+    line-height: 1.05;
+}
+
+
+.page-heading p:not(.eyebrow) {
+    max-width: 650px;
+    margin: 12px 0 0;
+
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   WALLET CARD
+   ========================================================= */
+
+.wallet-card {
+    margin-bottom: 22px;
+
+    overflow: hidden;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--ri-blue),
+            #0c68c4
+        );
+
+    color: var(--white);
+
+    box-shadow: var(--shadow);
+}
+
+
+.wallet-card-top {
+    padding: 30px;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+
+.wallet-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    opacity: 0.85;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+.wallet-balance {
+    font-size: clamp(36px, 7vw, 54px);
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+
+.wallet-status {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    margin-top: 10px;
+
+    font-size: 13px;
+    opacity: 0.9;
+}
+
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #71e4a8;
+}
+
+
+.wallet-icon {
+    width: 58px;
+    height: 58px;
+
+    display: grid;
+    place-items: center;
+
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.12);
+
+    font-size: 25px;
+    font-weight: 800;
+}
+
+
+.wallet-card-bottom {
+    padding: 18px 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    background: rgba(0,0,0,0.10);
+}
+
+
+.wallet-card-bottom span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    opacity: 0.75;
+
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+
+.wallet-card-bottom strong {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   PANELS
+   ========================================================= */
+
+.panel {
+    margin-bottom: 22px;
+    padding: 25px;
+
+    border: 1px solid var(--border);
+    border-radius: 16px;
+
+    background: var(--surface);
+
+    box-shadow: var(--shadow);
+}
+
+
+.panel-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+
+.panel-heading h2 {
+    margin: 0;
+
+    font-size: 20px;
+}
+
+
+.primary-button,
+.secondary-button {
+    min-height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 17px;
+
+    border-radius: 9px;
+
+    font-weight: 750;
+
+    transition:
+        transform 0.15s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.primary-button {
+    border: 1px solid transparent;
+
+    background: var(--ri-gold);
+    color: #172033;
+}
+
+
+.primary-button:hover {
+    transform: translateY(-1px);
+    background: #e2b73b;
+}
+
+
+.secondary-button {
+    border: 1px solid var(--border);
+
+    background: var(--white);
+    color: var(--ri-blue);
+}
+
+
+.secondary-button:hover {
+    background: var(--ri-blue-light);
+    border-color: #b9d2ef;
+}
+
+
+.full-width {
+    width: 100%;
+}
+
+
+/* =========================================================
+   TOP UP
+   ========================================================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+.close-button {
+    width: 34px;
+    height: 34px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: var(--white);
+    color: var(--muted);
+
+    font-size: 22px;
+    line-height: 1;
+}
+
+
+.development-warning {
+    margin-bottom: 20px;
+    padding: 14px 16px;
+
+    border: 1px solid #ead69a;
+    border-radius: 10px;
+
+    background: var(--ri-gold-light);
+}
+
+
+.development-warning strong {
+    display: block;
+
+    margin-bottom: 4px;
+
+    font-size: 13px;
+}
+
+
+.development-warning p {
+    margin: 0;
+
+    color: #665827;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+.top-up-panel label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    font-weight: 750;
+}
+
+
+.amount-input {
+    display: flex;
+    align-items: center;
+
+    overflow: hidden;
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    background: var(--white);
+}
+
+
+.amount-input span {
+    padding-left: 15px;
+
+    color: var(--muted);
+    font-weight: 800;
+}
+
+
+.amount-input input {
+    width: 100%;
+
+    padding: 13px 15px;
+
+    border: 0;
+    outline: 0;
+
+    color: var(--text);
+    background: transparent;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+
+.quick-amounts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin: 12px 0 18px;
+}
+
+
+.quick-amounts button {
+    padding: 7px 12px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: var(--white);
+    color: var(--ri-blue);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+.quick-amounts button:hover {
+    background: var(--ri-blue-light);
+}
+
+
+.form-message {
+    min-height: 20px;
+    margin: 12px 0 0;
+
+    font-size: 13px;
+    font-weight: 650;
+}
+
+
+.form-message.success {
+    color: var(--success);
+}
+
+
+.form-message.error {
+    color: var(--danger);
+}
+
+
+/* =========================================================
+   TRANSACTIONS
+   ========================================================= */
+
+.transactions {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.transaction-row {
+    display: grid;
+    grid-template-columns: 44px 1fr auto;
+
+    align-items: center;
+    gap: 13px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+
+.transaction-row:last-child {
+    border-bottom: 0;
+}
+
+
+.transaction-icon {
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 11px;
+
+    background: var(--ri-blue-light);
+    color: var(--ri-blue);
+
+    font-weight: 800;
+}
+
+
+.transaction-row.purchase .transaction-icon {
+    background: #f1f4f8;
+    color: var(--text);
+}
+
+
+.transaction-title {
+    margin: 0 0 4px;
+
+    font-size: 14px;
+    font-weight: 750;
+}
+
+
+.transaction-description {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+.transaction-date {
+    margin-top: 4px;
+
+    color: var(--muted);
+
+    font-size: 11px;
+}
+
+
+.transaction-amount {
+    text-align: right;
+
+    font-size: 15px;
+    font-weight: 800;
+}
+
+
+.transaction-amount.credit {
+    color: var(--success);
+}
+
+
+.transaction-amount.debit {
+    color: var(--danger);
+}
+
+
+.loading-state,
+.empty-state {
+    padding: 30px 20px;
+
+    text-align: center;
+
+    color: var(--muted);
+}
+
+
+.empty-state {
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+}
+
+
+.empty-state h3 {
+    margin: 12px 0 6px;
+
+    color: var(--text);
+
+    font-size: 16px;
+}
+
+
+.empty-state p {
+    max-width: 500px;
+    margin: 0 auto 18px;
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+.empty-icon {
+    font-size: 32px;
+}
+
+
+/* =========================================================
+   TICKETS
+   ========================================================= */
+
+.count-badge {
+    padding: 7px 10px;
+
+    border-radius: 999px;
+
+    background: var(--ri-blue-light);
+    color: var(--ri-blue);
+
+    font-size: 12px;
+    font-weight: 750;
+}
+
+
+.tickets-grid {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(280px, 1fr)
+    );
+
+    gap: 16px;
+}
+
+
+.ticket-card {
+    position: relative;
+
+    min-height: 230px;
+
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background: var(--ri-blue);
+    color: var(--white);
+
+    box-shadow: 0 8px 24px rgba(7, 86, 166, 0.18);
+}
+
+
+.ticket-background {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    opacity: 0.35;
+}
+
+
+.ticket-overlay {
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(3, 39, 78, 0.92),
+            rgba(7, 86, 166, 0.65)
+        );
+}
+
+
+.ticket-content {
+    position: relative;
+    z-index: 2;
+
+    min-height: 230px;
+
+    padding: 22px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.ticket-brand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+
+.ticket-type {
+    margin-top: 22px;
+
+    color: #ffe08a;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+
+.ticket-title {
+    margin: 5px 0 0;
+
+    font-size: 20px;
+    line-height: 1.15;
+}
+
+
+.ticket-meta {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+
+.ticket-meta span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: rgba(255,255,255,0.68);
+
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+}
+
+
+.ticket-meta strong {
+    font-size: 12px;
+}
+
+
+.ticket-id {
+    margin-top: 14px;
+
+    color: rgba(255,255,255,0.75);
+
+    font-size: 10px;
+    letter-spacing: 0.7px;
+}
+
+
+/* =========================================================
+   TOAST
+   ========================================================= */
+
+.toast {
+    position: fixed;
+
+    left: 50%;
+    bottom: 25px;
+
+    z-index: 100;
+
+    transform:
+        translate(-50%, 20px);
+
+    padding: 12px 18px;
+
+    border-radius: 10px;
+
+    background: #172033;
+    color: var(--white);
+
+    box-shadow: var(--shadow);
+
+    font-size: 13px;
+    font-weight: 650;
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 650px) {
+
+    .header-inner,
+    .ewallet-container {
+        width: min(100% - 22px, 1180px);
+    }
+
+
+    .ewallet-container {
+        padding-top: 28px;
+    }
+
+
+    .wallet-card-top,
+    .wallet-card-bottom {
+        padding: 22px;
+    }
+
+
+    .wallet-card-bottom {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+
+    .wallet-card-bottom .primary-button {
+        width: 100%;
+    }
+
+
+    .panel {
+        padding: 19px;
+    }
+
+
+    .panel-heading {
+        align-items: flex-start;
+    }
+
+
+    .transaction-row {
+        grid-template-columns: 40px 1fr;
+    }
+
+
+    .transaction-amount {
+        grid-column: 2;
+        text-align: left;
+    }
+
+
+    .back-button {
+        font-size: 12px;
+    }
+
+
+    .brand strong {
+        font-size: 13px;
+    }
+
+}

@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RI eWallet</title>
+
+    <link rel="stylesheet" href="ewallet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="description" content="Access the RI Student Environment student eWallet interface and campus wallet services.">
+    <meta name="robots" content="noindex, nofollow">
+</head>
+
+<body>
+
+    <header class="ewallet-header">
+        <div class="header-inner">
+            <a href="dashboard.html" class="brand">
+                <span class="brand-mark">RI</span>
+
+                <span>
+                    <strong>RI Student Environment</strong>
+                    <small>eWallet</small>
+                </span>
+            </a>
+
+            <a href="dashboard.html" class="back-button">
+                ← Dashboard
+            </a>
+        </div>
+    </header>
+
+
+    <main class="ewallet-container">
+
+        <section class="page-heading">
+            <div>
+                <p class="eyebrow">STUDENT SERVICES</p>
+                <h1>RI eWallet</h1>
+                <p>
+                    Manage your campus wallet, view transactions,
+                    and access your event tickets.
+                </p>
+            </div>
+        </section>
+
+
+        <!-- WALLET BALANCE -->
+
+        <section class="wallet-card">
+
+            <div class="wallet-card-top">
+
+                <div>
+                    <span class="wallet-label">
+                        Available Balance
+                    </span>
+
+                    <div
+                        id="walletBalance"
+                        class="wallet-balance"
+                    >
+                        R0.00
+                    </div>
+
+                    <div class="wallet-status">
+                        <span class="status-dot"></span>
+                        <span id="walletStatus">
+                            Loading wallet...
+                        </span>
+                    </div>
+                </div>
+
+                <div class="wallet-icon">
+                    R
+                </div>
+
+            </div>
+
+
+            <div class="wallet-card-bottom">
+
+                <div>
+                    <span>Currency</span>
+                    <strong id="walletCurrency">ZAR</strong>
+                </div>
+
+                <button
+                    type="button"
+                    id="topUpButton"
+                    class="primary-button"
+                >
+                    + Add Funds
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- TOP UP -->
+
+        <section
+            id="topUpPanel"
+            class="panel top-up-panel hidden"
+        >
+
+            <div class="panel-heading">
+                <div>
+                    <span class="section-kicker">
+                        DEVELOPMENT WALLET
+                    </span>
+
+                    <h2>Test Wallet Top-Up</h2>
+                </div>
+
+                <button
+                    type="button"
+                    id="closeTopUpButton"
+                    class="close-button"
+                    aria-label="Close"
+                >
+                    ×
+                </button>
+            </div>
+
+            <div class="development-warning">
+                <strong>Development mode</strong>
+
+                <p>
+                    This adds test funds directly to your RI wallet.
+                    It is not a real payment or card transaction.
+                </p>
+            </div>
+
+            <form id="topUpForm">
+
+                <label for="topUpAmount">
+                    Amount
+                </label>
+
+                <div class="amount-input">
+                    <span>R</span>
+
+                    <input
+                        id="topUpAmount"
+                        name="amount"
+                        type="number"
+                        min="1"
+                        max="10000"
+                        step="0.01"
+                        placeholder="500.00"
+                        required
+                    >
+                </div>
+
+                <div class="quick-amounts">
+
+                    <button type="button" data-amount="50">
+                        R50
+                    </button>
+
+                    <button type="button" data-amount="100">
+                        R100
+                    </button>
+
+                    <button type="button" data-amount="250">
+                        R250
+                    </button>
+
+                    <button type="button" data-amount="500">
+                        R500
+                    </button>
+
+                    <button type="button" data-amount="1000">
+                        R1000
+                    </button>
+
+                </div>
+
+                <button
+                    type="submit"
+                    id="confirmTopUpButton"
+                    class="primary-button full-width"
+                >
+                    Add Test Funds
+                </button>
+
+            </form>
+
+            <p
+                id="topUpMessage"
+                class="form-message"
+            ></p>
+
+        </section>
+
+
+        <!-- TRANSACTIONS -->
+
+        <section class="panel">
+
+            <div class="panel-heading">
+
+                <div>
+                    <span class="section-kicker">
+                        WALLET ACTIVITY
+                    </span>
+
+                    <h2>Transaction History</h2>
+                </div>
+
+                <button
+                    type="button"
+                    id="refreshTransactionsButton"
+                    class="secondary-button"
+                >
+                    Refresh
+                </button>
+
+            </div>
+
+            <div
+                id="transactionsContainer"
+                class="transactions"
+            >
+                <div class="loading-state">
+                    Loading transactions...
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- TICKETS -->
+
+        <section class="panel">
+
+            <div class="panel-heading">
+
+                <div>
+                    <span class="section-kicker">
+                        EVENT SERVICES
+                    </span>
+
+                    <h2>My Tickets</h2>
+                </div>
+
+                <span
+                    id="ticketCount"
+                    class="count-badge"
+                >
+                    0 tickets
+                </span>
+
+            </div>
+
+            <div
+                id="ticketsContainer"
+                class="tickets-grid"
+            >
+                <div class="empty-state">
+                    <div class="empty-icon"><i class="fa-solid fa-ticket" aria-hidden="true"></i></div>
+
+                    <h3>No event tickets yet</h3>
+
+                    <p>
+                        Tickets you add to your RI ticket wallet
+                        will appear here.
+                    </p>
+
+                    <a
+                        href="events.html"
+                        class="secondary-button"
+                    >
+                        Browse Events
+                    </a>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <div
+        id="toast"
+        class="toast"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+
+    <script src="ri-config.js"></script>
+    <script src="ri-api.js"></script>
+    <script src="ewallet.js"></script>
+
+</body>
+</html>

@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="src-dashboard.css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 
@@ -91,7 +92,7 @@
         id="hamburgerBtn"
         aria-label="Open navigation"
     >
-        ☰
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
     </button>
 
 
@@ -155,7 +156,7 @@
                 >
 
                     <span class="lf-nav-icon">
-                        ✓
+                        <i class="fa-solid fa-check" aria-hidden="true"></i>
                     </span>
 
                     <span>
@@ -393,6 +394,35 @@
 
                             </div>
 
+<div class="form-group">
+
+    <label for="eventCategory">
+        Event Category
+    </label>
+
+    <select
+        id="eventCategory"
+        name="category"
+        required
+    >
+        <option value="" selected disabled>
+            Select an event category
+        </option>
+
+        <option value="Technology">Technology</option>
+        <option value="Career">Career</option>
+        <option value="Competition">Competition</option>
+        <option value="Academic">Academic</option>
+        <option value="Community">Community</option>
+        <option value="Leadership">Leadership</option>
+        <option value="Campus">Campus</option>
+        <option value="Other">Other</option>
+
+    </select>
+
+</div>
+
+
 
                             <div class="form-row">
 
@@ -489,6 +519,35 @@
                             </div>
 
 
+
+                            <div class="src-ticket-builder">
+
+                                <div class="src-ticket-builder-heading">
+                                    <p class="eyebrow">EVENT TICKETS</p>
+                                    <h3>Ticket Types</h3>
+                                    <p>
+                                        Create one or more ticket types for your event.
+                                        Students will see these tickets after the event
+                                        is approved.
+                                    </p>
+                                </div>
+
+                                <div
+                                    id="srcTicketList"
+                                    class="src-ticket-list"
+                                ></div>
+
+                                <button
+                                    type="button"
+                                    id="addSrcTicket"
+                                    class="src-request-action src-ticket-add-button"
+                                >
+                                    + Add Ticket Type
+                                </button>
+
+                            </div>
+
+
                             <div class="src-event-submission-note">
 
                                 <strong>
@@ -517,7 +576,28 @@
 
                             </div>
 
-                        </form>
+                        <div class="form-group">
+
+    <label for="ticketBackgroundImage">
+        Ticket Background Image
+    </label>
+
+    <input
+        type="file"
+        id="ticketBackgroundImage"
+        name="ticket_background_image"
+        accept="image/jpeg,image/png,image/webp"
+        required
+    >
+
+    <small class="src-event-upload-help">
+        Upload the image that will appear behind the student's
+        event ticket. JPG, PNG or WebP. Maximum size: 5 MB.
+    </small>
+
+</div>
+
+</form>
 
                     </div>
 
@@ -570,8 +650,10 @@
     </div>
 
 
-    <script src="app.js"></script>
-    <script src="src-dashboard.js"></script>
+    <script src="ri-config.js"></script>
+<script src="ri-api.js"></script>
+<script src="auth.js"></script>
+<script src="src-dashboard.js"></script>
 
 </body>
 

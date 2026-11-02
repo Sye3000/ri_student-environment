@@ -10,10 +10,11 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="style.css">
 <link rel="stylesheet" href="resturant.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <!-- Hamburger Button -->
 <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open campus menu">
-  ☰
+  <i class="fa-solid fa-bars" aria-hidden="true"></i>
 </button>
 
 <!-- Sidebar Overlay -->
@@ -21,7 +22,7 @@
 
 <!-- Sidebar Drawer -->
 <aside class="sidebar-drawer" id="sidebarDrawer" aria-label="Campus services">
-  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu">✕</button>
+  <button class="sidebar-close" id="sidebarClose" aria-label="Close menu"><i class="fa-solid fa-xmark" aria-hidden="true"></i></button>
 
   <div class="sidebar-header">
     <img src="Rosebank Logo.webp" alt="RI Student Environment" width="120">
@@ -83,14 +84,10 @@
       <img src="Rosebank Logo.webp" alt="RI Student Environment Logo" width="160">
     </a>
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="impact.html">Impact</a>
       <a href="programs.html">Programs</a>
       <a href="events.html">Events</a>
       <a href="src.html">SRC</a>
       <a href="community.html">Community</a>
-      <a href="contact.html">Contact</a>
     </nav>
     <div class="nav-actions">
       <a href="login.html" class="login-link">Login</a>
@@ -118,9 +115,52 @@
         <p>Your cart is empty.</p>
       </div>
       <div class="cart-summary">
-        <p>Total: <strong id="restaurantCartTotal">R0.00</strong></p>
-        <button type="button" id="restaurantCheckoutBtn">Place Order</button>
-        <p id="restaurantCheckoutMessage" class="checkout-message" aria-live="polite"></p>
+
+        <div class="checkout-total">
+          <span>Total</span>
+          <strong id="restaurantCartTotal">R0.00</strong>
+        </div>
+
+        <div class="wallet-payment-option">
+          <div class="wallet-payment-icon" aria-hidden="true">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M3.5 7.5A2.5 2.5 0 0 1 6 5h12a2.5 2.5 0 0 1 2.5 2.5v9A2.5 2.5 0 0 1 18 19H6a2.5 2.5 0 0 1-2.5-2.5z"/>
+              <path d="M3.5 8h14.75a2.25 2.25 0 0 1 2.25 2.25v2.5H17a2 2 0 0 0 0 4h3.5"/>
+              <circle cx="17" cy="14.75" r=".75" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+
+          <div class="wallet-payment-copy">
+            <strong>Pay with RI eWallet</strong>
+            <span>Your order will be paid from your central student wallet.</span>
+          </div>
+
+          <a href="ewallet.html" class="wallet-open-link">
+            Open eWallet
+          </a>
+        </div>
+
+        <button
+          type="button"
+          id="restaurantCheckoutBtn"
+          class="checkout-primary-btn"
+        >
+          Place Order &amp; Pay
+        </button>
+
+        <p
+          id="restaurantCheckoutMessage"
+          class="checkout-message"
+          aria-live="polite"
+        ></p>
+
       </div>
     </section>
 <!-- Order Status Section -->
@@ -131,21 +171,66 @@
     <div class="status-steps">
 
       <div class="status-step" id="statusPlaced">
-        <div class="status-icon">✅</div>
+        <div class="status-icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="m8 12 2.5 2.5L16 9"></path>
+          </svg>
+        </div>
         <p>Order Placed</p>
       </div>
 
       <div class="status-divider"></div>
 
       <div class="status-step dimmed" id="statusPreparing">
-        <div class="status-icon">👨‍🍳</div>
+        <div class="status-icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 10h16"></path>
+            <path d="M5 10v2.5A6.5 6.5 0 0 0 11.5 19h1A6.5 6.5 0 0 0 19 12.5V10"></path>
+            <path d="M8 6v2"></path>
+            <path d="M12 5v3"></path>
+            <path d="M16 6v2"></path>
+            <path d="M8 3v1"></path>
+            <path d="M12 2v1"></path>
+            <path d="M16 3v1"></path>
+          </svg>
+        </div>
         <p>Preparing</p>
       </div>
 
       <div class="status-divider"></div>
 
       <div class="status-step dimmed" id="statusReady">
-        <div class="status-icon">🍽️</div>
+        <div class="status-icon" aria-hidden="true">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 8h16"></path>
+            <path d="M5 8v7h14V8"></path>
+            <path d="M3 15h18"></path>
+            <path d="M7 18h10"></path>
+            <path d="M8 5h8"></path>
+          </svg>
+        </div>
         <p>Ready for Collection</p>
       </div>
 
@@ -155,38 +240,6 @@
 
   </div>
 </section>
-    <!-- Wallet Section -->
-    <section class="container wallet-section" aria-labelledby="restaurant-wallet-title">
-      <h2 id="restaurant-wallet-title">Dining eWallet</h2>
-      <div class="wallet-card">
-        <div class="wallet-balance">
-          <p>Available Balance</p>
-          <strong id="restaurantWalletBalance">R1000.00</strong>
-        </div>
-        <div class="wallet-topup">
-          <label for="restaurantTopupAmount">Add Funds</label>
-          <div class="wallet-topup-controls">
-            <input
-              type="number"
-              id="restaurantTopupAmount"
-              min="1"
-              step="1"
-              placeholder="Enter amount"
-            >
-            <button type="button" id="restaurantAddFundsBtn">Add Funds</button>
-          </div>
-          <p id="restaurantWalletMessage" class="wallet-message" aria-live="polite"></p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Transaction History -->
-    <section class="container transaction-section" aria-labelledby="restaurant-transaction-title">
-      <h2 id="restaurant-transaction-title">Transaction History</h2>
-      <div id="restaurantTransactionHistory" class="transaction-history" aria-live="polite">
-        <p>No transactions yet.</p>
-      </div>
-    </section>
 
     <section class="container order-history-section" aria-labelledby="restaurant-order-history-title">
       <div class="order-history-header">

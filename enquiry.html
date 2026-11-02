@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Make a service, product, volunteering or sponsorship enquiry with RI Student Environment.">
+    <meta name="keywords" content="RI Student Environment, campus services, student enquiries, volunteering, sponsorship">
+    <title>Make an Enquiry | RI Student Environment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="enquiry-page">
+
+<header class="navbar">
+    <a href="index.html" class="logo" aria-label="RI Student Environment home">
+        <img src="Rosebank Logo.webp" alt="RI Student Environment logo">
+    </a>
+
+    <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="impact.html">Impact</a>
+        <a href="contact.html">Contact</a>
+        <a href="enquiry.html" class="active" aria-current="page">Enquiries</a>
+    </nav>
+
+    <div class="nav-actions">
+        <a href="login.html" class="login-link">Login</a>
+        <a href="register.html" class="register-btn">Join Us</a>
+    </div>
+</header>
+
+<main class="enquiry-main">
+    <section class="enquiry-hero" aria-labelledby="enquiry-title">
+        <p class="eyebrow">LET'S CONNECT</p>
+        <h1 id="enquiry-title">Make an Enquiry</h1>
+        <p>
+            Ask about campus services, products, volunteering opportunities
+            or sponsorship. Select an enquiry type and tell us what you need.
+        </p>
+    </section>
+
+    <section class="enquiry-layout">
+        <aside class="enquiry-info">
+            <p class="eyebrow">HOW WE CAN HELP</p>
+            <h2>Tell us what you are looking for</h2>
+
+            <div class="enquiry-info-item">
+                <h3>Services</h3>
+                <p>Ask about a campus service, its requirements, costs or availability.</p>
+            </div>
+
+            <div class="enquiry-info-item">
+                <h3>Products</h3>
+                <p>Request product details, current pricing and stock availability.</p>
+            </div>
+
+            <div class="enquiry-info-item">
+                <h3>Volunteer</h3>
+                <p>Express interest in supporting student and community initiatives.</p>
+            </div>
+
+            <div class="enquiry-info-item">
+                <h3>Sponsorship</h3>
+                <p>Discuss supporting a programme, event or student initiative.</p>
+            </div>
+
+            <p class="enquiry-direct-contact">
+                Prefer email?
+                <a href="mailto:support@ristudentenvironment.co.za">
+                    support@ristudentenvironment.co.za
+                </a>
+            </p>
+        </aside>
+
+        <section class="enquiry-card" aria-labelledby="form-title">
+            <p class="eyebrow">ENQUIRY FORM</p>
+            <h2 id="form-title">Submit your request</h2>
+            <p class="enquiry-intro">
+                Complete the required fields. We will provide guidance based
+                on the category you select.
+            </p>
+
+            <form id="enquiryForm"
+                  action="enquiry.html#enquiry-response"
+                  method="post">
+
+                <div class="enquiry-field">
+                    <label for="enquiry-name">Full name</label>
+                    <input id="enquiry-name" name="full_name"
+                           type="text" autocomplete="name"
+                           minlength="2" maxlength="100" required>
+                </div>
+
+                <div class="enquiry-field">
+                    <label for="enquiry-email">Email address</label>
+                    <input id="enquiry-email" name="email"
+                           type="email" autocomplete="email"
+                           maxlength="254" required>
+                </div>
+
+                <div class="enquiry-field">
+                    <label for="enquiry-category">Enquiry category</label>
+                    <select id="enquiry-category" name="category" required>
+                        <option value="">Choose an enquiry type</option>
+                        <option value="Service">Service enquiry</option>
+                        <option value="Product">Product enquiry</option>
+                        <option value="Volunteer">Volunteering opportunity</option>
+                        <option value="Sponsorship">Sponsorship enquiry</option>
+                    </select>
+                </div>
+
+                <div class="enquiry-field">
+                    <label for="enquiry-interest">Service, product or programme</label>
+                    <input id="enquiry-interest" name="interest"
+                           type="text" minlength="2" maxlength="120"
+                           placeholder="What are you enquiring about?" required>
+                </div>
+
+                <div class="enquiry-field">
+                    <label for="enquiry-message">Tell us more</label>
+                    <textarea id="enquiry-message" name="message"
+                              rows="6" minlength="20" maxlength="3000"
+                              placeholder="Include relevant details, questions or dates."
+                              required></textarea>
+                </div>
+
+                <button class="enquiry-submit" type="submit">
+                    Submit Enquiry
+                </button>
+            </form>
+
+            <div id="enquiry-response" class="enquiry-response"
+                 role="status" aria-live="polite" tabindex="-1"></div>
+        </section>
+    </section>
+</main>
+
+<footer class="enquiry-footer">
+    <p>&copy; 2026 RI Student Environment. All rights reserved.</p>
+    <a href="contact.html">Contact the team</a>
+</footer>
+
+<script src="ri-config.js"></script>
+<script src="ri-api.js"></script>
+<script src="enquiry.js"></script>
+</body>
+</html>

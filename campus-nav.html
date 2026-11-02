@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Campus Navigator — Rosebank Institute</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="campus-nav.css">
+    <meta name="description" content="Explore the RI indoor campus navigator with searchable facilities, floor selection and QR floor links.">
+</head>
+
+<body>
+
+  <!-- Background image layer -->
+  <div id="backgroundLayer" class="background-layer" aria-hidden="true"></div>
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+  <header>
+    <div class="header-inner">
+
+      <div class="brand">
+        <div class="brand-icon">
+          <i data-lucide="building-2"></i>
+        </div>
+
+        <div class="brand-text">
+          <h1>Campus Navigator</h1>
+          <p>Rosebank Institute — Find your way around</p>
+        </div>
+      </div>
+
+      <div class="search-wrap">
+        <i data-lucide="search" class="search-svg-icon"></i>
+
+        <input
+          type="text"
+          id="searchInput"
+          placeholder="Search a room or department…"
+          autocomplete="off"
+        >
+      </div>
+
+      <!-- =================================================
+           TOP NAVIGATION BUTTONS
+      ================================================== -->
+      <nav class="campus-links" aria-label="RI Student Environment navigation">
+
+        <a href="dashboard.html" class="ri-nav-button">
+          <i data-lucide="layout-dashboard"></i>
+          <span>Dashboard</span>
+        </a>
+
+        <a href="events.html" class="ri-nav-button">
+          <i data-lucide="calendar-days"></i>
+          <span>Events</span>
+        </a>
+
+        <a href="community.html" class="ri-nav-button">
+          <i data-lucide="users"></i>
+          <span>Community</span>
+        </a>
+
+        <a href="campus-nav.html" class="ri-nav-button active">
+          <i data-lucide="map"></i>
+          <span>Campus Map</span>
+        </a>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- =====================================================
+       MAIN
+  ====================================================== -->
+  <main>
+
+    <!-- ===================================================
+         LEFT SIDEBAR
+    ==================================================== -->
+    <aside class="sidebar">
+
+      <!-- Campus Navigator sidebar heading -->
+      <div class="navigator-panel">
+
+        <div class="navigator-icon">
+          <i data-lucide="map"></i>
+        </div>
+
+        <div>
+          <h2>Campus Navigator</h2>
+          <p>Explore the building</p>
+        </div>
+
+      </div>
+
+
+      <!-- Back to Dashboard -->
+      <a href="dashboard.html" class="back-dashboard-button">
+        <i data-lucide="arrow-left"></i>
+        <span>Back to Student Dashboard</span>
+      </a>
+
+
+      <!-- =================================================
+           FLOORS
+      ================================================== -->
+      <div class="floors-section">
+
+        <p class="sidebar-label">Floors</p>
+
+        <nav class="building-nav" id="buildingNav"></nav>
+
+      </div>
+
+
+      <!-- =================================================
+           COLOUR GUIDE
+      ================================================== -->
+      <div class="sticker-guide">
+
+        <div class="sticker-guide-header">
+
+          <p class="sidebar-label" style="margin:0">
+            Colour Guide
+          </p>
+
+          <button
+            class="print-btn"
+            onclick="printStickers()"
+            title="Print floor stickers"
+          >
+            <i data-lucide="printer"></i>
+            <span>Print</span>
+          </button>
+
+        </div>
+
+        <div
+          class="sticker-chips"
+          id="stickerChips"
+        ></div>
+
+      </div>
+
+    </aside>
+
+
+    <!-- ===================================================
+         RIGHT DETAIL PANEL
+    ==================================================== -->
+    <section class="detail-wrap">
+
+      <div
+        class="search-notice"
+        id="searchNotice"
+      ></div>
+
+      <div id="detailContent"></div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       CDN DEPENDENCIES
+  ====================================================== -->
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+  <!-- Original application logic — UNCHANGED -->
+  <script src="campus-nav.js"></script>
+
+
+  <!-- =====================================================
+       BACKGROUND IMAGE HANDLER
+  ====================================================== -->
+  <script>
+    const backgroundUpload =
+      document.getElementById("backgroundUpload");
+
+    const backgroundLayer =
+      document.getElementById("backgroundLayer");
+
+    const removeBackground =
+      document.getElementById("removeBackground");
+
+    const savedBackground =
+      localStorage.getItem("riCampusBackground");
+
+    if (savedBackground) {
+      backgroundLayer.style.backgroundImage =
+        `url("${savedBackground}")`;
+
+      document.body.classList.add("has-campus-background");
+    }
+
+    backgroundUpload.addEventListener("change", function () {
+
+      const file = this.files[0];
+
+      if (!file) return;
+
+      if (!file.type.startsWith("image/")) {
+        alert("Please select an image file.");
+        return;
+      }
+
+      const reader = new FileReader();
+
+      reader.onload = function (event) {
+
+        const imageData = event.target.result;
+
+        backgroundLayer.style.backgroundImage =
+          `url("${imageData}")`;
+
+        document.body.classList.add("has-campus-background");
+
+        localStorage.setItem(
+          "riCampusBackground",
+          imageData
+        );
+      };
+
+      reader.readAsDataURL(file);
+
+    });
+
+
+    removeBackground.addEventListener("click", function () {
+
+      backgroundLayer.style.backgroundImage = "";
+
+      document.body.classList.remove(
+        "has-campus-background"
+      );
+
+      localStorage.removeItem(
+        "riCampusBackground"
+      );
+
+      backgroundUpload.value = "";
+
+    });
+  </script>
+
+
+<!-- =========================================================
+     CAMPUS NAVIGATOR — WELCOME OVERLAY
+     ========================================================= -->
+<div
+    class="campus-welcome-overlay"
+    id="campus-welcome-overlay"
+    aria-hidden="false"
+>
+    <div
+        class="campus-welcome-card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="campus-welcome-title"
+    >
+        <button
+            type="button"
+            class="campus-welcome-close"
+            id="campus-welcome-close"
+            aria-label="Close welcome message"
+        >
+            &times;
+        </button>
+
+        <div class="campus-welcome-icon" aria-hidden="true">
+            <span>RI</span>
+        </div>
+
+        <span class="campus-welcome-kicker">
+            CAMPUS NAVIGATOR
+        </span>
+
+        <h2 id="campus-welcome-title">
+            Welcome to your campus
+        </h2>
+
+        <p>
+            Find your way around campus with ease. Explore buildings,
+            facilities, student spaces and directions — all from one place.
+        </p>
+
+        <div class="campus-welcome-actions">
+            <button
+                type="button"
+                class="campus-welcome-primary"
+                id="campus-welcome-explore"
+            >
+                Explore Campus
+            </button>
+
+            <button
+                type="button"
+                class="campus-welcome-secondary"
+                id="campus-welcome-later"
+            >
+                Maybe Later
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+(function () {
+    const overlay = document.getElementById("campus-welcome-overlay");
+    const closeButton = document.getElementById("campus-welcome-close");
+    const laterButton = document.getElementById("campus-welcome-later");
+    const exploreButton = document.getElementById("campus-welcome-explore");
+
+    if (!overlay) return;
+
+    function closeWelcome() {
+        window.location.href = "dashboard.html";
+    }
+
+    function exploreCampus() {
+        overlay.classList.add("campus-welcome-hidden");
+        overlay.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("campus-welcome-open");
+
+        const navigator = document.querySelector(
+            ".campus-map, .campus-navigator, #campus-map, main"
+        );
+
+        if (navigator) {
+            setTimeout(function () {
+                navigator.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }, 100);
+        }
+    }
+
+    closeButton?.addEventListener("click", closeWelcome);
+    laterButton?.addEventListener("click", function () {
+        window.location.href = "dashboard.html";
+    });
+    exploreButton?.addEventListener("click", exploreCampus);
+
+    overlay.addEventListener("click", function (event) {
+        if (event.target === overlay) {
+            closeWelcome();
+        }
+    });
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+            closeWelcome();
+        }
+    });
+
+    document.body.classList.add("campus-welcome-open");
+})();
+</script>
+
+</body>
+</html>

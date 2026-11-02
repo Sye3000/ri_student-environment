@@ -3,12 +3,37 @@
    EVENTS PAGE
    ========================================================= */
 
-const EVENTS_API_URL = "http://192.168.122.10:3000";
+const EVENTS_API_URL = RI_CONFIG.API_BASE_URL;
+// Stores events retrieved from the backend.
+let allEvents = [];
+
 
 document.addEventListener("DOMContentLoaded", () => {
+
+    const searchInput =
+        document.getElementById("event-search");
+
+    const categoryFilter =
+        document.getElementById("event-category-filter");
+
+    // Search whenever the user types.
+    if (searchInput) {
+        searchInput.addEventListener(
+            "input",
+            applyEventFilters
+        );
+    }
+
+    // Filter whenever the selected category changes.
+    if (categoryFilter) {
+        categoryFilter.addEventListener(
+            "change",
+            applyEventFilters
+        );
+    }
+
     loadEvents();
 });
-
 
 /* =========================================================
    LOAD APPROVED EVENTS
@@ -58,12 +83,18 @@ async function loadEvents() {
                 data.message || "Unable to load events."
             );
         }
-
         const events = Array.isArray(data.events)
-            ? data.events
-            : [];
+    ? data.events
+    : [];
 
-        renderEvents(events);
+// Keep the original event records.
+allEvents = events;
+
+// Generate category options from backend data.
+populateEventCategories(allEvents);
+
+// Display events using the current search and filters.
+applyEventFilters();
 
     } catch (error) {
 
@@ -115,6 +146,127 @@ function renderEvents(events) {
 
     eventsList.innerHTML =
         events.map(createEventCard).join("");
+}
+
+/* =========================================================
+   POPULATE EVENT CATEGORIES
+   ========================================================= */
+
+function populateEventCategories(events) {
+
+    const categoryFilter =
+        document.getElementById("event-category-filter");
+
+    if (!categoryFilter) {
+        return;
+    }
+
+    const categories = [
+        ...new Set(
+            events
+                .map(event => String(event.category || "").trim())
+                .filter(Boolean)
+        )
+    ].sort((a, b) => a.localeCompare(b));
+
+    // Rebuild the dropdown safely using DOM elements.
+    const allOption = document.createElement("option");
+
+    allOption.value = "all";
+    allOption.textContent = "All Categories";
+
+    categoryFilter.replaceChildren(allOption);
+
+    categories.forEach(category => {
+
+        const option = document.createElement("option");
+
+        option.value = category.toLowerCase();
+        option.textContent = category;
+
+        categoryFilter.appendChild(option);
+    });
+}
+
+
+/* =========================================================
+   SEARCH AND FILTER EVENTS
+   ========================================================= */
+
+function applyEventFilters() {
+
+    const eventsList =
+        document.getElementById("events-list");
+
+    const searchInput =
+        document.getElementById("event-search");
+
+    const categoryFilter =
+        document.getElementById("event-category-filter");
+
+    const resultCount =
+        document.getElementById("events-result-count");
+
+    if (!eventsList) {
+        return;
+    }
+
+    const searchTerm =
+        searchInput ? searchInput.value.trim().toLowerCase() : "";
+
+    const selectedCategory =
+        categoryFilter ? categoryFilter.value : "all";
+
+    const filteredEvents = allEvents.filter(event => {
+
+        const searchableText = [
+            event.title,
+            event.description,
+            event.location,
+            event.campus_name,
+            event.campus_code,
+            event.category
+        ]
+            .filter(value => value !== null && value !== undefined)
+            .join(" ")
+            .toLowerCase();
+
+        const matchesSearch =
+            searchableText.includes(searchTerm);
+
+        const eventCategory =
+            String(event.category || "").trim().toLowerCase();
+
+        const matchesCategory =
+            selectedCategory === "all" ||
+            eventCategory === selectedCategory;
+
+        return matchesSearch && matchesCategory;
+    });
+
+    // Update the result counter.
+    if (resultCount) {
+        resultCount.textContent =
+            `Showing ${filteredEvents.length} of ${allEvents.length} events`;
+    }
+
+    // Display a specific message when filters return no matches.
+    if (filteredEvents.length === 0 && allEvents.length > 0) {
+
+        eventsList.innerHTML = `
+            <div class="event-empty-message">
+                <h3>No matching events found</h3>
+                <p>
+                    Try another search term or select a different category.
+                </p>
+            </div>
+        `;
+
+        return;
+    }
+
+    // Render the matching events.
+    renderEvents(filteredEvents);
 }
 
 
